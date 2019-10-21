@@ -11,16 +11,16 @@
 import * as msRest from "@azure/ms-rest-js";
 import * as msRestAzure from "@azure/ms-rest-azure-js";
 import * as Models from "../models";
-import * as Mappers from "../models/vpnSitesConfigurationMappers";
+import * as Mappers from "../models/vpnServerConfigurationsAssociatedWithVirtualWanMappers";
 import * as Parameters from "../models/parameters";
 import { NetworkManagementClientContext } from "../networkManagementClientContext";
 
-/** Class representing a VpnSitesConfiguration. */
-export class VpnSitesConfiguration {
+/** Class representing a VpnServerConfigurationsAssociatedWithVirtualWan. */
+export class VpnServerConfigurationsAssociatedWithVirtualWan {
   private readonly client: NetworkManagementClientContext;
 
   /**
-   * Create a VpnSitesConfiguration.
+   * Create a VpnServerConfigurationsAssociatedWithVirtualWan.
    * @param {NetworkManagementClientContext} client Reference to the service client.
    */
   constructor(client: NetworkManagementClientContext) {
@@ -28,46 +28,43 @@ export class VpnSitesConfiguration {
   }
 
   /**
-   * Gives the sas-url to download the configurations for vpn-sites in a resource group.
+   * Gives the list of VpnServerConfigurations associated with Virtual Wan in a resource group.
    * @param resourceGroupName The resource group name.
-   * @param virtualWANName The name of the VirtualWAN for which configuration of all vpn-sites is
+   * @param virtualWANName The name of the VirtualWAN whose associated VpnServerConfigurations is
    * needed.
-   * @param request Parameters supplied to download vpn-sites configuration.
    * @param [options] The optional parameters
-   * @returns Promise<msRest.RestResponse>
+   * @returns Promise<Models.VpnServerConfigurationsAssociatedWithVirtualWanListResponse>
    */
-  download(resourceGroupName: string, virtualWANName: string, request: Models.GetVpnSitesConfigurationRequest, options?: msRest.RequestOptionsBase): Promise<msRest.RestResponse> {
-    return this.beginDownload(resourceGroupName,virtualWANName,request,options)
-      .then(lroPoller => lroPoller.pollUntilFinished());
+  list(resourceGroupName: string, virtualWANName: string, options?: msRest.RequestOptionsBase): Promise<Models.VpnServerConfigurationsAssociatedWithVirtualWanListResponse> {
+    return this.beginList(resourceGroupName,virtualWANName,options)
+      .then(lroPoller => lroPoller.pollUntilFinished()) as Promise<Models.VpnServerConfigurationsAssociatedWithVirtualWanListResponse>;
   }
 
   /**
-   * Gives the sas-url to download the configurations for vpn-sites in a resource group.
+   * Gives the list of VpnServerConfigurations associated with Virtual Wan in a resource group.
    * @param resourceGroupName The resource group name.
-   * @param virtualWANName The name of the VirtualWAN for which configuration of all vpn-sites is
+   * @param virtualWANName The name of the VirtualWAN whose associated VpnServerConfigurations is
    * needed.
-   * @param request Parameters supplied to download vpn-sites configuration.
    * @param [options] The optional parameters
    * @returns Promise<msRestAzure.LROPoller>
    */
-  beginDownload(resourceGroupName: string, virtualWANName: string, request: Models.GetVpnSitesConfigurationRequest, options?: msRest.RequestOptionsBase): Promise<msRestAzure.LROPoller> {
+  beginList(resourceGroupName: string, virtualWANName: string, options?: msRest.RequestOptionsBase): Promise<msRestAzure.LROPoller> {
     return this.client.sendLRORequest(
       {
         resourceGroupName,
         virtualWANName,
-        request,
         options
       },
-      beginDownloadOperationSpec,
+      beginListOperationSpec,
       options);
   }
 }
 
 // Operation Specifications
 const serializer = new msRest.Serializer(Mappers);
-const beginDownloadOperationSpec: msRest.OperationSpec = {
+const beginListOperationSpec: msRest.OperationSpec = {
   httpMethod: "POST",
-  path: "subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualWans/{virtualWANName}/vpnConfiguration",
+  path: "subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualWans/{virtualWANName}/vpnServerConfigurations",
   urlParameters: [
     Parameters.subscriptionId,
     Parameters.resourceGroupName,
@@ -79,15 +76,10 @@ const beginDownloadOperationSpec: msRest.OperationSpec = {
   headerParameters: [
     Parameters.acceptLanguage
   ],
-  requestBody: {
-    parameterPath: "request",
-    mapper: {
-      ...Mappers.GetVpnSitesConfigurationRequest,
-      required: true
-    }
-  },
   responses: {
-    200: {},
+    200: {
+      bodyMapper: Mappers.VpnServerConfigurationsResponse
+    },
     202: {},
     default: {
       bodyMapper: Mappers.CloudError
