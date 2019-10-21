@@ -9,5 +9,5 @@
 export {
   discriminators,
   CloudError,
-  GetVpnSitesConfigurationRequest
+  VpnServerConfigurationsResponse
 } from "../models/mappers";

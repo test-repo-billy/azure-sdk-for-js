@@ -285,7 +285,7 @@ const getOperationSpec: msRest.OperationSpec = {
       bodyMapper: Mappers.VpnSite
     },
     default: {
-      bodyMapper: Mappers.ErrorModel
+      bodyMapper: Mappers.CloudError
     }
   },
   serializer
@@ -309,7 +309,7 @@ const listByResourceGroupOperationSpec: msRest.OperationSpec = {
       bodyMapper: Mappers.ListVpnSitesResult
     },
     default: {
-      bodyMapper: Mappers.ErrorModel
+      bodyMapper: Mappers.CloudError
     }
   },
   serializer
@@ -332,7 +332,7 @@ const listOperationSpec: msRest.OperationSpec = {
       bodyMapper: Mappers.ListVpnSitesResult
     },
     default: {
-      bodyMapper: Mappers.ErrorModel
+      bodyMapper: Mappers.CloudError
     }
   },
   serializer
@@ -367,7 +367,7 @@ const beginCreateOrUpdateOperationSpec: msRest.OperationSpec = {
       bodyMapper: Mappers.VpnSite
     },
     default: {
-      bodyMapper: Mappers.ErrorModel
+      bodyMapper: Mappers.CloudError
     }
   },
   serializer
@@ -402,7 +402,7 @@ const beginUpdateTagsOperationSpec: msRest.OperationSpec = {
       bodyMapper: Mappers.VpnSite
     },
     default: {
-      bodyMapper: Mappers.ErrorModel
+      bodyMapper: Mappers.CloudError
     }
   },
   serializer
@@ -427,7 +427,7 @@ const beginDeleteMethodOperationSpec: msRest.OperationSpec = {
     202: {},
     204: {},
     default: {
-      bodyMapper: Mappers.ErrorModel
+      bodyMapper: Mappers.CloudError
     }
   },
   serializer
@@ -448,7 +448,7 @@ const listByResourceGroupNextOperationSpec: msRest.OperationSpec = {
       bodyMapper: Mappers.ListVpnSitesResult
     },
     default: {
-      bodyMapper: Mappers.ErrorModel
+      bodyMapper: Mappers.CloudError
     }
   },
   serializer
@@ -469,7 +469,7 @@ const listNextOperationSpec: msRest.OperationSpec = {
       bodyMapper: Mappers.ListVpnSitesResult
     },
     default: {
-      bodyMapper: Mappers.ErrorModel
+      bodyMapper: Mappers.CloudError
     }
   },
   serializer
