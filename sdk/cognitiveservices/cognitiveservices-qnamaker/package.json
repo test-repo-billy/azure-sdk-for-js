@@ -1,11 +1,11 @@
 {
   "name": "@azure/cognitiveservices-qnamaker",
   "author": "Microsoft Corporation",
-  "description": "QnAMakerClient Library with typescript type definitions for node.js and browser.",
+  "description": "QnAMakerRuntimeClient Library with typescript type definitions for node.js and browser.",
   "version": "3.0.0",
   "dependencies": {
-    "@azure/ms-rest-js": "^2.0.4",
-    "tslib": "^1.10.0"
+    "@azure/ms-rest-js": "^1.8.1",
+    "tslib": "^1.9.3"
   },
   "keywords": [
     "node",
@@ -16,14 +16,14 @@
   ],
   "license": "MIT",
   "main": "./dist/cognitiveservices-qnamaker.js",
-  "module": "./esm/qnAMakerClient.js",
-  "types": "./esm/qnAMakerClient.d.ts",
+  "module": "./esm/qnAMakerRuntimeClient.js",
+  "types": "./esm/qnAMakerRuntimeClient.d.ts",
   "devDependencies": {
-    "typescript": "^3.5.3",
-    "rollup": "^1.18.0",
-    "rollup-plugin-node-resolve": "^5.2.0",
+    "typescript": "^3.1.1",
+    "rollup": "^0.66.2",
+    "rollup-plugin-node-resolve": "^3.4.0",
     "rollup-plugin-sourcemaps": "^0.4.2",
-    "uglify-js": "^3.6.0"
+    "uglify-js": "^3.4.9"
   },
   "homepage": "https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-qnamaker",
   "repository": {
