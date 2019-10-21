@@ -10,16 +10,16 @@
 
 import * as msRest from "@azure/ms-rest-js";
 import * as Models from "../models";
-import * as Mappers from "../models/operationsMappers";
+import * as Mappers from "../models/backupCrrJobsMappers";
 import * as Parameters from "../models/parameters";
 import { RecoveryServicesBackupClientContext } from "../recoveryServicesBackupClientContext";
 
-/** Class representing a Operations. */
-export class Operations {
+/** Class representing a BackupCrrJobs. */
+export class BackupCrrJobs {
   private readonly client: RecoveryServicesBackupClientContext;
 
   /**
-   * Create a Operations.
+   * Create a BackupCrrJobs.
    * @param {RecoveryServicesBackupClientContext} client Reference to the service client.
    */
   constructor(client: RecoveryServicesBackupClientContext) {
@@ -27,72 +27,80 @@ export class Operations {
   }
 
   /**
-   * Returns the list of available operations.
+   * @summary Gets the list of CRR jobs from the target region.
+   * @param azureRegion Azure region to hit Api
    * @param [options] The optional parameters
-   * @returns Promise<Models.OperationsListResponse>
+   * @returns Promise<Models.BackupCrrJobsListResponse>
    */
-  list(options?: msRest.RequestOptionsBase): Promise<Models.OperationsListResponse>;
+  list(azureRegion: string, options?: msRest.RequestOptionsBase): Promise<Models.BackupCrrJobsListResponse>;
   /**
+   * @param azureRegion Azure region to hit Api
    * @param callback The callback
    */
-  list(callback: msRest.ServiceCallback<Models.ClientDiscoveryResponse>): void;
+  list(azureRegion: string, callback: msRest.ServiceCallback<Models.JobResourceList>): void;
   /**
+   * @param azureRegion Azure region to hit Api
    * @param options The optional parameters
    * @param callback The callback
    */
-  list(options: msRest.RequestOptionsBase, callback: msRest.ServiceCallback<Models.ClientDiscoveryResponse>): void;
-  list(options?: msRest.RequestOptionsBase | msRest.ServiceCallback<Models.ClientDiscoveryResponse>, callback?: msRest.ServiceCallback<Models.ClientDiscoveryResponse>): Promise<Models.OperationsListResponse> {
+  list(azureRegion: string, options: msRest.RequestOptionsBase, callback: msRest.ServiceCallback<Models.JobResourceList>): void;
+  list(azureRegion: string, options?: msRest.RequestOptionsBase | msRest.ServiceCallback<Models.JobResourceList>, callback?: msRest.ServiceCallback<Models.JobResourceList>): Promise<Models.BackupCrrJobsListResponse> {
     return this.client.sendOperationRequest(
       {
+        azureRegion,
         options
       },
       listOperationSpec,
-      callback) as Promise<Models.OperationsListResponse>;
+      callback) as Promise<Models.BackupCrrJobsListResponse>;
   }
 
   /**
-   * Returns the list of available operations.
+   * @summary Gets the list of CRR jobs from the target region.
    * @param nextPageLink The NextLink from the previous successful call to List operation.
    * @param [options] The optional parameters
-   * @returns Promise<Models.OperationsListNextResponse>
+   * @returns Promise<Models.BackupCrrJobsListNextResponse>
    */
-  listNext(nextPageLink: string, options?: msRest.RequestOptionsBase): Promise<Models.OperationsListNextResponse>;
+  listNext(nextPageLink: string, options?: msRest.RequestOptionsBase): Promise<Models.BackupCrrJobsListNextResponse>;
   /**
    * @param nextPageLink The NextLink from the previous successful call to List operation.
    * @param callback The callback
    */
-  listNext(nextPageLink: string, callback: msRest.ServiceCallback<Models.ClientDiscoveryResponse>): void;
+  listNext(nextPageLink: string, callback: msRest.ServiceCallback<Models.JobResourceList>): void;
   /**
    * @param nextPageLink The NextLink from the previous successful call to List operation.
    * @param options The optional parameters
    * @param callback The callback
    */
-  listNext(nextPageLink: string, options: msRest.RequestOptionsBase, callback: msRest.ServiceCallback<Models.ClientDiscoveryResponse>): void;
-  listNext(nextPageLink: string, options?: msRest.RequestOptionsBase | msRest.ServiceCallback<Models.ClientDiscoveryResponse>, callback?: msRest.ServiceCallback<Models.ClientDiscoveryResponse>): Promise<Models.OperationsListNextResponse> {
+  listNext(nextPageLink: string, options: msRest.RequestOptionsBase, callback: msRest.ServiceCallback<Models.JobResourceList>): void;
+  listNext(nextPageLink: string, options?: msRest.RequestOptionsBase | msRest.ServiceCallback<Models.JobResourceList>, callback?: msRest.ServiceCallback<Models.JobResourceList>): Promise<Models.BackupCrrJobsListNextResponse> {
     return this.client.sendOperationRequest(
       {
         nextPageLink,
         options
       },
       listNextOperationSpec,
-      callback) as Promise<Models.OperationsListNextResponse>;
+      callback) as Promise<Models.BackupCrrJobsListNextResponse>;
   }
 }
 
 // Operation Specifications
 const serializer = new msRest.Serializer(Mappers);
 const listOperationSpec: msRest.OperationSpec = {
-  httpMethod: "GET",
-  path: "providers/Microsoft.RecoveryServices/operations",
+  httpMethod: "POST",
+  path: "Subscriptions/{subscriptionId}/providers/Microsoft.RecoveryServices/locations/{azureRegion}/backupCrrJobs",
+  urlParameters: [
+    Parameters.azureRegion,
+    Parameters.subscriptionId
+  ],
   queryParameters: [
-    Parameters.apiVersion4
+    Parameters.apiVersion1
   ],
   headerParameters: [
     Parameters.acceptLanguage
   ],
   responses: {
     200: {
-      bodyMapper: Mappers.ClientDiscoveryResponse
+      bodyMapper: Mappers.JobResourceList
     },
     default: {
       bodyMapper: Mappers.CloudError
@@ -102,7 +110,7 @@ const listOperationSpec: msRest.OperationSpec = {
 };
 
 const listNextOperationSpec: msRest.OperationSpec = {
-  httpMethod: "GET",
+  httpMethod: "POST",
   baseUrl: "https://management.azure.com",
   path: "{nextLink}",
   urlParameters: [
@@ -113,7 +121,7 @@ const listNextOperationSpec: msRest.OperationSpec = {
   ],
   responses: {
     200: {
-      bodyMapper: Mappers.ClientDiscoveryResponse
+      bodyMapper: Mappers.JobResourceList
     },
     default: {
       bodyMapper: Mappers.CloudError

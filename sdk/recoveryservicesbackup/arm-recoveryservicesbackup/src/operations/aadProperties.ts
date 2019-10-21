@@ -10,16 +10,16 @@
 
 import * as msRest from "@azure/ms-rest-js";
 import * as Models from "../models";
-import * as Mappers from "../models/backupStatusMappers";
+import * as Mappers from "../models/aadPropertiesMappers";
 import * as Parameters from "../models/parameters";
 import { RecoveryServicesBackupClientContext } from "../recoveryServicesBackupClientContext";
 
-/** Class representing a BackupStatus. */
-export class BackupStatus {
+/** Class representing a AadProperties. */
+export class AadProperties {
   private readonly client: RecoveryServicesBackupClientContext;
 
   /**
-   * Create a BackupStatus.
+   * Create a AadProperties.
    * @param {RecoveryServicesBackupClientContext} client Reference to the service client.
    */
   constructor(client: RecoveryServicesBackupClientContext) {
@@ -27,63 +27,52 @@ export class BackupStatus {
   }
 
   /**
-   * @summary Get the container backup status
+   * @summary Fetches the AAD properties from target region BCM stamp.
    * @param azureRegion Azure region to hit Api
-   * @param parameters Container Backup Status Request
    * @param [options] The optional parameters
-   * @returns Promise<Models.BackupStatusGetResponse>
+   * @returns Promise<Models.AadPropertiesGetResponse>
    */
-  get(azureRegion: string, parameters: Models.BackupStatusRequest, options?: msRest.RequestOptionsBase): Promise<Models.BackupStatusGetResponse>;
+  get(azureRegion: string, options?: msRest.RequestOptionsBase): Promise<Models.AadPropertiesGetResponse>;
   /**
    * @param azureRegion Azure region to hit Api
-   * @param parameters Container Backup Status Request
    * @param callback The callback
    */
-  get(azureRegion: string, parameters: Models.BackupStatusRequest, callback: msRest.ServiceCallback<Models.BackupStatusResponse>): void;
+  get(azureRegion: string, callback: msRest.ServiceCallback<Models.AADPropertiesResource>): void;
   /**
    * @param azureRegion Azure region to hit Api
-   * @param parameters Container Backup Status Request
    * @param options The optional parameters
    * @param callback The callback
    */
-  get(azureRegion: string, parameters: Models.BackupStatusRequest, options: msRest.RequestOptionsBase, callback: msRest.ServiceCallback<Models.BackupStatusResponse>): void;
-  get(azureRegion: string, parameters: Models.BackupStatusRequest, options?: msRest.RequestOptionsBase | msRest.ServiceCallback<Models.BackupStatusResponse>, callback?: msRest.ServiceCallback<Models.BackupStatusResponse>): Promise<Models.BackupStatusGetResponse> {
+  get(azureRegion: string, options: msRest.RequestOptionsBase, callback: msRest.ServiceCallback<Models.AADPropertiesResource>): void;
+  get(azureRegion: string, options?: msRest.RequestOptionsBase | msRest.ServiceCallback<Models.AADPropertiesResource>, callback?: msRest.ServiceCallback<Models.AADPropertiesResource>): Promise<Models.AadPropertiesGetResponse> {
     return this.client.sendOperationRequest(
       {
         azureRegion,
-        parameters,
         options
       },
       getOperationSpec,
-      callback) as Promise<Models.BackupStatusGetResponse>;
+      callback) as Promise<Models.AadPropertiesGetResponse>;
   }
 }
 
 // Operation Specifications
 const serializer = new msRest.Serializer(Mappers);
 const getOperationSpec: msRest.OperationSpec = {
-  httpMethod: "POST",
-  path: "Subscriptions/{subscriptionId}/providers/Microsoft.RecoveryServices/locations/{azureRegion}/backupStatus",
+  httpMethod: "GET",
+  path: "Subscriptions/{subscriptionId}/providers/Microsoft.RecoveryServices/locations/{azureRegion}/backupAadProperties",
   urlParameters: [
     Parameters.azureRegion,
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion3
+    Parameters.apiVersion1
   ],
   headerParameters: [
     Parameters.acceptLanguage
   ],
-  requestBody: {
-    parameterPath: "parameters",
-    mapper: {
-      ...Mappers.BackupStatusRequest,
-      required: true
-    }
-  },
   responses: {
     200: {
-      bodyMapper: Mappers.BackupStatusResponse
+      bodyMapper: Mappers.AADPropertiesResource
     },
     default: {
       bodyMapper: Mappers.CloudError

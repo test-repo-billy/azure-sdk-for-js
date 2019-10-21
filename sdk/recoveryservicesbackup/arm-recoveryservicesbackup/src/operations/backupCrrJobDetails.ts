@@ -10,16 +10,16 @@
 
 import * as msRest from "@azure/ms-rest-js";
 import * as Models from "../models";
-import * as Mappers from "../models/backupStatusMappers";
+import * as Mappers from "../models/backupCrrJobDetailsMappers";
 import * as Parameters from "../models/parameters";
 import { RecoveryServicesBackupClientContext } from "../recoveryServicesBackupClientContext";
 
-/** Class representing a BackupStatus. */
-export class BackupStatus {
+/** Class representing a BackupCrrJobDetails. */
+export class BackupCrrJobDetails {
   private readonly client: RecoveryServicesBackupClientContext;
 
   /**
-   * Create a BackupStatus.
+   * Create a BackupCrrJobDetails.
    * @param {RecoveryServicesBackupClientContext} client Reference to the service client.
    */
   constructor(client: RecoveryServicesBackupClientContext) {
@@ -27,35 +27,31 @@ export class BackupStatus {
   }
 
   /**
-   * @summary Get the container backup status
+   * @summary Get CRR job details from target region.
    * @param azureRegion Azure region to hit Api
-   * @param parameters Container Backup Status Request
    * @param [options] The optional parameters
-   * @returns Promise<Models.BackupStatusGetResponse>
+   * @returns Promise<Models.BackupCrrJobDetailsGetResponse>
    */
-  get(azureRegion: string, parameters: Models.BackupStatusRequest, options?: msRest.RequestOptionsBase): Promise<Models.BackupStatusGetResponse>;
+  get(azureRegion: string, options?: msRest.RequestOptionsBase): Promise<Models.BackupCrrJobDetailsGetResponse>;
   /**
    * @param azureRegion Azure region to hit Api
-   * @param parameters Container Backup Status Request
    * @param callback The callback
    */
-  get(azureRegion: string, parameters: Models.BackupStatusRequest, callback: msRest.ServiceCallback<Models.BackupStatusResponse>): void;
+  get(azureRegion: string, callback: msRest.ServiceCallback<Models.JobResource>): void;
   /**
    * @param azureRegion Azure region to hit Api
-   * @param parameters Container Backup Status Request
    * @param options The optional parameters
    * @param callback The callback
    */
-  get(azureRegion: string, parameters: Models.BackupStatusRequest, options: msRest.RequestOptionsBase, callback: msRest.ServiceCallback<Models.BackupStatusResponse>): void;
-  get(azureRegion: string, parameters: Models.BackupStatusRequest, options?: msRest.RequestOptionsBase | msRest.ServiceCallback<Models.BackupStatusResponse>, callback?: msRest.ServiceCallback<Models.BackupStatusResponse>): Promise<Models.BackupStatusGetResponse> {
+  get(azureRegion: string, options: msRest.RequestOptionsBase, callback: msRest.ServiceCallback<Models.JobResource>): void;
+  get(azureRegion: string, options?: msRest.RequestOptionsBase | msRest.ServiceCallback<Models.JobResource>, callback?: msRest.ServiceCallback<Models.JobResource>): Promise<Models.BackupCrrJobDetailsGetResponse> {
     return this.client.sendOperationRequest(
       {
         azureRegion,
-        parameters,
         options
       },
       getOperationSpec,
-      callback) as Promise<Models.BackupStatusGetResponse>;
+      callback) as Promise<Models.BackupCrrJobDetailsGetResponse>;
   }
 }
 
@@ -63,27 +59,20 @@ export class BackupStatus {
 const serializer = new msRest.Serializer(Mappers);
 const getOperationSpec: msRest.OperationSpec = {
   httpMethod: "POST",
-  path: "Subscriptions/{subscriptionId}/providers/Microsoft.RecoveryServices/locations/{azureRegion}/backupStatus",
+  path: "Subscriptions/{subscriptionId}/providers/Microsoft.RecoveryServices/locations/{azureRegion}/backupCrrJob",
   urlParameters: [
     Parameters.azureRegion,
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion3
+    Parameters.apiVersion1
   ],
   headerParameters: [
     Parameters.acceptLanguage
   ],
-  requestBody: {
-    parameterPath: "parameters",
-    mapper: {
-      ...Mappers.BackupStatusRequest,
-      required: true
-    }
-  },
   responses: {
     200: {
-      bodyMapper: Mappers.BackupStatusResponse
+      bodyMapper: Mappers.JobResource
     },
     default: {
       bodyMapper: Mappers.CloudError
