@@ -10,16 +10,16 @@
 
 import * as msRest from "@azure/ms-rest-js";
 import * as Models from "../models";
-import * as Mappers from "../models/backupStatusMappers";
+import * as Mappers from "../models/crossRegionRestoreMappers";
 import * as Parameters from "../models/parameters";
 import { RecoveryServicesBackupClientContext } from "../recoveryServicesBackupClientContext";
 
-/** Class representing a BackupStatus. */
-export class BackupStatus {
+/** Class representing a CrossRegionRestore. */
+export class CrossRegionRestore {
   private readonly client: RecoveryServicesBackupClientContext;
 
   /**
-   * Create a BackupStatus.
+   * Create a CrossRegionRestore.
    * @param {RecoveryServicesBackupClientContext} client Reference to the service client.
    */
   constructor(client: RecoveryServicesBackupClientContext) {
@@ -27,49 +27,50 @@ export class BackupStatus {
   }
 
   /**
-   * @summary Get the container backup status
+   * @summary Restores the specified backed up data in a different region as compared to where the
+   * data is backed up.
    * @param azureRegion Azure region to hit Api
-   * @param parameters Container Backup Status Request
+   * @param parameters resource cross region restore request
    * @param [options] The optional parameters
-   * @returns Promise<Models.BackupStatusGetResponse>
+   * @returns Promise<msRest.RestResponse>
    */
-  get(azureRegion: string, parameters: Models.BackupStatusRequest, options?: msRest.RequestOptionsBase): Promise<Models.BackupStatusGetResponse>;
+  trigger(azureRegion: string, parameters: Models.CrossRegionRestoreRequestResource, options?: msRest.RequestOptionsBase): Promise<msRest.RestResponse>;
   /**
    * @param azureRegion Azure region to hit Api
-   * @param parameters Container Backup Status Request
+   * @param parameters resource cross region restore request
    * @param callback The callback
    */
-  get(azureRegion: string, parameters: Models.BackupStatusRequest, callback: msRest.ServiceCallback<Models.BackupStatusResponse>): void;
+  trigger(azureRegion: string, parameters: Models.CrossRegionRestoreRequestResource, callback: msRest.ServiceCallback<void>): void;
   /**
    * @param azureRegion Azure region to hit Api
-   * @param parameters Container Backup Status Request
+   * @param parameters resource cross region restore request
    * @param options The optional parameters
    * @param callback The callback
    */
-  get(azureRegion: string, parameters: Models.BackupStatusRequest, options: msRest.RequestOptionsBase, callback: msRest.ServiceCallback<Models.BackupStatusResponse>): void;
-  get(azureRegion: string, parameters: Models.BackupStatusRequest, options?: msRest.RequestOptionsBase | msRest.ServiceCallback<Models.BackupStatusResponse>, callback?: msRest.ServiceCallback<Models.BackupStatusResponse>): Promise<Models.BackupStatusGetResponse> {
+  trigger(azureRegion: string, parameters: Models.CrossRegionRestoreRequestResource, options: msRest.RequestOptionsBase, callback: msRest.ServiceCallback<void>): void;
+  trigger(azureRegion: string, parameters: Models.CrossRegionRestoreRequestResource, options?: msRest.RequestOptionsBase | msRest.ServiceCallback<void>, callback?: msRest.ServiceCallback<void>): Promise<msRest.RestResponse> {
     return this.client.sendOperationRequest(
       {
         azureRegion,
         parameters,
         options
       },
-      getOperationSpec,
-      callback) as Promise<Models.BackupStatusGetResponse>;
+      triggerOperationSpec,
+      callback);
   }
 }
 
 // Operation Specifications
 const serializer = new msRest.Serializer(Mappers);
-const getOperationSpec: msRest.OperationSpec = {
+const triggerOperationSpec: msRest.OperationSpec = {
   httpMethod: "POST",
-  path: "Subscriptions/{subscriptionId}/providers/Microsoft.RecoveryServices/locations/{azureRegion}/backupStatus",
+  path: "Subscriptions/{subscriptionId}/providers/Microsoft.RecoveryServices/locations/{azureRegion}/backupCrossRegionRestore",
   urlParameters: [
     Parameters.azureRegion,
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion3
+    Parameters.apiVersion1
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -77,14 +78,12 @@ const getOperationSpec: msRest.OperationSpec = {
   requestBody: {
     parameterPath: "parameters",
     mapper: {
-      ...Mappers.BackupStatusRequest,
+      ...Mappers.CrossRegionRestoreRequestResource,
       required: true
     }
   },
   responses: {
-    200: {
-      bodyMapper: Mappers.BackupStatusResponse
-    },
+    202: {},
     default: {
       bodyMapper: Mappers.CloudError
     }

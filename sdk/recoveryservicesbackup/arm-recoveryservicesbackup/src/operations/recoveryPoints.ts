@@ -127,6 +127,57 @@ export class RecoveryPoints {
   }
 
   /**
+   * @summary Returns the Access token for communication between BMS and Protection service
+   * @param vaultName The name of the recovery services vault.
+   * @param resourceGroupName The name of the resource group where the recovery services vault is
+   * present.
+   * @param fabricName Fabric name associated with the container.
+   * @param containerName Name of the container.
+   * @param protectedItemName Name of the Protected Item.
+   * @param recoveryPointId Recovery Point Id
+   * @param [options] The optional parameters
+   * @returns Promise<Models.RecoveryPointsGetAccessTokenResponse>
+   */
+  getAccessToken(vaultName: string, resourceGroupName: string, fabricName: string, containerName: string, protectedItemName: string, recoveryPointId: string, options?: msRest.RequestOptionsBase): Promise<Models.RecoveryPointsGetAccessTokenResponse>;
+  /**
+   * @param vaultName The name of the recovery services vault.
+   * @param resourceGroupName The name of the resource group where the recovery services vault is
+   * present.
+   * @param fabricName Fabric name associated with the container.
+   * @param containerName Name of the container.
+   * @param protectedItemName Name of the Protected Item.
+   * @param recoveryPointId Recovery Point Id
+   * @param callback The callback
+   */
+  getAccessToken(vaultName: string, resourceGroupName: string, fabricName: string, containerName: string, protectedItemName: string, recoveryPointId: string, callback: msRest.ServiceCallback<Models.CrrAccessTokenResource>): void;
+  /**
+   * @param vaultName The name of the recovery services vault.
+   * @param resourceGroupName The name of the resource group where the recovery services vault is
+   * present.
+   * @param fabricName Fabric name associated with the container.
+   * @param containerName Name of the container.
+   * @param protectedItemName Name of the Protected Item.
+   * @param recoveryPointId Recovery Point Id
+   * @param options The optional parameters
+   * @param callback The callback
+   */
+  getAccessToken(vaultName: string, resourceGroupName: string, fabricName: string, containerName: string, protectedItemName: string, recoveryPointId: string, options: msRest.RequestOptionsBase, callback: msRest.ServiceCallback<Models.CrrAccessTokenResource>): void;
+  getAccessToken(vaultName: string, resourceGroupName: string, fabricName: string, containerName: string, protectedItemName: string, recoveryPointId: string, options?: msRest.RequestOptionsBase | msRest.ServiceCallback<Models.CrrAccessTokenResource>, callback?: msRest.ServiceCallback<Models.CrrAccessTokenResource>): Promise<Models.RecoveryPointsGetAccessTokenResponse> {
+    return this.client.sendOperationRequest(
+      {
+        vaultName,
+        resourceGroupName,
+        fabricName,
+        containerName,
+        protectedItemName,
+        recoveryPointId,
+        options
+      },
+      getAccessTokenOperationSpec,
+      callback) as Promise<Models.RecoveryPointsGetAccessTokenResponse>;
+  }
+
+  /**
    * Lists the backup copies for the backed up item.
    * @param nextPageLink The NextLink from the previous successful call to List operation.
    * @param [options] The optional parameters
@@ -169,7 +220,7 @@ const listOperationSpec: msRest.OperationSpec = {
     Parameters.protectedItemName
   ],
   queryParameters: [
-    Parameters.apiVersion1,
+    Parameters.apiVersion0,
     Parameters.filter
   ],
   headerParameters: [
@@ -199,7 +250,7 @@ const getOperationSpec: msRest.OperationSpec = {
     Parameters.recoveryPointId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion0
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -208,6 +259,36 @@ const getOperationSpec: msRest.OperationSpec = {
     200: {
       bodyMapper: Mappers.RecoveryPointResource
     },
+    default: {
+      bodyMapper: Mappers.CloudError
+    }
+  },
+  serializer
+};
+
+const getAccessTokenOperationSpec: msRest.OperationSpec = {
+  httpMethod: "POST",
+  path: "Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}/recoveryPoints/{recoveryPointId}/accessToken",
+  urlParameters: [
+    Parameters.vaultName,
+    Parameters.resourceGroupName,
+    Parameters.subscriptionId,
+    Parameters.fabricName,
+    Parameters.containerName,
+    Parameters.protectedItemName,
+    Parameters.recoveryPointId
+  ],
+  queryParameters: [
+    Parameters.apiVersion1
+  ],
+  headerParameters: [
+    Parameters.acceptLanguage
+  ],
+  responses: {
+    200: {
+      bodyMapper: Mappers.CrrAccessTokenResource
+    },
+    400: {},
     default: {
       bodyMapper: Mappers.CloudError
     }

@@ -10,16 +10,16 @@
 
 import * as msRest from "@azure/ms-rest-js";
 import * as Models from "../models";
-import * as Mappers from "../models/backupStatusMappers";
+import * as Mappers from "../models/crrOperationStatusMappers";
 import * as Parameters from "../models/parameters";
 import { RecoveryServicesBackupClientContext } from "../recoveryServicesBackupClientContext";
 
-/** Class representing a BackupStatus. */
-export class BackupStatus {
+/** Class representing a CrrOperationStatus. */
+export class CrrOperationStatus {
   private readonly client: RecoveryServicesBackupClientContext;
 
   /**
-   * Create a BackupStatus.
+   * Create a CrrOperationStatus.
    * @param {RecoveryServicesBackupClientContext} client Reference to the service client.
    */
   constructor(client: RecoveryServicesBackupClientContext) {
@@ -27,63 +27,56 @@ export class BackupStatus {
   }
 
   /**
-   * @summary Get the container backup status
    * @param azureRegion Azure region to hit Api
-   * @param parameters Container Backup Status Request
+   * @param operationId
    * @param [options] The optional parameters
-   * @returns Promise<Models.BackupStatusGetResponse>
+   * @returns Promise<Models.CrrOperationStatusGetResponse>
    */
-  get(azureRegion: string, parameters: Models.BackupStatusRequest, options?: msRest.RequestOptionsBase): Promise<Models.BackupStatusGetResponse>;
+  get(azureRegion: string, operationId: string, options?: msRest.RequestOptionsBase): Promise<Models.CrrOperationStatusGetResponse>;
   /**
    * @param azureRegion Azure region to hit Api
-   * @param parameters Container Backup Status Request
+   * @param operationId
    * @param callback The callback
    */
-  get(azureRegion: string, parameters: Models.BackupStatusRequest, callback: msRest.ServiceCallback<Models.BackupStatusResponse>): void;
+  get(azureRegion: string, operationId: string, callback: msRest.ServiceCallback<Models.OperationStatus>): void;
   /**
    * @param azureRegion Azure region to hit Api
-   * @param parameters Container Backup Status Request
+   * @param operationId
    * @param options The optional parameters
    * @param callback The callback
    */
-  get(azureRegion: string, parameters: Models.BackupStatusRequest, options: msRest.RequestOptionsBase, callback: msRest.ServiceCallback<Models.BackupStatusResponse>): void;
-  get(azureRegion: string, parameters: Models.BackupStatusRequest, options?: msRest.RequestOptionsBase | msRest.ServiceCallback<Models.BackupStatusResponse>, callback?: msRest.ServiceCallback<Models.BackupStatusResponse>): Promise<Models.BackupStatusGetResponse> {
+  get(azureRegion: string, operationId: string, options: msRest.RequestOptionsBase, callback: msRest.ServiceCallback<Models.OperationStatus>): void;
+  get(azureRegion: string, operationId: string, options?: msRest.RequestOptionsBase | msRest.ServiceCallback<Models.OperationStatus>, callback?: msRest.ServiceCallback<Models.OperationStatus>): Promise<Models.CrrOperationStatusGetResponse> {
     return this.client.sendOperationRequest(
       {
         azureRegion,
-        parameters,
+        operationId,
         options
       },
       getOperationSpec,
-      callback) as Promise<Models.BackupStatusGetResponse>;
+      callback) as Promise<Models.CrrOperationStatusGetResponse>;
   }
 }
 
 // Operation Specifications
 const serializer = new msRest.Serializer(Mappers);
 const getOperationSpec: msRest.OperationSpec = {
-  httpMethod: "POST",
-  path: "Subscriptions/{subscriptionId}/providers/Microsoft.RecoveryServices/locations/{azureRegion}/backupStatus",
+  httpMethod: "GET",
+  path: "Subscriptions/{subscriptionId}/providers/Microsoft.RecoveryServices/locations/{azureRegion}/backupCrrOperationsStatus/{operationId}",
   urlParameters: [
     Parameters.azureRegion,
-    Parameters.subscriptionId
+    Parameters.subscriptionId,
+    Parameters.operationId
   ],
   queryParameters: [
-    Parameters.apiVersion3
+    Parameters.apiVersion1
   ],
   headerParameters: [
     Parameters.acceptLanguage
   ],
-  requestBody: {
-    parameterPath: "parameters",
-    mapper: {
-      ...Mappers.BackupStatusRequest,
-      required: true
-    }
-  },
   responses: {
     200: {
-      bodyMapper: Mappers.BackupStatusResponse
+      bodyMapper: Mappers.OperationStatus
     },
     default: {
       bodyMapper: Mappers.CloudError
