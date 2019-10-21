@@ -40,6 +40,7 @@ export {
   Resource,
   ResourceGroup,
   ResourceGroupProperties,
+  ScopedDeployment,
   Sku,
   SubResource,
   TagCount,

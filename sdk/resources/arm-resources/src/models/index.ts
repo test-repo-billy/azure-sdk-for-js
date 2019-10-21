@@ -172,6 +172,20 @@ export interface Deployment {
 }
 
 /**
+ * Deployment operation parameters.
+ */
+export interface ScopedDeployment {
+  /**
+   * The location to store the deployment data.
+   */
+  location: string;
+  /**
+   * The deployment properties.
+   */
+  properties: DeploymentProperties;
+}
+
+/**
  * The deployment export result.
  */
 export interface DeploymentExportResult {
@@ -3089,6 +3103,26 @@ export type ResourceGroupsListResponse = ResourceGroupListResult & {
        * The response body as parsed JSON or XML
        */
       parsedBody: ResourceGroupListResult;
+    };
+};
+
+/**
+ * Contains response data for the beginExportTemplate operation.
+ */
+export type ResourceGroupsBeginExportTemplateResponse = ResourceGroupExportResult & {
+  /**
+   * The underlying HTTP response.
+   */
+  _response: msRest.HttpResponse & {
+      /**
+       * The response body as text (string format)
+       */
+      bodyAsText: string;
+
+      /**
+       * The response body as parsed JSON or XML
+       */
+      parsedBody: ResourceGroupExportResult;
     };
 };
 
