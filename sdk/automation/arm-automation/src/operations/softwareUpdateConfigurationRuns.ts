@@ -27,10 +27,10 @@ export class SoftwareUpdateConfigurationRuns {
   }
 
   /**
-   * Get a single software update configuration Run by Id.
+   * Get a single software update configuration run by ID.
    * @param resourceGroupName Name of an Azure Resource group.
    * @param automationAccountName The name of the automation account.
-   * @param softwareUpdateConfigurationRunId The Id of the software update configuration run.
+   * @param softwareUpdateConfigurationRunId The ID of the software update configuration run.
    * @param [options] The optional parameters
    * @returns Promise<Models.SoftwareUpdateConfigurationRunsGetByIdResponse>
    */
@@ -38,14 +38,14 @@ export class SoftwareUpdateConfigurationRuns {
   /**
    * @param resourceGroupName Name of an Azure Resource group.
    * @param automationAccountName The name of the automation account.
-   * @param softwareUpdateConfigurationRunId The Id of the software update configuration run.
+   * @param softwareUpdateConfigurationRunId The ID of the software update configuration run.
    * @param callback The callback
    */
   getById(resourceGroupName: string, automationAccountName: string, softwareUpdateConfigurationRunId: string, callback: msRest.ServiceCallback<Models.SoftwareUpdateConfigurationRun>): void;
   /**
    * @param resourceGroupName Name of an Azure Resource group.
    * @param automationAccountName The name of the automation account.
-   * @param softwareUpdateConfigurationRunId The Id of the software update configuration run.
+   * @param softwareUpdateConfigurationRunId The ID of the software update configuration run.
    * @param options The optional parameters
    * @param callback The callback
    */
@@ -63,7 +63,7 @@ export class SoftwareUpdateConfigurationRuns {
   }
 
   /**
-   * Return list of software update configuration runs
+   * Return list of software update configuration runs.
    * @param resourceGroupName Name of an Azure Resource group.
    * @param automationAccountName The name of the automation account.
    * @param [options] The optional parameters
@@ -93,6 +93,34 @@ export class SoftwareUpdateConfigurationRuns {
       listOperationSpec,
       callback) as Promise<Models.SoftwareUpdateConfigurationRunsListResponse>;
   }
+
+  /**
+   * Return list of software update configuration runs.
+   * @param nextPageLink The NextLink from the previous successful call to List operation.
+   * @param [options] The optional parameters
+   * @returns Promise<Models.SoftwareUpdateConfigurationRunsListNextResponse>
+   */
+  listNext(nextPageLink: string, options?: Models.SoftwareUpdateConfigurationRunsListNextOptionalParams): Promise<Models.SoftwareUpdateConfigurationRunsListNextResponse>;
+  /**
+   * @param nextPageLink The NextLink from the previous successful call to List operation.
+   * @param callback The callback
+   */
+  listNext(nextPageLink: string, callback: msRest.ServiceCallback<Models.SoftwareUpdateConfigurationRunListResult>): void;
+  /**
+   * @param nextPageLink The NextLink from the previous successful call to List operation.
+   * @param options The optional parameters
+   * @param callback The callback
+   */
+  listNext(nextPageLink: string, options: Models.SoftwareUpdateConfigurationRunsListNextOptionalParams, callback: msRest.ServiceCallback<Models.SoftwareUpdateConfigurationRunListResult>): void;
+  listNext(nextPageLink: string, options?: Models.SoftwareUpdateConfigurationRunsListNextOptionalParams | msRest.ServiceCallback<Models.SoftwareUpdateConfigurationRunListResult>, callback?: msRest.ServiceCallback<Models.SoftwareUpdateConfigurationRunListResult>): Promise<Models.SoftwareUpdateConfigurationRunsListNextResponse> {
+    return this.client.sendOperationRequest(
+      {
+        nextPageLink,
+        options
+      },
+      listNextOperationSpec,
+      callback) as Promise<Models.SoftwareUpdateConfigurationRunsListNextResponse>;
+  }
 }
 
 // Operation Specifications
@@ -107,7 +135,7 @@ const getByIdOperationSpec: msRest.OperationSpec = {
     Parameters.softwareUpdateConfigurationRunId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion4
   ],
   headerParameters: [
     Parameters.clientRequestId,
@@ -133,10 +161,32 @@ const listOperationSpec: msRest.OperationSpec = {
     Parameters.automationAccountName
   ],
   queryParameters: [
-    Parameters.apiVersion1,
+    Parameters.apiVersion4,
     Parameters.filter,
     Parameters.skip1,
     Parameters.top1
+  ],
+  headerParameters: [
+    Parameters.clientRequestId,
+    Parameters.acceptLanguage
+  ],
+  responses: {
+    200: {
+      bodyMapper: Mappers.SoftwareUpdateConfigurationRunListResult
+    },
+    default: {
+      bodyMapper: Mappers.ErrorResponse
+    }
+  },
+  serializer
+};
+
+const listNextOperationSpec: msRest.OperationSpec = {
+  httpMethod: "GET",
+  baseUrl: "https://management.azure.com",
+  path: "{nextLink}",
+  urlParameters: [
+    Parameters.nextPageLink
   ],
   headerParameters: [
     Parameters.clientRequestId,

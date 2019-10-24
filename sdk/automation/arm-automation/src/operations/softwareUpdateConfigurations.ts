@@ -109,7 +109,7 @@ export class SoftwareUpdateConfigurations {
   }
 
   /**
-   * delete a specific software update configuration.
+   * Delete a specific software update configuration.
    * @param resourceGroupName Name of an Azure Resource group.
    * @param automationAccountName The name of the automation account.
    * @param softwareUpdateConfigurationName The name of the software update configuration to be
@@ -178,6 +178,34 @@ export class SoftwareUpdateConfigurations {
       listOperationSpec,
       callback) as Promise<Models.SoftwareUpdateConfigurationsListResponse>;
   }
+
+  /**
+   * Get all software update configurations for the account.
+   * @param nextPageLink The NextLink from the previous successful call to List operation.
+   * @param [options] The optional parameters
+   * @returns Promise<Models.SoftwareUpdateConfigurationsListNextResponse>
+   */
+  listNext(nextPageLink: string, options?: Models.SoftwareUpdateConfigurationsListNextOptionalParams): Promise<Models.SoftwareUpdateConfigurationsListNextResponse>;
+  /**
+   * @param nextPageLink The NextLink from the previous successful call to List operation.
+   * @param callback The callback
+   */
+  listNext(nextPageLink: string, callback: msRest.ServiceCallback<Models.SoftwareUpdateConfigurationListResult>): void;
+  /**
+   * @param nextPageLink The NextLink from the previous successful call to List operation.
+   * @param options The optional parameters
+   * @param callback The callback
+   */
+  listNext(nextPageLink: string, options: Models.SoftwareUpdateConfigurationsListNextOptionalParams, callback: msRest.ServiceCallback<Models.SoftwareUpdateConfigurationListResult>): void;
+  listNext(nextPageLink: string, options?: Models.SoftwareUpdateConfigurationsListNextOptionalParams | msRest.ServiceCallback<Models.SoftwareUpdateConfigurationListResult>, callback?: msRest.ServiceCallback<Models.SoftwareUpdateConfigurationListResult>): Promise<Models.SoftwareUpdateConfigurationsListNextResponse> {
+    return this.client.sendOperationRequest(
+      {
+        nextPageLink,
+        options
+      },
+      listNextOperationSpec,
+      callback) as Promise<Models.SoftwareUpdateConfigurationsListNextResponse>;
+  }
 }
 
 // Operation Specifications
@@ -192,7 +220,7 @@ const createOperationSpec: msRest.OperationSpec = {
     Parameters.softwareUpdateConfigurationName
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion4
   ],
   headerParameters: [
     Parameters.clientRequestId,
@@ -229,7 +257,7 @@ const getByNameOperationSpec: msRest.OperationSpec = {
     Parameters.softwareUpdateConfigurationName
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion4
   ],
   headerParameters: [
     Parameters.clientRequestId,
@@ -256,7 +284,7 @@ const deleteMethodOperationSpec: msRest.OperationSpec = {
     Parameters.softwareUpdateConfigurationName
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion4
   ],
   headerParameters: [
     Parameters.clientRequestId,
@@ -281,8 +309,30 @@ const listOperationSpec: msRest.OperationSpec = {
     Parameters.automationAccountName
   ],
   queryParameters: [
-    Parameters.apiVersion1,
+    Parameters.apiVersion4,
     Parameters.filter
+  ],
+  headerParameters: [
+    Parameters.clientRequestId,
+    Parameters.acceptLanguage
+  ],
+  responses: {
+    200: {
+      bodyMapper: Mappers.SoftwareUpdateConfigurationListResult
+    },
+    default: {
+      bodyMapper: Mappers.ErrorResponse
+    }
+  },
+  serializer
+};
+
+const listNextOperationSpec: msRest.OperationSpec = {
+  httpMethod: "GET",
+  baseUrl: "https://management.azure.com",
+  path: "{nextLink}",
+  urlParameters: [
+    Parameters.nextPageLink
   ],
   headerParameters: [
     Parameters.clientRequestId,
