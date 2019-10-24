@@ -7,8 +7,13 @@
  */
 
 export {
-  ErrorResponse,
-  Operation,
-  OperationDisplay,
-  OperationListResult
+  BaseResource,
+  ErrorFieldContract,
+  WorkbookError,
+  WorkbookTemplate,
+  WorkbookTemplateGallery,
+  WorkbookTemplateLocalizedGallery,
+  WorkbookTemplateResource,
+  WorkbookTemplatesListResult,
+  WorkbookTemplateUpdateParameters
 } from "../models/mappers";
