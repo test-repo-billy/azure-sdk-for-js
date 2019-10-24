@@ -38,9 +38,6 @@ class AutomationClient extends AutomationClientContext {
   variable: operations.VariableOperations;
   webhook: operations.WebhookOperations;
   watcher: operations.WatcherOperations;
-  softwareUpdateConfigurations: operations.SoftwareUpdateConfigurations;
-  softwareUpdateConfigurationRuns: operations.SoftwareUpdateConfigurationRuns;
-  softwareUpdateConfigurationMachineRuns: operations.SoftwareUpdateConfigurationMachineRuns;
   sourceControl: operations.SourceControlOperations;
   sourceControlSyncJob: operations.SourceControlSyncJobOperations;
   sourceControlSyncJobStreams: operations.SourceControlSyncJobStreams;
@@ -58,18 +55,19 @@ class AutomationClient extends AutomationClientContext {
   testJobStreams: operations.TestJobStreams;
   testJob: operations.TestJobOperations;
   python2Package: operations.Python2Package;
+  softwareUpdateConfigurations: operations.SoftwareUpdateConfigurations;
+  softwareUpdateConfigurationRuns: operations.SoftwareUpdateConfigurationRuns;
+  softwareUpdateConfigurationMachineRuns: operations.SoftwareUpdateConfigurationMachineRuns;
 
   /**
    * Initializes a new instance of the AutomationClient class.
    * @param credentials Credentials needed for the client to connect to Azure.
    * @param subscriptionId Gets subscription credentials which uniquely identify Microsoft Azure
    * subscription. The subscription ID forms part of the URI for every service call.
-   * @param countType1 The type of counts to retrieve. Possible values include: 'status',
-   * 'nodeconfiguration'
    * @param [options] The parameter options
    */
-  constructor(credentials: msRest.ServiceClientCredentials, subscriptionId: string, countType1: Models.CountType, options?: Models.AutomationClientOptions) {
-    super(credentials, subscriptionId, countType1, options);
+  constructor(credentials: msRest.ServiceClientCredentials, subscriptionId: string, options?: Models.AutomationClientOptions) {
+    super(credentials, subscriptionId, options);
     this.automationAccount = new operations.AutomationAccountOperations(this);
     this.operations = new operations.Operations(this);
     this.statistics = new operations.StatisticsOperations(this);
@@ -91,9 +89,6 @@ class AutomationClient extends AutomationClientContext {
     this.variable = new operations.VariableOperations(this);
     this.webhook = new operations.WebhookOperations(this);
     this.watcher = new operations.WatcherOperations(this);
-    this.softwareUpdateConfigurations = new operations.SoftwareUpdateConfigurations(this);
-    this.softwareUpdateConfigurationRuns = new operations.SoftwareUpdateConfigurationRuns(this);
-    this.softwareUpdateConfigurationMachineRuns = new operations.SoftwareUpdateConfigurationMachineRuns(this);
     this.sourceControl = new operations.SourceControlOperations(this);
     this.sourceControlSyncJob = new operations.SourceControlSyncJobOperations(this);
     this.sourceControlSyncJobStreams = new operations.SourceControlSyncJobStreams(this);
@@ -111,6 +106,9 @@ class AutomationClient extends AutomationClientContext {
     this.testJobStreams = new operations.TestJobStreams(this);
     this.testJob = new operations.TestJobOperations(this);
     this.python2Package = new operations.Python2Package(this);
+    this.softwareUpdateConfigurations = new operations.SoftwareUpdateConfigurations(this);
+    this.softwareUpdateConfigurationRuns = new operations.SoftwareUpdateConfigurationRuns(this);
+    this.softwareUpdateConfigurationMachineRuns = new operations.SoftwareUpdateConfigurationMachineRuns(this);
   }
 }
 
