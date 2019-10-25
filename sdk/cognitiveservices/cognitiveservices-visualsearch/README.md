@@ -17,65 +17,54 @@ npm install @azure/cognitiveservices-visualsearch
 
 #### nodejs - Authentication, client creation and visualSearch images as an example written in TypeScript.
 
-##### Install @azure/ms-rest-azure-js
+##### Install @azure/ms-rest-nodeauth
 
+- Please install minimum version of `"@azure/ms-rest-nodeauth": "^3.0.0"`.
 ```bash
-npm install @azure/ms-rest-azure-js
+npm install @azure/ms-rest-nodeauth@"^3.0.0"
 ```
 
 ##### Sample code
-The following sample performs a visual search, i.e. perform a search with a image. To know more, refer to the [Azure Documentation on Bing Visual Search](https://docs.microsoft.com/en-us/azure/cognitive-services/bing-visual-search/).
 
 ```typescript
-import {
-  VisualSearchClient,
-  VisualSearchModels
-} from "@azure/cognitiveservices-visualsearch";
-import { CognitiveServicesCredentials } from "@azure/ms-rest-azure-js";
+import * as msRest from "@azure/ms-rest-js";
+import * as msRestNodeAuth from "@azure/ms-rest-nodeauth";
+import { VisualSearchClient, VisualSearchModels, VisualSearchMappers } from "@azure/cognitiveservices-visualsearch";
+const subscriptionId = process.env["AZURE_SUBSCRIPTION_ID"];
 
-async function main(): Promise<void> {
-  const visualSearchKey = process.env["visualSearchKey"] || "<visualSearchKey>";
-  const visualSearchEndPoint =
-    process.env["visualSearchEndPoint"] || "<visualSearchEndPoint>";
-  const cognitiveServiceCredentials = new CognitiveServicesCredentials(
-    visualSearchKey
-  );
-  const client = new VisualSearchClient(cognitiveServiceCredentials, {
-    endpoint: visualSearchEndPoint
+msRestNodeAuth.interactiveLogin().then((creds) => {
+  const client = new VisualSearchClient(creds, subscriptionId);
+  const acceptLanguage = "testacceptLanguage";
+  const contentType = "testcontentType";
+  const userAgent = "testuserAgent";
+  const clientId = "testclientId";
+  const clientIp = "testclientIp";
+  const location = "westus";
+  const market = "testmarket";
+  const safeSearch = "Off";
+  const setLang = "testsetLang";
+  const knowledgeRequest = "testknowledgeRequest";
+  const image = new require("stream").Readable();
+  client.images.visualSearch(acceptLanguage, contentType, userAgent, clientId, clientIp, location, market, safeSearch, setLang, knowledgeRequest, image).then((result) => {
+    console.log("The result is:");
+    console.log(result);
   });
-
-  const insightsToken =
-    process.env["insights_token"] || "<insights_token>";;
-
-  const knowledgeRequest = JSON.stringify({
-    imageInfo: {
-      imageInsightsToken: insightsToken
-    }
-  });
-
-  const options: VisualSearchModels.ImagesVisualSearchOptionalParams = {
-    acceptLanguage: "en-US",
-    knowledgeRequest: knowledgeRequest
-  };
-
-  client.images
-    .visualSearch(options)
-    .then(result => {
-      console.log("The result is: ");
-      console.log(result);
-    })
-    .catch(err => {
-      console.log("An error occurred:");
-      console.error(err);
-    });
-}
-
-main();
+}).catch((err) => {
+  console.error(err);
+});
 ```
 
 #### browser - Authentication, client creation and visualSearch images as an example written in JavaScript.
 
+##### Install @azure/ms-rest-browserauth
+
+```bash
+npm install @azure/ms-rest-browserauth
+```
+
 ##### Sample code
+
+See https://github.com/Azure/ms-rest-browserauth to learn how to authenticate to Azure in the browser.
 
 - index.html
 ```html
@@ -84,45 +73,39 @@ main();
   <head>
     <title>@azure/cognitiveservices-visualsearch sample</title>
     <script src="node_modules/@azure/ms-rest-js/dist/msRest.browser.js"></script>
+    <script src="node_modules/@azure/ms-rest-browserauth/dist/msAuth.js"></script>
     <script src="node_modules/@azure/cognitiveservices-visualsearch/dist/cognitiveservices-visualsearch.js"></script>
     <script type="text/javascript">
-      const visualSearchKey = "<YOUR_VISUAL_SEARCH_KEY>";
-      const visualSearchEndPoint = "<YOUR_VISUAL_SEARCH_ENDPOINT>";
-      const cognitiveServiceCredentials = new msRest.ApiKeyCredentials({
-        inHeader: {
-          "Ocp-Apim-Subscription-Key": visualSearchKey
-        }
+      const subscriptionId = "<Subscription_Id>";
+      const authManager = new msAuth.AuthManager({
+        clientId: "<client id for your Azure AD app>",
+        tenant: "<optional tenant for your organization>"
       });
-      const client = new Azure.CognitiveservicesVisualsearch.VisualSearchClient(
-        cognitiveServiceCredentials,
-        {
-          endpoint: visualSearchEndPoint
+      authManager.finalizeLogin().then((res) => {
+        if (!res.isLoggedIn) {
+          // may cause redirects
+          authManager.login();
         }
-      );
-
-      const insightsToken = "<YOUR_INSIGHTS_TOKEN>";
-
-      const knowledgeRequest = JSON.stringify({
-        imageInfo: {
-          imageInsightsToken: insightsToken
-        }
-      });
-
-      const options = {
-        acceptLanguage: "en-US",
-        knowledgeRequest: knowledgeRequest
-      };
-
-      client.images
-        .visualSearch(options)
-        .then(result => {
-          console.log("The result is: ");
+        const client = new Azure.CognitiveservicesVisualsearch.VisualSearchClient(res.creds, subscriptionId);
+        const acceptLanguage = "testacceptLanguage";
+        const contentType = "testcontentType";
+        const userAgent = "testuserAgent";
+        const clientId = "testclientId";
+        const clientIp = "testclientIp";
+        const location = "westus";
+        const market = "testmarket";
+        const safeSearch = "Off";
+        const setLang = "testsetLang";
+        const knowledgeRequest = "testknowledgeRequest";
+        const image = new ReadableStream();
+        client.images.visualSearch(acceptLanguage, contentType, userAgent, clientId, clientIp, location, market, safeSearch, setLang, knowledgeRequest, image).then((result) => {
+          console.log("The result is:");
           console.log(result);
-        })
-        .catch(err => {
+        }).catch((err) => {
           console.log("An error occurred:");
           console.error(err);
         });
+      });
     </script>
   </head>
   <body></body>
