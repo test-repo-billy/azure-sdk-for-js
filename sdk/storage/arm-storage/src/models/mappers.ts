@@ -2707,6 +2707,13 @@ export const BlobServiceProperties: msRest.CompositeMapper = {
           name: "Composite",
           className: "ChangeFeed"
         }
+      },
+      containerDeleteRetentionPolicy: {
+        serializedName: "properties.containerDeleteRetentionPolicy",
+        type: {
+          name: "Composite",
+          className: "DeleteRetentionPolicy"
+        }
       }
     }
   }
@@ -2787,6 +2794,13 @@ export const FileServiceProperties: msRest.CompositeMapper = {
         type: {
           name: "Composite",
           className: "CorsRules"
+        }
+      },
+      shareDeleteRetentionPolicy: {
+        serializedName: "properties.shareDeleteRetentionPolicy",
+        type: {
+          name: "Composite",
+          className: "DeleteRetentionPolicy"
         }
       }
     }
