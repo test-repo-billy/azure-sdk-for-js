@@ -220,9 +220,6 @@ export const RedisCreateParameters: msRest.CompositeMapper = {
       },
       staticIP: {
         serializedName: "properties.staticIP",
-        constraints: {
-          Pattern: /^\d+\.\d+\.\d+\.\d+$/
-        },
         type: {
           name: "String"
         }
@@ -467,9 +464,6 @@ export const RedisResource: msRest.CompositeMapper = {
       },
       staticIP: {
         serializedName: "properties.staticIP",
-        constraints: {
-          Pattern: /^\d+\.\d+\.\d+\.\d+$/
-        },
         type: {
           name: "String"
         }

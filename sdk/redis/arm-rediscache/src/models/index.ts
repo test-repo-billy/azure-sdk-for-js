@@ -139,8 +139,9 @@ export interface RedisCreateParameters {
    */
   subnetId?: string;
   /**
-   * Static IP address. Required when deploying a Redis cache inside an existing Azure Virtual
-   * Network.
+   * Deprecated. May optionally be used to request a specific IP address, only when deploying a
+   * Redis cache inside an Azure virtual network. We recommend you do not set this parameter, and
+   * connect using the hostname instead.
    */
   staticIP?: string;
   /**
@@ -275,8 +276,9 @@ export interface RedisResource extends TrackedResource {
    */
   subnetId?: string;
   /**
-   * Static IP address. Required when deploying a Redis cache inside an existing Azure Virtual
-   * Network.
+   * Deprecated. May optionally be used to request a specific IP address, only when deploying a
+   * Redis cache inside an Azure virtual network. We recommend you do not set this parameter, and
+   * connect using the hostname instead.
    */
   staticIP?: string;
   /**
