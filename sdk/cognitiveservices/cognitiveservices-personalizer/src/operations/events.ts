@@ -27,7 +27,8 @@ export class Events {
   }
 
   /**
-   * @summary Report reward to allocate to the top ranked action for the specified event.
+   * Report reward to allocate to the top ranked action for the specified event.
+   * @summary Post Reward.
    * @param eventId The event id this reward applies to.
    * @param rewardParameter The reward should be a floating point number.
    * @param [options] The optional parameters
@@ -59,8 +60,9 @@ export class Events {
   }
 
   /**
-   * @summary Report that the specified event was actually displayed to the user and a reward should
-   * be expected for it.
+   * Report that the specified event was actually displayed to the user and a reward should be
+   * expected for it
+   * @summary Activate Event.
    * @param eventId The event ID this activation applies to.
    * @param [options] The optional parameters
    * @returns Promise<msRest.RestResponse>
