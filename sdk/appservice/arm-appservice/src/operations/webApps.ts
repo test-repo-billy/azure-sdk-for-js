@@ -28,7 +28,7 @@ export class WebApps {
   }
 
   /**
-   * Get all apps for a subscription.
+   * Description for Get all apps for a subscription.
    * @summary Get all apps for a subscription.
    * @param [options] The optional parameters
    * @returns Promise<Models.WebAppsListResponse>
@@ -53,7 +53,7 @@ export class WebApps {
   }
 
   /**
-   * Gets all web, mobile, and API apps in the specified resource group.
+   * Description for Gets all web, mobile, and API apps in the specified resource group.
    * @summary Gets all web, mobile, and API apps in the specified resource group.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param [options] The optional parameters
@@ -82,7 +82,7 @@ export class WebApps {
   }
 
   /**
-   * Gets the details of a web, mobile, or API app.
+   * Description for Gets the details of a web, mobile, or API app.
    * @summary Gets the details of a web, mobile, or API app.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -115,7 +115,8 @@ export class WebApps {
   }
 
   /**
-   * Creates a new web, mobile, or API app in an existing resource group, or updates an existing app.
+   * Description for Creates a new web, mobile, or API app in an existing resource group, or updates
+   * an existing app.
    * @summary Creates a new web, mobile, or API app in an existing resource group, or updates an
    * existing app.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
@@ -131,7 +132,7 @@ export class WebApps {
   }
 
   /**
-   * Deletes a web, mobile, or API app, or one of the deployment slots.
+   * Description for Deletes a web, mobile, or API app, or one of the deployment slots.
    * @summary Deletes a web, mobile, or API app, or one of the deployment slots.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app to delete.
@@ -164,7 +165,8 @@ export class WebApps {
   }
 
   /**
-   * Creates a new web, mobile, or API app in an existing resource group, or updates an existing app.
+   * Description for Creates a new web, mobile, or API app in an existing resource group, or updates
+   * an existing app.
    * @summary Creates a new web, mobile, or API app in an existing resource group, or updates an
    * existing app.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
@@ -205,7 +207,7 @@ export class WebApps {
   }
 
   /**
-   * Analyze a custom hostname.
+   * Description for Analyze a custom hostname.
    * @summary Analyze a custom hostname.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of web app.
@@ -238,7 +240,7 @@ export class WebApps {
   }
 
   /**
-   * Applies the configuration settings from the target slot onto the current slot.
+   * Description for Applies the configuration settings from the target slot onto the current slot.
    * @summary Applies the configuration settings from the target slot onto the current slot.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -275,7 +277,7 @@ export class WebApps {
   }
 
   /**
-   * Creates a backup of an app.
+   * Description for Creates a backup of an app.
    * @summary Creates a backup of an app.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -315,7 +317,7 @@ export class WebApps {
   }
 
   /**
-   * Gets existing backups of an app.
+   * Description for Gets existing backups of an app.
    * @summary Gets existing backups of an app.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -348,7 +350,7 @@ export class WebApps {
   }
 
   /**
-   * Gets a backup of an app by its ID.
+   * Description for Gets a backup of an app by its ID.
    * @summary Gets a backup of an app by its ID.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -385,7 +387,7 @@ export class WebApps {
   }
 
   /**
-   * Deletes a backup of an app by its ID.
+   * Description for Deletes a backup of an app by its ID.
    * @summary Deletes a backup of an app by its ID.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -422,9 +424,9 @@ export class WebApps {
   }
 
   /**
-   * Gets status of a web app backup that may be in progress, including secrets associated with the
-   * backup, such as the Azure Storage SAS URL. Also can be used to update the SAS URL for the backup
-   * if a new URL is passed in the request body.
+   * Description for Gets status of a web app backup that may be in progress, including secrets
+   * associated with the backup, such as the Azure Storage SAS URL. Also can be used to update the
+   * SAS URL for the backup if a new URL is passed in the request body.
    * @summary Gets status of a web app backup that may be in progress, including secrets associated
    * with the backup, such as the Azure Storage SAS URL. Also can be used to update the SAS URL for
    * the backup if a new URL is passed in the request body.
@@ -467,7 +469,7 @@ export class WebApps {
   }
 
   /**
-   * Restores a specific backup to another app (or deployment slot, if specified).
+   * Description for Restores a specific backup to another app (or deployment slot, if specified).
    * @summary Restores a specific backup to another app (or deployment slot, if specified).
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -482,7 +484,7 @@ export class WebApps {
   }
 
   /**
-   * List the configurations of an app
+   * Description for List the configurations of an app
    * @summary List the configurations of an app
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -515,7 +517,7 @@ export class WebApps {
   }
 
   /**
-   * Replaces the application settings of an app.
+   * Description for Replaces the application settings of an app.
    * @summary Replaces the application settings of an app.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -552,7 +554,7 @@ export class WebApps {
   }
 
   /**
-   * Gets the application settings of an app.
+   * Description for Gets the application settings of an app.
    * @summary Gets the application settings of an app.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -585,7 +587,7 @@ export class WebApps {
   }
 
   /**
-   * Updates the Authentication / Authorization settings associated with web app.
+   * Description for Updates the Authentication / Authorization settings associated with web app.
    * @summary Updates the Authentication / Authorization settings associated with web app.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of web app.
@@ -622,7 +624,7 @@ export class WebApps {
   }
 
   /**
-   * Gets the Authentication/Authorization settings of an app.
+   * Description for Gets the Authentication/Authorization settings of an app.
    * @summary Gets the Authentication/Authorization settings of an app.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -655,7 +657,7 @@ export class WebApps {
   }
 
   /**
-   * Updates the Azure storage account configurations of an app.
+   * Description for Updates the Azure storage account configurations of an app.
    * @summary Updates the Azure storage account configurations of an app.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -692,7 +694,7 @@ export class WebApps {
   }
 
   /**
-   * Gets the Azure storage account configurations of an app.
+   * Description for Gets the Azure storage account configurations of an app.
    * @summary Gets the Azure storage account configurations of an app.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -725,7 +727,7 @@ export class WebApps {
   }
 
   /**
-   * Updates the backup configuration of an app.
+   * Description for Updates the backup configuration of an app.
    * @summary Updates the backup configuration of an app.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -762,7 +764,7 @@ export class WebApps {
   }
 
   /**
-   * Deletes the backup configuration of an app.
+   * Description for Deletes the backup configuration of an app.
    * @summary Deletes the backup configuration of an app.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -795,7 +797,7 @@ export class WebApps {
   }
 
   /**
-   * Gets the backup configuration of an app.
+   * Description for Gets the backup configuration of an app.
    * @summary Gets the backup configuration of an app.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -828,7 +830,77 @@ export class WebApps {
   }
 
   /**
-   * Replaces the connection strings of an app.
+   * Description for Gets the config reference app settings and status of an app
+   * @summary Gets the config reference app settings and status of an app
+   * @param resourceGroupName Name of the resource group to which the resource belongs.
+   * @param name Name of the app.
+   * @param [options] The optional parameters
+   * @returns Promise<Models.WebAppsGetAppSettingsKeyVaultReferencesResponse>
+   */
+  getAppSettingsKeyVaultReferences(resourceGroupName: string, name: string, options?: msRest.RequestOptionsBase): Promise<Models.WebAppsGetAppSettingsKeyVaultReferencesResponse>;
+  /**
+   * @param resourceGroupName Name of the resource group to which the resource belongs.
+   * @param name Name of the app.
+   * @param callback The callback
+   */
+  getAppSettingsKeyVaultReferences(resourceGroupName: string, name: string, callback: msRest.ServiceCallback<Models.KeyVaultReferenceCollection>): void;
+  /**
+   * @param resourceGroupName Name of the resource group to which the resource belongs.
+   * @param name Name of the app.
+   * @param options The optional parameters
+   * @param callback The callback
+   */
+  getAppSettingsKeyVaultReferences(resourceGroupName: string, name: string, options: msRest.RequestOptionsBase, callback: msRest.ServiceCallback<Models.KeyVaultReferenceCollection>): void;
+  getAppSettingsKeyVaultReferences(resourceGroupName: string, name: string, options?: msRest.RequestOptionsBase | msRest.ServiceCallback<Models.KeyVaultReferenceCollection>, callback?: msRest.ServiceCallback<Models.KeyVaultReferenceCollection>): Promise<Models.WebAppsGetAppSettingsKeyVaultReferencesResponse> {
+    return this.client.sendOperationRequest(
+      {
+        resourceGroupName,
+        name,
+        options
+      },
+      getAppSettingsKeyVaultReferencesOperationSpec,
+      callback) as Promise<Models.WebAppsGetAppSettingsKeyVaultReferencesResponse>;
+  }
+
+  /**
+   * Description for Gets the config reference and status of an app
+   * @summary Gets the config reference and status of an app
+   * @param resourceGroupName Name of the resource group to which the resource belongs.
+   * @param name Name of the app.
+   * @param appSettingKey App Setting key name.
+   * @param [options] The optional parameters
+   * @returns Promise<Models.WebAppsGetAppSettingKeyVaultReferenceResponse>
+   */
+  getAppSettingKeyVaultReference(resourceGroupName: string, name: string, appSettingKey: string, options?: msRest.RequestOptionsBase): Promise<Models.WebAppsGetAppSettingKeyVaultReferenceResponse>;
+  /**
+   * @param resourceGroupName Name of the resource group to which the resource belongs.
+   * @param name Name of the app.
+   * @param appSettingKey App Setting key name.
+   * @param callback The callback
+   */
+  getAppSettingKeyVaultReference(resourceGroupName: string, name: string, appSettingKey: string, callback: msRest.ServiceCallback<Models.KeyVaultReferenceResource>): void;
+  /**
+   * @param resourceGroupName Name of the resource group to which the resource belongs.
+   * @param name Name of the app.
+   * @param appSettingKey App Setting key name.
+   * @param options The optional parameters
+   * @param callback The callback
+   */
+  getAppSettingKeyVaultReference(resourceGroupName: string, name: string, appSettingKey: string, options: msRest.RequestOptionsBase, callback: msRest.ServiceCallback<Models.KeyVaultReferenceResource>): void;
+  getAppSettingKeyVaultReference(resourceGroupName: string, name: string, appSettingKey: string, options?: msRest.RequestOptionsBase | msRest.ServiceCallback<Models.KeyVaultReferenceResource>, callback?: msRest.ServiceCallback<Models.KeyVaultReferenceResource>): Promise<Models.WebAppsGetAppSettingKeyVaultReferenceResponse> {
+    return this.client.sendOperationRequest(
+      {
+        resourceGroupName,
+        name,
+        appSettingKey,
+        options
+      },
+      getAppSettingKeyVaultReferenceOperationSpec,
+      callback) as Promise<Models.WebAppsGetAppSettingKeyVaultReferenceResponse>;
+  }
+
+  /**
+   * Description for Replaces the connection strings of an app.
    * @summary Replaces the connection strings of an app.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -865,7 +937,7 @@ export class WebApps {
   }
 
   /**
-   * Gets the connection strings of an app.
+   * Description for Gets the connection strings of an app.
    * @summary Gets the connection strings of an app.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -898,7 +970,7 @@ export class WebApps {
   }
 
   /**
-   * Gets the logging configuration of an app.
+   * Description for Gets the logging configuration of an app.
    * @summary Gets the logging configuration of an app.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -931,7 +1003,7 @@ export class WebApps {
   }
 
   /**
-   * Updates the logging configuration of an app.
+   * Description for Updates the logging configuration of an app.
    * @summary Updates the logging configuration of an app.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -971,7 +1043,7 @@ export class WebApps {
   }
 
   /**
-   * Replaces the metadata of an app.
+   * Description for Replaces the metadata of an app.
    * @summary Replaces the metadata of an app.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -1008,7 +1080,7 @@ export class WebApps {
   }
 
   /**
-   * Gets the metadata of an app.
+   * Description for Gets the metadata of an app.
    * @summary Gets the metadata of an app.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -1041,7 +1113,7 @@ export class WebApps {
   }
 
   /**
-   * Gets the Git/FTP publishing credentials of an app.
+   * Description for Gets the Git/FTP publishing credentials of an app.
    * @summary Gets the Git/FTP publishing credentials of an app.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -1054,7 +1126,7 @@ export class WebApps {
   }
 
   /**
-   * Updates the Push settings associated with web app.
+   * Description for Updates the Push settings associated with web app.
    * @summary Updates the Push settings associated with web app.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of web app.
@@ -1091,7 +1163,7 @@ export class WebApps {
   }
 
   /**
-   * Gets the Push settings associated with web app.
+   * Description for Gets the Push settings associated with web app.
    * @summary Gets the Push settings associated with web app.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of web app.
@@ -1124,7 +1196,8 @@ export class WebApps {
   }
 
   /**
-   * Gets the names of app settings and connection strings that stick to the slot (not swapped).
+   * Description for Gets the names of app settings and connection strings that stick to the slot
+   * (not swapped).
    * @summary Gets the names of app settings and connection strings that stick to the slot (not
    * swapped).
    * @param resourceGroupName Name of the resource group to which the resource belongs.
@@ -1158,8 +1231,8 @@ export class WebApps {
   }
 
   /**
-   * Updates the names of application settings and connection string that remain with the slot during
-   * swap operation.
+   * Description for Updates the names of application settings and connection string that remain with
+   * the slot during swap operation.
    * @summary Updates the names of application settings and connection string that remain with the
    * slot during swap operation.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
@@ -1197,8 +1270,8 @@ export class WebApps {
   }
 
   /**
-   * Gets the configuration of an app, such as platform version and bitness, default documents,
-   * virtual applications, Always On, etc.
+   * Description for Gets the configuration of an app, such as platform version and bitness, default
+   * documents, virtual applications, Always On, etc.
    * @summary Gets the configuration of an app, such as platform version and bitness, default
    * documents, virtual applications, Always On, etc.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
@@ -1232,7 +1305,7 @@ export class WebApps {
   }
 
   /**
-   * Updates the configuration of an app.
+   * Description for Updates the configuration of an app.
    * @summary Updates the configuration of an app.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -1269,7 +1342,7 @@ export class WebApps {
   }
 
   /**
-   * Updates the configuration of an app.
+   * Description for Updates the configuration of an app.
    * @summary Updates the configuration of an app.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -1306,8 +1379,8 @@ export class WebApps {
   }
 
   /**
-   * Gets a list of web app configuration snapshots identifiers. Each element of the list contains a
-   * timestamp and the ID of the snapshot.
+   * Description for Gets a list of web app configuration snapshots identifiers. Each element of the
+   * list contains a timestamp and the ID of the snapshot.
    * @summary Gets a list of web app configuration snapshots identifiers. Each element of the list
    * contains a timestamp and the ID of the snapshot.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
@@ -1341,7 +1414,7 @@ export class WebApps {
   }
 
   /**
-   * Gets a snapshot of the configuration of an app at a previous point in time.
+   * Description for Gets a snapshot of the configuration of an app at a previous point in time.
    * @summary Gets a snapshot of the configuration of an app at a previous point in time.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -1378,7 +1451,7 @@ export class WebApps {
   }
 
   /**
-   * Reverts the configuration of an app to a previous snapshot.
+   * Description for Reverts the configuration of an app to a previous snapshot.
    * @summary Reverts the configuration of an app to a previous snapshot.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -1415,7 +1488,7 @@ export class WebApps {
   }
 
   /**
-   * Gets the last lines of docker logs for the given site
+   * Description for Gets the last lines of docker logs for the given site
    * @summary Gets the last lines of docker logs for the given site
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of web app.
@@ -1448,7 +1521,7 @@ export class WebApps {
   }
 
   /**
-   * Gets the ZIP archived docker log files for the given site
+   * Description for Gets the ZIP archived docker log files for the given site
    * @summary Gets the ZIP archived docker log files for the given site
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of web app.
@@ -1481,7 +1554,7 @@ export class WebApps {
   }
 
   /**
-   * List continuous web jobs for an app, or a deployment slot.
+   * Description for List continuous web jobs for an app, or a deployment slot.
    * @summary List continuous web jobs for an app, or a deployment slot.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Site name.
@@ -1514,7 +1587,7 @@ export class WebApps {
   }
 
   /**
-   * Gets a continuous web job by its ID for an app, or a deployment slot.
+   * Description for Gets a continuous web job by its ID for an app, or a deployment slot.
    * @summary Gets a continuous web job by its ID for an app, or a deployment slot.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Site name.
@@ -1551,7 +1624,7 @@ export class WebApps {
   }
 
   /**
-   * Delete a continuous web job by its ID for an app, or a deployment slot.
+   * Description for Delete a continuous web job by its ID for an app, or a deployment slot.
    * @summary Delete a continuous web job by its ID for an app, or a deployment slot.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Site name.
@@ -1588,7 +1661,7 @@ export class WebApps {
   }
 
   /**
-   * Start a continuous web job for an app, or a deployment slot.
+   * Description for Start a continuous web job for an app, or a deployment slot.
    * @summary Start a continuous web job for an app, or a deployment slot.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Site name.
@@ -1625,7 +1698,7 @@ export class WebApps {
   }
 
   /**
-   * Stop a continuous web job for an app, or a deployment slot.
+   * Description for Stop a continuous web job for an app, or a deployment slot.
    * @summary Stop a continuous web job for an app, or a deployment slot.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Site name.
@@ -1662,7 +1735,7 @@ export class WebApps {
   }
 
   /**
-   * List deployments for an app, or a deployment slot.
+   * Description for List deployments for an app, or a deployment slot.
    * @summary List deployments for an app, or a deployment slot.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -1695,7 +1768,7 @@ export class WebApps {
   }
 
   /**
-   * Get a deployment by its ID for an app, or a deployment slot.
+   * Description for Get a deployment by its ID for an app, or a deployment slot.
    * @summary Get a deployment by its ID for an app, or a deployment slot.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -1732,7 +1805,7 @@ export class WebApps {
   }
 
   /**
-   * Create a deployment for an app, or a deployment slot.
+   * Description for Create a deployment for an app, or a deployment slot.
    * @summary Create a deployment for an app, or a deployment slot.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -1773,7 +1846,7 @@ export class WebApps {
   }
 
   /**
-   * Delete a deployment by its ID for an app, or a deployment slot.
+   * Description for Delete a deployment by its ID for an app, or a deployment slot.
    * @summary Delete a deployment by its ID for an app, or a deployment slot.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -1810,7 +1883,7 @@ export class WebApps {
   }
 
   /**
-   * List deployment log for specific deployment for an app, or a deployment slot.
+   * Description for List deployment log for specific deployment for an app, or a deployment slot.
    * @summary List deployment log for specific deployment for an app, or a deployment slot.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -1850,8 +1923,8 @@ export class WebApps {
   }
 
   /**
-   * Discovers an existing app backup that can be restored from a blob in Azure storage. Use this to
-   * get information about the databases stored in a backup.
+   * Description for Discovers an existing app backup that can be restored from a blob in Azure
+   * storage. Use this to get information about the databases stored in a backup.
    * @summary Discovers an existing app backup that can be restored from a blob in Azure storage. Use
    * this to get information about the databases stored in a backup.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
@@ -1892,7 +1965,7 @@ export class WebApps {
   }
 
   /**
-   * Lists ownership identifiers for domain associated with web app.
+   * Description for Lists ownership identifiers for domain associated with web app.
    * @summary Lists ownership identifiers for domain associated with web app.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -1925,7 +1998,7 @@ export class WebApps {
   }
 
   /**
-   * Get domain ownership identifier for web app.
+   * Description for Get domain ownership identifier for web app.
    * @summary Get domain ownership identifier for web app.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -1962,7 +2035,8 @@ export class WebApps {
   }
 
   /**
-   * Creates a domain ownership identifier for web app, or updates an existing ownership identifier.
+   * Description for Creates a domain ownership identifier for web app, or updates an existing
+   * ownership identifier.
    * @summary Creates a domain ownership identifier for web app, or updates an existing ownership
    * identifier.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
@@ -2004,7 +2078,7 @@ export class WebApps {
   }
 
   /**
-   * Deletes a domain ownership identifier for a web app.
+   * Description for Deletes a domain ownership identifier for a web app.
    * @summary Deletes a domain ownership identifier for a web app.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -2041,7 +2115,8 @@ export class WebApps {
   }
 
   /**
-   * Creates a domain ownership identifier for web app, or updates an existing ownership identifier.
+   * Description for Creates a domain ownership identifier for web app, or updates an existing
+   * ownership identifier.
    * @summary Creates a domain ownership identifier for web app, or updates an existing ownership
    * identifier.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
@@ -2083,7 +2158,7 @@ export class WebApps {
   }
 
   /**
-   * Get the status of the last MSDeploy operation.
+   * Description for Get the status of the last MSDeploy operation.
    * @summary Get the status of the last MSDeploy operation.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of web app.
@@ -2116,7 +2191,7 @@ export class WebApps {
   }
 
   /**
-   * Invoke the MSDeploy web app extension.
+   * Description for Invoke the MSDeploy web app extension.
    * @summary Invoke the MSDeploy web app extension.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of web app.
@@ -2130,7 +2205,7 @@ export class WebApps {
   }
 
   /**
-   * Get the MSDeploy Log for the last MSDeploy operation.
+   * Description for Get the MSDeploy Log for the last MSDeploy operation.
    * @summary Get the MSDeploy Log for the last MSDeploy operation.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of web app.
@@ -2163,7 +2238,7 @@ export class WebApps {
   }
 
   /**
-   * List the functions for a web site, or a deployment slot.
+   * Description for List the functions for a web site, or a deployment slot.
    * @summary List the functions for a web site, or a deployment slot.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Site name.
@@ -2196,7 +2271,7 @@ export class WebApps {
   }
 
   /**
-   * Fetch a short lived token that can be exchanged for a master key.
+   * Description for Fetch a short lived token that can be exchanged for a master key.
    * @summary Fetch a short lived token that can be exchanged for a master key.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of web app.
@@ -2229,7 +2304,7 @@ export class WebApps {
   }
 
   /**
-   * Get function information by its ID for web site, or a deployment slot.
+   * Description for Get function information by its ID for web site, or a deployment slot.
    * @summary Get function information by its ID for web site, or a deployment slot.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Site name.
@@ -2266,7 +2341,7 @@ export class WebApps {
   }
 
   /**
-   * Create function for web site, or a deployment slot.
+   * Description for Create function for web site, or a deployment slot.
    * @summary Create function for web site, or a deployment slot.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Site name.
@@ -2281,7 +2356,7 @@ export class WebApps {
   }
 
   /**
-   * Delete a function for web site, or a deployment slot.
+   * Description for Delete a function for web site, or a deployment slot.
    * @summary Delete a function for web site, or a deployment slot.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Site name.
@@ -2318,7 +2393,7 @@ export class WebApps {
   }
 
   /**
-   * Get function secrets for a function in a web site, or a deployment slot.
+   * Description for Get function secrets for a function in a web site, or a deployment slot.
    * @summary Get function secrets for a function in a web site, or a deployment slot.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Site name.
@@ -2355,7 +2430,7 @@ export class WebApps {
   }
 
   /**
-   * Get hostname bindings for an app or a deployment slot.
+   * Description for Get hostname bindings for an app or a deployment slot.
    * @summary Get hostname bindings for an app or a deployment slot.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -2388,7 +2463,7 @@ export class WebApps {
   }
 
   /**
-   * Get the named hostname binding for an app (or deployment slot, if specified).
+   * Description for Get the named hostname binding for an app (or deployment slot, if specified).
    * @summary Get the named hostname binding for an app (or deployment slot, if specified).
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -2425,7 +2500,7 @@ export class WebApps {
   }
 
   /**
-   * Creates a hostname binding for an app.
+   * Description for Creates a hostname binding for an app.
    * @summary Creates a hostname binding for an app.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -2469,7 +2544,7 @@ export class WebApps {
   }
 
   /**
-   * Deletes a hostname binding for an app.
+   * Description for Deletes a hostname binding for an app.
    * @summary Deletes a hostname binding for an app.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -2506,7 +2581,7 @@ export class WebApps {
   }
 
   /**
-   * Retrieves a specific Service Bus Hybrid Connection used by this Web App.
+   * Description for Retrieves a specific Service Bus Hybrid Connection used by this Web App.
    * @summary Retrieves a specific Service Bus Hybrid Connection used by this Web App.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name The name of the web app.
@@ -2547,7 +2622,7 @@ export class WebApps {
   }
 
   /**
-   * Creates a new Hybrid Connection using a Service Bus relay.
+   * Description for Creates a new Hybrid Connection using a Service Bus relay.
    * @summary Creates a new Hybrid Connection using a Service Bus relay.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name The name of the web app.
@@ -2592,7 +2667,7 @@ export class WebApps {
   }
 
   /**
-   * Removes a Hybrid Connection from this site.
+   * Description for Removes a Hybrid Connection from this site.
    * @summary Removes a Hybrid Connection from this site.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name The name of the web app.
@@ -2633,7 +2708,7 @@ export class WebApps {
   }
 
   /**
-   * Creates a new Hybrid Connection using a Service Bus relay.
+   * Description for Creates a new Hybrid Connection using a Service Bus relay.
    * @summary Creates a new Hybrid Connection using a Service Bus relay.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name The name of the web app.
@@ -2678,48 +2753,7 @@ export class WebApps {
   }
 
   /**
-   * Gets the send key name and value for a Hybrid Connection.
-   * @summary Gets the send key name and value for a Hybrid Connection.
-   * @param resourceGroupName Name of the resource group to which the resource belongs.
-   * @param name The name of the web app.
-   * @param namespaceName The namespace for this hybrid connection.
-   * @param relayName The relay name for this hybrid connection.
-   * @param [options] The optional parameters
-   * @returns Promise<Models.WebAppsListHybridConnectionKeysResponse>
-   */
-  listHybridConnectionKeys(resourceGroupName: string, name: string, namespaceName: string, relayName: string, options?: msRest.RequestOptionsBase): Promise<Models.WebAppsListHybridConnectionKeysResponse>;
-  /**
-   * @param resourceGroupName Name of the resource group to which the resource belongs.
-   * @param name The name of the web app.
-   * @param namespaceName The namespace for this hybrid connection.
-   * @param relayName The relay name for this hybrid connection.
-   * @param callback The callback
-   */
-  listHybridConnectionKeys(resourceGroupName: string, name: string, namespaceName: string, relayName: string, callback: msRest.ServiceCallback<Models.HybridConnectionKey>): void;
-  /**
-   * @param resourceGroupName Name of the resource group to which the resource belongs.
-   * @param name The name of the web app.
-   * @param namespaceName The namespace for this hybrid connection.
-   * @param relayName The relay name for this hybrid connection.
-   * @param options The optional parameters
-   * @param callback The callback
-   */
-  listHybridConnectionKeys(resourceGroupName: string, name: string, namespaceName: string, relayName: string, options: msRest.RequestOptionsBase, callback: msRest.ServiceCallback<Models.HybridConnectionKey>): void;
-  listHybridConnectionKeys(resourceGroupName: string, name: string, namespaceName: string, relayName: string, options?: msRest.RequestOptionsBase | msRest.ServiceCallback<Models.HybridConnectionKey>, callback?: msRest.ServiceCallback<Models.HybridConnectionKey>): Promise<Models.WebAppsListHybridConnectionKeysResponse> {
-    return this.client.sendOperationRequest(
-      {
-        resourceGroupName,
-        name,
-        namespaceName,
-        relayName,
-        options
-      },
-      listHybridConnectionKeysOperationSpec,
-      callback) as Promise<Models.WebAppsListHybridConnectionKeysResponse>;
-  }
-
-  /**
-   * Retrieves all Service Bus Hybrid Connections used by this Web App.
+   * Description for Retrieves all Service Bus Hybrid Connections used by this Web App.
    * @summary Retrieves all Service Bus Hybrid Connections used by this Web App.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name The name of the web app.
@@ -2752,7 +2786,8 @@ export class WebApps {
   }
 
   /**
-   * Gets hybrid connections configured for an app (or deployment slot, if specified).
+   * Description for Gets hybrid connections configured for an app (or deployment slot, if
+   * specified).
    * @summary Gets hybrid connections configured for an app (or deployment slot, if specified).
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -2785,7 +2820,7 @@ export class WebApps {
   }
 
   /**
-   * Gets a hybrid connection configuration by its name.
+   * Description for Gets a hybrid connection configuration by its name.
    * @summary Gets a hybrid connection configuration by its name.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -2822,7 +2857,8 @@ export class WebApps {
   }
 
   /**
-   * Creates a new hybrid connection configuration (PUT), or updates an existing one (PATCH).
+   * Description for Creates a new hybrid connection configuration (PUT), or updates an existing one
+   * (PATCH).
    * @summary Creates a new hybrid connection configuration (PUT), or updates an existing one
    * (PATCH).
    * @param resourceGroupName Name of the resource group to which the resource belongs.
@@ -2864,7 +2900,7 @@ export class WebApps {
   }
 
   /**
-   * Deletes a relay service connection by its name.
+   * Description for Deletes a relay service connection by its name.
    * @summary Deletes a relay service connection by its name.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -2901,7 +2937,8 @@ export class WebApps {
   }
 
   /**
-   * Creates a new hybrid connection configuration (PUT), or updates an existing one (PATCH).
+   * Description for Creates a new hybrid connection configuration (PUT), or updates an existing one
+   * (PATCH).
    * @summary Creates a new hybrid connection configuration (PUT), or updates an existing one
    * (PATCH).
    * @param resourceGroupName Name of the resource group to which the resource belongs.
@@ -2943,7 +2980,7 @@ export class WebApps {
   }
 
   /**
-   * Gets all scale-out instances of an app.
+   * Description for Gets all scale-out instances of an app.
    * @summary Gets all scale-out instances of an app.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -2976,7 +3013,44 @@ export class WebApps {
   }
 
   /**
-   * Get the status of the last MSDeploy operation.
+   * Description for Gets all scale-out instances of an app.
+   * @summary Gets all scale-out instances of an app.
+   * @param resourceGroupName Name of the resource group to which the resource belongs.
+   * @param name Name of the app.
+   * @param instanceId
+   * @param [options] The optional parameters
+   * @returns Promise<Models.WebAppsGetInstanceInfoResponse>
+   */
+  getInstanceInfo(resourceGroupName: string, name: string, instanceId: string, options?: msRest.RequestOptionsBase): Promise<Models.WebAppsGetInstanceInfoResponse>;
+  /**
+   * @param resourceGroupName Name of the resource group to which the resource belongs.
+   * @param name Name of the app.
+   * @param instanceId
+   * @param callback The callback
+   */
+  getInstanceInfo(resourceGroupName: string, name: string, instanceId: string, callback: msRest.ServiceCallback<Models.WebSiteInstanceStatus>): void;
+  /**
+   * @param resourceGroupName Name of the resource group to which the resource belongs.
+   * @param name Name of the app.
+   * @param instanceId
+   * @param options The optional parameters
+   * @param callback The callback
+   */
+  getInstanceInfo(resourceGroupName: string, name: string, instanceId: string, options: msRest.RequestOptionsBase, callback: msRest.ServiceCallback<Models.WebSiteInstanceStatus>): void;
+  getInstanceInfo(resourceGroupName: string, name: string, instanceId: string, options?: msRest.RequestOptionsBase | msRest.ServiceCallback<Models.WebSiteInstanceStatus>, callback?: msRest.ServiceCallback<Models.WebSiteInstanceStatus>): Promise<Models.WebAppsGetInstanceInfoResponse> {
+    return this.client.sendOperationRequest(
+      {
+        resourceGroupName,
+        name,
+        instanceId,
+        options
+      },
+      getInstanceInfoOperationSpec,
+      callback) as Promise<Models.WebAppsGetInstanceInfoResponse>;
+  }
+
+  /**
+   * Description for Get the status of the last MSDeploy operation.
    * @summary Get the status of the last MSDeploy operation.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of web app.
@@ -3013,7 +3087,7 @@ export class WebApps {
   }
 
   /**
-   * Invoke the MSDeploy web app extension.
+   * Description for Invoke the MSDeploy web app extension.
    * @summary Invoke the MSDeploy web app extension.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of web app.
@@ -3028,7 +3102,7 @@ export class WebApps {
   }
 
   /**
-   * Get the MSDeploy Log for the last MSDeploy operation.
+   * Description for Get the MSDeploy Log for the last MSDeploy operation.
    * @summary Get the MSDeploy Log for the last MSDeploy operation.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of web app.
@@ -3065,8 +3139,8 @@ export class WebApps {
   }
 
   /**
-   * Get list of processes for a web site, or a deployment slot, or for a specific scaled-out
-   * instance in a web site.
+   * Description for Get list of processes for a web site, or a deployment slot, or for a specific
+   * scaled-out instance in a web site.
    * @summary Get list of processes for a web site, or a deployment slot, or for a specific
    * scaled-out instance in a web site.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
@@ -3107,7 +3181,8 @@ export class WebApps {
   }
 
   /**
-   * Get process information by its ID for a specific scaled-out instance in a web site.
+   * Description for Get process information by its ID for a specific scaled-out instance in a web
+   * site.
    * @summary Get process information by its ID for a specific scaled-out instance in a web site.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Site name.
@@ -3151,8 +3226,8 @@ export class WebApps {
   }
 
   /**
-   * Terminate a process by its ID for a web site, or a deployment slot, or specific scaled-out
-   * instance in a web site.
+   * Description for Terminate a process by its ID for a web site, or a deployment slot, or specific
+   * scaled-out instance in a web site.
    * @summary Terminate a process by its ID for a web site, or a deployment slot, or specific
    * scaled-out instance in a web site.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
@@ -3197,7 +3272,8 @@ export class WebApps {
   }
 
   /**
-   * Get a memory dump of a process by its ID for a specific scaled-out instance in a web site.
+   * Description for Get a memory dump of a process by its ID for a specific scaled-out instance in a
+   * web site.
    * @summary Get a memory dump of a process by its ID for a specific scaled-out instance in a web
    * site.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
@@ -3242,8 +3318,8 @@ export class WebApps {
   }
 
   /**
-   * List module information for a process by its ID for a specific scaled-out instance in a web
-   * site.
+   * Description for List module information for a process by its ID for a specific scaled-out
+   * instance in a web site.
    * @summary List module information for a process by its ID for a specific scaled-out instance in a
    * web site.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
@@ -3288,7 +3364,8 @@ export class WebApps {
   }
 
   /**
-   * Get process information by its ID for a specific scaled-out instance in a web site.
+   * Description for Get process information by its ID for a specific scaled-out instance in a web
+   * site.
    * @summary Get process information by its ID for a specific scaled-out instance in a web site.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Site name.
@@ -3336,7 +3413,8 @@ export class WebApps {
   }
 
   /**
-   * List the threads in a process by its ID for a specific scaled-out instance in a web site.
+   * Description for List the threads in a process by its ID for a specific scaled-out instance in a
+   * web site.
    * @summary List the threads in a process by its ID for a specific scaled-out instance in a web
    * site.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
@@ -3381,57 +3459,7 @@ export class WebApps {
   }
 
   /**
-   * Get thread information by Thread ID for a specific process, in a specific scaled-out instance in
-   * a web site.
-   * @summary Get thread information by Thread ID for a specific process, in a specific scaled-out
-   * instance in a web site.
-   * @param resourceGroupName Name of the resource group to which the resource belongs.
-   * @param name Site name.
-   * @param processId PID.
-   * @param threadId TID.
-   * @param instanceId ID of a specific scaled-out instance. This is the value of the name property
-   * in the JSON response from "GET api/sites/{siteName}/instances".
-   * @param [options] The optional parameters
-   * @returns Promise<Models.WebAppsGetInstanceProcessThreadResponse>
-   */
-  getInstanceProcessThread(resourceGroupName: string, name: string, processId: string, threadId: string, instanceId: string, options?: msRest.RequestOptionsBase): Promise<Models.WebAppsGetInstanceProcessThreadResponse>;
-  /**
-   * @param resourceGroupName Name of the resource group to which the resource belongs.
-   * @param name Site name.
-   * @param processId PID.
-   * @param threadId TID.
-   * @param instanceId ID of a specific scaled-out instance. This is the value of the name property
-   * in the JSON response from "GET api/sites/{siteName}/instances".
-   * @param callback The callback
-   */
-  getInstanceProcessThread(resourceGroupName: string, name: string, processId: string, threadId: string, instanceId: string, callback: msRest.ServiceCallback<Models.ProcessThreadInfo>): void;
-  /**
-   * @param resourceGroupName Name of the resource group to which the resource belongs.
-   * @param name Site name.
-   * @param processId PID.
-   * @param threadId TID.
-   * @param instanceId ID of a specific scaled-out instance. This is the value of the name property
-   * in the JSON response from "GET api/sites/{siteName}/instances".
-   * @param options The optional parameters
-   * @param callback The callback
-   */
-  getInstanceProcessThread(resourceGroupName: string, name: string, processId: string, threadId: string, instanceId: string, options: msRest.RequestOptionsBase, callback: msRest.ServiceCallback<Models.ProcessThreadInfo>): void;
-  getInstanceProcessThread(resourceGroupName: string, name: string, processId: string, threadId: string, instanceId: string, options?: msRest.RequestOptionsBase | msRest.ServiceCallback<Models.ProcessThreadInfo>, callback?: msRest.ServiceCallback<Models.ProcessThreadInfo>): Promise<Models.WebAppsGetInstanceProcessThreadResponse> {
-    return this.client.sendOperationRequest(
-      {
-        resourceGroupName,
-        name,
-        processId,
-        threadId,
-        instanceId,
-        options
-      },
-      getInstanceProcessThreadOperationSpec,
-      callback) as Promise<Models.WebAppsGetInstanceProcessThreadResponse>;
-  }
-
-  /**
-   * Shows whether an app can be cloned to another resource group or subscription.
+   * Description for Shows whether an app can be cloned to another resource group or subscription.
    * @summary Shows whether an app can be cloned to another resource group or subscription.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -3464,7 +3492,40 @@ export class WebApps {
   }
 
   /**
-   * This is to allow calling via powershell and ARM template.
+   * Description for Gets existing backups of an app.
+   * @summary Gets existing backups of an app.
+   * @param resourceGroupName Name of the resource group to which the resource belongs.
+   * @param name Name of the app.
+   * @param [options] The optional parameters
+   * @returns Promise<Models.WebAppsListSiteBackupsResponse>
+   */
+  listSiteBackups(resourceGroupName: string, name: string, options?: msRest.RequestOptionsBase): Promise<Models.WebAppsListSiteBackupsResponse>;
+  /**
+   * @param resourceGroupName Name of the resource group to which the resource belongs.
+   * @param name Name of the app.
+   * @param callback The callback
+   */
+  listSiteBackups(resourceGroupName: string, name: string, callback: msRest.ServiceCallback<Models.BackupItemCollection>): void;
+  /**
+   * @param resourceGroupName Name of the resource group to which the resource belongs.
+   * @param name Name of the app.
+   * @param options The optional parameters
+   * @param callback The callback
+   */
+  listSiteBackups(resourceGroupName: string, name: string, options: msRest.RequestOptionsBase, callback: msRest.ServiceCallback<Models.BackupItemCollection>): void;
+  listSiteBackups(resourceGroupName: string, name: string, options?: msRest.RequestOptionsBase | msRest.ServiceCallback<Models.BackupItemCollection>, callback?: msRest.ServiceCallback<Models.BackupItemCollection>): Promise<Models.WebAppsListSiteBackupsResponse> {
+    return this.client.sendOperationRequest(
+      {
+        resourceGroupName,
+        name,
+        options
+      },
+      listSiteBackupsOperationSpec,
+      callback) as Promise<Models.WebAppsListSiteBackupsResponse>;
+  }
+
+  /**
+   * Description for This is to allow calling via powershell and ARM template.
    * @summary This is to allow calling via powershell and ARM template.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -3497,73 +3558,7 @@ export class WebApps {
   }
 
   /**
-   * Gets all metric definitions of an app (or deployment slot, if specified).
-   * @summary Gets all metric definitions of an app (or deployment slot, if specified).
-   * @param resourceGroupName Name of the resource group to which the resource belongs.
-   * @param name Name of the app.
-   * @param [options] The optional parameters
-   * @returns Promise<Models.WebAppsListMetricDefinitionsResponse>
-   */
-  listMetricDefinitions(resourceGroupName: string, name: string, options?: msRest.RequestOptionsBase): Promise<Models.WebAppsListMetricDefinitionsResponse>;
-  /**
-   * @param resourceGroupName Name of the resource group to which the resource belongs.
-   * @param name Name of the app.
-   * @param callback The callback
-   */
-  listMetricDefinitions(resourceGroupName: string, name: string, callback: msRest.ServiceCallback<Models.ResourceMetricDefinitionCollection>): void;
-  /**
-   * @param resourceGroupName Name of the resource group to which the resource belongs.
-   * @param name Name of the app.
-   * @param options The optional parameters
-   * @param callback The callback
-   */
-  listMetricDefinitions(resourceGroupName: string, name: string, options: msRest.RequestOptionsBase, callback: msRest.ServiceCallback<Models.ResourceMetricDefinitionCollection>): void;
-  listMetricDefinitions(resourceGroupName: string, name: string, options?: msRest.RequestOptionsBase | msRest.ServiceCallback<Models.ResourceMetricDefinitionCollection>, callback?: msRest.ServiceCallback<Models.ResourceMetricDefinitionCollection>): Promise<Models.WebAppsListMetricDefinitionsResponse> {
-    return this.client.sendOperationRequest(
-      {
-        resourceGroupName,
-        name,
-        options
-      },
-      listMetricDefinitionsOperationSpec,
-      callback) as Promise<Models.WebAppsListMetricDefinitionsResponse>;
-  }
-
-  /**
-   * Gets performance metrics of an app (or deployment slot, if specified).
-   * @summary Gets performance metrics of an app (or deployment slot, if specified).
-   * @param resourceGroupName Name of the resource group to which the resource belongs.
-   * @param name Name of the app.
-   * @param [options] The optional parameters
-   * @returns Promise<Models.WebAppsListMetricsResponse>
-   */
-  listMetrics(resourceGroupName: string, name: string, options?: Models.WebAppsListMetricsOptionalParams): Promise<Models.WebAppsListMetricsResponse>;
-  /**
-   * @param resourceGroupName Name of the resource group to which the resource belongs.
-   * @param name Name of the app.
-   * @param callback The callback
-   */
-  listMetrics(resourceGroupName: string, name: string, callback: msRest.ServiceCallback<Models.ResourceMetricCollection>): void;
-  /**
-   * @param resourceGroupName Name of the resource group to which the resource belongs.
-   * @param name Name of the app.
-   * @param options The optional parameters
-   * @param callback The callback
-   */
-  listMetrics(resourceGroupName: string, name: string, options: Models.WebAppsListMetricsOptionalParams, callback: msRest.ServiceCallback<Models.ResourceMetricCollection>): void;
-  listMetrics(resourceGroupName: string, name: string, options?: Models.WebAppsListMetricsOptionalParams | msRest.ServiceCallback<Models.ResourceMetricCollection>, callback?: msRest.ServiceCallback<Models.ResourceMetricCollection>): Promise<Models.WebAppsListMetricsResponse> {
-    return this.client.sendOperationRequest(
-      {
-        resourceGroupName,
-        name,
-        options
-      },
-      listMetricsOperationSpec,
-      callback) as Promise<Models.WebAppsListMetricsResponse>;
-  }
-
-  /**
-   * Restores a web app.
+   * Description for Restores a web app.
    * @summary Restores a web app.
    * @param subscriptionName Azure subscription.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
@@ -3578,7 +3573,7 @@ export class WebApps {
   }
 
   /**
-   * Migrates a local (in-app) MySql database to a remote MySql database.
+   * Description for Migrates a local (in-app) MySql database to a remote MySql database.
    * @summary Migrates a local (in-app) MySql database to a remote MySql database.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of web app.
@@ -3592,8 +3587,8 @@ export class WebApps {
   }
 
   /**
-   * Returns the status of MySql in app migration, if one is active, and whether or not MySql in app
-   * is enabled
+   * Description for Returns the status of MySql in app migration, if one is active, and whether or
+   * not MySql in app is enabled
    * @summary Returns the status of MySql in app migration, if one is active, and whether or not
    * MySql in app is enabled
    * @param resourceGroupName Name of the resource group to which the resource belongs.
@@ -3627,7 +3622,7 @@ export class WebApps {
   }
 
   /**
-   * Gets a Swift Virtual Network connection.
+   * Description for Gets a Swift Virtual Network connection.
    * @summary Gets a Swift Virtual Network connection.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -3660,9 +3655,9 @@ export class WebApps {
   }
 
   /**
-   * Integrates this Web App with a Virtual Network. This requires that 1) "swiftSupported" is true
-   * when doing a GET against this resource, and 2) that the target Subnet has already been
-   * delegated, and is not
+   * Description for Integrates this Web App with a Virtual Network. This requires that 1)
+   * "swiftSupported" is true when doing a GET against this resource, and 2) that the target Subnet
+   * has already been delegated, and is not
    * in use by another App Service Plan other than the one this App is in.
    * @summary Integrates this Web App with a Virtual Network. This requires that 1) "swiftSupported"
    * is true when doing a GET against this resource, and 2) that the target Subnet has already been
@@ -3703,7 +3698,7 @@ export class WebApps {
   }
 
   /**
-   * Deletes a Swift Virtual Network connection from an app (or deployment slot).
+   * Description for Deletes a Swift Virtual Network connection from an app (or deployment slot).
    * @summary Deletes a Swift Virtual Network connection from an app (or deployment slot).
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -3736,9 +3731,9 @@ export class WebApps {
   }
 
   /**
-   * Integrates this Web App with a Virtual Network. This requires that 1) "swiftSupported" is true
-   * when doing a GET against this resource, and 2) that the target Subnet has already been
-   * delegated, and is not
+   * Description for Integrates this Web App with a Virtual Network. This requires that 1)
+   * "swiftSupported" is true when doing a GET against this resource, and 2) that the target Subnet
+   * has already been delegated, and is not
    * in use by another App Service Plan other than the one this App is in.
    * @summary Integrates this Web App with a Virtual Network. This requires that 1) "swiftSupported"
    * is true when doing a GET against this resource, and 2) that the target Subnet has already been
@@ -3779,7 +3774,7 @@ export class WebApps {
   }
 
   /**
-   * Gets all network features used by the app (or deployment slot, if specified).
+   * Description for Gets all network features used by the app (or deployment slot, if specified).
    * @summary Gets all network features used by the app (or deployment slot, if specified).
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -3816,7 +3811,8 @@ export class WebApps {
   }
 
   /**
-   * Gets a named operation for a network trace capturing (or deployment slot, if specified).
+   * Description for Gets a named operation for a network trace capturing (or deployment slot, if
+   * specified).
    * @summary Gets a named operation for a network trace capturing (or deployment slot, if
    * specified).
    * @param resourceGroupName Name of the resource group to which the resource belongs.
@@ -3854,7 +3850,7 @@ export class WebApps {
   }
 
   /**
-   * Start capturing network packets for the site (To be deprecated).
+   * Description for Start capturing network packets for the site (To be deprecated).
    * @summary Start capturing network packets for the site (To be deprecated).
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name The name of the web app.
@@ -3887,7 +3883,7 @@ export class WebApps {
   }
 
   /**
-   * Start capturing network packets for the site.
+   * Description for Start capturing network packets for the site.
    * @summary Start capturing network packets for the site.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name The name of the web app.
@@ -3900,7 +3896,7 @@ export class WebApps {
   }
 
   /**
-   * Stop ongoing capturing network packets for the site.
+   * Description for Stop ongoing capturing network packets for the site.
    * @summary Stop ongoing capturing network packets for the site.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name The name of the web app.
@@ -3933,7 +3929,8 @@ export class WebApps {
   }
 
   /**
-   * Gets a named operation for a network trace capturing (or deployment slot, if specified).
+   * Description for Gets a named operation for a network trace capturing (or deployment slot, if
+   * specified).
    * @summary Gets a named operation for a network trace capturing (or deployment slot, if
    * specified).
    * @param resourceGroupName Name of the resource group to which the resource belongs.
@@ -3971,7 +3968,8 @@ export class WebApps {
   }
 
   /**
-   * Gets a named operation for a network trace capturing (or deployment slot, if specified).
+   * Description for Gets a named operation for a network trace capturing (or deployment slot, if
+   * specified).
    * @summary Gets a named operation for a network trace capturing (or deployment slot, if
    * specified).
    * @param resourceGroupName Name of the resource group to which the resource belongs.
@@ -4009,7 +4007,8 @@ export class WebApps {
   }
 
   /**
-   * Gets a named operation for a network trace capturing (or deployment slot, if specified).
+   * Description for Gets a named operation for a network trace capturing (or deployment slot, if
+   * specified).
    * @summary Gets a named operation for a network trace capturing (or deployment slot, if
    * specified).
    * @param resourceGroupName Name of the resource group to which the resource belongs.
@@ -4047,7 +4046,8 @@ export class WebApps {
   }
 
   /**
-   * Generates a new publishing password for an app (or deployment slot, if specified).
+   * Description for Generates a new publishing password for an app (or deployment slot, if
+   * specified).
    * @summary Generates a new publishing password for an app (or deployment slot, if specified).
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -4080,7 +4080,7 @@ export class WebApps {
   }
 
   /**
-   * Gets perfmon counters for web app.
+   * Description for Gets perfmon counters for web app.
    * @summary Gets perfmon counters for web app.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of web app.
@@ -4113,7 +4113,7 @@ export class WebApps {
   }
 
   /**
-   * Gets web app's event logs.
+   * Description for Gets web app's event logs.
    * @summary Gets web app's event logs.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of web app.
@@ -4146,7 +4146,7 @@ export class WebApps {
   }
 
   /**
-   * Gets the premier add-ons of an app.
+   * Description for Gets the premier add-ons of an app.
    * @summary Gets the premier add-ons of an app.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -4179,7 +4179,7 @@ export class WebApps {
   }
 
   /**
-   * Gets a named add-on of an app.
+   * Description for Gets a named add-on of an app.
    * @summary Gets a named add-on of an app.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -4216,7 +4216,7 @@ export class WebApps {
   }
 
   /**
-   * Updates a named add-on of an app.
+   * Description for Updates a named add-on of an app.
    * @summary Updates a named add-on of an app.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -4257,7 +4257,7 @@ export class WebApps {
   }
 
   /**
-   * Delete a premier add-on from an app.
+   * Description for Delete a premier add-on from an app.
    * @summary Delete a premier add-on from an app.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -4294,7 +4294,7 @@ export class WebApps {
   }
 
   /**
-   * Updates a named add-on of an app.
+   * Description for Updates a named add-on of an app.
    * @summary Updates a named add-on of an app.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -4335,8 +4335,8 @@ export class WebApps {
   }
 
   /**
-   * Gets data around private site access enablement and authorized Virtual Networks that can access
-   * the site.
+   * Description for Gets data around private site access enablement and authorized Virtual Networks
+   * that can access the site.
    * @summary Gets data around private site access enablement and authorized Virtual Networks that
    * can access the site.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
@@ -4370,8 +4370,8 @@ export class WebApps {
   }
 
   /**
-   * Sets data around private site access enablement and authorized Virtual Networks that can access
-   * the site.
+   * Description for Sets data around private site access enablement and authorized Virtual Networks
+   * that can access the site.
    * @summary Sets data around private site access enablement and authorized Virtual Networks that
    * can access the site.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
@@ -4409,8 +4409,8 @@ export class WebApps {
   }
 
   /**
-   * Get list of processes for a web site, or a deployment slot, or for a specific scaled-out
-   * instance in a web site.
+   * Description for Get list of processes for a web site, or a deployment slot, or for a specific
+   * scaled-out instance in a web site.
    * @summary Get list of processes for a web site, or a deployment slot, or for a specific
    * scaled-out instance in a web site.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
@@ -4444,7 +4444,8 @@ export class WebApps {
   }
 
   /**
-   * Get process information by its ID for a specific scaled-out instance in a web site.
+   * Description for Get process information by its ID for a specific scaled-out instance in a web
+   * site.
    * @summary Get process information by its ID for a specific scaled-out instance in a web site.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Site name.
@@ -4481,8 +4482,8 @@ export class WebApps {
   }
 
   /**
-   * Terminate a process by its ID for a web site, or a deployment slot, or specific scaled-out
-   * instance in a web site.
+   * Description for Terminate a process by its ID for a web site, or a deployment slot, or specific
+   * scaled-out instance in a web site.
    * @summary Terminate a process by its ID for a web site, or a deployment slot, or specific
    * scaled-out instance in a web site.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
@@ -4520,7 +4521,8 @@ export class WebApps {
   }
 
   /**
-   * Get a memory dump of a process by its ID for a specific scaled-out instance in a web site.
+   * Description for Get a memory dump of a process by its ID for a specific scaled-out instance in a
+   * web site.
    * @summary Get a memory dump of a process by its ID for a specific scaled-out instance in a web
    * site.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
@@ -4558,8 +4560,8 @@ export class WebApps {
   }
 
   /**
-   * List module information for a process by its ID for a specific scaled-out instance in a web
-   * site.
+   * Description for List module information for a process by its ID for a specific scaled-out
+   * instance in a web site.
    * @summary List module information for a process by its ID for a specific scaled-out instance in a
    * web site.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
@@ -4597,7 +4599,8 @@ export class WebApps {
   }
 
   /**
-   * Get process information by its ID for a specific scaled-out instance in a web site.
+   * Description for Get process information by its ID for a specific scaled-out instance in a web
+   * site.
    * @summary Get process information by its ID for a specific scaled-out instance in a web site.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Site name.
@@ -4638,7 +4641,8 @@ export class WebApps {
   }
 
   /**
-   * List the threads in a process by its ID for a specific scaled-out instance in a web site.
+   * Description for List the threads in a process by its ID for a specific scaled-out instance in a
+   * web site.
    * @summary List the threads in a process by its ID for a specific scaled-out instance in a web
    * site.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
@@ -4676,50 +4680,7 @@ export class WebApps {
   }
 
   /**
-   * Get thread information by Thread ID for a specific process, in a specific scaled-out instance in
-   * a web site.
-   * @summary Get thread information by Thread ID for a specific process, in a specific scaled-out
-   * instance in a web site.
-   * @param resourceGroupName Name of the resource group to which the resource belongs.
-   * @param name Site name.
-   * @param processId PID.
-   * @param threadId TID.
-   * @param [options] The optional parameters
-   * @returns Promise<Models.WebAppsGetProcessThreadResponse>
-   */
-  getProcessThread(resourceGroupName: string, name: string, processId: string, threadId: string, options?: msRest.RequestOptionsBase): Promise<Models.WebAppsGetProcessThreadResponse>;
-  /**
-   * @param resourceGroupName Name of the resource group to which the resource belongs.
-   * @param name Site name.
-   * @param processId PID.
-   * @param threadId TID.
-   * @param callback The callback
-   */
-  getProcessThread(resourceGroupName: string, name: string, processId: string, threadId: string, callback: msRest.ServiceCallback<Models.ProcessThreadInfo>): void;
-  /**
-   * @param resourceGroupName Name of the resource group to which the resource belongs.
-   * @param name Site name.
-   * @param processId PID.
-   * @param threadId TID.
-   * @param options The optional parameters
-   * @param callback The callback
-   */
-  getProcessThread(resourceGroupName: string, name: string, processId: string, threadId: string, options: msRest.RequestOptionsBase, callback: msRest.ServiceCallback<Models.ProcessThreadInfo>): void;
-  getProcessThread(resourceGroupName: string, name: string, processId: string, threadId: string, options?: msRest.RequestOptionsBase | msRest.ServiceCallback<Models.ProcessThreadInfo>, callback?: msRest.ServiceCallback<Models.ProcessThreadInfo>): Promise<Models.WebAppsGetProcessThreadResponse> {
-    return this.client.sendOperationRequest(
-      {
-        resourceGroupName,
-        name,
-        processId,
-        threadId,
-        options
-      },
-      getProcessThreadOperationSpec,
-      callback) as Promise<Models.WebAppsGetProcessThreadResponse>;
-  }
-
-  /**
-   * Get public certificates for an app or a deployment slot.
+   * Description for Get public certificates for an app or a deployment slot.
    * @summary Get public certificates for an app or a deployment slot.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -4752,7 +4713,7 @@ export class WebApps {
   }
 
   /**
-   * Get the named public certificate for an app (or deployment slot, if specified).
+   * Description for Get the named public certificate for an app (or deployment slot, if specified).
    * @summary Get the named public certificate for an app (or deployment slot, if specified).
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -4789,7 +4750,7 @@ export class WebApps {
   }
 
   /**
-   * Creates a hostname binding for an app.
+   * Description for Creates a hostname binding for an app.
    * @summary Creates a hostname binding for an app.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -4833,7 +4794,7 @@ export class WebApps {
   }
 
   /**
-   * Deletes a hostname binding for an app.
+   * Description for Deletes a hostname binding for an app.
    * @summary Deletes a hostname binding for an app.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -4870,7 +4831,7 @@ export class WebApps {
   }
 
   /**
-   * Gets the publishing profile for an app (or deployment slot, if specified).
+   * Description for Gets the publishing profile for an app (or deployment slot, if specified).
    * @summary Gets the publishing profile for an app (or deployment slot, if specified).
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -4910,8 +4871,8 @@ export class WebApps {
   }
 
   /**
-   * Resets the configuration settings of the current slot if they were previously modified by
-   * calling the API with POST.
+   * Description for Resets the configuration settings of the current slot if they were previously
+   * modified by calling the API with POST.
    * @summary Resets the configuration settings of the current slot if they were previously modified
    * by calling the API with POST.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
@@ -4945,7 +4906,7 @@ export class WebApps {
   }
 
   /**
-   * Restarts an app (or deployment slot, if specified).
+   * Description for Restarts an app (or deployment slot, if specified).
    * @summary Restarts an app (or deployment slot, if specified).
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -4978,7 +4939,7 @@ export class WebApps {
   }
 
   /**
-   * Restores an app from a backup blob in Azure Storage.
+   * Description for Restores an app from a backup blob in Azure Storage.
    * @summary Restores an app from a backup blob in Azure Storage.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -4992,7 +4953,7 @@ export class WebApps {
   }
 
   /**
-   * Restores a deleted web app to this web app.
+   * Description for Restores a deleted web app to this web app.
    * @summary Restores a deleted web app to this web app.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of web app.
@@ -5006,7 +4967,7 @@ export class WebApps {
   }
 
   /**
-   * Restores a web app from a snapshot.
+   * Description for Restores a web app from a snapshot.
    * @summary Restores a web app from a snapshot.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of web app.
@@ -5021,7 +4982,7 @@ export class WebApps {
   }
 
   /**
-   * Get list of siteextensions for a web site, or a deployment slot.
+   * Description for Get list of siteextensions for a web site, or a deployment slot.
    * @summary Get list of siteextensions for a web site, or a deployment slot.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Site name.
@@ -5054,7 +5015,7 @@ export class WebApps {
   }
 
   /**
-   * Get site extension information by its ID for a web site, or a deployment slot.
+   * Description for Get site extension information by its ID for a web site, or a deployment slot.
    * @summary Get site extension information by its ID for a web site, or a deployment slot.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Site name.
@@ -5091,7 +5052,7 @@ export class WebApps {
   }
 
   /**
-   * Install site extension on a web site, or a deployment slot.
+   * Description for Install site extension on a web site, or a deployment slot.
    * @summary Install site extension on a web site, or a deployment slot.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Site name.
@@ -5105,7 +5066,7 @@ export class WebApps {
   }
 
   /**
-   * Remove a site extension from a web site, or a deployment slot.
+   * Description for Remove a site extension from a web site, or a deployment slot.
    * @summary Remove a site extension from a web site, or a deployment slot.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Site name.
@@ -5142,7 +5103,22 @@ export class WebApps {
   }
 
   /**
-   * Gets an app's deployment slots.
+   * Description for Copies a deployment slot to another deployment slot of an app.
+   * @summary Copies a deployment slot to another deployment slot of an app.
+   * @param resourceGroupName Name of the resource group to which the resource belongs.
+   * @param name Name of the app.
+   * @param copySlotEntity JSON object that contains the target slot name and site config properties
+   * to override the source slot config. See example.
+   * @param [options] The optional parameters
+   * @returns Promise<msRest.RestResponse>
+   */
+  copyProductionSlot(resourceGroupName: string, name: string, copySlotEntity: Models.CsmCopySlotEntity, options?: msRest.RequestOptionsBase): Promise<msRest.RestResponse> {
+    return this.beginCopyProductionSlot(resourceGroupName,name,copySlotEntity,options)
+      .then(lroPoller => lroPoller.pollUntilFinished());
+  }
+
+  /**
+   * Description for Gets an app's deployment slots.
    * @summary Gets an app's deployment slots.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -5175,7 +5151,7 @@ export class WebApps {
   }
 
   /**
-   * Gets the details of a web, mobile, or API app.
+   * Description for Gets the details of a web, mobile, or API app.
    * @summary Gets the details of a web, mobile, or API app.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -5212,7 +5188,8 @@ export class WebApps {
   }
 
   /**
-   * Creates a new web, mobile, or API app in an existing resource group, or updates an existing app.
+   * Description for Creates a new web, mobile, or API app in an existing resource group, or updates
+   * an existing app.
    * @summary Creates a new web, mobile, or API app in an existing resource group, or updates an
    * existing app.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
@@ -5230,7 +5207,7 @@ export class WebApps {
   }
 
   /**
-   * Deletes a web, mobile, or API app, or one of the deployment slots.
+   * Description for Deletes a web, mobile, or API app, or one of the deployment slots.
    * @summary Deletes a web, mobile, or API app, or one of the deployment slots.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app to delete.
@@ -5270,7 +5247,8 @@ export class WebApps {
   }
 
   /**
-   * Creates a new web, mobile, or API app in an existing resource group, or updates an existing app.
+   * Description for Creates a new web, mobile, or API app in an existing resource group, or updates
+   * an existing app.
    * @summary Creates a new web, mobile, or API app in an existing resource group, or updates an
    * existing app.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
@@ -5318,7 +5296,7 @@ export class WebApps {
   }
 
   /**
-   * Analyze a custom hostname.
+   * Description for Analyze a custom hostname.
    * @summary Analyze a custom hostname.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of web app.
@@ -5355,7 +5333,7 @@ export class WebApps {
   }
 
   /**
-   * Applies the configuration settings from the target slot onto the current slot.
+   * Description for Applies the configuration settings from the target slot onto the current slot.
    * @summary Applies the configuration settings from the target slot onto the current slot.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -5399,7 +5377,7 @@ export class WebApps {
   }
 
   /**
-   * Creates a backup of an app.
+   * Description for Creates a backup of an app.
    * @summary Creates a backup of an app.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -5446,7 +5424,7 @@ export class WebApps {
   }
 
   /**
-   * Gets existing backups of an app.
+   * Description for Gets existing backups of an app.
    * @summary Gets existing backups of an app.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -5486,7 +5464,7 @@ export class WebApps {
   }
 
   /**
-   * Gets a backup of an app by its ID.
+   * Description for Gets a backup of an app by its ID.
    * @summary Gets a backup of an app by its ID.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -5530,7 +5508,7 @@ export class WebApps {
   }
 
   /**
-   * Deletes a backup of an app by its ID.
+   * Description for Deletes a backup of an app by its ID.
    * @summary Deletes a backup of an app by its ID.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -5574,9 +5552,9 @@ export class WebApps {
   }
 
   /**
-   * Gets status of a web app backup that may be in progress, including secrets associated with the
-   * backup, such as the Azure Storage SAS URL. Also can be used to update the SAS URL for the backup
-   * if a new URL is passed in the request body.
+   * Description for Gets status of a web app backup that may be in progress, including secrets
+   * associated with the backup, such as the Azure Storage SAS URL. Also can be used to update the
+   * SAS URL for the backup if a new URL is passed in the request body.
    * @summary Gets status of a web app backup that may be in progress, including secrets associated
    * with the backup, such as the Azure Storage SAS URL. Also can be used to update the SAS URL for
    * the backup if a new URL is passed in the request body.
@@ -5623,7 +5601,7 @@ export class WebApps {
   }
 
   /**
-   * Restores a specific backup to another app (or deployment slot, if specified).
+   * Description for Restores a specific backup to another app (or deployment slot, if specified).
    * @summary Restores a specific backup to another app (or deployment slot, if specified).
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -5640,7 +5618,7 @@ export class WebApps {
   }
 
   /**
-   * List the configurations of an app
+   * Description for List the configurations of an app
    * @summary List the configurations of an app
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -5680,7 +5658,7 @@ export class WebApps {
   }
 
   /**
-   * Replaces the application settings of an app.
+   * Description for Replaces the application settings of an app.
    * @summary Replaces the application settings of an app.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -5724,7 +5702,7 @@ export class WebApps {
   }
 
   /**
-   * Gets the application settings of an app.
+   * Description for Gets the application settings of an app.
    * @summary Gets the application settings of an app.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -5764,7 +5742,7 @@ export class WebApps {
   }
 
   /**
-   * Updates the Authentication / Authorization settings associated with web app.
+   * Description for Updates the Authentication / Authorization settings associated with web app.
    * @summary Updates the Authentication / Authorization settings associated with web app.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of web app.
@@ -5805,7 +5783,7 @@ export class WebApps {
   }
 
   /**
-   * Gets the Authentication/Authorization settings of an app.
+   * Description for Gets the Authentication/Authorization settings of an app.
    * @summary Gets the Authentication/Authorization settings of an app.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -5845,7 +5823,7 @@ export class WebApps {
   }
 
   /**
-   * Updates the Azure storage account configurations of an app.
+   * Description for Updates the Azure storage account configurations of an app.
    * @summary Updates the Azure storage account configurations of an app.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -5889,7 +5867,7 @@ export class WebApps {
   }
 
   /**
-   * Gets the Azure storage account configurations of an app.
+   * Description for Gets the Azure storage account configurations of an app.
    * @summary Gets the Azure storage account configurations of an app.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -5929,7 +5907,7 @@ export class WebApps {
   }
 
   /**
-   * Updates the backup configuration of an app.
+   * Description for Updates the backup configuration of an app.
    * @summary Updates the backup configuration of an app.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -5973,7 +5951,7 @@ export class WebApps {
   }
 
   /**
-   * Deletes the backup configuration of an app.
+   * Description for Deletes the backup configuration of an app.
    * @summary Deletes the backup configuration of an app.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -6013,7 +5991,7 @@ export class WebApps {
   }
 
   /**
-   * Gets the backup configuration of an app.
+   * Description for Gets the backup configuration of an app.
    * @summary Gets the backup configuration of an app.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -6053,7 +6031,7 @@ export class WebApps {
   }
 
   /**
-   * Replaces the connection strings of an app.
+   * Description for Replaces the connection strings of an app.
    * @summary Replaces the connection strings of an app.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -6097,7 +6075,7 @@ export class WebApps {
   }
 
   /**
-   * Gets the connection strings of an app.
+   * Description for Gets the connection strings of an app.
    * @summary Gets the connection strings of an app.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -6137,7 +6115,7 @@ export class WebApps {
   }
 
   /**
-   * Gets the logging configuration of an app.
+   * Description for Gets the logging configuration of an app.
    * @summary Gets the logging configuration of an app.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -6177,7 +6155,7 @@ export class WebApps {
   }
 
   /**
-   * Updates the logging configuration of an app.
+   * Description for Updates the logging configuration of an app.
    * @summary Updates the logging configuration of an app.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -6224,7 +6202,7 @@ export class WebApps {
   }
 
   /**
-   * Replaces the metadata of an app.
+   * Description for Replaces the metadata of an app.
    * @summary Replaces the metadata of an app.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -6268,7 +6246,7 @@ export class WebApps {
   }
 
   /**
-   * Gets the metadata of an app.
+   * Description for Gets the metadata of an app.
    * @summary Gets the metadata of an app.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -6308,7 +6286,7 @@ export class WebApps {
   }
 
   /**
-   * Gets the Git/FTP publishing credentials of an app.
+   * Description for Gets the Git/FTP publishing credentials of an app.
    * @summary Gets the Git/FTP publishing credentials of an app.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -6323,7 +6301,7 @@ export class WebApps {
   }
 
   /**
-   * Updates the Push settings associated with web app.
+   * Description for Updates the Push settings associated with web app.
    * @summary Updates the Push settings associated with web app.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of web app.
@@ -6364,7 +6342,7 @@ export class WebApps {
   }
 
   /**
-   * Gets the Push settings associated with web app.
+   * Description for Gets the Push settings associated with web app.
    * @summary Gets the Push settings associated with web app.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of web app.
@@ -6401,8 +6379,8 @@ export class WebApps {
   }
 
   /**
-   * Gets the configuration of an app, such as platform version and bitness, default documents,
-   * virtual applications, Always On, etc.
+   * Description for Gets the configuration of an app, such as platform version and bitness, default
+   * documents, virtual applications, Always On, etc.
    * @summary Gets the configuration of an app, such as platform version and bitness, default
    * documents, virtual applications, Always On, etc.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
@@ -6443,7 +6421,7 @@ export class WebApps {
   }
 
   /**
-   * Updates the configuration of an app.
+   * Description for Updates the configuration of an app.
    * @summary Updates the configuration of an app.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -6487,7 +6465,7 @@ export class WebApps {
   }
 
   /**
-   * Updates the configuration of an app.
+   * Description for Updates the configuration of an app.
    * @summary Updates the configuration of an app.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -6531,8 +6509,8 @@ export class WebApps {
   }
 
   /**
-   * Gets a list of web app configuration snapshots identifiers. Each element of the list contains a
-   * timestamp and the ID of the snapshot.
+   * Description for Gets a list of web app configuration snapshots identifiers. Each element of the
+   * list contains a timestamp and the ID of the snapshot.
    * @summary Gets a list of web app configuration snapshots identifiers. Each element of the list
    * contains a timestamp and the ID of the snapshot.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
@@ -6573,7 +6551,7 @@ export class WebApps {
   }
 
   /**
-   * Gets a snapshot of the configuration of an app at a previous point in time.
+   * Description for Gets a snapshot of the configuration of an app at a previous point in time.
    * @summary Gets a snapshot of the configuration of an app at a previous point in time.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -6617,7 +6595,7 @@ export class WebApps {
   }
 
   /**
-   * Reverts the configuration of an app to a previous snapshot.
+   * Description for Reverts the configuration of an app to a previous snapshot.
    * @summary Reverts the configuration of an app to a previous snapshot.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -6661,7 +6639,7 @@ export class WebApps {
   }
 
   /**
-   * Gets the last lines of docker logs for the given site
+   * Description for Gets the last lines of docker logs for the given site
    * @summary Gets the last lines of docker logs for the given site
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of web app.
@@ -6698,7 +6676,7 @@ export class WebApps {
   }
 
   /**
-   * Gets the ZIP archived docker log files for the given site
+   * Description for Gets the ZIP archived docker log files for the given site
    * @summary Gets the ZIP archived docker log files for the given site
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of web app.
@@ -6735,7 +6713,7 @@ export class WebApps {
   }
 
   /**
-   * List continuous web jobs for an app, or a deployment slot.
+   * Description for List continuous web jobs for an app, or a deployment slot.
    * @summary List continuous web jobs for an app, or a deployment slot.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Site name.
@@ -6775,7 +6753,7 @@ export class WebApps {
   }
 
   /**
-   * Gets a continuous web job by its ID for an app, or a deployment slot.
+   * Description for Gets a continuous web job by its ID for an app, or a deployment slot.
    * @summary Gets a continuous web job by its ID for an app, or a deployment slot.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Site name.
@@ -6819,7 +6797,7 @@ export class WebApps {
   }
 
   /**
-   * Delete a continuous web job by its ID for an app, or a deployment slot.
+   * Description for Delete a continuous web job by its ID for an app, or a deployment slot.
    * @summary Delete a continuous web job by its ID for an app, or a deployment slot.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Site name.
@@ -6863,7 +6841,7 @@ export class WebApps {
   }
 
   /**
-   * Start a continuous web job for an app, or a deployment slot.
+   * Description for Start a continuous web job for an app, or a deployment slot.
    * @summary Start a continuous web job for an app, or a deployment slot.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Site name.
@@ -6907,7 +6885,7 @@ export class WebApps {
   }
 
   /**
-   * Stop a continuous web job for an app, or a deployment slot.
+   * Description for Stop a continuous web job for an app, or a deployment slot.
    * @summary Stop a continuous web job for an app, or a deployment slot.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Site name.
@@ -6951,7 +6929,7 @@ export class WebApps {
   }
 
   /**
-   * List deployments for an app, or a deployment slot.
+   * Description for List deployments for an app, or a deployment slot.
    * @summary List deployments for an app, or a deployment slot.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -6991,7 +6969,7 @@ export class WebApps {
   }
 
   /**
-   * Get a deployment by its ID for an app, or a deployment slot.
+   * Description for Get a deployment by its ID for an app, or a deployment slot.
    * @summary Get a deployment by its ID for an app, or a deployment slot.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -7035,7 +7013,7 @@ export class WebApps {
   }
 
   /**
-   * Create a deployment for an app, or a deployment slot.
+   * Description for Create a deployment for an app, or a deployment slot.
    * @summary Create a deployment for an app, or a deployment slot.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -7083,7 +7061,7 @@ export class WebApps {
   }
 
   /**
-   * Delete a deployment by its ID for an app, or a deployment slot.
+   * Description for Delete a deployment by its ID for an app, or a deployment slot.
    * @summary Delete a deployment by its ID for an app, or a deployment slot.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -7127,7 +7105,7 @@ export class WebApps {
   }
 
   /**
-   * List deployment log for specific deployment for an app, or a deployment slot.
+   * Description for List deployment log for specific deployment for an app, or a deployment slot.
    * @summary List deployment log for specific deployment for an app, or a deployment slot.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -7174,8 +7152,8 @@ export class WebApps {
   }
 
   /**
-   * Discovers an existing app backup that can be restored from a blob in Azure storage. Use this to
-   * get information about the databases stored in a backup.
+   * Description for Discovers an existing app backup that can be restored from a blob in Azure
+   * storage. Use this to get information about the databases stored in a backup.
    * @summary Discovers an existing app backup that can be restored from a blob in Azure storage. Use
    * this to get information about the databases stored in a backup.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
@@ -7223,7 +7201,7 @@ export class WebApps {
   }
 
   /**
-   * Lists ownership identifiers for domain associated with web app.
+   * Description for Lists ownership identifiers for domain associated with web app.
    * @summary Lists ownership identifiers for domain associated with web app.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -7263,7 +7241,7 @@ export class WebApps {
   }
 
   /**
-   * Get domain ownership identifier for web app.
+   * Description for Get domain ownership identifier for web app.
    * @summary Get domain ownership identifier for web app.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -7307,7 +7285,8 @@ export class WebApps {
   }
 
   /**
-   * Creates a domain ownership identifier for web app, or updates an existing ownership identifier.
+   * Description for Creates a domain ownership identifier for web app, or updates an existing
+   * ownership identifier.
    * @summary Creates a domain ownership identifier for web app, or updates an existing ownership
    * identifier.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
@@ -7356,7 +7335,7 @@ export class WebApps {
   }
 
   /**
-   * Deletes a domain ownership identifier for a web app.
+   * Description for Deletes a domain ownership identifier for a web app.
    * @summary Deletes a domain ownership identifier for a web app.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -7400,7 +7379,8 @@ export class WebApps {
   }
 
   /**
-   * Creates a domain ownership identifier for web app, or updates an existing ownership identifier.
+   * Description for Creates a domain ownership identifier for web app, or updates an existing
+   * ownership identifier.
    * @summary Creates a domain ownership identifier for web app, or updates an existing ownership
    * identifier.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
@@ -7449,7 +7429,7 @@ export class WebApps {
   }
 
   /**
-   * Get the status of the last MSDeploy operation.
+   * Description for Get the status of the last MSDeploy operation.
    * @summary Get the status of the last MSDeploy operation.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of web app.
@@ -7486,7 +7466,7 @@ export class WebApps {
   }
 
   /**
-   * Invoke the MSDeploy web app extension.
+   * Description for Invoke the MSDeploy web app extension.
    * @summary Invoke the MSDeploy web app extension.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of web app.
@@ -7501,7 +7481,7 @@ export class WebApps {
   }
 
   /**
-   * Get the MSDeploy Log for the last MSDeploy operation.
+   * Description for Get the MSDeploy Log for the last MSDeploy operation.
    * @summary Get the MSDeploy Log for the last MSDeploy operation.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of web app.
@@ -7538,12 +7518,11 @@ export class WebApps {
   }
 
   /**
-   * List the functions for a web site, or a deployment slot.
+   * Description for List the functions for a web site, or a deployment slot.
    * @summary List the functions for a web site, or a deployment slot.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Site name.
-   * @param slot Name of the deployment slot. If a slot is not specified, the API deletes a
-   * deployment for the production slot.
+   * @param slot Name of the deployment slot.
    * @param [options] The optional parameters
    * @returns Promise<Models.WebAppsListInstanceFunctionsSlotResponse>
    */
@@ -7551,16 +7530,14 @@ export class WebApps {
   /**
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Site name.
-   * @param slot Name of the deployment slot. If a slot is not specified, the API deletes a
-   * deployment for the production slot.
+   * @param slot Name of the deployment slot.
    * @param callback The callback
    */
   listInstanceFunctionsSlot(resourceGroupName: string, name: string, slot: string, callback: msRest.ServiceCallback<Models.FunctionEnvelopeCollection>): void;
   /**
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Site name.
-   * @param slot Name of the deployment slot. If a slot is not specified, the API deletes a
-   * deployment for the production slot.
+   * @param slot Name of the deployment slot.
    * @param options The optional parameters
    * @param callback The callback
    */
@@ -7578,7 +7555,7 @@ export class WebApps {
   }
 
   /**
-   * Fetch a short lived token that can be exchanged for a master key.
+   * Description for Fetch a short lived token that can be exchanged for a master key.
    * @summary Fetch a short lived token that can be exchanged for a master key.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of web app.
@@ -7615,13 +7592,12 @@ export class WebApps {
   }
 
   /**
-   * Get function information by its ID for web site, or a deployment slot.
+   * Description for Get function information by its ID for web site, or a deployment slot.
    * @summary Get function information by its ID for web site, or a deployment slot.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Site name.
    * @param functionName Function name.
-   * @param slot Name of the deployment slot. If a slot is not specified, the API deletes a
-   * deployment for the production slot.
+   * @param slot Name of the deployment slot.
    * @param [options] The optional parameters
    * @returns Promise<Models.WebAppsGetInstanceFunctionSlotResponse>
    */
@@ -7630,8 +7606,7 @@ export class WebApps {
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Site name.
    * @param functionName Function name.
-   * @param slot Name of the deployment slot. If a slot is not specified, the API deletes a
-   * deployment for the production slot.
+   * @param slot Name of the deployment slot.
    * @param callback The callback
    */
   getInstanceFunctionSlot(resourceGroupName: string, name: string, functionName: string, slot: string, callback: msRest.ServiceCallback<Models.FunctionEnvelope>): void;
@@ -7639,8 +7614,7 @@ export class WebApps {
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Site name.
    * @param functionName Function name.
-   * @param slot Name of the deployment slot. If a slot is not specified, the API deletes a
-   * deployment for the production slot.
+   * @param slot Name of the deployment slot.
    * @param options The optional parameters
    * @param callback The callback
    */
@@ -7659,13 +7633,12 @@ export class WebApps {
   }
 
   /**
-   * Create function for web site, or a deployment slot.
+   * Description for Create function for web site, or a deployment slot.
    * @summary Create function for web site, or a deployment slot.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Site name.
    * @param functionName Function name.
-   * @param slot Name of the deployment slot. If a slot is not specified, the API deletes a
-   * deployment for the production slot.
+   * @param slot Name of the deployment slot.
    * @param functionEnvelope Function details.
    * @param [options] The optional parameters
    * @returns Promise<Models.WebAppsCreateInstanceFunctionSlotResponse>
@@ -7676,13 +7649,12 @@ export class WebApps {
   }
 
   /**
-   * Delete a function for web site, or a deployment slot.
+   * Description for Delete a function for web site, or a deployment slot.
    * @summary Delete a function for web site, or a deployment slot.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Site name.
    * @param functionName Function name.
-   * @param slot Name of the deployment slot. If a slot is not specified, the API deletes a
-   * deployment for the production slot.
+   * @param slot Name of the deployment slot.
    * @param [options] The optional parameters
    * @returns Promise<msRest.RestResponse>
    */
@@ -7691,8 +7663,7 @@ export class WebApps {
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Site name.
    * @param functionName Function name.
-   * @param slot Name of the deployment slot. If a slot is not specified, the API deletes a
-   * deployment for the production slot.
+   * @param slot Name of the deployment slot.
    * @param callback The callback
    */
   deleteInstanceFunctionSlot(resourceGroupName: string, name: string, functionName: string, slot: string, callback: msRest.ServiceCallback<void>): void;
@@ -7700,8 +7671,7 @@ export class WebApps {
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Site name.
    * @param functionName Function name.
-   * @param slot Name of the deployment slot. If a slot is not specified, the API deletes a
-   * deployment for the production slot.
+   * @param slot Name of the deployment slot.
    * @param options The optional parameters
    * @param callback The callback
    */
@@ -7720,13 +7690,12 @@ export class WebApps {
   }
 
   /**
-   * Get function secrets for a function in a web site, or a deployment slot.
+   * Description for Get function secrets for a function in a web site, or a deployment slot.
    * @summary Get function secrets for a function in a web site, or a deployment slot.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Site name.
    * @param functionName Function name.
-   * @param slot Name of the deployment slot. If a slot is not specified, the API deletes a
-   * deployment for the production slot.
+   * @param slot Name of the deployment slot.
    * @param [options] The optional parameters
    * @returns Promise<Models.WebAppsListFunctionSecretsSlotResponse>
    */
@@ -7735,8 +7704,7 @@ export class WebApps {
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Site name.
    * @param functionName Function name.
-   * @param slot Name of the deployment slot. If a slot is not specified, the API deletes a
-   * deployment for the production slot.
+   * @param slot Name of the deployment slot.
    * @param callback The callback
    */
   listFunctionSecretsSlot(resourceGroupName: string, name: string, functionName: string, slot: string, callback: msRest.ServiceCallback<Models.FunctionSecrets>): void;
@@ -7744,8 +7712,7 @@ export class WebApps {
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Site name.
    * @param functionName Function name.
-   * @param slot Name of the deployment slot. If a slot is not specified, the API deletes a
-   * deployment for the production slot.
+   * @param slot Name of the deployment slot.
    * @param options The optional parameters
    * @param callback The callback
    */
@@ -7764,7 +7731,7 @@ export class WebApps {
   }
 
   /**
-   * Get hostname bindings for an app or a deployment slot.
+   * Description for Get hostname bindings for an app or a deployment slot.
    * @summary Get hostname bindings for an app or a deployment slot.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -7804,7 +7771,7 @@ export class WebApps {
   }
 
   /**
-   * Get the named hostname binding for an app (or deployment slot, if specified).
+   * Description for Get the named hostname binding for an app (or deployment slot, if specified).
    * @summary Get the named hostname binding for an app (or deployment slot, if specified).
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -7848,7 +7815,7 @@ export class WebApps {
   }
 
   /**
-   * Creates a hostname binding for an app.
+   * Description for Creates a hostname binding for an app.
    * @summary Creates a hostname binding for an app.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -7899,7 +7866,7 @@ export class WebApps {
   }
 
   /**
-   * Deletes a hostname binding for an app.
+   * Description for Deletes a hostname binding for an app.
    * @summary Deletes a hostname binding for an app.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -7943,7 +7910,7 @@ export class WebApps {
   }
 
   /**
-   * Retrieves a specific Service Bus Hybrid Connection used by this Web App.
+   * Description for Retrieves a specific Service Bus Hybrid Connection used by this Web App.
    * @summary Retrieves a specific Service Bus Hybrid Connection used by this Web App.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name The name of the web app.
@@ -7988,7 +7955,7 @@ export class WebApps {
   }
 
   /**
-   * Creates a new Hybrid Connection using a Service Bus relay.
+   * Description for Creates a new Hybrid Connection using a Service Bus relay.
    * @summary Creates a new Hybrid Connection using a Service Bus relay.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name The name of the web app.
@@ -8037,7 +8004,7 @@ export class WebApps {
   }
 
   /**
-   * Removes a Hybrid Connection from this site.
+   * Description for Removes a Hybrid Connection from this site.
    * @summary Removes a Hybrid Connection from this site.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name The name of the web app.
@@ -8082,7 +8049,7 @@ export class WebApps {
   }
 
   /**
-   * Creates a new Hybrid Connection using a Service Bus relay.
+   * Description for Creates a new Hybrid Connection using a Service Bus relay.
    * @summary Creates a new Hybrid Connection using a Service Bus relay.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name The name of the web app.
@@ -8131,52 +8098,7 @@ export class WebApps {
   }
 
   /**
-   * Gets the send key name and value for a Hybrid Connection.
-   * @summary Gets the send key name and value for a Hybrid Connection.
-   * @param resourceGroupName Name of the resource group to which the resource belongs.
-   * @param name The name of the web app.
-   * @param namespaceName The namespace for this hybrid connection.
-   * @param relayName The relay name for this hybrid connection.
-   * @param slot The name of the slot for the web app.
-   * @param [options] The optional parameters
-   * @returns Promise<Models.WebAppsListHybridConnectionKeysSlotResponse>
-   */
-  listHybridConnectionKeysSlot(resourceGroupName: string, name: string, namespaceName: string, relayName: string, slot: string, options?: msRest.RequestOptionsBase): Promise<Models.WebAppsListHybridConnectionKeysSlotResponse>;
-  /**
-   * @param resourceGroupName Name of the resource group to which the resource belongs.
-   * @param name The name of the web app.
-   * @param namespaceName The namespace for this hybrid connection.
-   * @param relayName The relay name for this hybrid connection.
-   * @param slot The name of the slot for the web app.
-   * @param callback The callback
-   */
-  listHybridConnectionKeysSlot(resourceGroupName: string, name: string, namespaceName: string, relayName: string, slot: string, callback: msRest.ServiceCallback<Models.HybridConnectionKey>): void;
-  /**
-   * @param resourceGroupName Name of the resource group to which the resource belongs.
-   * @param name The name of the web app.
-   * @param namespaceName The namespace for this hybrid connection.
-   * @param relayName The relay name for this hybrid connection.
-   * @param slot The name of the slot for the web app.
-   * @param options The optional parameters
-   * @param callback The callback
-   */
-  listHybridConnectionKeysSlot(resourceGroupName: string, name: string, namespaceName: string, relayName: string, slot: string, options: msRest.RequestOptionsBase, callback: msRest.ServiceCallback<Models.HybridConnectionKey>): void;
-  listHybridConnectionKeysSlot(resourceGroupName: string, name: string, namespaceName: string, relayName: string, slot: string, options?: msRest.RequestOptionsBase | msRest.ServiceCallback<Models.HybridConnectionKey>, callback?: msRest.ServiceCallback<Models.HybridConnectionKey>): Promise<Models.WebAppsListHybridConnectionKeysSlotResponse> {
-    return this.client.sendOperationRequest(
-      {
-        resourceGroupName,
-        name,
-        namespaceName,
-        relayName,
-        slot,
-        options
-      },
-      listHybridConnectionKeysSlotOperationSpec,
-      callback) as Promise<Models.WebAppsListHybridConnectionKeysSlotResponse>;
-  }
-
-  /**
-   * Retrieves all Service Bus Hybrid Connections used by this Web App.
+   * Description for Retrieves all Service Bus Hybrid Connections used by this Web App.
    * @summary Retrieves all Service Bus Hybrid Connections used by this Web App.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name The name of the web app.
@@ -8213,7 +8135,8 @@ export class WebApps {
   }
 
   /**
-   * Gets hybrid connections configured for an app (or deployment slot, if specified).
+   * Description for Gets hybrid connections configured for an app (or deployment slot, if
+   * specified).
    * @summary Gets hybrid connections configured for an app (or deployment slot, if specified).
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -8253,7 +8176,7 @@ export class WebApps {
   }
 
   /**
-   * Gets a hybrid connection configuration by its name.
+   * Description for Gets a hybrid connection configuration by its name.
    * @summary Gets a hybrid connection configuration by its name.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -8297,7 +8220,8 @@ export class WebApps {
   }
 
   /**
-   * Creates a new hybrid connection configuration (PUT), or updates an existing one (PATCH).
+   * Description for Creates a new hybrid connection configuration (PUT), or updates an existing one
+   * (PATCH).
    * @summary Creates a new hybrid connection configuration (PUT), or updates an existing one
    * (PATCH).
    * @param resourceGroupName Name of the resource group to which the resource belongs.
@@ -8346,7 +8270,7 @@ export class WebApps {
   }
 
   /**
-   * Deletes a relay service connection by its name.
+   * Description for Deletes a relay service connection by its name.
    * @summary Deletes a relay service connection by its name.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -8390,7 +8314,8 @@ export class WebApps {
   }
 
   /**
-   * Creates a new hybrid connection configuration (PUT), or updates an existing one (PATCH).
+   * Description for Creates a new hybrid connection configuration (PUT), or updates an existing one
+   * (PATCH).
    * @summary Creates a new hybrid connection configuration (PUT), or updates an existing one
    * (PATCH).
    * @param resourceGroupName Name of the resource group to which the resource belongs.
@@ -8439,7 +8364,7 @@ export class WebApps {
   }
 
   /**
-   * Gets all scale-out instances of an app.
+   * Description for Gets all scale-out instances of an app.
    * @summary Gets all scale-out instances of an app.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -8479,7 +8404,51 @@ export class WebApps {
   }
 
   /**
-   * Get the status of the last MSDeploy operation.
+   * Description for Gets all scale-out instances of an app.
+   * @summary Gets all scale-out instances of an app.
+   * @param resourceGroupName Name of the resource group to which the resource belongs.
+   * @param name Name of the app.
+   * @param instanceId
+   * @param slot Name of the deployment slot. If a slot is not specified, the API gets the production
+   * slot instances.
+   * @param [options] The optional parameters
+   * @returns Promise<Models.WebAppsGetInstanceInfoSlotResponse>
+   */
+  getInstanceInfoSlot(resourceGroupName: string, name: string, instanceId: string, slot: string, options?: msRest.RequestOptionsBase): Promise<Models.WebAppsGetInstanceInfoSlotResponse>;
+  /**
+   * @param resourceGroupName Name of the resource group to which the resource belongs.
+   * @param name Name of the app.
+   * @param instanceId
+   * @param slot Name of the deployment slot. If a slot is not specified, the API gets the production
+   * slot instances.
+   * @param callback The callback
+   */
+  getInstanceInfoSlot(resourceGroupName: string, name: string, instanceId: string, slot: string, callback: msRest.ServiceCallback<Models.WebSiteInstanceStatus>): void;
+  /**
+   * @param resourceGroupName Name of the resource group to which the resource belongs.
+   * @param name Name of the app.
+   * @param instanceId
+   * @param slot Name of the deployment slot. If a slot is not specified, the API gets the production
+   * slot instances.
+   * @param options The optional parameters
+   * @param callback The callback
+   */
+  getInstanceInfoSlot(resourceGroupName: string, name: string, instanceId: string, slot: string, options: msRest.RequestOptionsBase, callback: msRest.ServiceCallback<Models.WebSiteInstanceStatus>): void;
+  getInstanceInfoSlot(resourceGroupName: string, name: string, instanceId: string, slot: string, options?: msRest.RequestOptionsBase | msRest.ServiceCallback<Models.WebSiteInstanceStatus>, callback?: msRest.ServiceCallback<Models.WebSiteInstanceStatus>): Promise<Models.WebAppsGetInstanceInfoSlotResponse> {
+    return this.client.sendOperationRequest(
+      {
+        resourceGroupName,
+        name,
+        instanceId,
+        slot,
+        options
+      },
+      getInstanceInfoSlotOperationSpec,
+      callback) as Promise<Models.WebAppsGetInstanceInfoSlotResponse>;
+  }
+
+  /**
+   * Description for Get the status of the last MSDeploy operation.
    * @summary Get the status of the last MSDeploy operation.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of web app.
@@ -8520,7 +8489,7 @@ export class WebApps {
   }
 
   /**
-   * Invoke the MSDeploy web app extension.
+   * Description for Invoke the MSDeploy web app extension.
    * @summary Invoke the MSDeploy web app extension.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of web app.
@@ -8536,7 +8505,7 @@ export class WebApps {
   }
 
   /**
-   * Get the MSDeploy Log for the last MSDeploy operation.
+   * Description for Get the MSDeploy Log for the last MSDeploy operation.
    * @summary Get the MSDeploy Log for the last MSDeploy operation.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of web app.
@@ -8577,8 +8546,8 @@ export class WebApps {
   }
 
   /**
-   * Get list of processes for a web site, or a deployment slot, or for a specific scaled-out
-   * instance in a web site.
+   * Description for Get list of processes for a web site, or a deployment slot, or for a specific
+   * scaled-out instance in a web site.
    * @summary Get list of processes for a web site, or a deployment slot, or for a specific
    * scaled-out instance in a web site.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
@@ -8626,7 +8595,8 @@ export class WebApps {
   }
 
   /**
-   * Get process information by its ID for a specific scaled-out instance in a web site.
+   * Description for Get process information by its ID for a specific scaled-out instance in a web
+   * site.
    * @summary Get process information by its ID for a specific scaled-out instance in a web site.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Site name.
@@ -8677,8 +8647,8 @@ export class WebApps {
   }
 
   /**
-   * Terminate a process by its ID for a web site, or a deployment slot, or specific scaled-out
-   * instance in a web site.
+   * Description for Terminate a process by its ID for a web site, or a deployment slot, or specific
+   * scaled-out instance in a web site.
    * @summary Terminate a process by its ID for a web site, or a deployment slot, or specific
    * scaled-out instance in a web site.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
@@ -8730,7 +8700,8 @@ export class WebApps {
   }
 
   /**
-   * Get a memory dump of a process by its ID for a specific scaled-out instance in a web site.
+   * Description for Get a memory dump of a process by its ID for a specific scaled-out instance in a
+   * web site.
    * @summary Get a memory dump of a process by its ID for a specific scaled-out instance in a web
    * site.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
@@ -8782,8 +8753,8 @@ export class WebApps {
   }
 
   /**
-   * List module information for a process by its ID for a specific scaled-out instance in a web
-   * site.
+   * Description for List module information for a process by its ID for a specific scaled-out
+   * instance in a web site.
    * @summary List module information for a process by its ID for a specific scaled-out instance in a
    * web site.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
@@ -8835,7 +8806,8 @@ export class WebApps {
   }
 
   /**
-   * Get process information by its ID for a specific scaled-out instance in a web site.
+   * Description for Get process information by its ID for a specific scaled-out instance in a web
+   * site.
    * @summary Get process information by its ID for a specific scaled-out instance in a web site.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Site name.
@@ -8890,7 +8862,8 @@ export class WebApps {
   }
 
   /**
-   * List the threads in a process by its ID for a specific scaled-out instance in a web site.
+   * Description for List the threads in a process by its ID for a specific scaled-out instance in a
+   * web site.
    * @summary List the threads in a process by its ID for a specific scaled-out instance in a web
    * site.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
@@ -8942,64 +8915,7 @@ export class WebApps {
   }
 
   /**
-   * Get thread information by Thread ID for a specific process, in a specific scaled-out instance in
-   * a web site.
-   * @summary Get thread information by Thread ID for a specific process, in a specific scaled-out
-   * instance in a web site.
-   * @param resourceGroupName Name of the resource group to which the resource belongs.
-   * @param name Site name.
-   * @param processId PID.
-   * @param threadId TID.
-   * @param slot Name of the deployment slot. If a slot is not specified, the API returns deployments
-   * for the production slot.
-   * @param instanceId ID of a specific scaled-out instance. This is the value of the name property
-   * in the JSON response from "GET api/sites/{siteName}/instances".
-   * @param [options] The optional parameters
-   * @returns Promise<Models.WebAppsGetInstanceProcessThreadSlotResponse>
-   */
-  getInstanceProcessThreadSlot(resourceGroupName: string, name: string, processId: string, threadId: string, slot: string, instanceId: string, options?: msRest.RequestOptionsBase): Promise<Models.WebAppsGetInstanceProcessThreadSlotResponse>;
-  /**
-   * @param resourceGroupName Name of the resource group to which the resource belongs.
-   * @param name Site name.
-   * @param processId PID.
-   * @param threadId TID.
-   * @param slot Name of the deployment slot. If a slot is not specified, the API returns deployments
-   * for the production slot.
-   * @param instanceId ID of a specific scaled-out instance. This is the value of the name property
-   * in the JSON response from "GET api/sites/{siteName}/instances".
-   * @param callback The callback
-   */
-  getInstanceProcessThreadSlot(resourceGroupName: string, name: string, processId: string, threadId: string, slot: string, instanceId: string, callback: msRest.ServiceCallback<Models.ProcessThreadInfo>): void;
-  /**
-   * @param resourceGroupName Name of the resource group to which the resource belongs.
-   * @param name Site name.
-   * @param processId PID.
-   * @param threadId TID.
-   * @param slot Name of the deployment slot. If a slot is not specified, the API returns deployments
-   * for the production slot.
-   * @param instanceId ID of a specific scaled-out instance. This is the value of the name property
-   * in the JSON response from "GET api/sites/{siteName}/instances".
-   * @param options The optional parameters
-   * @param callback The callback
-   */
-  getInstanceProcessThreadSlot(resourceGroupName: string, name: string, processId: string, threadId: string, slot: string, instanceId: string, options: msRest.RequestOptionsBase, callback: msRest.ServiceCallback<Models.ProcessThreadInfo>): void;
-  getInstanceProcessThreadSlot(resourceGroupName: string, name: string, processId: string, threadId: string, slot: string, instanceId: string, options?: msRest.RequestOptionsBase | msRest.ServiceCallback<Models.ProcessThreadInfo>, callback?: msRest.ServiceCallback<Models.ProcessThreadInfo>): Promise<Models.WebAppsGetInstanceProcessThreadSlotResponse> {
-    return this.client.sendOperationRequest(
-      {
-        resourceGroupName,
-        name,
-        processId,
-        threadId,
-        slot,
-        instanceId,
-        options
-      },
-      getInstanceProcessThreadSlotOperationSpec,
-      callback) as Promise<Models.WebAppsGetInstanceProcessThreadSlotResponse>;
-  }
-
-  /**
-   * Shows whether an app can be cloned to another resource group or subscription.
+   * Description for Shows whether an app can be cloned to another resource group or subscription.
    * @summary Shows whether an app can be cloned to another resource group or subscription.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -9039,12 +8955,51 @@ export class WebApps {
   }
 
   /**
-   * This is to allow calling via powershell and ARM template.
+   * Description for Gets existing backups of an app.
+   * @summary Gets existing backups of an app.
+   * @param resourceGroupName Name of the resource group to which the resource belongs.
+   * @param name Name of the app.
+   * @param slot Name of the deployment slot. If a slot is not specified, the API will get backups of
+   * the production slot.
+   * @param [options] The optional parameters
+   * @returns Promise<Models.WebAppsListSiteBackupsSlotResponse>
+   */
+  listSiteBackupsSlot(resourceGroupName: string, name: string, slot: string, options?: msRest.RequestOptionsBase): Promise<Models.WebAppsListSiteBackupsSlotResponse>;
+  /**
+   * @param resourceGroupName Name of the resource group to which the resource belongs.
+   * @param name Name of the app.
+   * @param slot Name of the deployment slot. If a slot is not specified, the API will get backups of
+   * the production slot.
+   * @param callback The callback
+   */
+  listSiteBackupsSlot(resourceGroupName: string, name: string, slot: string, callback: msRest.ServiceCallback<Models.BackupItemCollection>): void;
+  /**
+   * @param resourceGroupName Name of the resource group to which the resource belongs.
+   * @param name Name of the app.
+   * @param slot Name of the deployment slot. If a slot is not specified, the API will get backups of
+   * the production slot.
+   * @param options The optional parameters
+   * @param callback The callback
+   */
+  listSiteBackupsSlot(resourceGroupName: string, name: string, slot: string, options: msRest.RequestOptionsBase, callback: msRest.ServiceCallback<Models.BackupItemCollection>): void;
+  listSiteBackupsSlot(resourceGroupName: string, name: string, slot: string, options?: msRest.RequestOptionsBase | msRest.ServiceCallback<Models.BackupItemCollection>, callback?: msRest.ServiceCallback<Models.BackupItemCollection>): Promise<Models.WebAppsListSiteBackupsSlotResponse> {
+    return this.client.sendOperationRequest(
+      {
+        resourceGroupName,
+        name,
+        slot,
+        options
+      },
+      listSiteBackupsSlotOperationSpec,
+      callback) as Promise<Models.WebAppsListSiteBackupsSlotResponse>;
+  }
+
+  /**
+   * Description for This is to allow calling via powershell and ARM template.
    * @summary This is to allow calling via powershell and ARM template.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
-   * @param slot Name of the deployment slot. If a slot is not specified, the API will restore a
-   * backup of the production slot.
+   * @param slot Name of the deployment slot.
    * @param [options] The optional parameters
    * @returns Promise<Models.WebAppsListSyncFunctionTriggersSlotResponse>
    */
@@ -9052,16 +9007,14 @@ export class WebApps {
   /**
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
-   * @param slot Name of the deployment slot. If a slot is not specified, the API will restore a
-   * backup of the production slot.
+   * @param slot Name of the deployment slot.
    * @param callback The callback
    */
   listSyncFunctionTriggersSlot(resourceGroupName: string, name: string, slot: string, callback: msRest.ServiceCallback<Models.FunctionSecrets>): void;
   /**
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
-   * @param slot Name of the deployment slot. If a slot is not specified, the API will restore a
-   * backup of the production slot.
+   * @param slot Name of the deployment slot.
    * @param options The optional parameters
    * @param callback The callback
    */
@@ -9079,88 +9032,8 @@ export class WebApps {
   }
 
   /**
-   * Gets all metric definitions of an app (or deployment slot, if specified).
-   * @summary Gets all metric definitions of an app (or deployment slot, if specified).
-   * @param resourceGroupName Name of the resource group to which the resource belongs.
-   * @param name Name of the app.
-   * @param slot Name of the deployment slot. If a slot is not specified, the API will get metric
-   * definitions of the production slot.
-   * @param [options] The optional parameters
-   * @returns Promise<Models.WebAppsListMetricDefinitionsSlotResponse>
-   */
-  listMetricDefinitionsSlot(resourceGroupName: string, name: string, slot: string, options?: msRest.RequestOptionsBase): Promise<Models.WebAppsListMetricDefinitionsSlotResponse>;
-  /**
-   * @param resourceGroupName Name of the resource group to which the resource belongs.
-   * @param name Name of the app.
-   * @param slot Name of the deployment slot. If a slot is not specified, the API will get metric
-   * definitions of the production slot.
-   * @param callback The callback
-   */
-  listMetricDefinitionsSlot(resourceGroupName: string, name: string, slot: string, callback: msRest.ServiceCallback<Models.ResourceMetricDefinitionCollection>): void;
-  /**
-   * @param resourceGroupName Name of the resource group to which the resource belongs.
-   * @param name Name of the app.
-   * @param slot Name of the deployment slot. If a slot is not specified, the API will get metric
-   * definitions of the production slot.
-   * @param options The optional parameters
-   * @param callback The callback
-   */
-  listMetricDefinitionsSlot(resourceGroupName: string, name: string, slot: string, options: msRest.RequestOptionsBase, callback: msRest.ServiceCallback<Models.ResourceMetricDefinitionCollection>): void;
-  listMetricDefinitionsSlot(resourceGroupName: string, name: string, slot: string, options?: msRest.RequestOptionsBase | msRest.ServiceCallback<Models.ResourceMetricDefinitionCollection>, callback?: msRest.ServiceCallback<Models.ResourceMetricDefinitionCollection>): Promise<Models.WebAppsListMetricDefinitionsSlotResponse> {
-    return this.client.sendOperationRequest(
-      {
-        resourceGroupName,
-        name,
-        slot,
-        options
-      },
-      listMetricDefinitionsSlotOperationSpec,
-      callback) as Promise<Models.WebAppsListMetricDefinitionsSlotResponse>;
-  }
-
-  /**
-   * Gets performance metrics of an app (or deployment slot, if specified).
-   * @summary Gets performance metrics of an app (or deployment slot, if specified).
-   * @param resourceGroupName Name of the resource group to which the resource belongs.
-   * @param name Name of the app.
-   * @param slot Name of the deployment slot. If a slot is not specified, the API will get metrics of
-   * the production slot.
-   * @param [options] The optional parameters
-   * @returns Promise<Models.WebAppsListMetricsSlotResponse>
-   */
-  listMetricsSlot(resourceGroupName: string, name: string, slot: string, options?: Models.WebAppsListMetricsSlotOptionalParams): Promise<Models.WebAppsListMetricsSlotResponse>;
-  /**
-   * @param resourceGroupName Name of the resource group to which the resource belongs.
-   * @param name Name of the app.
-   * @param slot Name of the deployment slot. If a slot is not specified, the API will get metrics of
-   * the production slot.
-   * @param callback The callback
-   */
-  listMetricsSlot(resourceGroupName: string, name: string, slot: string, callback: msRest.ServiceCallback<Models.ResourceMetricCollection>): void;
-  /**
-   * @param resourceGroupName Name of the resource group to which the resource belongs.
-   * @param name Name of the app.
-   * @param slot Name of the deployment slot. If a slot is not specified, the API will get metrics of
-   * the production slot.
-   * @param options The optional parameters
-   * @param callback The callback
-   */
-  listMetricsSlot(resourceGroupName: string, name: string, slot: string, options: Models.WebAppsListMetricsSlotOptionalParams, callback: msRest.ServiceCallback<Models.ResourceMetricCollection>): void;
-  listMetricsSlot(resourceGroupName: string, name: string, slot: string, options?: Models.WebAppsListMetricsSlotOptionalParams | msRest.ServiceCallback<Models.ResourceMetricCollection>, callback?: msRest.ServiceCallback<Models.ResourceMetricCollection>): Promise<Models.WebAppsListMetricsSlotResponse> {
-    return this.client.sendOperationRequest(
-      {
-        resourceGroupName,
-        name,
-        slot,
-        options
-      },
-      listMetricsSlotOperationSpec,
-      callback) as Promise<Models.WebAppsListMetricsSlotResponse>;
-  }
-
-  /**
-   * Returns the status of MySql in app migration, if one is active, and whether or not MySql in app
-   * is enabled
+   * Description for Returns the status of MySql in app migration, if one is active, and whether or
+   * not MySql in app is enabled
    * @summary Returns the status of MySql in app migration, if one is active, and whether or not
    * MySql in app is enabled
    * @param resourceGroupName Name of the resource group to which the resource belongs.
@@ -9198,7 +9071,7 @@ export class WebApps {
   }
 
   /**
-   * Gets a Swift Virtual Network connection.
+   * Description for Gets a Swift Virtual Network connection.
    * @summary Gets a Swift Virtual Network connection.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -9238,9 +9111,9 @@ export class WebApps {
   }
 
   /**
-   * Integrates this Web App with a Virtual Network. This requires that 1) "swiftSupported" is true
-   * when doing a GET against this resource, and 2) that the target Subnet has already been
-   * delegated, and is not
+   * Description for Integrates this Web App with a Virtual Network. This requires that 1)
+   * "swiftSupported" is true when doing a GET against this resource, and 2) that the target Subnet
+   * has already been delegated, and is not
    * in use by another App Service Plan other than the one this App is in.
    * @summary Integrates this Web App with a Virtual Network. This requires that 1) "swiftSupported"
    * is true when doing a GET against this resource, and 2) that the target Subnet has already been
@@ -9288,7 +9161,7 @@ export class WebApps {
   }
 
   /**
-   * Deletes a Swift Virtual Network connection from an app (or deployment slot).
+   * Description for Deletes a Swift Virtual Network connection from an app (or deployment slot).
    * @summary Deletes a Swift Virtual Network connection from an app (or deployment slot).
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -9328,9 +9201,9 @@ export class WebApps {
   }
 
   /**
-   * Integrates this Web App with a Virtual Network. This requires that 1) "swiftSupported" is true
-   * when doing a GET against this resource, and 2) that the target Subnet has already been
-   * delegated, and is not
+   * Description for Integrates this Web App with a Virtual Network. This requires that 1)
+   * "swiftSupported" is true when doing a GET against this resource, and 2) that the target Subnet
+   * has already been delegated, and is not
    * in use by another App Service Plan other than the one this App is in.
    * @summary Integrates this Web App with a Virtual Network. This requires that 1) "swiftSupported"
    * is true when doing a GET against this resource, and 2) that the target Subnet has already been
@@ -9378,7 +9251,7 @@ export class WebApps {
   }
 
   /**
-   * Gets all network features used by the app (or deployment slot, if specified).
+   * Description for Gets all network features used by the app (or deployment slot, if specified).
    * @summary Gets all network features used by the app (or deployment slot, if specified).
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -9422,7 +9295,8 @@ export class WebApps {
   }
 
   /**
-   * Gets a named operation for a network trace capturing (or deployment slot, if specified).
+   * Description for Gets a named operation for a network trace capturing (or deployment slot, if
+   * specified).
    * @summary Gets a named operation for a network trace capturing (or deployment slot, if
    * specified).
    * @param resourceGroupName Name of the resource group to which the resource belongs.
@@ -9467,7 +9341,7 @@ export class WebApps {
   }
 
   /**
-   * Start capturing network packets for the site (To be deprecated).
+   * Description for Start capturing network packets for the site (To be deprecated).
    * @summary Start capturing network packets for the site (To be deprecated).
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name The name of the web app.
@@ -9504,7 +9378,7 @@ export class WebApps {
   }
 
   /**
-   * Start capturing network packets for the site.
+   * Description for Start capturing network packets for the site.
    * @summary Start capturing network packets for the site.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name The name of the web app.
@@ -9518,7 +9392,7 @@ export class WebApps {
   }
 
   /**
-   * Stop ongoing capturing network packets for the site.
+   * Description for Stop ongoing capturing network packets for the site.
    * @summary Stop ongoing capturing network packets for the site.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name The name of the web app.
@@ -9555,7 +9429,8 @@ export class WebApps {
   }
 
   /**
-   * Gets a named operation for a network trace capturing (or deployment slot, if specified).
+   * Description for Gets a named operation for a network trace capturing (or deployment slot, if
+   * specified).
    * @summary Gets a named operation for a network trace capturing (or deployment slot, if
    * specified).
    * @param resourceGroupName Name of the resource group to which the resource belongs.
@@ -9600,7 +9475,8 @@ export class WebApps {
   }
 
   /**
-   * Gets a named operation for a network trace capturing (or deployment slot, if specified).
+   * Description for Gets a named operation for a network trace capturing (or deployment slot, if
+   * specified).
    * @summary Gets a named operation for a network trace capturing (or deployment slot, if
    * specified).
    * @param resourceGroupName Name of the resource group to which the resource belongs.
@@ -9645,7 +9521,8 @@ export class WebApps {
   }
 
   /**
-   * Gets a named operation for a network trace capturing (or deployment slot, if specified).
+   * Description for Gets a named operation for a network trace capturing (or deployment slot, if
+   * specified).
    * @summary Gets a named operation for a network trace capturing (or deployment slot, if
    * specified).
    * @param resourceGroupName Name of the resource group to which the resource belongs.
@@ -9690,7 +9567,8 @@ export class WebApps {
   }
 
   /**
-   * Generates a new publishing password for an app (or deployment slot, if specified).
+   * Description for Generates a new publishing password for an app (or deployment slot, if
+   * specified).
    * @summary Generates a new publishing password for an app (or deployment slot, if specified).
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -9730,7 +9608,7 @@ export class WebApps {
   }
 
   /**
-   * Gets perfmon counters for web app.
+   * Description for Gets perfmon counters for web app.
    * @summary Gets perfmon counters for web app.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of web app.
@@ -9767,7 +9645,7 @@ export class WebApps {
   }
 
   /**
-   * Gets web app's event logs.
+   * Description for Gets web app's event logs.
    * @summary Gets web app's event logs.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of web app.
@@ -9804,7 +9682,7 @@ export class WebApps {
   }
 
   /**
-   * Gets the premier add-ons of an app.
+   * Description for Gets the premier add-ons of an app.
    * @summary Gets the premier add-ons of an app.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -9844,7 +9722,7 @@ export class WebApps {
   }
 
   /**
-   * Gets a named add-on of an app.
+   * Description for Gets a named add-on of an app.
    * @summary Gets a named add-on of an app.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -9888,7 +9766,7 @@ export class WebApps {
   }
 
   /**
-   * Updates a named add-on of an app.
+   * Description for Updates a named add-on of an app.
    * @summary Updates a named add-on of an app.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -9936,7 +9814,7 @@ export class WebApps {
   }
 
   /**
-   * Delete a premier add-on from an app.
+   * Description for Delete a premier add-on from an app.
    * @summary Delete a premier add-on from an app.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -9980,7 +9858,7 @@ export class WebApps {
   }
 
   /**
-   * Updates a named add-on of an app.
+   * Description for Updates a named add-on of an app.
    * @summary Updates a named add-on of an app.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -10028,8 +9906,8 @@ export class WebApps {
   }
 
   /**
-   * Gets data around private site access enablement and authorized Virtual Networks that can access
-   * the site.
+   * Description for Gets data around private site access enablement and authorized Virtual Networks
+   * that can access the site.
    * @summary Gets data around private site access enablement and authorized Virtual Networks that
    * can access the site.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
@@ -10067,8 +9945,8 @@ export class WebApps {
   }
 
   /**
-   * Sets data around private site access enablement and authorized Virtual Networks that can access
-   * the site.
+   * Description for Sets data around private site access enablement and authorized Virtual Networks
+   * that can access the site.
    * @summary Sets data around private site access enablement and authorized Virtual Networks that
    * can access the site.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
@@ -10110,8 +9988,8 @@ export class WebApps {
   }
 
   /**
-   * Get list of processes for a web site, or a deployment slot, or for a specific scaled-out
-   * instance in a web site.
+   * Description for Get list of processes for a web site, or a deployment slot, or for a specific
+   * scaled-out instance in a web site.
    * @summary Get list of processes for a web site, or a deployment slot, or for a specific
    * scaled-out instance in a web site.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
@@ -10152,7 +10030,8 @@ export class WebApps {
   }
 
   /**
-   * Get process information by its ID for a specific scaled-out instance in a web site.
+   * Description for Get process information by its ID for a specific scaled-out instance in a web
+   * site.
    * @summary Get process information by its ID for a specific scaled-out instance in a web site.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Site name.
@@ -10196,8 +10075,8 @@ export class WebApps {
   }
 
   /**
-   * Terminate a process by its ID for a web site, or a deployment slot, or specific scaled-out
-   * instance in a web site.
+   * Description for Terminate a process by its ID for a web site, or a deployment slot, or specific
+   * scaled-out instance in a web site.
    * @summary Terminate a process by its ID for a web site, or a deployment slot, or specific
    * scaled-out instance in a web site.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
@@ -10242,7 +10121,8 @@ export class WebApps {
   }
 
   /**
-   * Get a memory dump of a process by its ID for a specific scaled-out instance in a web site.
+   * Description for Get a memory dump of a process by its ID for a specific scaled-out instance in a
+   * web site.
    * @summary Get a memory dump of a process by its ID for a specific scaled-out instance in a web
    * site.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
@@ -10287,8 +10167,8 @@ export class WebApps {
   }
 
   /**
-   * List module information for a process by its ID for a specific scaled-out instance in a web
-   * site.
+   * Description for List module information for a process by its ID for a specific scaled-out
+   * instance in a web site.
    * @summary List module information for a process by its ID for a specific scaled-out instance in a
    * web site.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
@@ -10333,7 +10213,8 @@ export class WebApps {
   }
 
   /**
-   * Get process information by its ID for a specific scaled-out instance in a web site.
+   * Description for Get process information by its ID for a specific scaled-out instance in a web
+   * site.
    * @summary Get process information by its ID for a specific scaled-out instance in a web site.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Site name.
@@ -10381,7 +10262,8 @@ export class WebApps {
   }
 
   /**
-   * List the threads in a process by its ID for a specific scaled-out instance in a web site.
+   * Description for List the threads in a process by its ID for a specific scaled-out instance in a
+   * web site.
    * @summary List the threads in a process by its ID for a specific scaled-out instance in a web
    * site.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
@@ -10426,57 +10308,7 @@ export class WebApps {
   }
 
   /**
-   * Get thread information by Thread ID for a specific process, in a specific scaled-out instance in
-   * a web site.
-   * @summary Get thread information by Thread ID for a specific process, in a specific scaled-out
-   * instance in a web site.
-   * @param resourceGroupName Name of the resource group to which the resource belongs.
-   * @param name Site name.
-   * @param processId PID.
-   * @param threadId TID.
-   * @param slot Name of the deployment slot. If a slot is not specified, the API returns deployments
-   * for the production slot.
-   * @param [options] The optional parameters
-   * @returns Promise<Models.WebAppsGetProcessThreadSlotResponse>
-   */
-  getProcessThreadSlot(resourceGroupName: string, name: string, processId: string, threadId: string, slot: string, options?: msRest.RequestOptionsBase): Promise<Models.WebAppsGetProcessThreadSlotResponse>;
-  /**
-   * @param resourceGroupName Name of the resource group to which the resource belongs.
-   * @param name Site name.
-   * @param processId PID.
-   * @param threadId TID.
-   * @param slot Name of the deployment slot. If a slot is not specified, the API returns deployments
-   * for the production slot.
-   * @param callback The callback
-   */
-  getProcessThreadSlot(resourceGroupName: string, name: string, processId: string, threadId: string, slot: string, callback: msRest.ServiceCallback<Models.ProcessThreadInfo>): void;
-  /**
-   * @param resourceGroupName Name of the resource group to which the resource belongs.
-   * @param name Site name.
-   * @param processId PID.
-   * @param threadId TID.
-   * @param slot Name of the deployment slot. If a slot is not specified, the API returns deployments
-   * for the production slot.
-   * @param options The optional parameters
-   * @param callback The callback
-   */
-  getProcessThreadSlot(resourceGroupName: string, name: string, processId: string, threadId: string, slot: string, options: msRest.RequestOptionsBase, callback: msRest.ServiceCallback<Models.ProcessThreadInfo>): void;
-  getProcessThreadSlot(resourceGroupName: string, name: string, processId: string, threadId: string, slot: string, options?: msRest.RequestOptionsBase | msRest.ServiceCallback<Models.ProcessThreadInfo>, callback?: msRest.ServiceCallback<Models.ProcessThreadInfo>): Promise<Models.WebAppsGetProcessThreadSlotResponse> {
-    return this.client.sendOperationRequest(
-      {
-        resourceGroupName,
-        name,
-        processId,
-        threadId,
-        slot,
-        options
-      },
-      getProcessThreadSlotOperationSpec,
-      callback) as Promise<Models.WebAppsGetProcessThreadSlotResponse>;
-  }
-
-  /**
-   * Get public certificates for an app or a deployment slot.
+   * Description for Get public certificates for an app or a deployment slot.
    * @summary Get public certificates for an app or a deployment slot.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -10516,7 +10348,7 @@ export class WebApps {
   }
 
   /**
-   * Get the named public certificate for an app (or deployment slot, if specified).
+   * Description for Get the named public certificate for an app (or deployment slot, if specified).
    * @summary Get the named public certificate for an app (or deployment slot, if specified).
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -10560,7 +10392,7 @@ export class WebApps {
   }
 
   /**
-   * Creates a hostname binding for an app.
+   * Description for Creates a hostname binding for an app.
    * @summary Creates a hostname binding for an app.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -10611,7 +10443,7 @@ export class WebApps {
   }
 
   /**
-   * Deletes a hostname binding for an app.
+   * Description for Deletes a hostname binding for an app.
    * @summary Deletes a hostname binding for an app.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -10655,7 +10487,7 @@ export class WebApps {
   }
 
   /**
-   * Gets the publishing profile for an app (or deployment slot, if specified).
+   * Description for Gets the publishing profile for an app (or deployment slot, if specified).
    * @summary Gets the publishing profile for an app (or deployment slot, if specified).
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -10702,8 +10534,8 @@ export class WebApps {
   }
 
   /**
-   * Resets the configuration settings of the current slot if they were previously modified by
-   * calling the API with POST.
+   * Description for Resets the configuration settings of the current slot if they were previously
+   * modified by calling the API with POST.
    * @summary Resets the configuration settings of the current slot if they were previously modified
    * by calling the API with POST.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
@@ -10744,7 +10576,7 @@ export class WebApps {
   }
 
   /**
-   * Restarts an app (or deployment slot, if specified).
+   * Description for Restarts an app (or deployment slot, if specified).
    * @summary Restarts an app (or deployment slot, if specified).
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -10784,7 +10616,7 @@ export class WebApps {
   }
 
   /**
-   * Restores an app from a backup blob in Azure Storage.
+   * Description for Restores an app from a backup blob in Azure Storage.
    * @summary Restores an app from a backup blob in Azure Storage.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -10800,7 +10632,7 @@ export class WebApps {
   }
 
   /**
-   * Restores a deleted web app to this web app.
+   * Description for Restores a deleted web app to this web app.
    * @summary Restores a deleted web app to this web app.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of web app.
@@ -10815,7 +10647,7 @@ export class WebApps {
   }
 
   /**
-   * Restores a web app from a snapshot.
+   * Description for Restores a web app from a snapshot.
    * @summary Restores a web app from a snapshot.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of web app.
@@ -10831,12 +10663,12 @@ export class WebApps {
   }
 
   /**
-   * Get list of siteextensions for a web site, or a deployment slot.
+   * Description for Get list of siteextensions for a web site, or a deployment slot.
    * @summary Get list of siteextensions for a web site, or a deployment slot.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Site name.
-   * @param slot Name of the deployment slot. If a slot is not specified, the API deletes a
-   * deployment for the production slot.
+   * @param slot Name of the deployment slot. If a slot is not specified, the API uses the production
+   * slot.
    * @param [options] The optional parameters
    * @returns Promise<Models.WebAppsListSiteExtensionsSlotResponse>
    */
@@ -10844,16 +10676,16 @@ export class WebApps {
   /**
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Site name.
-   * @param slot Name of the deployment slot. If a slot is not specified, the API deletes a
-   * deployment for the production slot.
+   * @param slot Name of the deployment slot. If a slot is not specified, the API uses the production
+   * slot.
    * @param callback The callback
    */
   listSiteExtensionsSlot(resourceGroupName: string, name: string, slot: string, callback: msRest.ServiceCallback<Models.SiteExtensionInfoCollection>): void;
   /**
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Site name.
-   * @param slot Name of the deployment slot. If a slot is not specified, the API deletes a
-   * deployment for the production slot.
+   * @param slot Name of the deployment slot. If a slot is not specified, the API uses the production
+   * slot.
    * @param options The optional parameters
    * @param callback The callback
    */
@@ -10871,13 +10703,13 @@ export class WebApps {
   }
 
   /**
-   * Get site extension information by its ID for a web site, or a deployment slot.
+   * Description for Get site extension information by its ID for a web site, or a deployment slot.
    * @summary Get site extension information by its ID for a web site, or a deployment slot.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Site name.
    * @param siteExtensionId Site extension name.
-   * @param slot Name of the deployment slot. If a slot is not specified, the API deletes a
-   * deployment for the production slot.
+   * @param slot Name of the deployment slot. If a slot is not specified, the API uses the production
+   * slot.
    * @param [options] The optional parameters
    * @returns Promise<Models.WebAppsGetSiteExtensionSlotResponse>
    */
@@ -10886,8 +10718,8 @@ export class WebApps {
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Site name.
    * @param siteExtensionId Site extension name.
-   * @param slot Name of the deployment slot. If a slot is not specified, the API deletes a
-   * deployment for the production slot.
+   * @param slot Name of the deployment slot. If a slot is not specified, the API uses the production
+   * slot.
    * @param callback The callback
    */
   getSiteExtensionSlot(resourceGroupName: string, name: string, siteExtensionId: string, slot: string, callback: msRest.ServiceCallback<Models.SiteExtensionInfo>): void;
@@ -10895,8 +10727,8 @@ export class WebApps {
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Site name.
    * @param siteExtensionId Site extension name.
-   * @param slot Name of the deployment slot. If a slot is not specified, the API deletes a
-   * deployment for the production slot.
+   * @param slot Name of the deployment slot. If a slot is not specified, the API uses the production
+   * slot.
    * @param options The optional parameters
    * @param callback The callback
    */
@@ -10915,13 +10747,13 @@ export class WebApps {
   }
 
   /**
-   * Install site extension on a web site, or a deployment slot.
+   * Description for Install site extension on a web site, or a deployment slot.
    * @summary Install site extension on a web site, or a deployment slot.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Site name.
    * @param siteExtensionId Site extension name.
-   * @param slot Name of the deployment slot. If a slot is not specified, the API deletes a
-   * deployment for the production slot.
+   * @param slot Name of the deployment slot. If a slot is not specified, the API uses the production
+   * slot.
    * @param [options] The optional parameters
    * @returns Promise<Models.WebAppsInstallSiteExtensionSlotResponse>
    */
@@ -10931,7 +10763,7 @@ export class WebApps {
   }
 
   /**
-   * Remove a site extension from a web site, or a deployment slot.
+   * Description for Remove a site extension from a web site, or a deployment slot.
    * @summary Remove a site extension from a web site, or a deployment slot.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Site name.
@@ -10975,7 +10807,24 @@ export class WebApps {
   }
 
   /**
-   * Get the difference in configuration settings between two web app slots.
+   * Description for Copies a deployment slot to another deployment slot of an app.
+   * @summary Copies a deployment slot to another deployment slot of an app.
+   * @param resourceGroupName Name of the resource group to which the resource belongs.
+   * @param name Name of the app.
+   * @param copySlotEntity JSON object that contains the target slot name and site config properties
+   * to override the source slot config. See example.
+   * @param slot Name of the source slot. If a slot is not specified, the production slot is used as
+   * the source slot.
+   * @param [options] The optional parameters
+   * @returns Promise<msRest.RestResponse>
+   */
+  copySlotSlot(resourceGroupName: string, name: string, copySlotEntity: Models.CsmCopySlotEntity, slot: string, options?: msRest.RequestOptionsBase): Promise<msRest.RestResponse> {
+    return this.beginCopySlotSlot(resourceGroupName,name,copySlotEntity,slot,options)
+      .then(lroPoller => lroPoller.pollUntilFinished());
+  }
+
+  /**
+   * Description for Get the difference in configuration settings between two web app slots.
    * @summary Get the difference in configuration settings between two web app slots.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -11019,7 +10868,7 @@ export class WebApps {
   }
 
   /**
-   * Swaps two deployment slots of an app.
+   * Description for Swaps two deployment slots of an app.
    * @summary Swaps two deployment slots of an app.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -11035,7 +10884,7 @@ export class WebApps {
   }
 
   /**
-   * Returns all Snapshots to the user.
+   * Description for Returns all Snapshots to the user.
    * @summary Returns all Snapshots to the user.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Website Name.
@@ -11072,7 +10921,7 @@ export class WebApps {
   }
 
   /**
-   * Returns all Snapshots to the user from DRSecondary endpoint.
+   * Description for Returns all Snapshots to the user from DRSecondary endpoint.
    * @summary Returns all Snapshots to the user from DRSecondary endpoint.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Website Name.
@@ -11109,7 +10958,7 @@ export class WebApps {
   }
 
   /**
-   * Gets the source control configuration of an app.
+   * Description for Gets the source control configuration of an app.
    * @summary Gets the source control configuration of an app.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -11149,7 +10998,7 @@ export class WebApps {
   }
 
   /**
-   * Updates the source control configuration of an app.
+   * Description for Updates the source control configuration of an app.
    * @summary Updates the source control configuration of an app.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -11165,7 +11014,7 @@ export class WebApps {
   }
 
   /**
-   * Deletes the source control configuration of an app.
+   * Description for Deletes the source control configuration of an app.
    * @summary Deletes the source control configuration of an app.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -11205,7 +11054,7 @@ export class WebApps {
   }
 
   /**
-   * Updates the source control configuration of an app.
+   * Description for Updates the source control configuration of an app.
    * @summary Updates the source control configuration of an app.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -11249,7 +11098,7 @@ export class WebApps {
   }
 
   /**
-   * Starts an app (or deployment slot, if specified).
+   * Description for Starts an app (or deployment slot, if specified).
    * @summary Starts an app (or deployment slot, if specified).
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -11289,7 +11138,7 @@ export class WebApps {
   }
 
   /**
-   * Start capturing network packets for the site.
+   * Description for Start capturing network packets for the site.
    * @summary Start capturing network packets for the site.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name The name of the web app.
@@ -11303,7 +11152,7 @@ export class WebApps {
   }
 
   /**
-   * Stops an app (or deployment slot, if specified).
+   * Description for Stops an app (or deployment slot, if specified).
    * @summary Stops an app (or deployment slot, if specified).
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -11343,7 +11192,7 @@ export class WebApps {
   }
 
   /**
-   * Stop ongoing capturing network packets for the site.
+   * Description for Stop ongoing capturing network packets for the site.
    * @summary Stop ongoing capturing network packets for the site.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name The name of the web app.
@@ -11380,7 +11229,7 @@ export class WebApps {
   }
 
   /**
-   * Sync web app repository.
+   * Description for Sync web app repository.
    * @summary Sync web app repository.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of web app.
@@ -11417,12 +11266,11 @@ export class WebApps {
   }
 
   /**
-   * Syncs function trigger metadata to the scale controller
+   * Description for Syncs function trigger metadata to the scale controller
    * @summary Syncs function trigger metadata to the scale controller
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
-   * @param slot Name of the deployment slot. If a slot is not specified, the API will restore a
-   * backup of the production slot.
+   * @param slot Name of the deployment slot.
    * @param [options] The optional parameters
    * @returns Promise<msRest.RestResponse>
    */
@@ -11430,16 +11278,14 @@ export class WebApps {
   /**
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
-   * @param slot Name of the deployment slot. If a slot is not specified, the API will restore a
-   * backup of the production slot.
+   * @param slot Name of the deployment slot.
    * @param callback The callback
    */
   syncFunctionTriggersSlot(resourceGroupName: string, name: string, slot: string, callback: msRest.ServiceCallback<void>): void;
   /**
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
-   * @param slot Name of the deployment slot. If a slot is not specified, the API will restore a
-   * backup of the production slot.
+   * @param slot Name of the deployment slot.
    * @param options The optional parameters
    * @param callback The callback
    */
@@ -11457,7 +11303,7 @@ export class WebApps {
   }
 
   /**
-   * List triggered web jobs for an app, or a deployment slot.
+   * Description for List triggered web jobs for an app, or a deployment slot.
    * @summary List triggered web jobs for an app, or a deployment slot.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Site name.
@@ -11497,13 +11343,13 @@ export class WebApps {
   }
 
   /**
-   * Gets a triggered web job by its ID for an app, or a deployment slot.
+   * Description for Gets a triggered web job by its ID for an app, or a deployment slot.
    * @summary Gets a triggered web job by its ID for an app, or a deployment slot.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Site name.
    * @param webJobName Name of Web Job.
-   * @param slot Name of the deployment slot. If a slot is not specified, the API deletes a
-   * deployment for the production slot.
+   * @param slot Name of the deployment slot. If a slot is not specified, the API uses the production
+   * slot.
    * @param [options] The optional parameters
    * @returns Promise<Models.WebAppsGetTriggeredWebJobSlotResponse>
    */
@@ -11512,8 +11358,8 @@ export class WebApps {
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Site name.
    * @param webJobName Name of Web Job.
-   * @param slot Name of the deployment slot. If a slot is not specified, the API deletes a
-   * deployment for the production slot.
+   * @param slot Name of the deployment slot. If a slot is not specified, the API uses the production
+   * slot.
    * @param callback The callback
    */
   getTriggeredWebJobSlot(resourceGroupName: string, name: string, webJobName: string, slot: string, callback: msRest.ServiceCallback<Models.TriggeredWebJob>): void;
@@ -11521,8 +11367,8 @@ export class WebApps {
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Site name.
    * @param webJobName Name of Web Job.
-   * @param slot Name of the deployment slot. If a slot is not specified, the API deletes a
-   * deployment for the production slot.
+   * @param slot Name of the deployment slot. If a slot is not specified, the API uses the production
+   * slot.
    * @param options The optional parameters
    * @param callback The callback
    */
@@ -11541,13 +11387,13 @@ export class WebApps {
   }
 
   /**
-   * Delete a triggered web job by its ID for an app, or a deployment slot.
+   * Description for Delete a triggered web job by its ID for an app, or a deployment slot.
    * @summary Delete a triggered web job by its ID for an app, or a deployment slot.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Site name.
    * @param webJobName Name of Web Job.
-   * @param slot Name of the deployment slot. If a slot is not specified, the API deletes a
-   * deployment for the production slot.
+   * @param slot Name of the deployment slot. If a slot is not specified, the API deletes web job for
+   * the production slot.
    * @param [options] The optional parameters
    * @returns Promise<msRest.RestResponse>
    */
@@ -11556,8 +11402,8 @@ export class WebApps {
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Site name.
    * @param webJobName Name of Web Job.
-   * @param slot Name of the deployment slot. If a slot is not specified, the API deletes a
-   * deployment for the production slot.
+   * @param slot Name of the deployment slot. If a slot is not specified, the API deletes web job for
+   * the production slot.
    * @param callback The callback
    */
   deleteTriggeredWebJobSlot(resourceGroupName: string, name: string, webJobName: string, slot: string, callback: msRest.ServiceCallback<void>): void;
@@ -11565,8 +11411,8 @@ export class WebApps {
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Site name.
    * @param webJobName Name of Web Job.
-   * @param slot Name of the deployment slot. If a slot is not specified, the API deletes a
-   * deployment for the production slot.
+   * @param slot Name of the deployment slot. If a slot is not specified, the API deletes web job for
+   * the production slot.
    * @param options The optional parameters
    * @param callback The callback
    */
@@ -11585,13 +11431,13 @@ export class WebApps {
   }
 
   /**
-   * List a triggered web job's history for an app, or a deployment slot.
+   * Description for List a triggered web job's history for an app, or a deployment slot.
    * @summary List a triggered web job's history for an app, or a deployment slot.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Site name.
    * @param webJobName Name of Web Job.
-   * @param slot Name of the deployment slot. If a slot is not specified, the API deletes a
-   * deployment for the production slot.
+   * @param slot Name of the deployment slot. If a slot is not specified, the API uses the production
+   * slot.
    * @param [options] The optional parameters
    * @returns Promise<Models.WebAppsListTriggeredWebJobHistorySlotResponse>
    */
@@ -11600,8 +11446,8 @@ export class WebApps {
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Site name.
    * @param webJobName Name of Web Job.
-   * @param slot Name of the deployment slot. If a slot is not specified, the API deletes a
-   * deployment for the production slot.
+   * @param slot Name of the deployment slot. If a slot is not specified, the API uses the production
+   * slot.
    * @param callback The callback
    */
   listTriggeredWebJobHistorySlot(resourceGroupName: string, name: string, webJobName: string, slot: string, callback: msRest.ServiceCallback<Models.TriggeredJobHistoryCollection>): void;
@@ -11609,8 +11455,8 @@ export class WebApps {
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Site name.
    * @param webJobName Name of Web Job.
-   * @param slot Name of the deployment slot. If a slot is not specified, the API deletes a
-   * deployment for the production slot.
+   * @param slot Name of the deployment slot. If a slot is not specified, the API uses the production
+   * slot.
    * @param options The optional parameters
    * @param callback The callback
    */
@@ -11629,14 +11475,14 @@ export class WebApps {
   }
 
   /**
-   * Gets a triggered web job's history by its ID for an app, , or a deployment slot.
+   * Description for Gets a triggered web job's history by its ID for an app, , or a deployment slot.
    * @summary Gets a triggered web job's history by its ID for an app, , or a deployment slot.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Site name.
    * @param webJobName Name of Web Job.
    * @param id History ID.
-   * @param slot Name of the deployment slot. If a slot is not specified, the API deletes a
-   * deployment for the production slot.
+   * @param slot Name of the deployment slot. If a slot is not specified, the API uses the production
+   * slot.
    * @param [options] The optional parameters
    * @returns Promise<Models.WebAppsGetTriggeredWebJobHistorySlotResponse>
    */
@@ -11646,8 +11492,8 @@ export class WebApps {
    * @param name Site name.
    * @param webJobName Name of Web Job.
    * @param id History ID.
-   * @param slot Name of the deployment slot. If a slot is not specified, the API deletes a
-   * deployment for the production slot.
+   * @param slot Name of the deployment slot. If a slot is not specified, the API uses the production
+   * slot.
    * @param callback The callback
    */
   getTriggeredWebJobHistorySlot(resourceGroupName: string, name: string, webJobName: string, id: string, slot: string, callback: msRest.ServiceCallback<Models.TriggeredJobHistory>): void;
@@ -11656,8 +11502,8 @@ export class WebApps {
    * @param name Site name.
    * @param webJobName Name of Web Job.
    * @param id History ID.
-   * @param slot Name of the deployment slot. If a slot is not specified, the API deletes a
-   * deployment for the production slot.
+   * @param slot Name of the deployment slot. If a slot is not specified, the API uses the production
+   * slot.
    * @param options The optional parameters
    * @param callback The callback
    */
@@ -11677,13 +11523,13 @@ export class WebApps {
   }
 
   /**
-   * Run a triggered web job for an app, or a deployment slot.
+   * Description for Run a triggered web job for an app, or a deployment slot.
    * @summary Run a triggered web job for an app, or a deployment slot.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Site name.
    * @param webJobName Name of Web Job.
-   * @param slot Name of the deployment slot. If a slot is not specified, the API deletes a
-   * deployment for the production slot.
+   * @param slot Name of the deployment slot. If a slot is not specified, the API uses the production
+   * slot.
    * @param [options] The optional parameters
    * @returns Promise<msRest.RestResponse>
    */
@@ -11692,8 +11538,8 @@ export class WebApps {
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Site name.
    * @param webJobName Name of Web Job.
-   * @param slot Name of the deployment slot. If a slot is not specified, the API deletes a
-   * deployment for the production slot.
+   * @param slot Name of the deployment slot. If a slot is not specified, the API uses the production
+   * slot.
    * @param callback The callback
    */
   runTriggeredWebJobSlot(resourceGroupName: string, name: string, webJobName: string, slot: string, callback: msRest.ServiceCallback<void>): void;
@@ -11701,8 +11547,8 @@ export class WebApps {
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Site name.
    * @param webJobName Name of Web Job.
-   * @param slot Name of the deployment slot. If a slot is not specified, the API deletes a
-   * deployment for the production slot.
+   * @param slot Name of the deployment slot. If a slot is not specified, the API uses the production
+   * slot.
    * @param options The optional parameters
    * @param callback The callback
    */
@@ -11721,7 +11567,7 @@ export class WebApps {
   }
 
   /**
-   * Gets the quota usage information of an app (or deployment slot, if specified).
+   * Description for Gets the quota usage information of an app (or deployment slot, if specified).
    * @summary Gets the quota usage information of an app (or deployment slot, if specified).
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -11761,7 +11607,7 @@ export class WebApps {
   }
 
   /**
-   * Gets the virtual networks the app (or deployment slot) is connected to.
+   * Description for Gets the virtual networks the app (or deployment slot) is connected to.
    * @summary Gets the virtual networks the app (or deployment slot) is connected to.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -11801,7 +11647,7 @@ export class WebApps {
   }
 
   /**
-   * Gets a virtual network the app (or deployment slot) is connected to by name.
+   * Description for Gets a virtual network the app (or deployment slot) is connected to by name.
    * @summary Gets a virtual network the app (or deployment slot) is connected to by name.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -11845,8 +11691,8 @@ export class WebApps {
   }
 
   /**
-   * Adds a Virtual Network connection to an app or slot (PUT) or updates the connection properties
-   * (PATCH).
+   * Description for Adds a Virtual Network connection to an app or slot (PUT) or updates the
+   * connection properties (PATCH).
    * @summary Adds a Virtual Network connection to an app or slot (PUT) or updates the connection
    * properties (PATCH).
    * @param resourceGroupName Name of the resource group to which the resource belongs.
@@ -11895,7 +11741,7 @@ export class WebApps {
   }
 
   /**
-   * Deletes a connection from an app (or deployment slot to a named virtual network.
+   * Description for Deletes a connection from an app (or deployment slot to a named virtual network.
    * @summary Deletes a connection from an app (or deployment slot to a named virtual network.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -11939,8 +11785,8 @@ export class WebApps {
   }
 
   /**
-   * Adds a Virtual Network connection to an app or slot (PUT) or updates the connection properties
-   * (PATCH).
+   * Description for Adds a Virtual Network connection to an app or slot (PUT) or updates the
+   * connection properties (PATCH).
    * @summary Adds a Virtual Network connection to an app or slot (PUT) or updates the connection
    * properties (PATCH).
    * @param resourceGroupName Name of the resource group to which the resource belongs.
@@ -11989,7 +11835,7 @@ export class WebApps {
   }
 
   /**
-   * Gets an app's Virtual Network gateway.
+   * Description for Gets an app's Virtual Network gateway.
    * @summary Gets an app's Virtual Network gateway.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -12037,7 +11883,7 @@ export class WebApps {
   }
 
   /**
-   * Adds a gateway to a connected Virtual Network (PUT) or updates it (PATCH).
+   * Description for Adds a gateway to a connected Virtual Network (PUT) or updates it (PATCH).
    * @summary Adds a gateway to a connected Virtual Network (PUT) or updates it (PATCH).
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -12089,7 +11935,7 @@ export class WebApps {
   }
 
   /**
-   * Adds a gateway to a connected Virtual Network (PUT) or updates it (PATCH).
+   * Description for Adds a gateway to a connected Virtual Network (PUT) or updates it (PATCH).
    * @summary Adds a gateway to a connected Virtual Network (PUT) or updates it (PATCH).
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -12141,7 +11987,7 @@ export class WebApps {
   }
 
   /**
-   * List webjobs for an app, or a deployment slot.
+   * Description for List webjobs for an app, or a deployment slot.
    * @summary List webjobs for an app, or a deployment slot.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Site name.
@@ -12181,7 +12027,7 @@ export class WebApps {
   }
 
   /**
-   * Get webjob information for an app, or a deployment slot.
+   * Description for Get webjob information for an app, or a deployment slot.
    * @summary Get webjob information for an app, or a deployment slot.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Site name.
@@ -12225,7 +12071,7 @@ export class WebApps {
   }
 
   /**
-   * Get the difference in configuration settings between two web app slots.
+   * Description for Get the difference in configuration settings between two web app slots.
    * @summary Get the difference in configuration settings between two web app slots.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -12262,7 +12108,7 @@ export class WebApps {
   }
 
   /**
-   * Swaps two deployment slots of an app.
+   * Description for Swaps two deployment slots of an app.
    * @summary Swaps two deployment slots of an app.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -12276,7 +12122,7 @@ export class WebApps {
   }
 
   /**
-   * Returns all Snapshots to the user.
+   * Description for Returns all Snapshots to the user.
    * @summary Returns all Snapshots to the user.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Website Name.
@@ -12309,7 +12155,7 @@ export class WebApps {
   }
 
   /**
-   * Returns all Snapshots to the user from DRSecondary endpoint.
+   * Description for Returns all Snapshots to the user from DRSecondary endpoint.
    * @summary Returns all Snapshots to the user from DRSecondary endpoint.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Website Name.
@@ -12342,7 +12188,7 @@ export class WebApps {
   }
 
   /**
-   * Gets the source control configuration of an app.
+   * Description for Gets the source control configuration of an app.
    * @summary Gets the source control configuration of an app.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -12375,7 +12221,7 @@ export class WebApps {
   }
 
   /**
-   * Updates the source control configuration of an app.
+   * Description for Updates the source control configuration of an app.
    * @summary Updates the source control configuration of an app.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -12389,7 +12235,7 @@ export class WebApps {
   }
 
   /**
-   * Deletes the source control configuration of an app.
+   * Description for Deletes the source control configuration of an app.
    * @summary Deletes the source control configuration of an app.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -12422,7 +12268,7 @@ export class WebApps {
   }
 
   /**
-   * Updates the source control configuration of an app.
+   * Description for Updates the source control configuration of an app.
    * @summary Updates the source control configuration of an app.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -12459,7 +12305,7 @@ export class WebApps {
   }
 
   /**
-   * Starts an app (or deployment slot, if specified).
+   * Description for Starts an app (or deployment slot, if specified).
    * @summary Starts an app (or deployment slot, if specified).
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -12492,7 +12338,7 @@ export class WebApps {
   }
 
   /**
-   * Start capturing network packets for the site.
+   * Description for Start capturing network packets for the site.
    * @summary Start capturing network packets for the site.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name The name of the web app.
@@ -12505,7 +12351,7 @@ export class WebApps {
   }
 
   /**
-   * Stops an app (or deployment slot, if specified).
+   * Description for Stops an app (or deployment slot, if specified).
    * @summary Stops an app (or deployment slot, if specified).
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -12538,7 +12384,7 @@ export class WebApps {
   }
 
   /**
-   * Stop ongoing capturing network packets for the site.
+   * Description for Stop ongoing capturing network packets for the site.
    * @summary Stop ongoing capturing network packets for the site.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name The name of the web app.
@@ -12571,7 +12417,7 @@ export class WebApps {
   }
 
   /**
-   * Sync web app repository.
+   * Description for Sync web app repository.
    * @summary Sync web app repository.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of web app.
@@ -12604,7 +12450,7 @@ export class WebApps {
   }
 
   /**
-   * Syncs function trigger metadata to the scale controller
+   * Description for Syncs function trigger metadata to the scale controller
    * @summary Syncs function trigger metadata to the scale controller
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -12637,7 +12483,7 @@ export class WebApps {
   }
 
   /**
-   * List triggered web jobs for an app, or a deployment slot.
+   * Description for List triggered web jobs for an app, or a deployment slot.
    * @summary List triggered web jobs for an app, or a deployment slot.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Site name.
@@ -12670,7 +12516,7 @@ export class WebApps {
   }
 
   /**
-   * Gets a triggered web job by its ID for an app, or a deployment slot.
+   * Description for Gets a triggered web job by its ID for an app, or a deployment slot.
    * @summary Gets a triggered web job by its ID for an app, or a deployment slot.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Site name.
@@ -12707,7 +12553,7 @@ export class WebApps {
   }
 
   /**
-   * Delete a triggered web job by its ID for an app, or a deployment slot.
+   * Description for Delete a triggered web job by its ID for an app, or a deployment slot.
    * @summary Delete a triggered web job by its ID for an app, or a deployment slot.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Site name.
@@ -12744,7 +12590,7 @@ export class WebApps {
   }
 
   /**
-   * List a triggered web job's history for an app, or a deployment slot.
+   * Description for List a triggered web job's history for an app, or a deployment slot.
    * @summary List a triggered web job's history for an app, or a deployment slot.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Site name.
@@ -12781,7 +12627,7 @@ export class WebApps {
   }
 
   /**
-   * Gets a triggered web job's history by its ID for an app, , or a deployment slot.
+   * Description for Gets a triggered web job's history by its ID for an app, , or a deployment slot.
    * @summary Gets a triggered web job's history by its ID for an app, , or a deployment slot.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Site name.
@@ -12822,7 +12668,7 @@ export class WebApps {
   }
 
   /**
-   * Run a triggered web job for an app, or a deployment slot.
+   * Description for Run a triggered web job for an app, or a deployment slot.
    * @summary Run a triggered web job for an app, or a deployment slot.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Site name.
@@ -12859,7 +12705,7 @@ export class WebApps {
   }
 
   /**
-   * Gets the quota usage information of an app (or deployment slot, if specified).
+   * Description for Gets the quota usage information of an app (or deployment slot, if specified).
    * @summary Gets the quota usage information of an app (or deployment slot, if specified).
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -12892,7 +12738,7 @@ export class WebApps {
   }
 
   /**
-   * Gets the virtual networks the app (or deployment slot) is connected to.
+   * Description for Gets the virtual networks the app (or deployment slot) is connected to.
    * @summary Gets the virtual networks the app (or deployment slot) is connected to.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -12925,7 +12771,7 @@ export class WebApps {
   }
 
   /**
-   * Gets a virtual network the app (or deployment slot) is connected to by name.
+   * Description for Gets a virtual network the app (or deployment slot) is connected to by name.
    * @summary Gets a virtual network the app (or deployment slot) is connected to by name.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -12962,8 +12808,8 @@ export class WebApps {
   }
 
   /**
-   * Adds a Virtual Network connection to an app or slot (PUT) or updates the connection properties
-   * (PATCH).
+   * Description for Adds a Virtual Network connection to an app or slot (PUT) or updates the
+   * connection properties (PATCH).
    * @summary Adds a Virtual Network connection to an app or slot (PUT) or updates the connection
    * properties (PATCH).
    * @param resourceGroupName Name of the resource group to which the resource belongs.
@@ -13005,7 +12851,7 @@ export class WebApps {
   }
 
   /**
-   * Deletes a connection from an app (or deployment slot to a named virtual network.
+   * Description for Deletes a connection from an app (or deployment slot to a named virtual network.
    * @summary Deletes a connection from an app (or deployment slot to a named virtual network.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -13042,8 +12888,8 @@ export class WebApps {
   }
 
   /**
-   * Adds a Virtual Network connection to an app or slot (PUT) or updates the connection properties
-   * (PATCH).
+   * Description for Adds a Virtual Network connection to an app or slot (PUT) or updates the
+   * connection properties (PATCH).
    * @summary Adds a Virtual Network connection to an app or slot (PUT) or updates the connection
    * properties (PATCH).
    * @param resourceGroupName Name of the resource group to which the resource belongs.
@@ -13085,7 +12931,7 @@ export class WebApps {
   }
 
   /**
-   * Gets an app's Virtual Network gateway.
+   * Description for Gets an app's Virtual Network gateway.
    * @summary Gets an app's Virtual Network gateway.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -13126,7 +12972,7 @@ export class WebApps {
   }
 
   /**
-   * Adds a gateway to a connected Virtual Network (PUT) or updates it (PATCH).
+   * Description for Adds a gateway to a connected Virtual Network (PUT) or updates it (PATCH).
    * @summary Adds a gateway to a connected Virtual Network (PUT) or updates it (PATCH).
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -13171,7 +13017,7 @@ export class WebApps {
   }
 
   /**
-   * Adds a gateway to a connected Virtual Network (PUT) or updates it (PATCH).
+   * Description for Adds a gateway to a connected Virtual Network (PUT) or updates it (PATCH).
    * @summary Adds a gateway to a connected Virtual Network (PUT) or updates it (PATCH).
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -13216,7 +13062,7 @@ export class WebApps {
   }
 
   /**
-   * List webjobs for an app, or a deployment slot.
+   * Description for List webjobs for an app, or a deployment slot.
    * @summary List webjobs for an app, or a deployment slot.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Site name.
@@ -13249,7 +13095,7 @@ export class WebApps {
   }
 
   /**
-   * Get webjob information for an app, or a deployment slot.
+   * Description for Get webjob information for an app, or a deployment slot.
    * @summary Get webjob information for an app, or a deployment slot.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Site name.
@@ -13286,7 +13132,8 @@ export class WebApps {
   }
 
   /**
-   * Creates a new web, mobile, or API app in an existing resource group, or updates an existing app.
+   * Description for Creates a new web, mobile, or API app in an existing resource group, or updates
+   * an existing app.
    * @summary Creates a new web, mobile, or API app in an existing resource group, or updates an
    * existing app.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
@@ -13309,7 +13156,7 @@ export class WebApps {
   }
 
   /**
-   * Restores a specific backup to another app (or deployment slot, if specified).
+   * Description for Restores a specific backup to another app (or deployment slot, if specified).
    * @summary Restores a specific backup to another app (or deployment slot, if specified).
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -13332,7 +13179,7 @@ export class WebApps {
   }
 
   /**
-   * Gets the Git/FTP publishing credentials of an app.
+   * Description for Gets the Git/FTP publishing credentials of an app.
    * @summary Gets the Git/FTP publishing credentials of an app.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -13351,7 +13198,7 @@ export class WebApps {
   }
 
   /**
-   * Invoke the MSDeploy web app extension.
+   * Description for Invoke the MSDeploy web app extension.
    * @summary Invoke the MSDeploy web app extension.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of web app.
@@ -13372,7 +13219,7 @@ export class WebApps {
   }
 
   /**
-   * Create function for web site, or a deployment slot.
+   * Description for Create function for web site, or a deployment slot.
    * @summary Create function for web site, or a deployment slot.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Site name.
@@ -13395,7 +13242,7 @@ export class WebApps {
   }
 
   /**
-   * Invoke the MSDeploy web app extension.
+   * Description for Invoke the MSDeploy web app extension.
    * @summary Invoke the MSDeploy web app extension.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of web app.
@@ -13418,7 +13265,7 @@ export class WebApps {
   }
 
   /**
-   * Restores a web app.
+   * Description for Restores a web app.
    * @summary Restores a web app.
    * @param subscriptionName Azure subscription.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
@@ -13441,7 +13288,7 @@ export class WebApps {
   }
 
   /**
-   * Migrates a local (in-app) MySql database to a remote MySql database.
+   * Description for Migrates a local (in-app) MySql database to a remote MySql database.
    * @summary Migrates a local (in-app) MySql database to a remote MySql database.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of web app.
@@ -13462,7 +13309,7 @@ export class WebApps {
   }
 
   /**
-   * Start capturing network packets for the site.
+   * Description for Start capturing network packets for the site.
    * @summary Start capturing network packets for the site.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name The name of the web app.
@@ -13481,7 +13328,7 @@ export class WebApps {
   }
 
   /**
-   * Restores an app from a backup blob in Azure Storage.
+   * Description for Restores an app from a backup blob in Azure Storage.
    * @summary Restores an app from a backup blob in Azure Storage.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -13502,7 +13349,7 @@ export class WebApps {
   }
 
   /**
-   * Restores a deleted web app to this web app.
+   * Description for Restores a deleted web app to this web app.
    * @summary Restores a deleted web app to this web app.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of web app.
@@ -13523,7 +13370,7 @@ export class WebApps {
   }
 
   /**
-   * Restores a web app from a snapshot.
+   * Description for Restores a web app from a snapshot.
    * @summary Restores a web app from a snapshot.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of web app.
@@ -13545,7 +13392,7 @@ export class WebApps {
   }
 
   /**
-   * Install site extension on a web site, or a deployment slot.
+   * Description for Install site extension on a web site, or a deployment slot.
    * @summary Install site extension on a web site, or a deployment slot.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Site name.
@@ -13566,7 +13413,30 @@ export class WebApps {
   }
 
   /**
-   * Creates a new web, mobile, or API app in an existing resource group, or updates an existing app.
+   * Description for Copies a deployment slot to another deployment slot of an app.
+   * @summary Copies a deployment slot to another deployment slot of an app.
+   * @param resourceGroupName Name of the resource group to which the resource belongs.
+   * @param name Name of the app.
+   * @param copySlotEntity JSON object that contains the target slot name and site config properties
+   * to override the source slot config. See example.
+   * @param [options] The optional parameters
+   * @returns Promise<msRestAzure.LROPoller>
+   */
+  beginCopyProductionSlot(resourceGroupName: string, name: string, copySlotEntity: Models.CsmCopySlotEntity, options?: msRest.RequestOptionsBase): Promise<msRestAzure.LROPoller> {
+    return this.client.sendLRORequest(
+      {
+        resourceGroupName,
+        name,
+        copySlotEntity,
+        options
+      },
+      beginCopyProductionSlotOperationSpec,
+      options);
+  }
+
+  /**
+   * Description for Creates a new web, mobile, or API app in an existing resource group, or updates
+   * an existing app.
    * @summary Creates a new web, mobile, or API app in an existing resource group, or updates an
    * existing app.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
@@ -13592,7 +13462,7 @@ export class WebApps {
   }
 
   /**
-   * Restores a specific backup to another app (or deployment slot, if specified).
+   * Description for Restores a specific backup to another app (or deployment slot, if specified).
    * @summary Restores a specific backup to another app (or deployment slot, if specified).
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -13618,7 +13488,7 @@ export class WebApps {
   }
 
   /**
-   * Gets the Git/FTP publishing credentials of an app.
+   * Description for Gets the Git/FTP publishing credentials of an app.
    * @summary Gets the Git/FTP publishing credentials of an app.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -13640,7 +13510,7 @@ export class WebApps {
   }
 
   /**
-   * Invoke the MSDeploy web app extension.
+   * Description for Invoke the MSDeploy web app extension.
    * @summary Invoke the MSDeploy web app extension.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of web app.
@@ -13663,13 +13533,12 @@ export class WebApps {
   }
 
   /**
-   * Create function for web site, or a deployment slot.
+   * Description for Create function for web site, or a deployment slot.
    * @summary Create function for web site, or a deployment slot.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Site name.
    * @param functionName Function name.
-   * @param slot Name of the deployment slot. If a slot is not specified, the API deletes a
-   * deployment for the production slot.
+   * @param slot Name of the deployment slot.
    * @param functionEnvelope Function details.
    * @param [options] The optional parameters
    * @returns Promise<msRestAzure.LROPoller>
@@ -13689,7 +13558,7 @@ export class WebApps {
   }
 
   /**
-   * Invoke the MSDeploy web app extension.
+   * Description for Invoke the MSDeploy web app extension.
    * @summary Invoke the MSDeploy web app extension.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of web app.
@@ -13714,7 +13583,7 @@ export class WebApps {
   }
 
   /**
-   * Start capturing network packets for the site.
+   * Description for Start capturing network packets for the site.
    * @summary Start capturing network packets for the site.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name The name of the web app.
@@ -13735,7 +13604,7 @@ export class WebApps {
   }
 
   /**
-   * Restores an app from a backup blob in Azure Storage.
+   * Description for Restores an app from a backup blob in Azure Storage.
    * @summary Restores an app from a backup blob in Azure Storage.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -13759,7 +13628,7 @@ export class WebApps {
   }
 
   /**
-   * Restores a deleted web app to this web app.
+   * Description for Restores a deleted web app to this web app.
    * @summary Restores a deleted web app to this web app.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of web app.
@@ -13782,7 +13651,7 @@ export class WebApps {
   }
 
   /**
-   * Restores a web app from a snapshot.
+   * Description for Restores a web app from a snapshot.
    * @summary Restores a web app from a snapshot.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of web app.
@@ -13806,13 +13675,13 @@ export class WebApps {
   }
 
   /**
-   * Install site extension on a web site, or a deployment slot.
+   * Description for Install site extension on a web site, or a deployment slot.
    * @summary Install site extension on a web site, or a deployment slot.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Site name.
    * @param siteExtensionId Site extension name.
-   * @param slot Name of the deployment slot. If a slot is not specified, the API deletes a
-   * deployment for the production slot.
+   * @param slot Name of the deployment slot. If a slot is not specified, the API uses the production
+   * slot.
    * @param [options] The optional parameters
    * @returns Promise<msRestAzure.LROPoller>
    */
@@ -13830,7 +13699,32 @@ export class WebApps {
   }
 
   /**
-   * Swaps two deployment slots of an app.
+   * Description for Copies a deployment slot to another deployment slot of an app.
+   * @summary Copies a deployment slot to another deployment slot of an app.
+   * @param resourceGroupName Name of the resource group to which the resource belongs.
+   * @param name Name of the app.
+   * @param copySlotEntity JSON object that contains the target slot name and site config properties
+   * to override the source slot config. See example.
+   * @param slot Name of the source slot. If a slot is not specified, the production slot is used as
+   * the source slot.
+   * @param [options] The optional parameters
+   * @returns Promise<msRestAzure.LROPoller>
+   */
+  beginCopySlotSlot(resourceGroupName: string, name: string, copySlotEntity: Models.CsmCopySlotEntity, slot: string, options?: msRest.RequestOptionsBase): Promise<msRestAzure.LROPoller> {
+    return this.client.sendLRORequest(
+      {
+        resourceGroupName,
+        name,
+        copySlotEntity,
+        slot,
+        options
+      },
+      beginCopySlotSlotOperationSpec,
+      options);
+  }
+
+  /**
+   * Description for Swaps two deployment slots of an app.
    * @summary Swaps two deployment slots of an app.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -13854,7 +13748,7 @@ export class WebApps {
   }
 
   /**
-   * Updates the source control configuration of an app.
+   * Description for Updates the source control configuration of an app.
    * @summary Updates the source control configuration of an app.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -13878,7 +13772,7 @@ export class WebApps {
   }
 
   /**
-   * Start capturing network packets for the site.
+   * Description for Start capturing network packets for the site.
    * @summary Start capturing network packets for the site.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name The name of the web app.
@@ -13899,7 +13793,7 @@ export class WebApps {
   }
 
   /**
-   * Swaps two deployment slots of an app.
+   * Description for Swaps two deployment slots of an app.
    * @summary Swaps two deployment slots of an app.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -13920,7 +13814,7 @@ export class WebApps {
   }
 
   /**
-   * Updates the source control configuration of an app.
+   * Description for Updates the source control configuration of an app.
    * @summary Updates the source control configuration of an app.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name Name of the app.
@@ -13941,7 +13835,7 @@ export class WebApps {
   }
 
   /**
-   * Start capturing network packets for the site.
+   * Description for Start capturing network packets for the site.
    * @summary Start capturing network packets for the site.
    * @param resourceGroupName Name of the resource group to which the resource belongs.
    * @param name The name of the web app.
@@ -13960,7 +13854,7 @@ export class WebApps {
   }
 
   /**
-   * Get all apps for a subscription.
+   * Description for Get all apps for a subscription.
    * @summary Get all apps for a subscription.
    * @param nextPageLink The NextLink from the previous successful call to List operation.
    * @param [options] The optional parameters
@@ -13989,7 +13883,7 @@ export class WebApps {
   }
 
   /**
-   * Gets all web, mobile, and API apps in the specified resource group.
+   * Description for Gets all web, mobile, and API apps in the specified resource group.
    * @summary Gets all web, mobile, and API apps in the specified resource group.
    * @param nextPageLink The NextLink from the previous successful call to List operation.
    * @param [options] The optional parameters
@@ -14018,7 +13912,7 @@ export class WebApps {
   }
 
   /**
-   * Gets existing backups of an app.
+   * Description for Gets existing backups of an app.
    * @summary Gets existing backups of an app.
    * @param nextPageLink The NextLink from the previous successful call to List operation.
    * @param [options] The optional parameters
@@ -14047,7 +13941,7 @@ export class WebApps {
   }
 
   /**
-   * List the configurations of an app
+   * Description for List the configurations of an app
    * @summary List the configurations of an app
    * @param nextPageLink The NextLink from the previous successful call to List operation.
    * @param [options] The optional parameters
@@ -14076,8 +13970,8 @@ export class WebApps {
   }
 
   /**
-   * Gets a list of web app configuration snapshots identifiers. Each element of the list contains a
-   * timestamp and the ID of the snapshot.
+   * Description for Gets a list of web app configuration snapshots identifiers. Each element of the
+   * list contains a timestamp and the ID of the snapshot.
    * @summary Gets a list of web app configuration snapshots identifiers. Each element of the list
    * contains a timestamp and the ID of the snapshot.
    * @param nextPageLink The NextLink from the previous successful call to List operation.
@@ -14107,7 +14001,7 @@ export class WebApps {
   }
 
   /**
-   * List continuous web jobs for an app, or a deployment slot.
+   * Description for List continuous web jobs for an app, or a deployment slot.
    * @summary List continuous web jobs for an app, or a deployment slot.
    * @param nextPageLink The NextLink from the previous successful call to List operation.
    * @param [options] The optional parameters
@@ -14136,7 +14030,7 @@ export class WebApps {
   }
 
   /**
-   * List deployments for an app, or a deployment slot.
+   * Description for List deployments for an app, or a deployment slot.
    * @summary List deployments for an app, or a deployment slot.
    * @param nextPageLink The NextLink from the previous successful call to List operation.
    * @param [options] The optional parameters
@@ -14165,7 +14059,7 @@ export class WebApps {
   }
 
   /**
-   * Lists ownership identifiers for domain associated with web app.
+   * Description for Lists ownership identifiers for domain associated with web app.
    * @summary Lists ownership identifiers for domain associated with web app.
    * @param nextPageLink The NextLink from the previous successful call to List operation.
    * @param [options] The optional parameters
@@ -14194,7 +14088,7 @@ export class WebApps {
   }
 
   /**
-   * List the functions for a web site, or a deployment slot.
+   * Description for List the functions for a web site, or a deployment slot.
    * @summary List the functions for a web site, or a deployment slot.
    * @param nextPageLink The NextLink from the previous successful call to List operation.
    * @param [options] The optional parameters
@@ -14223,7 +14117,7 @@ export class WebApps {
   }
 
   /**
-   * Get hostname bindings for an app or a deployment slot.
+   * Description for Get hostname bindings for an app or a deployment slot.
    * @summary Get hostname bindings for an app or a deployment slot.
    * @param nextPageLink The NextLink from the previous successful call to List operation.
    * @param [options] The optional parameters
@@ -14252,7 +14146,7 @@ export class WebApps {
   }
 
   /**
-   * Gets all scale-out instances of an app.
+   * Description for Gets all scale-out instances of an app.
    * @summary Gets all scale-out instances of an app.
    * @param nextPageLink The NextLink from the previous successful call to List operation.
    * @param [options] The optional parameters
@@ -14281,8 +14175,8 @@ export class WebApps {
   }
 
   /**
-   * Get list of processes for a web site, or a deployment slot, or for a specific scaled-out
-   * instance in a web site.
+   * Description for Get list of processes for a web site, or a deployment slot, or for a specific
+   * scaled-out instance in a web site.
    * @summary Get list of processes for a web site, or a deployment slot, or for a specific
    * scaled-out instance in a web site.
    * @param nextPageLink The NextLink from the previous successful call to List operation.
@@ -14312,8 +14206,8 @@ export class WebApps {
   }
 
   /**
-   * List module information for a process by its ID for a specific scaled-out instance in a web
-   * site.
+   * Description for List module information for a process by its ID for a specific scaled-out
+   * instance in a web site.
    * @summary List module information for a process by its ID for a specific scaled-out instance in a
    * web site.
    * @param nextPageLink The NextLink from the previous successful call to List operation.
@@ -14343,7 +14237,8 @@ export class WebApps {
   }
 
   /**
-   * List the threads in a process by its ID for a specific scaled-out instance in a web site.
+   * Description for List the threads in a process by its ID for a specific scaled-out instance in a
+   * web site.
    * @summary List the threads in a process by its ID for a specific scaled-out instance in a web
    * site.
    * @param nextPageLink The NextLink from the previous successful call to List operation.
@@ -14373,65 +14268,36 @@ export class WebApps {
   }
 
   /**
-   * Gets all metric definitions of an app (or deployment slot, if specified).
-   * @summary Gets all metric definitions of an app (or deployment slot, if specified).
+   * Description for Gets existing backups of an app.
+   * @summary Gets existing backups of an app.
    * @param nextPageLink The NextLink from the previous successful call to List operation.
    * @param [options] The optional parameters
-   * @returns Promise<Models.WebAppsListMetricDefinitionsNextResponse>
+   * @returns Promise<Models.WebAppsListSiteBackupsNextResponse>
    */
-  listMetricDefinitionsNext(nextPageLink: string, options?: msRest.RequestOptionsBase): Promise<Models.WebAppsListMetricDefinitionsNextResponse>;
+  listSiteBackupsNext(nextPageLink: string, options?: msRest.RequestOptionsBase): Promise<Models.WebAppsListSiteBackupsNextResponse>;
   /**
    * @param nextPageLink The NextLink from the previous successful call to List operation.
    * @param callback The callback
    */
-  listMetricDefinitionsNext(nextPageLink: string, callback: msRest.ServiceCallback<Models.ResourceMetricDefinitionCollection>): void;
+  listSiteBackupsNext(nextPageLink: string, callback: msRest.ServiceCallback<Models.BackupItemCollection>): void;
   /**
    * @param nextPageLink The NextLink from the previous successful call to List operation.
    * @param options The optional parameters
    * @param callback The callback
    */
-  listMetricDefinitionsNext(nextPageLink: string, options: msRest.RequestOptionsBase, callback: msRest.ServiceCallback<Models.ResourceMetricDefinitionCollection>): void;
-  listMetricDefinitionsNext(nextPageLink: string, options?: msRest.RequestOptionsBase | msRest.ServiceCallback<Models.ResourceMetricDefinitionCollection>, callback?: msRest.ServiceCallback<Models.ResourceMetricDefinitionCollection>): Promise<Models.WebAppsListMetricDefinitionsNextResponse> {
+  listSiteBackupsNext(nextPageLink: string, options: msRest.RequestOptionsBase, callback: msRest.ServiceCallback<Models.BackupItemCollection>): void;
+  listSiteBackupsNext(nextPageLink: string, options?: msRest.RequestOptionsBase | msRest.ServiceCallback<Models.BackupItemCollection>, callback?: msRest.ServiceCallback<Models.BackupItemCollection>): Promise<Models.WebAppsListSiteBackupsNextResponse> {
     return this.client.sendOperationRequest(
       {
         nextPageLink,
         options
       },
-      listMetricDefinitionsNextOperationSpec,
-      callback) as Promise<Models.WebAppsListMetricDefinitionsNextResponse>;
+      listSiteBackupsNextOperationSpec,
+      callback) as Promise<Models.WebAppsListSiteBackupsNextResponse>;
   }
 
   /**
-   * Gets performance metrics of an app (or deployment slot, if specified).
-   * @summary Gets performance metrics of an app (or deployment slot, if specified).
-   * @param nextPageLink The NextLink from the previous successful call to List operation.
-   * @param [options] The optional parameters
-   * @returns Promise<Models.WebAppsListMetricsNextResponse>
-   */
-  listMetricsNext(nextPageLink: string, options?: msRest.RequestOptionsBase): Promise<Models.WebAppsListMetricsNextResponse>;
-  /**
-   * @param nextPageLink The NextLink from the previous successful call to List operation.
-   * @param callback The callback
-   */
-  listMetricsNext(nextPageLink: string, callback: msRest.ServiceCallback<Models.ResourceMetricCollection>): void;
-  /**
-   * @param nextPageLink The NextLink from the previous successful call to List operation.
-   * @param options The optional parameters
-   * @param callback The callback
-   */
-  listMetricsNext(nextPageLink: string, options: msRest.RequestOptionsBase, callback: msRest.ServiceCallback<Models.ResourceMetricCollection>): void;
-  listMetricsNext(nextPageLink: string, options?: msRest.RequestOptionsBase | msRest.ServiceCallback<Models.ResourceMetricCollection>, callback?: msRest.ServiceCallback<Models.ResourceMetricCollection>): Promise<Models.WebAppsListMetricsNextResponse> {
-    return this.client.sendOperationRequest(
-      {
-        nextPageLink,
-        options
-      },
-      listMetricsNextOperationSpec,
-      callback) as Promise<Models.WebAppsListMetricsNextResponse>;
-  }
-
-  /**
-   * Gets perfmon counters for web app.
+   * Description for Gets perfmon counters for web app.
    * @summary Gets perfmon counters for web app.
    * @param nextPageLink The NextLink from the previous successful call to List operation.
    * @param [options] The optional parameters
@@ -14460,8 +14326,8 @@ export class WebApps {
   }
 
   /**
-   * Get list of processes for a web site, or a deployment slot, or for a specific scaled-out
-   * instance in a web site.
+   * Description for Get list of processes for a web site, or a deployment slot, or for a specific
+   * scaled-out instance in a web site.
    * @summary Get list of processes for a web site, or a deployment slot, or for a specific
    * scaled-out instance in a web site.
    * @param nextPageLink The NextLink from the previous successful call to List operation.
@@ -14491,8 +14357,8 @@ export class WebApps {
   }
 
   /**
-   * List module information for a process by its ID for a specific scaled-out instance in a web
-   * site.
+   * Description for List module information for a process by its ID for a specific scaled-out
+   * instance in a web site.
    * @summary List module information for a process by its ID for a specific scaled-out instance in a
    * web site.
    * @param nextPageLink The NextLink from the previous successful call to List operation.
@@ -14522,7 +14388,8 @@ export class WebApps {
   }
 
   /**
-   * List the threads in a process by its ID for a specific scaled-out instance in a web site.
+   * Description for List the threads in a process by its ID for a specific scaled-out instance in a
+   * web site.
    * @summary List the threads in a process by its ID for a specific scaled-out instance in a web
    * site.
    * @param nextPageLink The NextLink from the previous successful call to List operation.
@@ -14552,7 +14419,7 @@ export class WebApps {
   }
 
   /**
-   * Get public certificates for an app or a deployment slot.
+   * Description for Get public certificates for an app or a deployment slot.
    * @summary Get public certificates for an app or a deployment slot.
    * @param nextPageLink The NextLink from the previous successful call to List operation.
    * @param [options] The optional parameters
@@ -14581,7 +14448,7 @@ export class WebApps {
   }
 
   /**
-   * Get list of siteextensions for a web site, or a deployment slot.
+   * Description for Get list of siteextensions for a web site, or a deployment slot.
    * @summary Get list of siteextensions for a web site, or a deployment slot.
    * @param nextPageLink The NextLink from the previous successful call to List operation.
    * @param [options] The optional parameters
@@ -14610,7 +14477,7 @@ export class WebApps {
   }
 
   /**
-   * Gets an app's deployment slots.
+   * Description for Gets an app's deployment slots.
    * @summary Gets an app's deployment slots.
    * @param nextPageLink The NextLink from the previous successful call to List operation.
    * @param [options] The optional parameters
@@ -14639,7 +14506,7 @@ export class WebApps {
   }
 
   /**
-   * Gets existing backups of an app.
+   * Description for Gets existing backups of an app.
    * @summary Gets existing backups of an app.
    * @param nextPageLink The NextLink from the previous successful call to List operation.
    * @param [options] The optional parameters
@@ -14668,7 +14535,7 @@ export class WebApps {
   }
 
   /**
-   * List the configurations of an app
+   * Description for List the configurations of an app
    * @summary List the configurations of an app
    * @param nextPageLink The NextLink from the previous successful call to List operation.
    * @param [options] The optional parameters
@@ -14697,8 +14564,8 @@ export class WebApps {
   }
 
   /**
-   * Gets a list of web app configuration snapshots identifiers. Each element of the list contains a
-   * timestamp and the ID of the snapshot.
+   * Description for Gets a list of web app configuration snapshots identifiers. Each element of the
+   * list contains a timestamp and the ID of the snapshot.
    * @summary Gets a list of web app configuration snapshots identifiers. Each element of the list
    * contains a timestamp and the ID of the snapshot.
    * @param nextPageLink The NextLink from the previous successful call to List operation.
@@ -14728,7 +14595,7 @@ export class WebApps {
   }
 
   /**
-   * List continuous web jobs for an app, or a deployment slot.
+   * Description for List continuous web jobs for an app, or a deployment slot.
    * @summary List continuous web jobs for an app, or a deployment slot.
    * @param nextPageLink The NextLink from the previous successful call to List operation.
    * @param [options] The optional parameters
@@ -14757,7 +14624,7 @@ export class WebApps {
   }
 
   /**
-   * List deployments for an app, or a deployment slot.
+   * Description for List deployments for an app, or a deployment slot.
    * @summary List deployments for an app, or a deployment slot.
    * @param nextPageLink The NextLink from the previous successful call to List operation.
    * @param [options] The optional parameters
@@ -14786,7 +14653,7 @@ export class WebApps {
   }
 
   /**
-   * Lists ownership identifiers for domain associated with web app.
+   * Description for Lists ownership identifiers for domain associated with web app.
    * @summary Lists ownership identifiers for domain associated with web app.
    * @param nextPageLink The NextLink from the previous successful call to List operation.
    * @param [options] The optional parameters
@@ -14815,7 +14682,7 @@ export class WebApps {
   }
 
   /**
-   * List the functions for a web site, or a deployment slot.
+   * Description for List the functions for a web site, or a deployment slot.
    * @summary List the functions for a web site, or a deployment slot.
    * @param nextPageLink The NextLink from the previous successful call to List operation.
    * @param [options] The optional parameters
@@ -14844,7 +14711,7 @@ export class WebApps {
   }
 
   /**
-   * Get hostname bindings for an app or a deployment slot.
+   * Description for Get hostname bindings for an app or a deployment slot.
    * @summary Get hostname bindings for an app or a deployment slot.
    * @param nextPageLink The NextLink from the previous successful call to List operation.
    * @param [options] The optional parameters
@@ -14873,7 +14740,7 @@ export class WebApps {
   }
 
   /**
-   * Gets all scale-out instances of an app.
+   * Description for Gets all scale-out instances of an app.
    * @summary Gets all scale-out instances of an app.
    * @param nextPageLink The NextLink from the previous successful call to List operation.
    * @param [options] The optional parameters
@@ -14902,8 +14769,8 @@ export class WebApps {
   }
 
   /**
-   * Get list of processes for a web site, or a deployment slot, or for a specific scaled-out
-   * instance in a web site.
+   * Description for Get list of processes for a web site, or a deployment slot, or for a specific
+   * scaled-out instance in a web site.
    * @summary Get list of processes for a web site, or a deployment slot, or for a specific
    * scaled-out instance in a web site.
    * @param nextPageLink The NextLink from the previous successful call to List operation.
@@ -14933,8 +14800,8 @@ export class WebApps {
   }
 
   /**
-   * List module information for a process by its ID for a specific scaled-out instance in a web
-   * site.
+   * Description for List module information for a process by its ID for a specific scaled-out
+   * instance in a web site.
    * @summary List module information for a process by its ID for a specific scaled-out instance in a
    * web site.
    * @param nextPageLink The NextLink from the previous successful call to List operation.
@@ -14964,7 +14831,8 @@ export class WebApps {
   }
 
   /**
-   * List the threads in a process by its ID for a specific scaled-out instance in a web site.
+   * Description for List the threads in a process by its ID for a specific scaled-out instance in a
+   * web site.
    * @summary List the threads in a process by its ID for a specific scaled-out instance in a web
    * site.
    * @param nextPageLink The NextLink from the previous successful call to List operation.
@@ -14994,65 +14862,36 @@ export class WebApps {
   }
 
   /**
-   * Gets all metric definitions of an app (or deployment slot, if specified).
-   * @summary Gets all metric definitions of an app (or deployment slot, if specified).
+   * Description for Gets existing backups of an app.
+   * @summary Gets existing backups of an app.
    * @param nextPageLink The NextLink from the previous successful call to List operation.
    * @param [options] The optional parameters
-   * @returns Promise<Models.WebAppsListMetricDefinitionsSlotNextResponse>
+   * @returns Promise<Models.WebAppsListSiteBackupsSlotNextResponse>
    */
-  listMetricDefinitionsSlotNext(nextPageLink: string, options?: msRest.RequestOptionsBase): Promise<Models.WebAppsListMetricDefinitionsSlotNextResponse>;
+  listSiteBackupsSlotNext(nextPageLink: string, options?: msRest.RequestOptionsBase): Promise<Models.WebAppsListSiteBackupsSlotNextResponse>;
   /**
    * @param nextPageLink The NextLink from the previous successful call to List operation.
    * @param callback The callback
    */
-  listMetricDefinitionsSlotNext(nextPageLink: string, callback: msRest.ServiceCallback<Models.ResourceMetricDefinitionCollection>): void;
+  listSiteBackupsSlotNext(nextPageLink: string, callback: msRest.ServiceCallback<Models.BackupItemCollection>): void;
   /**
    * @param nextPageLink The NextLink from the previous successful call to List operation.
    * @param options The optional parameters
    * @param callback The callback
    */
-  listMetricDefinitionsSlotNext(nextPageLink: string, options: msRest.RequestOptionsBase, callback: msRest.ServiceCallback<Models.ResourceMetricDefinitionCollection>): void;
-  listMetricDefinitionsSlotNext(nextPageLink: string, options?: msRest.RequestOptionsBase | msRest.ServiceCallback<Models.ResourceMetricDefinitionCollection>, callback?: msRest.ServiceCallback<Models.ResourceMetricDefinitionCollection>): Promise<Models.WebAppsListMetricDefinitionsSlotNextResponse> {
+  listSiteBackupsSlotNext(nextPageLink: string, options: msRest.RequestOptionsBase, callback: msRest.ServiceCallback<Models.BackupItemCollection>): void;
+  listSiteBackupsSlotNext(nextPageLink: string, options?: msRest.RequestOptionsBase | msRest.ServiceCallback<Models.BackupItemCollection>, callback?: msRest.ServiceCallback<Models.BackupItemCollection>): Promise<Models.WebAppsListSiteBackupsSlotNextResponse> {
     return this.client.sendOperationRequest(
       {
         nextPageLink,
         options
       },
-      listMetricDefinitionsSlotNextOperationSpec,
-      callback) as Promise<Models.WebAppsListMetricDefinitionsSlotNextResponse>;
+      listSiteBackupsSlotNextOperationSpec,
+      callback) as Promise<Models.WebAppsListSiteBackupsSlotNextResponse>;
   }
 
   /**
-   * Gets performance metrics of an app (or deployment slot, if specified).
-   * @summary Gets performance metrics of an app (or deployment slot, if specified).
-   * @param nextPageLink The NextLink from the previous successful call to List operation.
-   * @param [options] The optional parameters
-   * @returns Promise<Models.WebAppsListMetricsSlotNextResponse>
-   */
-  listMetricsSlotNext(nextPageLink: string, options?: msRest.RequestOptionsBase): Promise<Models.WebAppsListMetricsSlotNextResponse>;
-  /**
-   * @param nextPageLink The NextLink from the previous successful call to List operation.
-   * @param callback The callback
-   */
-  listMetricsSlotNext(nextPageLink: string, callback: msRest.ServiceCallback<Models.ResourceMetricCollection>): void;
-  /**
-   * @param nextPageLink The NextLink from the previous successful call to List operation.
-   * @param options The optional parameters
-   * @param callback The callback
-   */
-  listMetricsSlotNext(nextPageLink: string, options: msRest.RequestOptionsBase, callback: msRest.ServiceCallback<Models.ResourceMetricCollection>): void;
-  listMetricsSlotNext(nextPageLink: string, options?: msRest.RequestOptionsBase | msRest.ServiceCallback<Models.ResourceMetricCollection>, callback?: msRest.ServiceCallback<Models.ResourceMetricCollection>): Promise<Models.WebAppsListMetricsSlotNextResponse> {
-    return this.client.sendOperationRequest(
-      {
-        nextPageLink,
-        options
-      },
-      listMetricsSlotNextOperationSpec,
-      callback) as Promise<Models.WebAppsListMetricsSlotNextResponse>;
-  }
-
-  /**
-   * Gets perfmon counters for web app.
+   * Description for Gets perfmon counters for web app.
    * @summary Gets perfmon counters for web app.
    * @param nextPageLink The NextLink from the previous successful call to List operation.
    * @param [options] The optional parameters
@@ -15081,8 +14920,8 @@ export class WebApps {
   }
 
   /**
-   * Get list of processes for a web site, or a deployment slot, or for a specific scaled-out
-   * instance in a web site.
+   * Description for Get list of processes for a web site, or a deployment slot, or for a specific
+   * scaled-out instance in a web site.
    * @summary Get list of processes for a web site, or a deployment slot, or for a specific
    * scaled-out instance in a web site.
    * @param nextPageLink The NextLink from the previous successful call to List operation.
@@ -15112,8 +14951,8 @@ export class WebApps {
   }
 
   /**
-   * List module information for a process by its ID for a specific scaled-out instance in a web
-   * site.
+   * Description for List module information for a process by its ID for a specific scaled-out
+   * instance in a web site.
    * @summary List module information for a process by its ID for a specific scaled-out instance in a
    * web site.
    * @param nextPageLink The NextLink from the previous successful call to List operation.
@@ -15143,7 +14982,8 @@ export class WebApps {
   }
 
   /**
-   * List the threads in a process by its ID for a specific scaled-out instance in a web site.
+   * Description for List the threads in a process by its ID for a specific scaled-out instance in a
+   * web site.
    * @summary List the threads in a process by its ID for a specific scaled-out instance in a web
    * site.
    * @param nextPageLink The NextLink from the previous successful call to List operation.
@@ -15173,7 +15013,7 @@ export class WebApps {
   }
 
   /**
-   * Get public certificates for an app or a deployment slot.
+   * Description for Get public certificates for an app or a deployment slot.
    * @summary Get public certificates for an app or a deployment slot.
    * @param nextPageLink The NextLink from the previous successful call to List operation.
    * @param [options] The optional parameters
@@ -15202,7 +15042,7 @@ export class WebApps {
   }
 
   /**
-   * Get list of siteextensions for a web site, or a deployment slot.
+   * Description for Get list of siteextensions for a web site, or a deployment slot.
    * @summary Get list of siteextensions for a web site, or a deployment slot.
    * @param nextPageLink The NextLink from the previous successful call to List operation.
    * @param [options] The optional parameters
@@ -15231,7 +15071,7 @@ export class WebApps {
   }
 
   /**
-   * Get the difference in configuration settings between two web app slots.
+   * Description for Get the difference in configuration settings between two web app slots.
    * @summary Get the difference in configuration settings between two web app slots.
    * @param nextPageLink The NextLink from the previous successful call to List operation.
    * @param [options] The optional parameters
@@ -15260,7 +15100,7 @@ export class WebApps {
   }
 
   /**
-   * Returns all Snapshots to the user.
+   * Description for Returns all Snapshots to the user.
    * @summary Returns all Snapshots to the user.
    * @param nextPageLink The NextLink from the previous successful call to List operation.
    * @param [options] The optional parameters
@@ -15289,7 +15129,7 @@ export class WebApps {
   }
 
   /**
-   * Returns all Snapshots to the user from DRSecondary endpoint.
+   * Description for Returns all Snapshots to the user from DRSecondary endpoint.
    * @summary Returns all Snapshots to the user from DRSecondary endpoint.
    * @param nextPageLink The NextLink from the previous successful call to List operation.
    * @param [options] The optional parameters
@@ -15318,7 +15158,7 @@ export class WebApps {
   }
 
   /**
-   * List triggered web jobs for an app, or a deployment slot.
+   * Description for List triggered web jobs for an app, or a deployment slot.
    * @summary List triggered web jobs for an app, or a deployment slot.
    * @param nextPageLink The NextLink from the previous successful call to List operation.
    * @param [options] The optional parameters
@@ -15347,7 +15187,7 @@ export class WebApps {
   }
 
   /**
-   * List a triggered web job's history for an app, or a deployment slot.
+   * Description for List a triggered web job's history for an app, or a deployment slot.
    * @summary List a triggered web job's history for an app, or a deployment slot.
    * @param nextPageLink The NextLink from the previous successful call to List operation.
    * @param [options] The optional parameters
@@ -15376,7 +15216,7 @@ export class WebApps {
   }
 
   /**
-   * Gets the quota usage information of an app (or deployment slot, if specified).
+   * Description for Gets the quota usage information of an app (or deployment slot, if specified).
    * @summary Gets the quota usage information of an app (or deployment slot, if specified).
    * @param nextPageLink The NextLink from the previous successful call to List operation.
    * @param [options] The optional parameters
@@ -15405,7 +15245,7 @@ export class WebApps {
   }
 
   /**
-   * List webjobs for an app, or a deployment slot.
+   * Description for List webjobs for an app, or a deployment slot.
    * @summary List webjobs for an app, or a deployment slot.
    * @param nextPageLink The NextLink from the previous successful call to List operation.
    * @param [options] The optional parameters
@@ -15434,7 +15274,7 @@ export class WebApps {
   }
 
   /**
-   * Get the difference in configuration settings between two web app slots.
+   * Description for Get the difference in configuration settings between two web app slots.
    * @summary Get the difference in configuration settings between two web app slots.
    * @param nextPageLink The NextLink from the previous successful call to List operation.
    * @param [options] The optional parameters
@@ -15463,7 +15303,7 @@ export class WebApps {
   }
 
   /**
-   * Returns all Snapshots to the user.
+   * Description for Returns all Snapshots to the user.
    * @summary Returns all Snapshots to the user.
    * @param nextPageLink The NextLink from the previous successful call to List operation.
    * @param [options] The optional parameters
@@ -15492,7 +15332,7 @@ export class WebApps {
   }
 
   /**
-   * Returns all Snapshots to the user from DRSecondary endpoint.
+   * Description for Returns all Snapshots to the user from DRSecondary endpoint.
    * @summary Returns all Snapshots to the user from DRSecondary endpoint.
    * @param nextPageLink The NextLink from the previous successful call to List operation.
    * @param [options] The optional parameters
@@ -15521,7 +15361,7 @@ export class WebApps {
   }
 
   /**
-   * List triggered web jobs for an app, or a deployment slot.
+   * Description for List triggered web jobs for an app, or a deployment slot.
    * @summary List triggered web jobs for an app, or a deployment slot.
    * @param nextPageLink The NextLink from the previous successful call to List operation.
    * @param [options] The optional parameters
@@ -15550,7 +15390,7 @@ export class WebApps {
   }
 
   /**
-   * List a triggered web job's history for an app, or a deployment slot.
+   * Description for List a triggered web job's history for an app, or a deployment slot.
    * @summary List a triggered web job's history for an app, or a deployment slot.
    * @param nextPageLink The NextLink from the previous successful call to List operation.
    * @param [options] The optional parameters
@@ -15579,7 +15419,7 @@ export class WebApps {
   }
 
   /**
-   * Gets the quota usage information of an app (or deployment slot, if specified).
+   * Description for Gets the quota usage information of an app (or deployment slot, if specified).
    * @summary Gets the quota usage information of an app (or deployment slot, if specified).
    * @param nextPageLink The NextLink from the previous successful call to List operation.
    * @param [options] The optional parameters
@@ -15608,7 +15448,7 @@ export class WebApps {
   }
 
   /**
-   * List webjobs for an app, or a deployment slot.
+   * Description for List webjobs for an app, or a deployment slot.
    * @summary List webjobs for an app, or a deployment slot.
    * @param nextPageLink The NextLink from the previous successful call to List operation.
    * @param [options] The optional parameters
@@ -15646,7 +15486,7 @@ const listOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -15671,7 +15511,7 @@ const listByResourceGroupOperationSpec: msRest.OperationSpec = {
   ],
   queryParameters: [
     Parameters.includeSlots,
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -15696,7 +15536,7 @@ const getOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -15707,7 +15547,7 @@ const getOperationSpec: msRest.OperationSpec = {
     },
     404: {},
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
@@ -15724,7 +15564,7 @@ const deleteMethodOperationSpec: msRest.OperationSpec = {
   queryParameters: [
     Parameters.deleteMetrics,
     Parameters.deleteEmptyServerFarm,
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -15734,7 +15574,7 @@ const deleteMethodOperationSpec: msRest.OperationSpec = {
     204: {},
     404: {},
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
@@ -15749,7 +15589,7 @@ const updateOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -15785,7 +15625,7 @@ const analyzeCustomHostnameOperationSpec: msRest.OperationSpec = {
   ],
   queryParameters: [
     Parameters.hostName0,
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -15810,7 +15650,7 @@ const applySlotConfigToProductionOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -15825,7 +15665,7 @@ const applySlotConfigToProductionOperationSpec: msRest.OperationSpec = {
   responses: {
     200: {},
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
@@ -15840,7 +15680,7 @@ const backupOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -15872,7 +15712,7 @@ const listBackupsOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -15898,7 +15738,7 @@ const getBackupStatusOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -15924,7 +15764,7 @@ const deleteBackupOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -15933,7 +15773,7 @@ const deleteBackupOperationSpec: msRest.OperationSpec = {
     200: {},
     404: {},
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
@@ -15949,7 +15789,7 @@ const listBackupStatusSecretsOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -15981,7 +15821,7 @@ const listConfigurationsOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -16006,7 +15846,7 @@ const updateApplicationSettingsOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -16038,7 +15878,7 @@ const listApplicationSettingsOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -16063,7 +15903,7 @@ const updateAuthSettingsOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -16095,7 +15935,7 @@ const getAuthSettingsOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -16120,7 +15960,7 @@ const updateAzureStorageAccountsOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -16152,7 +15992,7 @@ const listAzureStorageAccountsOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -16177,7 +16017,7 @@ const updateBackupConfigurationOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -16209,7 +16049,7 @@ const deleteBackupConfigurationOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -16217,7 +16057,7 @@ const deleteBackupConfigurationOperationSpec: msRest.OperationSpec = {
   responses: {
     200: {},
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
@@ -16232,7 +16072,7 @@ const getBackupConfigurationOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -16240,6 +16080,57 @@ const getBackupConfigurationOperationSpec: msRest.OperationSpec = {
   responses: {
     200: {
       bodyMapper: Mappers.BackupRequest
+    },
+    default: {
+      bodyMapper: Mappers.DefaultErrorResponse
+    }
+  },
+  serializer
+};
+
+const getAppSettingsKeyVaultReferencesOperationSpec: msRest.OperationSpec = {
+  httpMethod: "GET",
+  path: "subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/config/configreferences/appsettings",
+  urlParameters: [
+    Parameters.resourceGroupName,
+    Parameters.name,
+    Parameters.subscriptionId
+  ],
+  queryParameters: [
+    Parameters.apiVersion
+  ],
+  headerParameters: [
+    Parameters.acceptLanguage
+  ],
+  responses: {
+    200: {
+      bodyMapper: Mappers.KeyVaultReferenceCollection
+    },
+    default: {
+      bodyMapper: Mappers.DefaultErrorResponse
+    }
+  },
+  serializer
+};
+
+const getAppSettingKeyVaultReferenceOperationSpec: msRest.OperationSpec = {
+  httpMethod: "GET",
+  path: "subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/config/configreferences/appsettings/{appSettingKey}",
+  urlParameters: [
+    Parameters.resourceGroupName,
+    Parameters.name,
+    Parameters.appSettingKey,
+    Parameters.subscriptionId
+  ],
+  queryParameters: [
+    Parameters.apiVersion
+  ],
+  headerParameters: [
+    Parameters.acceptLanguage
+  ],
+  responses: {
+    200: {
+      bodyMapper: Mappers.KeyVaultReferenceResource
     },
     default: {
       bodyMapper: Mappers.DefaultErrorResponse
@@ -16257,7 +16148,7 @@ const updateConnectionStringsOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -16289,7 +16180,7 @@ const listConnectionStringsOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -16314,7 +16205,7 @@ const getDiagnosticLogsConfigurationOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -16339,7 +16230,7 @@ const updateDiagnosticLogsConfigOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -16371,7 +16262,7 @@ const updateMetadataOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -16403,7 +16294,7 @@ const listMetadataOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -16428,7 +16319,7 @@ const updateSitePushSettingsOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -16460,7 +16351,7 @@ const listSitePushSettingsOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -16485,7 +16376,7 @@ const listSlotConfigurationNamesOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -16510,7 +16401,7 @@ const updateSlotConfigurationNamesOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -16542,7 +16433,7 @@ const getConfigurationOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -16567,7 +16458,7 @@ const createOrUpdateConfigurationOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -16599,7 +16490,7 @@ const updateConfigurationOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -16631,7 +16522,7 @@ const listConfigurationSnapshotInfoOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -16657,7 +16548,7 @@ const getConfigurationSnapshotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -16683,7 +16574,7 @@ const recoverSiteConfigurationSnapshotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -16691,7 +16582,7 @@ const recoverSiteConfigurationSnapshotOperationSpec: msRest.OperationSpec = {
   responses: {
     204: {},
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
@@ -16706,7 +16597,7 @@ const getWebSiteContainerLogsOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -16737,7 +16628,7 @@ const getContainerLogsZipOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -16768,7 +16659,7 @@ const listContinuousWebJobsOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -16794,7 +16685,7 @@ const getContinuousWebJobOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -16805,7 +16696,7 @@ const getContinuousWebJobOperationSpec: msRest.OperationSpec = {
     },
     404: {},
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
@@ -16821,7 +16712,7 @@ const deleteContinuousWebJobOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -16830,7 +16721,7 @@ const deleteContinuousWebJobOperationSpec: msRest.OperationSpec = {
     200: {},
     204: {},
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
@@ -16846,7 +16737,7 @@ const startContinuousWebJobOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -16855,7 +16746,7 @@ const startContinuousWebJobOperationSpec: msRest.OperationSpec = {
     200: {},
     404: {},
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
@@ -16871,7 +16762,7 @@ const stopContinuousWebJobOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -16880,7 +16771,7 @@ const stopContinuousWebJobOperationSpec: msRest.OperationSpec = {
     200: {},
     404: {},
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
@@ -16895,7 +16786,7 @@ const listDeploymentsOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -16921,7 +16812,7 @@ const getDeploymentOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -16947,7 +16838,7 @@ const createDeploymentOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -16980,7 +16871,7 @@ const deleteDeploymentOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -16989,7 +16880,7 @@ const deleteDeploymentOperationSpec: msRest.OperationSpec = {
     200: {},
     204: {},
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
@@ -17005,7 +16896,7 @@ const listDeploymentLogOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -17030,7 +16921,7 @@ const discoverBackupOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -17062,7 +16953,7 @@ const listDomainOwnershipIdentifiersOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -17088,7 +16979,7 @@ const getDomainOwnershipIdentifierOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -17114,7 +17005,7 @@ const createOrUpdateDomainOwnershipIdentifierOperationSpec: msRest.OperationSpec
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -17147,7 +17038,7 @@ const deleteDomainOwnershipIdentifierOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -17156,7 +17047,7 @@ const deleteDomainOwnershipIdentifierOperationSpec: msRest.OperationSpec = {
     200: {},
     204: {},
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
@@ -17172,7 +17063,7 @@ const updateDomainOwnershipIdentifierOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -17204,7 +17095,7 @@ const getMSDeployStatusOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -17229,7 +17120,7 @@ const getMSDeployLogOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -17240,7 +17131,7 @@ const getMSDeployLogOperationSpec: msRest.OperationSpec = {
     },
     404: {},
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
@@ -17255,7 +17146,7 @@ const listFunctionsOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -17266,7 +17157,7 @@ const listFunctionsOperationSpec: msRest.OperationSpec = {
     },
     404: {},
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
@@ -17281,7 +17172,7 @@ const getFunctionsAdminTokenOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -17312,7 +17203,7 @@ const getFunctionOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -17323,7 +17214,7 @@ const getFunctionOperationSpec: msRest.OperationSpec = {
     },
     404: {},
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
@@ -17339,7 +17230,7 @@ const deleteFunctionOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -17348,7 +17239,7 @@ const deleteFunctionOperationSpec: msRest.OperationSpec = {
     204: {},
     404: {},
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
@@ -17364,7 +17255,7 @@ const listFunctionSecretsOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -17389,7 +17280,7 @@ const listHostNameBindingsOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -17415,7 +17306,7 @@ const getHostNameBindingOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -17441,7 +17332,7 @@ const createOrUpdateHostNameBindingOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -17474,7 +17365,7 @@ const deleteHostNameBindingOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -17483,7 +17374,7 @@ const deleteHostNameBindingOperationSpec: msRest.OperationSpec = {
     200: {},
     204: {},
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
@@ -17500,7 +17391,7 @@ const getHybridConnectionOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -17527,7 +17418,7 @@ const createOrUpdateHybridConnectionOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -17561,7 +17452,7 @@ const deleteHybridConnectionOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -17570,7 +17461,7 @@ const deleteHybridConnectionOperationSpec: msRest.OperationSpec = {
     200: {},
     404: {},
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
@@ -17587,7 +17478,7 @@ const updateHybridConnectionOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -17610,33 +17501,6 @@ const updateHybridConnectionOperationSpec: msRest.OperationSpec = {
   serializer
 };
 
-const listHybridConnectionKeysOperationSpec: msRest.OperationSpec = {
-  httpMethod: "POST",
-  path: "subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/hybridConnectionNamespaces/{namespaceName}/relays/{relayName}/listKeys",
-  urlParameters: [
-    Parameters.resourceGroupName,
-    Parameters.name,
-    Parameters.namespaceName,
-    Parameters.relayName,
-    Parameters.subscriptionId
-  ],
-  queryParameters: [
-    Parameters.apiVersion1
-  ],
-  headerParameters: [
-    Parameters.acceptLanguage
-  ],
-  responses: {
-    200: {
-      bodyMapper: Mappers.HybridConnectionKey
-    },
-    default: {
-      bodyMapper: Mappers.DefaultErrorResponse
-    }
-  },
-  serializer
-};
-
 const listHybridConnectionsOperationSpec: msRest.OperationSpec = {
   httpMethod: "GET",
   path: "subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/hybridConnectionRelays",
@@ -17646,7 +17510,7 @@ const listHybridConnectionsOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -17671,7 +17535,7 @@ const listRelayServiceConnectionsOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -17697,7 +17561,7 @@ const getRelayServiceConnectionOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -17723,7 +17587,7 @@ const createOrUpdateRelayServiceConnectionOperationSpec: msRest.OperationSpec = 
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -17756,7 +17620,7 @@ const deleteRelayServiceConnectionOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -17765,7 +17629,7 @@ const deleteRelayServiceConnectionOperationSpec: msRest.OperationSpec = {
     200: {},
     404: {},
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
@@ -17781,7 +17645,7 @@ const updateRelayServiceConnectionOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -17813,7 +17677,7 @@ const listInstanceIdentifiersOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -17821,6 +17685,32 @@ const listInstanceIdentifiersOperationSpec: msRest.OperationSpec = {
   responses: {
     200: {
       bodyMapper: Mappers.WebAppInstanceCollection
+    },
+    default: {
+      bodyMapper: Mappers.DefaultErrorResponse
+    }
+  },
+  serializer
+};
+
+const getInstanceInfoOperationSpec: msRest.OperationSpec = {
+  httpMethod: "GET",
+  path: "subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/instances/{instanceId}",
+  urlParameters: [
+    Parameters.resourceGroupName,
+    Parameters.name,
+    Parameters.instanceId,
+    Parameters.subscriptionId
+  ],
+  queryParameters: [
+    Parameters.apiVersion
+  ],
+  headerParameters: [
+    Parameters.acceptLanguage
+  ],
+  responses: {
+    200: {
+      bodyMapper: Mappers.WebSiteInstanceStatus
     },
     default: {
       bodyMapper: Mappers.DefaultErrorResponse
@@ -17839,7 +17729,7 @@ const getInstanceMsDeployStatusOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -17865,7 +17755,7 @@ const getInstanceMSDeployLogOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -17876,7 +17766,7 @@ const getInstanceMSDeployLogOperationSpec: msRest.OperationSpec = {
     },
     404: {},
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
@@ -17892,7 +17782,7 @@ const listInstanceProcessesOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -17903,7 +17793,7 @@ const listInstanceProcessesOperationSpec: msRest.OperationSpec = {
     },
     404: {},
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
@@ -17920,7 +17810,7 @@ const getInstanceProcessOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -17931,7 +17821,7 @@ const getInstanceProcessOperationSpec: msRest.OperationSpec = {
     },
     404: {},
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
@@ -17948,7 +17838,7 @@ const deleteInstanceProcessOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -17957,7 +17847,7 @@ const deleteInstanceProcessOperationSpec: msRest.OperationSpec = {
     204: {},
     404: {},
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
@@ -17974,7 +17864,7 @@ const getInstanceProcessDumpOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -17990,7 +17880,7 @@ const getInstanceProcessDumpOperationSpec: msRest.OperationSpec = {
     },
     404: {},
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
@@ -18007,7 +17897,7 @@ const listInstanceProcessModulesOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -18018,7 +17908,7 @@ const listInstanceProcessModulesOperationSpec: msRest.OperationSpec = {
     },
     404: {},
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
@@ -18036,7 +17926,7 @@ const getInstanceProcessModuleOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -18047,7 +17937,7 @@ const getInstanceProcessModuleOperationSpec: msRest.OperationSpec = {
     },
     404: {},
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
@@ -18064,7 +17954,7 @@ const listInstanceProcessThreadsOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -18075,36 +17965,7 @@ const listInstanceProcessThreadsOperationSpec: msRest.OperationSpec = {
     },
     404: {},
     default: {
-      bodyMapper: Mappers.CloudError
-    }
-  },
-  serializer
-};
-
-const getInstanceProcessThreadOperationSpec: msRest.OperationSpec = {
-  httpMethod: "GET",
-  path: "subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/instances/{instanceId}/processes/{processId}/threads/{threadId}",
-  urlParameters: [
-    Parameters.resourceGroupName,
-    Parameters.name,
-    Parameters.processId,
-    Parameters.threadId,
-    Parameters.instanceId,
-    Parameters.subscriptionId
-  ],
-  queryParameters: [
-    Parameters.apiVersion1
-  ],
-  headerParameters: [
-    Parameters.acceptLanguage
-  ],
-  responses: {
-    200: {
-      bodyMapper: Mappers.ProcessThreadInfo
-    },
-    404: {},
-    default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
@@ -18119,7 +17980,7 @@ const isCloneableOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -18127,6 +17988,31 @@ const isCloneableOperationSpec: msRest.OperationSpec = {
   responses: {
     200: {
       bodyMapper: Mappers.SiteCloneability
+    },
+    default: {
+      bodyMapper: Mappers.DefaultErrorResponse
+    }
+  },
+  serializer
+};
+
+const listSiteBackupsOperationSpec: msRest.OperationSpec = {
+  httpMethod: "POST",
+  path: "subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/listbackups",
+  urlParameters: [
+    Parameters.resourceGroupName,
+    Parameters.name,
+    Parameters.subscriptionId
+  ],
+  queryParameters: [
+    Parameters.apiVersion
+  ],
+  headerParameters: [
+    Parameters.acceptLanguage
+  ],
+  responses: {
+    200: {
+      bodyMapper: Mappers.BackupItemCollection
     },
     default: {
       bodyMapper: Mappers.DefaultErrorResponse
@@ -18144,7 +18030,7 @@ const listSyncFunctionTriggersOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -18152,58 +18038,6 @@ const listSyncFunctionTriggersOperationSpec: msRest.OperationSpec = {
   responses: {
     200: {
       bodyMapper: Mappers.FunctionSecrets
-    },
-    default: {
-      bodyMapper: Mappers.DefaultErrorResponse
-    }
-  },
-  serializer
-};
-
-const listMetricDefinitionsOperationSpec: msRest.OperationSpec = {
-  httpMethod: "GET",
-  path: "subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/metricdefinitions",
-  urlParameters: [
-    Parameters.resourceGroupName,
-    Parameters.name,
-    Parameters.subscriptionId
-  ],
-  queryParameters: [
-    Parameters.apiVersion1
-  ],
-  headerParameters: [
-    Parameters.acceptLanguage
-  ],
-  responses: {
-    200: {
-      bodyMapper: Mappers.ResourceMetricDefinitionCollection
-    },
-    default: {
-      bodyMapper: Mappers.DefaultErrorResponse
-    }
-  },
-  serializer
-};
-
-const listMetricsOperationSpec: msRest.OperationSpec = {
-  httpMethod: "GET",
-  path: "subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/metrics",
-  urlParameters: [
-    Parameters.resourceGroupName,
-    Parameters.name,
-    Parameters.subscriptionId
-  ],
-  queryParameters: [
-    Parameters.details,
-    Parameters.filter,
-    Parameters.apiVersion1
-  ],
-  headerParameters: [
-    Parameters.acceptLanguage
-  ],
-  responses: {
-    200: {
-      bodyMapper: Mappers.ResourceMetricCollection
     },
     default: {
       bodyMapper: Mappers.DefaultErrorResponse
@@ -18221,7 +18055,7 @@ const getMigrateMySqlStatusOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -18246,7 +18080,7 @@ const getSwiftVirtualNetworkConnectionOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -18271,7 +18105,7 @@ const createOrUpdateSwiftVirtualNetworkConnectionOperationSpec: msRest.Operation
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -18303,7 +18137,7 @@ const deleteSwiftVirtualNetworkOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -18312,7 +18146,7 @@ const deleteSwiftVirtualNetworkOperationSpec: msRest.OperationSpec = {
     200: {},
     404: {},
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
@@ -18327,7 +18161,7 @@ const updateSwiftVirtualNetworkConnectionOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -18360,7 +18194,7 @@ const listNetworkFeaturesOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -18371,7 +18205,7 @@ const listNetworkFeaturesOperationSpec: msRest.OperationSpec = {
     },
     404: {},
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
@@ -18387,7 +18221,7 @@ const getNetworkTraceOperationOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -18440,7 +18274,7 @@ const startWebSiteNetworkTraceOperationSpec: msRest.OperationSpec = {
     Parameters.durationInSeconds,
     Parameters.maxFrameLength,
     Parameters.sasUrl,
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -18470,7 +18304,7 @@ const stopWebSiteNetworkTraceOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -18479,7 +18313,7 @@ const stopWebSiteNetworkTraceOperationSpec: msRest.OperationSpec = {
     200: {},
     204: {},
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
@@ -18495,7 +18329,7 @@ const getNetworkTracesOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -18532,7 +18366,7 @@ const getNetworkTraceOperationV2OperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -18583,7 +18417,7 @@ const getNetworkTracesV2OperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -18619,7 +18453,7 @@ const generateNewSitePublishingPasswordOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -18628,7 +18462,7 @@ const generateNewSitePublishingPasswordOperationSpec: msRest.OperationSpec = {
     200: {},
     204: {},
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
@@ -18644,7 +18478,7 @@ const listPerfMonCountersOperationSpec: msRest.OperationSpec = {
   ],
   queryParameters: [
     Parameters.filter,
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -18669,7 +18503,7 @@ const getSitePhpErrorLogFlagOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -18694,7 +18528,7 @@ const listPremierAddOnsOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -18720,7 +18554,7 @@ const getPremierAddOnOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -18746,7 +18580,7 @@ const addPremierAddOnOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -18779,7 +18613,7 @@ const deletePremierAddOnOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -18787,7 +18621,7 @@ const deletePremierAddOnOperationSpec: msRest.OperationSpec = {
   responses: {
     200: {},
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
@@ -18803,7 +18637,7 @@ const updatePremierAddOnOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -18835,7 +18669,7 @@ const getPrivateAccessOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -18860,7 +18694,7 @@ const putPrivateAccessVnetOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -18892,7 +18726,7 @@ const listProcessesOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -18903,7 +18737,7 @@ const listProcessesOperationSpec: msRest.OperationSpec = {
     },
     404: {},
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
@@ -18919,7 +18753,7 @@ const getProcessOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -18930,7 +18764,7 @@ const getProcessOperationSpec: msRest.OperationSpec = {
     },
     404: {},
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
@@ -18946,7 +18780,7 @@ const deleteProcessOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -18955,7 +18789,7 @@ const deleteProcessOperationSpec: msRest.OperationSpec = {
     204: {},
     404: {},
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
@@ -18971,7 +18805,7 @@ const getProcessDumpOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -18987,7 +18821,7 @@ const getProcessDumpOperationSpec: msRest.OperationSpec = {
     },
     404: {},
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
@@ -19003,7 +18837,7 @@ const listProcessModulesOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -19014,7 +18848,7 @@ const listProcessModulesOperationSpec: msRest.OperationSpec = {
     },
     404: {},
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
@@ -19031,7 +18865,7 @@ const getProcessModuleOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -19042,7 +18876,7 @@ const getProcessModuleOperationSpec: msRest.OperationSpec = {
     },
     404: {},
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
@@ -19058,7 +18892,7 @@ const listProcessThreadsOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -19069,35 +18903,7 @@ const listProcessThreadsOperationSpec: msRest.OperationSpec = {
     },
     404: {},
     default: {
-      bodyMapper: Mappers.CloudError
-    }
-  },
-  serializer
-};
-
-const getProcessThreadOperationSpec: msRest.OperationSpec = {
-  httpMethod: "GET",
-  path: "subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/processes/{processId}/threads/{threadId}",
-  urlParameters: [
-    Parameters.resourceGroupName,
-    Parameters.name,
-    Parameters.processId,
-    Parameters.threadId,
-    Parameters.subscriptionId
-  ],
-  queryParameters: [
-    Parameters.apiVersion1
-  ],
-  headerParameters: [
-    Parameters.acceptLanguage
-  ],
-  responses: {
-    200: {
-      bodyMapper: Mappers.ProcessThreadInfo
-    },
-    404: {},
-    default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
@@ -19112,7 +18918,7 @@ const listPublicCertificatesOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -19138,7 +18944,7 @@ const getPublicCertificateOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -19164,7 +18970,7 @@ const createOrUpdatePublicCertificateOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -19197,7 +19003,7 @@ const deletePublicCertificateOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -19206,7 +19012,7 @@ const deletePublicCertificateOperationSpec: msRest.OperationSpec = {
     200: {},
     204: {},
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
@@ -19221,7 +19027,7 @@ const listPublishingProfileXmlWithSecretsOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -19258,7 +19064,7 @@ const resetProductionSlotConfigOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -19266,7 +19072,7 @@ const resetProductionSlotConfigOperationSpec: msRest.OperationSpec = {
   responses: {
     200: {},
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
@@ -19283,7 +19089,7 @@ const restartOperationSpec: msRest.OperationSpec = {
   queryParameters: [
     Parameters.softRestart,
     Parameters.synchronous,
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -19291,7 +19097,7 @@ const restartOperationSpec: msRest.OperationSpec = {
   responses: {
     200: {},
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
@@ -19306,7 +19112,7 @@ const listSiteExtensionsOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -19317,7 +19123,7 @@ const listSiteExtensionsOperationSpec: msRest.OperationSpec = {
     },
     404: {},
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
@@ -19333,7 +19139,7 @@ const getSiteExtensionOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -19344,7 +19150,7 @@ const getSiteExtensionOperationSpec: msRest.OperationSpec = {
     },
     404: {},
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
@@ -19360,7 +19166,7 @@ const deleteSiteExtensionOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -19369,7 +19175,7 @@ const deleteSiteExtensionOperationSpec: msRest.OperationSpec = {
     204: {},
     404: {},
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
@@ -19384,7 +19190,7 @@ const listSlotsOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -19410,7 +19216,7 @@ const getSlotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -19421,7 +19227,7 @@ const getSlotOperationSpec: msRest.OperationSpec = {
     },
     404: {},
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
@@ -19439,7 +19245,7 @@ const deleteSlotOperationSpec: msRest.OperationSpec = {
   queryParameters: [
     Parameters.deleteMetrics,
     Parameters.deleteEmptyServerFarm,
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -19449,7 +19255,7 @@ const deleteSlotOperationSpec: msRest.OperationSpec = {
     204: {},
     404: {},
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
@@ -19465,7 +19271,7 @@ const updateSlotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -19502,7 +19308,7 @@ const analyzeCustomHostnameSlotOperationSpec: msRest.OperationSpec = {
   ],
   queryParameters: [
     Parameters.hostName0,
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -19528,7 +19334,7 @@ const applySlotConfigurationSlotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -19543,7 +19349,7 @@ const applySlotConfigurationSlotOperationSpec: msRest.OperationSpec = {
   responses: {
     200: {},
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
@@ -19559,7 +19365,7 @@ const backupSlotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -19592,7 +19398,7 @@ const listBackupsSlotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -19619,7 +19425,7 @@ const getBackupStatusSlotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -19646,7 +19452,7 @@ const deleteBackupSlotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -19655,7 +19461,7 @@ const deleteBackupSlotOperationSpec: msRest.OperationSpec = {
     200: {},
     404: {},
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
@@ -19672,7 +19478,7 @@ const listBackupStatusSecretsSlotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -19705,7 +19511,7 @@ const listConfigurationsSlotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -19731,7 +19537,7 @@ const updateApplicationSettingsSlotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -19764,7 +19570,7 @@ const listApplicationSettingsSlotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -19790,7 +19596,7 @@ const updateAuthSettingsSlotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -19823,7 +19629,7 @@ const getAuthSettingsSlotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -19849,7 +19655,7 @@ const updateAzureStorageAccountsSlotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -19882,7 +19688,7 @@ const listAzureStorageAccountsSlotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -19908,7 +19714,7 @@ const updateBackupConfigurationSlotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -19941,7 +19747,7 @@ const deleteBackupConfigurationSlotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -19949,7 +19755,7 @@ const deleteBackupConfigurationSlotOperationSpec: msRest.OperationSpec = {
   responses: {
     200: {},
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
@@ -19965,7 +19771,7 @@ const getBackupConfigurationSlotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -19991,7 +19797,7 @@ const updateConnectionStringsSlotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -20024,7 +19830,7 @@ const listConnectionStringsSlotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -20050,7 +19856,7 @@ const getDiagnosticLogsConfigurationSlotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -20076,7 +19882,7 @@ const updateDiagnosticLogsConfigSlotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -20109,7 +19915,7 @@ const updateMetadataSlotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -20142,7 +19948,7 @@ const listMetadataSlotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -20168,7 +19974,7 @@ const updateSitePushSettingsSlotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -20201,7 +20007,7 @@ const listSitePushSettingsSlotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -20227,7 +20033,7 @@ const getConfigurationSlotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -20253,7 +20059,7 @@ const createOrUpdateConfigurationSlotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -20286,7 +20092,7 @@ const updateConfigurationSlotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -20319,7 +20125,7 @@ const listConfigurationSnapshotInfoSlotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -20346,7 +20152,7 @@ const getConfigurationSnapshotSlotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -20373,7 +20179,7 @@ const recoverSiteConfigurationSnapshotSlotOperationSpec: msRest.OperationSpec = 
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -20381,7 +20187,7 @@ const recoverSiteConfigurationSnapshotSlotOperationSpec: msRest.OperationSpec = 
   responses: {
     204: {},
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
@@ -20397,7 +20203,7 @@ const getWebSiteContainerLogsSlotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -20429,7 +20235,7 @@ const getContainerLogsZipSlotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -20461,7 +20267,7 @@ const listContinuousWebJobsSlotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -20488,7 +20294,7 @@ const getContinuousWebJobSlotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -20499,7 +20305,7 @@ const getContinuousWebJobSlotOperationSpec: msRest.OperationSpec = {
     },
     404: {},
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
@@ -20516,7 +20322,7 @@ const deleteContinuousWebJobSlotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -20525,7 +20331,7 @@ const deleteContinuousWebJobSlotOperationSpec: msRest.OperationSpec = {
     200: {},
     204: {},
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
@@ -20542,7 +20348,7 @@ const startContinuousWebJobSlotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -20551,7 +20357,7 @@ const startContinuousWebJobSlotOperationSpec: msRest.OperationSpec = {
     200: {},
     404: {},
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
@@ -20568,7 +20374,7 @@ const stopContinuousWebJobSlotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -20577,7 +20383,7 @@ const stopContinuousWebJobSlotOperationSpec: msRest.OperationSpec = {
     200: {},
     404: {},
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
@@ -20593,7 +20399,7 @@ const listDeploymentsSlotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -20620,7 +20426,7 @@ const getDeploymentSlotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -20647,7 +20453,7 @@ const createDeploymentSlotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -20681,7 +20487,7 @@ const deleteDeploymentSlotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -20690,7 +20496,7 @@ const deleteDeploymentSlotOperationSpec: msRest.OperationSpec = {
     200: {},
     204: {},
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
@@ -20707,7 +20513,7 @@ const listDeploymentLogSlotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -20733,7 +20539,7 @@ const discoverBackupSlotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -20766,7 +20572,7 @@ const listDomainOwnershipIdentifiersSlotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -20793,7 +20599,7 @@ const getDomainOwnershipIdentifierSlotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -20820,7 +20626,7 @@ const createOrUpdateDomainOwnershipIdentifierSlotOperationSpec: msRest.Operation
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -20854,7 +20660,7 @@ const deleteDomainOwnershipIdentifierSlotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -20863,7 +20669,7 @@ const deleteDomainOwnershipIdentifierSlotOperationSpec: msRest.OperationSpec = {
     200: {},
     204: {},
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
@@ -20880,7 +20686,7 @@ const updateDomainOwnershipIdentifierSlotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -20913,7 +20719,7 @@ const getMSDeployStatusSlotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -20939,7 +20745,7 @@ const getMSDeployLogSlotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -20950,7 +20756,7 @@ const getMSDeployLogSlotOperationSpec: msRest.OperationSpec = {
     },
     404: {},
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
@@ -20966,7 +20772,7 @@ const listInstanceFunctionsSlotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -20977,7 +20783,7 @@ const listInstanceFunctionsSlotOperationSpec: msRest.OperationSpec = {
     },
     404: {},
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
@@ -20993,7 +20799,7 @@ const getFunctionsAdminTokenSlotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -21025,7 +20831,7 @@ const getInstanceFunctionSlotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -21036,7 +20842,7 @@ const getInstanceFunctionSlotOperationSpec: msRest.OperationSpec = {
     },
     404: {},
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
@@ -21053,7 +20859,7 @@ const deleteInstanceFunctionSlotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -21062,7 +20868,7 @@ const deleteInstanceFunctionSlotOperationSpec: msRest.OperationSpec = {
     204: {},
     404: {},
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
@@ -21079,7 +20885,7 @@ const listFunctionSecretsSlotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -21105,7 +20911,7 @@ const listHostNameBindingsSlotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -21132,7 +20938,7 @@ const getHostNameBindingSlotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -21159,7 +20965,7 @@ const createOrUpdateHostNameBindingSlotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -21193,7 +20999,7 @@ const deleteHostNameBindingSlotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -21202,7 +21008,7 @@ const deleteHostNameBindingSlotOperationSpec: msRest.OperationSpec = {
     200: {},
     204: {},
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
@@ -21220,7 +21026,7 @@ const getHybridConnectionSlotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -21248,7 +21054,7 @@ const createOrUpdateHybridConnectionSlotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -21283,7 +21089,7 @@ const deleteHybridConnectionSlotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -21292,7 +21098,7 @@ const deleteHybridConnectionSlotOperationSpec: msRest.OperationSpec = {
     200: {},
     404: {},
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
@@ -21310,7 +21116,7 @@ const updateHybridConnectionSlotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -21333,34 +21139,6 @@ const updateHybridConnectionSlotOperationSpec: msRest.OperationSpec = {
   serializer
 };
 
-const listHybridConnectionKeysSlotOperationSpec: msRest.OperationSpec = {
-  httpMethod: "POST",
-  path: "subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/slots/{slot}/hybridConnectionNamespaces/{namespaceName}/relays/{relayName}/listKeys",
-  urlParameters: [
-    Parameters.resourceGroupName,
-    Parameters.name,
-    Parameters.namespaceName,
-    Parameters.relayName,
-    Parameters.slot,
-    Parameters.subscriptionId
-  ],
-  queryParameters: [
-    Parameters.apiVersion1
-  ],
-  headerParameters: [
-    Parameters.acceptLanguage
-  ],
-  responses: {
-    200: {
-      bodyMapper: Mappers.HybridConnectionKey
-    },
-    default: {
-      bodyMapper: Mappers.DefaultErrorResponse
-    }
-  },
-  serializer
-};
-
 const listHybridConnectionsSlotOperationSpec: msRest.OperationSpec = {
   httpMethod: "GET",
   path: "subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/slots/{slot}/hybridConnectionRelays",
@@ -21371,7 +21149,7 @@ const listHybridConnectionsSlotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -21397,7 +21175,7 @@ const listRelayServiceConnectionsSlotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -21424,7 +21202,7 @@ const getRelayServiceConnectionSlotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -21451,7 +21229,7 @@ const createOrUpdateRelayServiceConnectionSlotOperationSpec: msRest.OperationSpe
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -21485,7 +21263,7 @@ const deleteRelayServiceConnectionSlotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -21494,7 +21272,7 @@ const deleteRelayServiceConnectionSlotOperationSpec: msRest.OperationSpec = {
     200: {},
     404: {},
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
@@ -21511,7 +21289,7 @@ const updateRelayServiceConnectionSlotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -21544,7 +21322,7 @@ const listInstanceIdentifiersSlotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -21552,6 +21330,33 @@ const listInstanceIdentifiersSlotOperationSpec: msRest.OperationSpec = {
   responses: {
     200: {
       bodyMapper: Mappers.WebAppInstanceCollection
+    },
+    default: {
+      bodyMapper: Mappers.DefaultErrorResponse
+    }
+  },
+  serializer
+};
+
+const getInstanceInfoSlotOperationSpec: msRest.OperationSpec = {
+  httpMethod: "GET",
+  path: "subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/slots/{slot}/instances/{instanceId}",
+  urlParameters: [
+    Parameters.resourceGroupName,
+    Parameters.name,
+    Parameters.instanceId,
+    Parameters.slot,
+    Parameters.subscriptionId
+  ],
+  queryParameters: [
+    Parameters.apiVersion
+  ],
+  headerParameters: [
+    Parameters.acceptLanguage
+  ],
+  responses: {
+    200: {
+      bodyMapper: Mappers.WebSiteInstanceStatus
     },
     default: {
       bodyMapper: Mappers.DefaultErrorResponse
@@ -21571,7 +21376,7 @@ const getInstanceMsDeployStatusSlotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -21598,7 +21403,7 @@ const getInstanceMSDeployLogSlotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -21609,7 +21414,7 @@ const getInstanceMSDeployLogSlotOperationSpec: msRest.OperationSpec = {
     },
     404: {},
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
@@ -21626,7 +21431,7 @@ const listInstanceProcessesSlotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -21637,7 +21442,7 @@ const listInstanceProcessesSlotOperationSpec: msRest.OperationSpec = {
     },
     404: {},
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
@@ -21655,7 +21460,7 @@ const getInstanceProcessSlotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -21666,7 +21471,7 @@ const getInstanceProcessSlotOperationSpec: msRest.OperationSpec = {
     },
     404: {},
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
@@ -21684,7 +21489,7 @@ const deleteInstanceProcessSlotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -21693,7 +21498,7 @@ const deleteInstanceProcessSlotOperationSpec: msRest.OperationSpec = {
     204: {},
     404: {},
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
@@ -21711,7 +21516,7 @@ const getInstanceProcessDumpSlotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -21727,7 +21532,7 @@ const getInstanceProcessDumpSlotOperationSpec: msRest.OperationSpec = {
     },
     404: {},
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
@@ -21745,7 +21550,7 @@ const listInstanceProcessModulesSlotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -21756,7 +21561,7 @@ const listInstanceProcessModulesSlotOperationSpec: msRest.OperationSpec = {
     },
     404: {},
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
@@ -21775,7 +21580,7 @@ const getInstanceProcessModuleSlotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -21786,7 +21591,7 @@ const getInstanceProcessModuleSlotOperationSpec: msRest.OperationSpec = {
     },
     404: {},
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
@@ -21804,7 +21609,7 @@ const listInstanceProcessThreadsSlotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -21815,37 +21620,7 @@ const listInstanceProcessThreadsSlotOperationSpec: msRest.OperationSpec = {
     },
     404: {},
     default: {
-      bodyMapper: Mappers.CloudError
-    }
-  },
-  serializer
-};
-
-const getInstanceProcessThreadSlotOperationSpec: msRest.OperationSpec = {
-  httpMethod: "GET",
-  path: "subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/slots/{slot}/instances/{instanceId}/processes/{processId}/threads/{threadId}",
-  urlParameters: [
-    Parameters.resourceGroupName,
-    Parameters.name,
-    Parameters.processId,
-    Parameters.threadId,
-    Parameters.slot,
-    Parameters.instanceId,
-    Parameters.subscriptionId
-  ],
-  queryParameters: [
-    Parameters.apiVersion1
-  ],
-  headerParameters: [
-    Parameters.acceptLanguage
-  ],
-  responses: {
-    200: {
-      bodyMapper: Mappers.ProcessThreadInfo
-    },
-    404: {},
-    default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
@@ -21861,7 +21636,7 @@ const isCloneableSlotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -21869,6 +21644,32 @@ const isCloneableSlotOperationSpec: msRest.OperationSpec = {
   responses: {
     200: {
       bodyMapper: Mappers.SiteCloneability
+    },
+    default: {
+      bodyMapper: Mappers.DefaultErrorResponse
+    }
+  },
+  serializer
+};
+
+const listSiteBackupsSlotOperationSpec: msRest.OperationSpec = {
+  httpMethod: "POST",
+  path: "subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/slots/{slot}/listbackups",
+  urlParameters: [
+    Parameters.resourceGroupName,
+    Parameters.name,
+    Parameters.slot,
+    Parameters.subscriptionId
+  ],
+  queryParameters: [
+    Parameters.apiVersion
+  ],
+  headerParameters: [
+    Parameters.acceptLanguage
+  ],
+  responses: {
+    200: {
+      bodyMapper: Mappers.BackupItemCollection
     },
     default: {
       bodyMapper: Mappers.DefaultErrorResponse
@@ -21887,7 +21688,7 @@ const listSyncFunctionTriggersSlotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -21895,60 +21696,6 @@ const listSyncFunctionTriggersSlotOperationSpec: msRest.OperationSpec = {
   responses: {
     200: {
       bodyMapper: Mappers.FunctionSecrets
-    },
-    default: {
-      bodyMapper: Mappers.DefaultErrorResponse
-    }
-  },
-  serializer
-};
-
-const listMetricDefinitionsSlotOperationSpec: msRest.OperationSpec = {
-  httpMethod: "GET",
-  path: "subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/slots/{slot}/metricdefinitions",
-  urlParameters: [
-    Parameters.resourceGroupName,
-    Parameters.name,
-    Parameters.slot,
-    Parameters.subscriptionId
-  ],
-  queryParameters: [
-    Parameters.apiVersion1
-  ],
-  headerParameters: [
-    Parameters.acceptLanguage
-  ],
-  responses: {
-    200: {
-      bodyMapper: Mappers.ResourceMetricDefinitionCollection
-    },
-    default: {
-      bodyMapper: Mappers.DefaultErrorResponse
-    }
-  },
-  serializer
-};
-
-const listMetricsSlotOperationSpec: msRest.OperationSpec = {
-  httpMethod: "GET",
-  path: "subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/slots/{slot}/metrics",
-  urlParameters: [
-    Parameters.resourceGroupName,
-    Parameters.name,
-    Parameters.slot,
-    Parameters.subscriptionId
-  ],
-  queryParameters: [
-    Parameters.details,
-    Parameters.filter,
-    Parameters.apiVersion1
-  ],
-  headerParameters: [
-    Parameters.acceptLanguage
-  ],
-  responses: {
-    200: {
-      bodyMapper: Mappers.ResourceMetricCollection
     },
     default: {
       bodyMapper: Mappers.DefaultErrorResponse
@@ -21967,7 +21714,7 @@ const getMigrateMySqlStatusSlotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -21993,7 +21740,7 @@ const getSwiftVirtualNetworkConnectionSlotOperationSpec: msRest.OperationSpec = 
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -22019,7 +21766,7 @@ const createOrUpdateSwiftVirtualNetworkConnectionSlotOperationSpec: msRest.Opera
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -22052,7 +21799,7 @@ const deleteSwiftVirtualNetworkSlotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -22061,7 +21808,7 @@ const deleteSwiftVirtualNetworkSlotOperationSpec: msRest.OperationSpec = {
     200: {},
     404: {},
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
@@ -22077,7 +21824,7 @@ const updateSwiftVirtualNetworkConnectionSlotOperationSpec: msRest.OperationSpec
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -22111,7 +21858,7 @@ const listNetworkFeaturesSlotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -22122,7 +21869,7 @@ const listNetworkFeaturesSlotOperationSpec: msRest.OperationSpec = {
     },
     404: {},
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
@@ -22139,7 +21886,7 @@ const getNetworkTraceOperationSlotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -22193,7 +21940,7 @@ const startWebSiteNetworkTraceSlotOperationSpec: msRest.OperationSpec = {
     Parameters.durationInSeconds,
     Parameters.maxFrameLength,
     Parameters.sasUrl,
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -22224,7 +21971,7 @@ const stopWebSiteNetworkTraceSlotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -22233,7 +21980,7 @@ const stopWebSiteNetworkTraceSlotOperationSpec: msRest.OperationSpec = {
     200: {},
     204: {},
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
@@ -22250,7 +21997,7 @@ const getNetworkTracesSlotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -22288,7 +22035,7 @@ const getNetworkTraceOperationSlotV2OperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -22340,7 +22087,7 @@ const getNetworkTracesSlotV2OperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -22377,7 +22124,7 @@ const generateNewSitePublishingPasswordSlotOperationSpec: msRest.OperationSpec =
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -22386,7 +22133,7 @@ const generateNewSitePublishingPasswordSlotOperationSpec: msRest.OperationSpec =
     200: {},
     204: {},
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
@@ -22403,7 +22150,7 @@ const listPerfMonCountersSlotOperationSpec: msRest.OperationSpec = {
   ],
   queryParameters: [
     Parameters.filter,
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -22429,7 +22176,7 @@ const getSitePhpErrorLogFlagSlotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -22455,7 +22202,7 @@ const listPremierAddOnsSlotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -22482,7 +22229,7 @@ const getPremierAddOnSlotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -22509,7 +22256,7 @@ const addPremierAddOnSlotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -22543,7 +22290,7 @@ const deletePremierAddOnSlotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -22551,7 +22298,7 @@ const deletePremierAddOnSlotOperationSpec: msRest.OperationSpec = {
   responses: {
     200: {},
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
@@ -22568,7 +22315,7 @@ const updatePremierAddOnSlotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -22601,7 +22348,7 @@ const getPrivateAccessSlotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -22627,7 +22374,7 @@ const putPrivateAccessVnetSlotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -22660,7 +22407,7 @@ const listProcessesSlotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -22671,7 +22418,7 @@ const listProcessesSlotOperationSpec: msRest.OperationSpec = {
     },
     404: {},
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
@@ -22688,7 +22435,7 @@ const getProcessSlotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -22699,7 +22446,7 @@ const getProcessSlotOperationSpec: msRest.OperationSpec = {
     },
     404: {},
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
@@ -22716,7 +22463,7 @@ const deleteProcessSlotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -22725,7 +22472,7 @@ const deleteProcessSlotOperationSpec: msRest.OperationSpec = {
     204: {},
     404: {},
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
@@ -22742,7 +22489,7 @@ const getProcessDumpSlotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -22758,7 +22505,7 @@ const getProcessDumpSlotOperationSpec: msRest.OperationSpec = {
     },
     404: {},
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
@@ -22775,7 +22522,7 @@ const listProcessModulesSlotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -22786,7 +22533,7 @@ const listProcessModulesSlotOperationSpec: msRest.OperationSpec = {
     },
     404: {},
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
@@ -22804,7 +22551,7 @@ const getProcessModuleSlotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -22815,7 +22562,7 @@ const getProcessModuleSlotOperationSpec: msRest.OperationSpec = {
     },
     404: {},
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
@@ -22832,7 +22579,7 @@ const listProcessThreadsSlotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -22843,36 +22590,7 @@ const listProcessThreadsSlotOperationSpec: msRest.OperationSpec = {
     },
     404: {},
     default: {
-      bodyMapper: Mappers.CloudError
-    }
-  },
-  serializer
-};
-
-const getProcessThreadSlotOperationSpec: msRest.OperationSpec = {
-  httpMethod: "GET",
-  path: "subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/slots/{slot}/processes/{processId}/threads/{threadId}",
-  urlParameters: [
-    Parameters.resourceGroupName,
-    Parameters.name,
-    Parameters.processId,
-    Parameters.threadId,
-    Parameters.slot,
-    Parameters.subscriptionId
-  ],
-  queryParameters: [
-    Parameters.apiVersion1
-  ],
-  headerParameters: [
-    Parameters.acceptLanguage
-  ],
-  responses: {
-    200: {
-      bodyMapper: Mappers.ProcessThreadInfo
-    },
-    404: {},
-    default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
@@ -22888,7 +22606,7 @@ const listPublicCertificatesSlotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -22915,7 +22633,7 @@ const getPublicCertificateSlotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -22942,7 +22660,7 @@ const createOrUpdatePublicCertificateSlotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -22976,7 +22694,7 @@ const deletePublicCertificateSlotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -22985,7 +22703,7 @@ const deletePublicCertificateSlotOperationSpec: msRest.OperationSpec = {
     200: {},
     204: {},
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
@@ -23001,7 +22719,7 @@ const listPublishingProfileXmlWithSecretsSlotOperationSpec: msRest.OperationSpec
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -23039,7 +22757,7 @@ const resetSlotConfigurationSlotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -23047,7 +22765,7 @@ const resetSlotConfigurationSlotOperationSpec: msRest.OperationSpec = {
   responses: {
     200: {},
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
@@ -23065,7 +22783,7 @@ const restartSlotOperationSpec: msRest.OperationSpec = {
   queryParameters: [
     Parameters.softRestart,
     Parameters.synchronous,
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -23073,7 +22791,7 @@ const restartSlotOperationSpec: msRest.OperationSpec = {
   responses: {
     200: {},
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
@@ -23089,7 +22807,7 @@ const listSiteExtensionsSlotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -23100,7 +22818,7 @@ const listSiteExtensionsSlotOperationSpec: msRest.OperationSpec = {
     },
     404: {},
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
@@ -23117,7 +22835,7 @@ const getSiteExtensionSlotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -23128,7 +22846,7 @@ const getSiteExtensionSlotOperationSpec: msRest.OperationSpec = {
     },
     404: {},
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
@@ -23145,7 +22863,7 @@ const deleteSiteExtensionSlotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -23154,7 +22872,7 @@ const deleteSiteExtensionSlotOperationSpec: msRest.OperationSpec = {
     204: {},
     404: {},
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
@@ -23170,7 +22888,7 @@ const listSlotDifferencesSlotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -23203,7 +22921,7 @@ const listSnapshotsSlotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -23229,7 +22947,7 @@ const listSnapshotsFromDRSecondarySlotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -23255,7 +22973,7 @@ const getSourceControlSlotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -23287,7 +23005,7 @@ const deleteSourceControlSlotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -23297,7 +23015,7 @@ const deleteSourceControlSlotOperationSpec: msRest.OperationSpec = {
     202: {},
     404: {},
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
@@ -23313,7 +23031,7 @@ const updateSourceControlSlotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -23352,7 +23070,7 @@ const startSlotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -23360,7 +23078,7 @@ const startSlotOperationSpec: msRest.OperationSpec = {
   responses: {
     200: {},
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
@@ -23376,7 +23094,7 @@ const stopSlotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -23384,7 +23102,7 @@ const stopSlotOperationSpec: msRest.OperationSpec = {
   responses: {
     200: {},
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
@@ -23400,7 +23118,7 @@ const stopNetworkTraceSlotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -23409,7 +23127,7 @@ const stopNetworkTraceSlotOperationSpec: msRest.OperationSpec = {
     200: {},
     204: {},
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
@@ -23425,7 +23143,7 @@ const syncRepositorySlotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -23433,7 +23151,7 @@ const syncRepositorySlotOperationSpec: msRest.OperationSpec = {
   responses: {
     200: {},
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
@@ -23449,7 +23167,7 @@ const syncFunctionTriggersSlotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -23457,7 +23175,7 @@ const syncFunctionTriggersSlotOperationSpec: msRest.OperationSpec = {
   responses: {
     204: {},
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
@@ -23473,7 +23191,7 @@ const listTriggeredWebJobsSlotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -23500,7 +23218,7 @@ const getTriggeredWebJobSlotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -23511,7 +23229,7 @@ const getTriggeredWebJobSlotOperationSpec: msRest.OperationSpec = {
     },
     404: {},
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
@@ -23528,7 +23246,7 @@ const deleteTriggeredWebJobSlotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -23537,7 +23255,7 @@ const deleteTriggeredWebJobSlotOperationSpec: msRest.OperationSpec = {
     200: {},
     204: {},
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
@@ -23554,7 +23272,7 @@ const listTriggeredWebJobHistorySlotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -23565,7 +23283,7 @@ const listTriggeredWebJobHistorySlotOperationSpec: msRest.OperationSpec = {
     },
     404: {},
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
@@ -23583,7 +23301,7 @@ const getTriggeredWebJobHistorySlotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -23594,7 +23312,7 @@ const getTriggeredWebJobHistorySlotOperationSpec: msRest.OperationSpec = {
     },
     404: {},
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
@@ -23611,7 +23329,7 @@ const runTriggeredWebJobSlotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -23620,7 +23338,7 @@ const runTriggeredWebJobSlotOperationSpec: msRest.OperationSpec = {
     200: {},
     404: {},
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
@@ -23637,7 +23355,7 @@ const listUsagesSlotOperationSpec: msRest.OperationSpec = {
   ],
   queryParameters: [
     Parameters.filter,
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -23663,7 +23381,7 @@ const listVnetConnectionsSlotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -23701,7 +23419,7 @@ const getVnetConnectionSlotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -23728,7 +23446,7 @@ const createOrUpdateVnetConnectionSlotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -23762,7 +23480,7 @@ const deleteVnetConnectionSlotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -23771,7 +23489,7 @@ const deleteVnetConnectionSlotOperationSpec: msRest.OperationSpec = {
     200: {},
     404: {},
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
@@ -23788,7 +23506,7 @@ const updateVnetConnectionSlotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -23823,7 +23541,7 @@ const getVnetConnectionGatewaySlotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -23834,7 +23552,7 @@ const getVnetConnectionGatewaySlotOperationSpec: msRest.OperationSpec = {
     },
     404: {},
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
@@ -23852,7 +23570,7 @@ const createOrUpdateVnetConnectionGatewaySlotOperationSpec: msRest.OperationSpec
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -23887,7 +23605,7 @@ const updateVnetConnectionGatewaySlotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -23920,7 +23638,7 @@ const listWebJobsSlotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -23947,7 +23665,7 @@ const getWebJobSlotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -23972,7 +23690,7 @@ const listSlotDifferencesFromProductionOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -24004,7 +23722,7 @@ const listSnapshotsOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -24029,7 +23747,7 @@ const listSnapshotsFromDRSecondaryOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -24054,7 +23772,7 @@ const getSourceControlOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -24085,7 +23803,7 @@ const deleteSourceControlOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -24095,7 +23813,7 @@ const deleteSourceControlOperationSpec: msRest.OperationSpec = {
     202: {},
     404: {},
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
@@ -24110,7 +23828,7 @@ const updateSourceControlOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -24148,7 +23866,7 @@ const startOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -24156,7 +23874,7 @@ const startOperationSpec: msRest.OperationSpec = {
   responses: {
     200: {},
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
@@ -24171,7 +23889,7 @@ const stopOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -24179,7 +23897,7 @@ const stopOperationSpec: msRest.OperationSpec = {
   responses: {
     200: {},
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
@@ -24194,7 +23912,7 @@ const stopNetworkTraceOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -24203,7 +23921,7 @@ const stopNetworkTraceOperationSpec: msRest.OperationSpec = {
     200: {},
     204: {},
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
@@ -24218,7 +23936,7 @@ const syncRepositoryOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -24226,7 +23944,7 @@ const syncRepositoryOperationSpec: msRest.OperationSpec = {
   responses: {
     200: {},
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
@@ -24241,7 +23959,7 @@ const syncFunctionTriggersOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -24249,7 +23967,7 @@ const syncFunctionTriggersOperationSpec: msRest.OperationSpec = {
   responses: {
     204: {},
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
@@ -24264,7 +23982,7 @@ const listTriggeredWebJobsOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -24290,7 +24008,7 @@ const getTriggeredWebJobOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -24301,7 +24019,7 @@ const getTriggeredWebJobOperationSpec: msRest.OperationSpec = {
     },
     404: {},
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
@@ -24317,7 +24035,7 @@ const deleteTriggeredWebJobOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -24326,7 +24044,7 @@ const deleteTriggeredWebJobOperationSpec: msRest.OperationSpec = {
     200: {},
     204: {},
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
@@ -24342,7 +24060,7 @@ const listTriggeredWebJobHistoryOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -24353,7 +24071,7 @@ const listTriggeredWebJobHistoryOperationSpec: msRest.OperationSpec = {
     },
     404: {},
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
@@ -24370,7 +24088,7 @@ const getTriggeredWebJobHistoryOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -24381,7 +24099,7 @@ const getTriggeredWebJobHistoryOperationSpec: msRest.OperationSpec = {
     },
     404: {},
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
@@ -24397,7 +24115,7 @@ const runTriggeredWebJobOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -24406,7 +24124,7 @@ const runTriggeredWebJobOperationSpec: msRest.OperationSpec = {
     200: {},
     404: {},
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
@@ -24422,7 +24140,7 @@ const listUsagesOperationSpec: msRest.OperationSpec = {
   ],
   queryParameters: [
     Parameters.filter,
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -24447,7 +24165,7 @@ const listVnetConnectionsOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -24484,7 +24202,7 @@ const getVnetConnectionOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -24510,7 +24228,7 @@ const createOrUpdateVnetConnectionOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -24543,7 +24261,7 @@ const deleteVnetConnectionOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -24552,7 +24270,7 @@ const deleteVnetConnectionOperationSpec: msRest.OperationSpec = {
     200: {},
     404: {},
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
@@ -24568,7 +24286,7 @@ const updateVnetConnectionOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -24602,7 +24320,7 @@ const getVnetConnectionGatewayOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -24613,7 +24331,7 @@ const getVnetConnectionGatewayOperationSpec: msRest.OperationSpec = {
     },
     404: {},
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
@@ -24630,7 +24348,7 @@ const createOrUpdateVnetConnectionGatewayOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -24664,7 +24382,7 @@ const updateVnetConnectionGatewayOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -24696,7 +24414,7 @@ const listWebJobsOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -24722,7 +24440,7 @@ const getWebJobOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -24747,7 +24465,7 @@ const beginCreateOrUpdateOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -24783,7 +24501,7 @@ const beginRestoreOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -24799,7 +24517,7 @@ const beginRestoreOperationSpec: msRest.OperationSpec = {
     200: {},
     202: {},
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
@@ -24814,7 +24532,7 @@ const beginListPublishingCredentialsOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -24839,7 +24557,7 @@ const beginCreateMSDeployOperationOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -24857,7 +24575,7 @@ const beginCreateMSDeployOperationOperationSpec: msRest.OperationSpec = {
     },
     409: {},
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
@@ -24873,7 +24591,7 @@ const beginCreateFunctionOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -24906,7 +24624,7 @@ const beginCreateInstanceMSDeployOperationOperationSpec: msRest.OperationSpec = 
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -24924,7 +24642,7 @@ const beginCreateInstanceMSDeployOperationOperationSpec: msRest.OperationSpec = 
     },
     409: {},
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
@@ -24940,7 +24658,7 @@ const beginMigrateStorageOperationSpec: msRest.OperationSpec = {
   ],
   queryParameters: [
     Parameters.subscriptionName,
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -24972,7 +24690,7 @@ const beginMigrateMySqlOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -25007,7 +24725,7 @@ const beginStartWebSiteNetworkTraceOperationOperationSpec: msRest.OperationSpec 
     Parameters.durationInSeconds,
     Parameters.maxFrameLength,
     Parameters.sasUrl,
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -25057,7 +24775,7 @@ const beginRestoreFromBackupBlobOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -25073,7 +24791,7 @@ const beginRestoreFromBackupBlobOperationSpec: msRest.OperationSpec = {
     200: {},
     202: {},
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
@@ -25088,7 +24806,7 @@ const beginRestoreFromDeletedAppOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -25104,7 +24822,7 @@ const beginRestoreFromDeletedAppOperationSpec: msRest.OperationSpec = {
     200: {},
     202: {},
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
@@ -25119,7 +24837,7 @@ const beginRestoreSnapshotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -25135,7 +24853,7 @@ const beginRestoreSnapshotOperationSpec: msRest.OperationSpec = {
     200: {},
     202: {},
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
@@ -25151,7 +24869,7 @@ const beginInstallSiteExtensionOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -25165,7 +24883,38 @@ const beginInstallSiteExtensionOperationSpec: msRest.OperationSpec = {
     },
     429: {},
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
+    }
+  },
+  serializer
+};
+
+const beginCopyProductionSlotOperationSpec: msRest.OperationSpec = {
+  httpMethod: "POST",
+  path: "subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/slotcopy",
+  urlParameters: [
+    Parameters.resourceGroupName,
+    Parameters.name,
+    Parameters.subscriptionId
+  ],
+  queryParameters: [
+    Parameters.apiVersion
+  ],
+  headerParameters: [
+    Parameters.acceptLanguage
+  ],
+  requestBody: {
+    parameterPath: "copySlotEntity",
+    mapper: {
+      ...Mappers.CsmCopySlotEntity,
+      required: true
+    }
+  },
+  responses: {
+    200: {},
+    202: {},
+    default: {
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
@@ -25181,7 +24930,7 @@ const beginCreateOrUpdateSlotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -25218,7 +24967,7 @@ const beginRestoreSlotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -25234,7 +24983,7 @@ const beginRestoreSlotOperationSpec: msRest.OperationSpec = {
     200: {},
     202: {},
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
@@ -25250,7 +24999,7 @@ const beginListPublishingCredentialsSlotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -25276,7 +25025,7 @@ const beginCreateMSDeployOperationSlotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -25294,7 +25043,7 @@ const beginCreateMSDeployOperationSlotOperationSpec: msRest.OperationSpec = {
     },
     409: {},
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
@@ -25311,7 +25060,7 @@ const beginCreateInstanceFunctionSlotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -25345,7 +25094,7 @@ const beginCreateInstanceMSDeployOperationSlotOperationSpec: msRest.OperationSpe
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -25363,7 +25112,7 @@ const beginCreateInstanceMSDeployOperationSlotOperationSpec: msRest.OperationSpe
     },
     409: {},
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
@@ -25382,7 +25131,7 @@ const beginStartWebSiteNetworkTraceOperationSlotOperationSpec: msRest.OperationS
     Parameters.durationInSeconds,
     Parameters.maxFrameLength,
     Parameters.sasUrl,
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -25433,7 +25182,7 @@ const beginRestoreFromBackupBlobSlotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -25449,7 +25198,7 @@ const beginRestoreFromBackupBlobSlotOperationSpec: msRest.OperationSpec = {
     200: {},
     202: {},
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
@@ -25465,7 +25214,7 @@ const beginRestoreFromDeletedAppSlotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -25481,7 +25230,7 @@ const beginRestoreFromDeletedAppSlotOperationSpec: msRest.OperationSpec = {
     200: {},
     202: {},
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
@@ -25497,7 +25246,7 @@ const beginRestoreSnapshotSlotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -25513,7 +25262,7 @@ const beginRestoreSnapshotSlotOperationSpec: msRest.OperationSpec = {
     200: {},
     202: {},
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
@@ -25530,7 +25279,7 @@ const beginInstallSiteExtensionSlotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -25544,7 +25293,39 @@ const beginInstallSiteExtensionSlotOperationSpec: msRest.OperationSpec = {
     },
     429: {},
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
+    }
+  },
+  serializer
+};
+
+const beginCopySlotSlotOperationSpec: msRest.OperationSpec = {
+  httpMethod: "POST",
+  path: "subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/slots/{slot}/slotcopy",
+  urlParameters: [
+    Parameters.resourceGroupName,
+    Parameters.name,
+    Parameters.slot,
+    Parameters.subscriptionId
+  ],
+  queryParameters: [
+    Parameters.apiVersion
+  ],
+  headerParameters: [
+    Parameters.acceptLanguage
+  ],
+  requestBody: {
+    parameterPath: "copySlotEntity",
+    mapper: {
+      ...Mappers.CsmCopySlotEntity,
+      required: true
+    }
+  },
+  responses: {
+    200: {},
+    202: {},
+    default: {
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
@@ -25560,7 +25341,7 @@ const beginSwapSlotSlotOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -25576,7 +25357,7 @@ const beginSwapSlotSlotOperationSpec: msRest.OperationSpec = {
     200: {},
     202: {},
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
@@ -25592,7 +25373,7 @@ const beginCreateOrUpdateSourceControlSlotOperationSpec: msRest.OperationSpec = 
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -25634,7 +25415,7 @@ const beginStartNetworkTraceSlotOperationSpec: msRest.OperationSpec = {
     Parameters.durationInSeconds,
     Parameters.maxFrameLength,
     Parameters.sasUrl,
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -25684,7 +25465,7 @@ const beginSwapSlotWithProductionOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -25700,7 +25481,7 @@ const beginSwapSlotWithProductionOperationSpec: msRest.OperationSpec = {
     200: {},
     202: {},
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
@@ -25715,7 +25496,7 @@ const beginCreateOrUpdateSourceControlOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -25756,7 +25537,7 @@ const beginStartNetworkTraceOperationSpec: msRest.OperationSpec = {
     Parameters.durationInSeconds,
     Parameters.maxFrameLength,
     Parameters.sasUrl,
-    Parameters.apiVersion1
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -25981,7 +25762,7 @@ const listFunctionsNextOperationSpec: msRest.OperationSpec = {
     },
     404: {},
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
@@ -26045,7 +25826,7 @@ const listInstanceProcessesNextOperationSpec: msRest.OperationSpec = {
     },
     404: {},
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
@@ -26067,7 +25848,7 @@ const listInstanceProcessModulesNextOperationSpec: msRest.OperationSpec = {
     },
     404: {},
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
@@ -26089,35 +25870,14 @@ const listInstanceProcessThreadsNextOperationSpec: msRest.OperationSpec = {
     },
     404: {},
     default: {
-      bodyMapper: Mappers.CloudError
-    }
-  },
-  serializer
-};
-
-const listMetricDefinitionsNextOperationSpec: msRest.OperationSpec = {
-  httpMethod: "GET",
-  baseUrl: "https://management.azure.com",
-  path: "{nextLink}",
-  urlParameters: [
-    Parameters.nextPageLink
-  ],
-  headerParameters: [
-    Parameters.acceptLanguage
-  ],
-  responses: {
-    200: {
-      bodyMapper: Mappers.ResourceMetricDefinitionCollection
-    },
-    default: {
       bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
 };
 
-const listMetricsNextOperationSpec: msRest.OperationSpec = {
-  httpMethod: "GET",
+const listSiteBackupsNextOperationSpec: msRest.OperationSpec = {
+  httpMethod: "POST",
   baseUrl: "https://management.azure.com",
   path: "{nextLink}",
   urlParameters: [
@@ -26128,7 +25888,7 @@ const listMetricsNextOperationSpec: msRest.OperationSpec = {
   ],
   responses: {
     200: {
-      bodyMapper: Mappers.ResourceMetricCollection
+      bodyMapper: Mappers.BackupItemCollection
     },
     default: {
       bodyMapper: Mappers.DefaultErrorResponse
@@ -26174,7 +25934,7 @@ const listProcessesNextOperationSpec: msRest.OperationSpec = {
     },
     404: {},
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
@@ -26196,7 +25956,7 @@ const listProcessModulesNextOperationSpec: msRest.OperationSpec = {
     },
     404: {},
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
@@ -26218,7 +25978,7 @@ const listProcessThreadsNextOperationSpec: msRest.OperationSpec = {
     },
     404: {},
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
@@ -26261,7 +26021,7 @@ const listSiteExtensionsNextOperationSpec: msRest.OperationSpec = {
     },
     404: {},
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
@@ -26430,7 +26190,7 @@ const listInstanceFunctionsSlotNextOperationSpec: msRest.OperationSpec = {
     },
     404: {},
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
@@ -26494,7 +26254,7 @@ const listInstanceProcessesSlotNextOperationSpec: msRest.OperationSpec = {
     },
     404: {},
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
@@ -26516,7 +26276,7 @@ const listInstanceProcessModulesSlotNextOperationSpec: msRest.OperationSpec = {
     },
     404: {},
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
@@ -26538,35 +26298,14 @@ const listInstanceProcessThreadsSlotNextOperationSpec: msRest.OperationSpec = {
     },
     404: {},
     default: {
-      bodyMapper: Mappers.CloudError
-    }
-  },
-  serializer
-};
-
-const listMetricDefinitionsSlotNextOperationSpec: msRest.OperationSpec = {
-  httpMethod: "GET",
-  baseUrl: "https://management.azure.com",
-  path: "{nextLink}",
-  urlParameters: [
-    Parameters.nextPageLink
-  ],
-  headerParameters: [
-    Parameters.acceptLanguage
-  ],
-  responses: {
-    200: {
-      bodyMapper: Mappers.ResourceMetricDefinitionCollection
-    },
-    default: {
       bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
 };
 
-const listMetricsSlotNextOperationSpec: msRest.OperationSpec = {
-  httpMethod: "GET",
+const listSiteBackupsSlotNextOperationSpec: msRest.OperationSpec = {
+  httpMethod: "POST",
   baseUrl: "https://management.azure.com",
   path: "{nextLink}",
   urlParameters: [
@@ -26577,7 +26316,7 @@ const listMetricsSlotNextOperationSpec: msRest.OperationSpec = {
   ],
   responses: {
     200: {
-      bodyMapper: Mappers.ResourceMetricCollection
+      bodyMapper: Mappers.BackupItemCollection
     },
     default: {
       bodyMapper: Mappers.DefaultErrorResponse
@@ -26623,7 +26362,7 @@ const listProcessesSlotNextOperationSpec: msRest.OperationSpec = {
     },
     404: {},
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
@@ -26645,7 +26384,7 @@ const listProcessModulesSlotNextOperationSpec: msRest.OperationSpec = {
     },
     404: {},
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
@@ -26667,7 +26406,7 @@ const listProcessThreadsSlotNextOperationSpec: msRest.OperationSpec = {
     },
     404: {},
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
@@ -26710,7 +26449,7 @@ const listSiteExtensionsSlotNextOperationSpec: msRest.OperationSpec = {
     },
     404: {},
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
@@ -26816,7 +26555,7 @@ const listTriggeredWebJobHistorySlotNextOperationSpec: msRest.OperationSpec = {
     },
     404: {},
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
@@ -26964,7 +26703,7 @@ const listTriggeredWebJobHistoryNextOperationSpec: msRest.OperationSpec = {
     },
     404: {},
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.DefaultErrorResponse
     }
   },
   serializer
