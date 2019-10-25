@@ -4278,7 +4278,7 @@ export const ReplicaHealthState: msRest.CompositeMapper = {
       serializedName: "ServiceKind",
       clientName: "serviceKind"
     },
-    uberParent: "ReplicaHealthState",
+    uberParent: "EntityHealthState",
     className: "ReplicaHealthState",
     modelProperties: {
       ...EntityHealthState.type.modelProperties,
@@ -4892,7 +4892,7 @@ export const ReplicaHealth: msRest.CompositeMapper = {
       serializedName: "ServiceKind",
       clientName: "serviceKind"
     },
-    uberParent: "ReplicaHealth",
+    uberParent: "EntityHealth",
     className: "ReplicaHealth",
     modelProperties: {
       ...EntityHealth.type.modelProperties,
