@@ -3214,6 +3214,27 @@ export const MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputMigrationLevel: 
         type: {
           name: "String"
         }
+      },
+      sourceServerType: {
+        readOnly: true,
+        serializedName: "sourceServerType",
+        type: {
+          name: "String"
+        }
+      },
+      targetServerType: {
+        readOnly: true,
+        serializedName: "targetServerType",
+        type: {
+          name: "String"
+        }
+      },
+      state: {
+        readOnly: true,
+        serializedName: "state",
+        type: {
+          name: "String"
+        }
       }
     }
   }
@@ -3314,7 +3335,7 @@ export const MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInput: msRest.Composit
 };
 
 export const MigratePostgreSqlAzureDbForPostgreSqlSyncTaskProperties: msRest.CompositeMapper = {
-  serializedName: "Migrate.PostgreSql.AzureDbForPostgreSql.Sync",
+  serializedName: "Migrate.PostgreSql.AzureDbForPostgreSql.SyncV2",
   type: {
     name: "Composite",
     polymorphicDiscriminator: ProjectTaskProperties.type.polymorphicDiscriminator,
@@ -11084,7 +11105,7 @@ export const discriminators = {
   'MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutput.DatabaseLevelOutput' : MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputDatabaseLevel,
   'MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutput.MigrationLevelOutput' : MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputMigrationLevel,
   'MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutput' : MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutput,
-  'ProjectTaskProperties.Migrate.PostgreSql.AzureDbForPostgreSql.Sync' : MigratePostgreSqlAzureDbForPostgreSqlSyncTaskProperties,
+  'ProjectTaskProperties.Migrate.PostgreSql.AzureDbForPostgreSql.SyncV2' : MigratePostgreSqlAzureDbForPostgreSqlSyncTaskProperties,
   'MigrateMySqlAzureDbForMySqlSyncTaskOutput.DatabaseLevelErrorOutput' : MigrateMySqlAzureDbForMySqlSyncTaskOutputDatabaseError,
   'MigrateMySqlAzureDbForMySqlSyncTaskOutput.ErrorOutput' : MigrateMySqlAzureDbForMySqlSyncTaskOutputError,
   'MigrateMySqlAzureDbForMySqlSyncTaskOutput.TableLevelOutput' : MigrateMySqlAzureDbForMySqlSyncTaskOutputTableLevel,
