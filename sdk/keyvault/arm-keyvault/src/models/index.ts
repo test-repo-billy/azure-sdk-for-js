@@ -116,6 +116,84 @@ export interface NetworkRuleSet {
 }
 
 /**
+ * Private Endpoint resource identifier.
+ */
+export interface PrivateEndpoint {
+  /**
+   * The ARM identifier of the Private Endpoint resource.
+   * **NOTE: This property will not be serialized. It can only be populated by the server.**
+   */
+  readonly id?: string;
+}
+
+/**
+ * An object that represents the approval state of the private link connection.
+ */
+export interface PrivateLinkServiceConnectionState {
+  /**
+   * Indicates whether the connection has been approved, rejected or removed by the key vault
+   * owner. Possible values include: 'Pending', 'Approved', 'Rejected', 'Disconnected'
+   */
+  status?: PrivateEndpointServiceConnectionStatus;
+  /**
+   * The reason for approval or rejection.
+   */
+  description?: string;
+  /**
+   * A message indicating if changes on the service provider require any updates on the consumer.
+   */
+  actionRequired?: string;
+}
+
+/**
+ * Key Vault resource
+ */
+export interface Resource extends BaseResource {
+  /**
+   * The Azure Resource Manager resource ID for the key vault.
+   * **NOTE: This property will not be serialized. It can only be populated by the server.**
+   */
+  readonly id?: string;
+  /**
+   * The name of the key vault.
+   * **NOTE: This property will not be serialized. It can only be populated by the server.**
+   */
+  readonly name?: string;
+  /**
+   * The resource type of the key vault.
+   * **NOTE: This property will not be serialized. It can only be populated by the server.**
+   */
+  readonly type?: string;
+  /**
+   * The supported Azure location where the key vault should be created.
+   */
+  location: string;
+  /**
+   * The tags that will be assigned to the key vault.
+   */
+  tags?: { [propertyName: string]: string };
+}
+
+/**
+ * The Private Endpoint Connection resource.
+ */
+export interface PrivateEndpointConnection extends Resource {
+  /**
+   * The resource of private endpoint.
+   */
+  privateEndpoint?: PrivateEndpoint;
+  /**
+   * The approval state of the private link connection.
+   */
+  privateLinkServiceConnectionState: PrivateLinkServiceConnectionState;
+  /**
+   * The provisioning state of the private endpoint. Possible values include: 'Succeeded',
+   * 'Creating', 'Deleting', 'Failed'
+   */
+  provisioningState?: PrivateEndpointConnectionProvisioningState;
+}
+
+/**
  * Properties of the vault
  */
 export interface VaultProperties {
@@ -172,10 +250,14 @@ export interface VaultProperties {
    */
   enablePurgeProtection?: boolean;
   /**
-   * A collection of rules governing the accessibility of the vault from specific network
-   * locations.
+   * Rules governing the accessibility of the key vault from specific network locations.
    */
   networkAcls?: NetworkRuleSet;
+  /**
+   * List of private endpoint connections associated with the key vault.
+   * **NOTE: This property will not be serialized. It can only be populated by the server.**
+   */
+  readonly privateEndpointConnections?: PrivateEndpointConnection[];
 }
 
 /**
@@ -341,35 +423,6 @@ export interface VaultAccessPolicyParameters extends BaseResource {
 }
 
 /**
- * Key Vault resource
- */
-export interface Resource extends BaseResource {
-  /**
-   * The Azure Resource Manager resource ID for the key vault.
-   * **NOTE: This property will not be serialized. It can only be populated by the server.**
-   */
-  readonly id?: string;
-  /**
-   * The name of the key vault.
-   * **NOTE: This property will not be serialized. It can only be populated by the server.**
-   */
-  readonly name?: string;
-  /**
-   * The resource type of the key vault.
-   * **NOTE: This property will not be serialized. It can only be populated by the server.**
-   */
-  readonly type?: string;
-  /**
-   * The supported Azure location where the key vault should be created.
-   */
-  location: string;
-  /**
-   * The tags that will be assigned to the key vault.
-   */
-  tags?: { [propertyName: string]: string };
-}
-
-/**
  * Resource information with extended details.
  */
 export interface Vault extends Resource {
@@ -435,6 +488,36 @@ export interface CheckNameAvailabilityResult {
    * **NOTE: This property will not be serialized. It can only be populated by the server.**
    */
   readonly message?: string;
+}
+
+/**
+ * A private link resource
+ */
+export interface PrivateLinkResource extends Resource {
+  /**
+   * The private link resource group id.
+   * **NOTE: This property will not be serialized. It can only be populated by the server.**
+   */
+  readonly groupId?: string;
+  /**
+   * The private link resource required member names.
+   * **NOTE: This property will not be serialized. It can only be populated by the server.**
+   */
+  readonly requiredMembers?: string[];
+  /**
+   * The private link resource DNS zone names.
+   */
+  requiredZoneNames?: string[];
+}
+
+/**
+ * A list of private link resources
+ */
+export interface PrivateLinkResourceListResult {
+  /**
+   * Array of private link resources
+   */
+  value?: PrivateLinkResource[];
 }
 
 /**
@@ -544,6 +627,37 @@ export interface VaultsListOptionalParams extends msRest.RequestOptionsBase {
  */
 export interface KeyVaultManagementClientOptions extends AzureServiceClientOptions {
   baseUri?: string;
+}
+
+/**
+ * Defines headers for Put operation.
+ */
+export interface PrivateEndpointConnectionsPutHeaders {
+  /**
+   * (specified only if operation does not finish synchronously) The recommended number of seconds
+   * to wait before calling the URI specified in Azure-AsyncOperation.
+   */
+  retryAfter: number;
+  /**
+   * (specified only if operation does not finish synchronously) The URI to poll for completion
+   * status. The response of this URI may be synchronous or asynchronous.
+   */
+  azureAsyncOperation: string;
+}
+
+/**
+ * Defines headers for Delete operation.
+ */
+export interface PrivateEndpointConnectionsDeleteHeaders {
+  /**
+   * The recommended number of seconds to wait before calling the URI specified in the location
+   * header.
+   */
+  retryAfter: number;
+  /**
+   * The URI to poll for completion status.
+   */
+  location: string;
 }
 
 /**
@@ -662,6 +776,22 @@ export type NetworkRuleBypassOptions = 'AzureServices' | 'None';
  * @enum {string}
  */
 export type NetworkRuleAction = 'Allow' | 'Deny';
+
+/**
+ * Defines values for PrivateEndpointServiceConnectionStatus.
+ * Possible values include: 'Pending', 'Approved', 'Rejected', 'Disconnected'
+ * @readonly
+ * @enum {string}
+ */
+export type PrivateEndpointServiceConnectionStatus = 'Pending' | 'Approved' | 'Rejected' | 'Disconnected';
+
+/**
+ * Defines values for PrivateEndpointConnectionProvisioningState.
+ * Possible values include: 'Succeeded', 'Creating', 'Deleting', 'Failed'
+ * @readonly
+ * @enum {string}
+ */
+export type PrivateEndpointConnectionProvisioningState = 'Succeeded' | 'Creating' | 'Deleting' | 'Failed';
 
 /**
  * Defines values for Reason.
@@ -976,6 +1106,86 @@ export type VaultsListNextResponse = ResourceListResult & {
        * The response body as parsed JSON or XML
        */
       parsedBody: ResourceListResult;
+    };
+};
+
+/**
+ * Contains response data for the get operation.
+ */
+export type PrivateEndpointConnectionsGetResponse = PrivateEndpointConnection & {
+  /**
+   * The underlying HTTP response.
+   */
+  _response: msRest.HttpResponse & {
+      /**
+       * The response body as text (string format)
+       */
+      bodyAsText: string;
+
+      /**
+       * The response body as parsed JSON or XML
+       */
+      parsedBody: PrivateEndpointConnection;
+    };
+};
+
+/**
+ * Contains response data for the put operation.
+ */
+export type PrivateEndpointConnectionsPutResponse = PrivateEndpointConnection & PrivateEndpointConnectionsPutHeaders & {
+  /**
+   * The underlying HTTP response.
+   */
+  _response: msRest.HttpResponse & {
+      /**
+       * The parsed HTTP response headers.
+       */
+      parsedHeaders: PrivateEndpointConnectionsPutHeaders;
+
+      /**
+       * The response body as text (string format)
+       */
+      bodyAsText: string;
+
+      /**
+       * The response body as parsed JSON or XML
+       */
+      parsedBody: PrivateEndpointConnection;
+    };
+};
+
+/**
+ * Contains response data for the deleteMethod operation.
+ */
+export type PrivateEndpointConnectionsDeleteResponse = PrivateEndpointConnectionsDeleteHeaders & {
+  /**
+   * The underlying HTTP response.
+   */
+  _response: msRest.HttpResponse & {
+      /**
+       * The parsed HTTP response headers.
+       */
+      parsedHeaders: PrivateEndpointConnectionsDeleteHeaders;
+    };
+};
+
+/**
+ * Contains response data for the listByVault operation.
+ */
+export type PrivateLinkResourcesListByVaultResponse = PrivateLinkResourceListResult & {
+  /**
+   * The underlying HTTP response.
+   */
+  _response: msRest.HttpResponse & {
+      /**
+       * The response body as text (string format)
+       */
+      bodyAsText: string;
+
+      /**
+       * The response body as parsed JSON or XML
+       */
+      parsedBody: PrivateLinkResourceListResult;
     };
 };
 
