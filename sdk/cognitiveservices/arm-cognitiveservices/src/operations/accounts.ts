@@ -31,32 +31,32 @@ export class Accounts {
    * keys for developer to access intelligent APIs. It's also the resource type for billing.
    * @param resourceGroupName The name of the resource group within the user's subscription.
    * @param accountName The name of Cognitive Services account.
-   * @param parameters The parameters to provide for the created account.
+   * @param account The parameters to provide for the created account.
    * @param [options] The optional parameters
    * @returns Promise<Models.AccountsCreateResponse>
    */
-  create(resourceGroupName: string, accountName: string, parameters: Models.CognitiveServicesAccountCreateParameters, options?: msRest.RequestOptionsBase): Promise<Models.AccountsCreateResponse>;
+  create(resourceGroupName: string, accountName: string, account: Models.CognitiveServicesAccount, options?: msRest.RequestOptionsBase): Promise<Models.AccountsCreateResponse>;
   /**
    * @param resourceGroupName The name of the resource group within the user's subscription.
    * @param accountName The name of Cognitive Services account.
-   * @param parameters The parameters to provide for the created account.
+   * @param account The parameters to provide for the created account.
    * @param callback The callback
    */
-  create(resourceGroupName: string, accountName: string, parameters: Models.CognitiveServicesAccountCreateParameters, callback: msRest.ServiceCallback<Models.CognitiveServicesAccount>): void;
+  create(resourceGroupName: string, accountName: string, account: Models.CognitiveServicesAccount, callback: msRest.ServiceCallback<Models.CognitiveServicesAccount>): void;
   /**
    * @param resourceGroupName The name of the resource group within the user's subscription.
    * @param accountName The name of Cognitive Services account.
-   * @param parameters The parameters to provide for the created account.
+   * @param account The parameters to provide for the created account.
    * @param options The optional parameters
    * @param callback The callback
    */
-  create(resourceGroupName: string, accountName: string, parameters: Models.CognitiveServicesAccountCreateParameters, options: msRest.RequestOptionsBase, callback: msRest.ServiceCallback<Models.CognitiveServicesAccount>): void;
-  create(resourceGroupName: string, accountName: string, parameters: Models.CognitiveServicesAccountCreateParameters, options?: msRest.RequestOptionsBase | msRest.ServiceCallback<Models.CognitiveServicesAccount>, callback?: msRest.ServiceCallback<Models.CognitiveServicesAccount>): Promise<Models.AccountsCreateResponse> {
+  create(resourceGroupName: string, accountName: string, account: Models.CognitiveServicesAccount, options: msRest.RequestOptionsBase, callback: msRest.ServiceCallback<Models.CognitiveServicesAccount>): void;
+  create(resourceGroupName: string, accountName: string, account: Models.CognitiveServicesAccount, options?: msRest.RequestOptionsBase | msRest.ServiceCallback<Models.CognitiveServicesAccount>, callback?: msRest.ServiceCallback<Models.CognitiveServicesAccount>): Promise<Models.AccountsCreateResponse> {
     return this.client.sendOperationRequest(
       {
         resourceGroupName,
         accountName,
-        parameters,
+        account,
         options
       },
       createOperationSpec,
@@ -67,28 +67,32 @@ export class Accounts {
    * Updates a Cognitive Services account
    * @param resourceGroupName The name of the resource group within the user's subscription.
    * @param accountName The name of Cognitive Services account.
+   * @param account The parameters to provide for the created account.
    * @param [options] The optional parameters
    * @returns Promise<Models.AccountsUpdateResponse>
    */
-  update(resourceGroupName: string, accountName: string, options?: Models.AccountsUpdateOptionalParams): Promise<Models.AccountsUpdateResponse>;
+  update(resourceGroupName: string, accountName: string, account: Models.CognitiveServicesAccount, options?: msRest.RequestOptionsBase): Promise<Models.AccountsUpdateResponse>;
   /**
    * @param resourceGroupName The name of the resource group within the user's subscription.
    * @param accountName The name of Cognitive Services account.
+   * @param account The parameters to provide for the created account.
    * @param callback The callback
    */
-  update(resourceGroupName: string, accountName: string, callback: msRest.ServiceCallback<Models.CognitiveServicesAccount>): void;
+  update(resourceGroupName: string, accountName: string, account: Models.CognitiveServicesAccount, callback: msRest.ServiceCallback<Models.CognitiveServicesAccount>): void;
   /**
    * @param resourceGroupName The name of the resource group within the user's subscription.
    * @param accountName The name of Cognitive Services account.
+   * @param account The parameters to provide for the created account.
    * @param options The optional parameters
    * @param callback The callback
    */
-  update(resourceGroupName: string, accountName: string, options: Models.AccountsUpdateOptionalParams, callback: msRest.ServiceCallback<Models.CognitiveServicesAccount>): void;
-  update(resourceGroupName: string, accountName: string, options?: Models.AccountsUpdateOptionalParams | msRest.ServiceCallback<Models.CognitiveServicesAccount>, callback?: msRest.ServiceCallback<Models.CognitiveServicesAccount>): Promise<Models.AccountsUpdateResponse> {
+  update(resourceGroupName: string, accountName: string, account: Models.CognitiveServicesAccount, options: msRest.RequestOptionsBase, callback: msRest.ServiceCallback<Models.CognitiveServicesAccount>): void;
+  update(resourceGroupName: string, accountName: string, account: Models.CognitiveServicesAccount, options?: msRest.RequestOptionsBase | msRest.ServiceCallback<Models.CognitiveServicesAccount>, callback?: msRest.ServiceCallback<Models.CognitiveServicesAccount>): Promise<Models.AccountsUpdateResponse> {
     return this.client.sendOperationRequest(
       {
         resourceGroupName,
         accountName,
+        account,
         options
       },
       updateOperationSpec,
@@ -417,9 +421,9 @@ const createOperationSpec: msRest.OperationSpec = {
     Parameters.acceptLanguage
   ],
   requestBody: {
-    parameterPath: "parameters",
+    parameterPath: "account",
     mapper: {
-      ...Mappers.CognitiveServicesAccountCreateParameters,
+      ...Mappers.CognitiveServicesAccount,
       required: true
     }
   },
@@ -452,22 +456,9 @@ const updateOperationSpec: msRest.OperationSpec = {
     Parameters.acceptLanguage
   ],
   requestBody: {
-    parameterPath: {
-      sku: [
-        "options",
-        "sku"
-      ],
-      tags: [
-        "options",
-        "tags"
-      ],
-      properties: [
-        "options",
-        "properties"
-      ]
-    },
+    parameterPath: "account",
     mapper: {
-      ...Mappers.CognitiveServicesAccountUpdateParameters,
+      ...Mappers.CognitiveServicesAccount,
       required: true
     }
   },
