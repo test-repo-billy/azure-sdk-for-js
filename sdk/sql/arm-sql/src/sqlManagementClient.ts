@@ -103,6 +103,8 @@ class SqlManagementClient extends SqlManagementClientContext {
   managedDatabases: operations.ManagedDatabases;
   privateEndpointConnections: operations.PrivateEndpointConnections;
   privateLinkResources: operations.PrivateLinkResources;
+  workloadGroups: operations.WorkloadGroups;
+  workloadClassifiers: operations.WorkloadClassifiers;
 
   /**
    * Initializes a new instance of the SqlManagementClient class.
@@ -198,6 +200,8 @@ class SqlManagementClient extends SqlManagementClientContext {
     this.managedDatabases = new operations.ManagedDatabases(this);
     this.privateEndpointConnections = new operations.PrivateEndpointConnections(this);
     this.privateLinkResources = new operations.PrivateLinkResources(this);
+    this.workloadGroups = new operations.WorkloadGroups(this);
+    this.workloadClassifiers = new operations.WorkloadClassifiers(this);
   }
 }
 

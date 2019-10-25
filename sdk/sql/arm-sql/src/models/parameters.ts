@@ -102,6 +102,18 @@ export const apiVersion4: msRest.OperationQueryParameter = {
     }
   }
 };
+export const apiVersion5: msRest.OperationQueryParameter = {
+  parameterPath: "apiVersion",
+  mapper: {
+    required: true,
+    isConstant: true,
+    serializedName: "api-version",
+    defaultValue: '2019-06-01-preview',
+    type: {
+      name: "String"
+    }
+  }
+};
 export const backupName: msRest.OperationURLParameter = {
   parameterPath: "backupName",
   mapper: {
@@ -994,6 +1006,26 @@ export const vulnerabilityAssessmentName: msRest.OperationURLParameter = {
     isConstant: true,
     serializedName: "vulnerabilityAssessmentName",
     defaultValue: 'default',
+    type: {
+      name: "String"
+    }
+  }
+};
+export const workloadClassifierName: msRest.OperationURLParameter = {
+  parameterPath: "workloadClassifierName",
+  mapper: {
+    required: true,
+    serializedName: "workloadClassifierName",
+    type: {
+      name: "String"
+    }
+  }
+};
+export const workloadGroupName: msRest.OperationURLParameter = {
+  parameterPath: "workloadGroupName",
+  mapper: {
+    required: true,
+    serializedName: "workloadGroupName",
     type: {
       name: "String"
     }

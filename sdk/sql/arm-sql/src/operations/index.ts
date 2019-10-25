@@ -94,3 +94,5 @@ export * from "./managedDatabaseRestoreDetails";
 export * from "./managedDatabases";
 export * from "./privateEndpointConnections";
 export * from "./privateLinkResources";
+export * from "./workloadGroups";
+export * from "./workloadClassifiers";
