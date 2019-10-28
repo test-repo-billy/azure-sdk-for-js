@@ -11,6 +11,7 @@
 export * from "./profiles";
 export * from "./endpoints";
 export * from "./origins";
+export * from "./originGroups";
 export * from "./customDomains";
 export * from "./resourceUsageOperations";
 export * from "./operations";
