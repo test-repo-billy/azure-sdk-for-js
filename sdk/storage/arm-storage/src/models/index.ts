@@ -1663,7 +1663,7 @@ export interface BlobServiceProperties extends Resource {
    */
   defaultServiceVersion?: string;
   /**
-   * The blob service properties for soft delete.
+   * The blob service properties for blob soft delete.
    */
   deleteRetentionPolicy?: DeleteRetentionPolicy;
   /**
@@ -1674,6 +1674,10 @@ export interface BlobServiceProperties extends Resource {
    * The blob service properties for change feed events.
    */
   changeFeed?: ChangeFeed;
+  /**
+   * The blob service properties for container soft delete.
+   */
+  containerDeleteRetentionPolicy?: DeleteRetentionPolicy;
 }
 
 /**
@@ -1730,6 +1734,10 @@ export interface FileServiceProperties extends Resource {
    * deleted, and CORS will be disabled for the File service.
    */
   cors?: CorsRules;
+  /**
+   * The file service properties for share soft delete.
+   */
+  shareDeleteRetentionPolicy?: DeleteRetentionPolicy;
 }
 
 /**
@@ -1894,6 +1902,10 @@ export interface FileServicesSetServicePropertiesOptionalParams extends msRest.R
    * deleted, and CORS will be disabled for the File service.
    */
   cors?: CorsRules;
+  /**
+   * The file service properties for share soft delete.
+   */
+  shareDeleteRetentionPolicy?: DeleteRetentionPolicy;
 }
 
 /**
