@@ -13,6 +13,7 @@ export * from "./dedicatedCloudNodes";
 export * from "./dedicatedCloudServices";
 export * from "./skusAvailability";
 export * from "./privateClouds";
+export * from "./customizationPolicies";
 export * from "./resourcePools";
 export * from "./virtualMachineTemplates";
 export * from "./virtualNetworks";

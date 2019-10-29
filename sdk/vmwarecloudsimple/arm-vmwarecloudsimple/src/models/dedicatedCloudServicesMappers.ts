@@ -14,6 +14,8 @@ export {
   DedicatedCloudService,
   DedicatedCloudServiceListResponse,
   DedicatedCloudServicesDeleteHeaders,
+  GuestOSCustomization,
+  GuestOSNICCustomization,
   PatchPayload,
   ResourcePool,
   Sku,
