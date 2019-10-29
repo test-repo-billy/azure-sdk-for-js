@@ -227,6 +227,11 @@ export interface VirtualMachineSize {
    */
   readonly vCPUs?: number;
   /**
+   * Number of gPUs. The number of gPUs supported by the virtual machine size.
+   * **NOTE: This property will not be serialized. It can only be populated by the server.**
+   */
+  readonly gpus?: number;
+  /**
    * OS VHD Disk size. The OS VHD disk size, in MB, allowed by the virtual machine size.
    * **NOTE: This property will not be serialized. It can only be populated by the server.**
    */
@@ -261,6 +266,133 @@ export interface VirtualMachineSizeListResult {
    * The list of virtual machine sizes supported by AmlCompute.
    */
   amlCompute?: VirtualMachineSize[];
+}
+
+/**
+ * The properties for Quota update or retrieval.
+ */
+export interface QuotaBaseProperties {
+  /**
+   * Specifies the resource ID.
+   */
+  id?: string;
+  /**
+   * Specifies the resource type.
+   */
+  type?: string;
+  /**
+   * Limit. The maximum permitted quota of the resource.
+   */
+  limit?: number;
+  /**
+   * An enum describing the unit of quota measurement. Possible values include: 'Count'
+   */
+  unit?: QuotaUnit;
+}
+
+/**
+ * Quota update parameters.
+ */
+export interface QuotaUpdateParameters {
+  /**
+   * The list for update quota.
+   */
+  value?: QuotaBaseProperties[];
+}
+
+/**
+ * The properties for update Quota response.
+ */
+export interface UpdateWorkspaceQuotas {
+  /**
+   * Specifies the resource ID.
+   * **NOTE: This property will not be serialized. It can only be populated by the server.**
+   */
+  readonly id?: string;
+  /**
+   * Specifies the resource type.
+   * **NOTE: This property will not be serialized. It can only be populated by the server.**
+   */
+  readonly type?: string;
+  /**
+   * Limit. The maximum permitted quota of the resource.
+   */
+  limit?: number;
+  /**
+   * An enum describing the unit of quota measurement. Possible values include: 'Count'
+   * **NOTE: This property will not be serialized. It can only be populated by the server.**
+   */
+  readonly unit?: QuotaUnit;
+  /**
+   * Update Workspace Quota Status. Status of update workspace quota. Possible values include:
+   * 'Undefined', 'Success', 'Failure', 'InvalidQuotaBelowClusterMinimum',
+   * 'InvalidQuotaExceedsSubscriptionLimit', 'InvalidVMFamilyName'
+   */
+  status?: Status;
+}
+
+/**
+ * The result of update workspace quota.
+ */
+export interface UpdateWorkspaceQuotasResult {
+  /**
+   * The list of workspace quota update result.
+   * **NOTE: This property will not be serialized. It can only be populated by the server.**
+   */
+  readonly value?: UpdateWorkspaceQuotas[];
+  /**
+   * The URI to fetch the next page of workspace quota update result. Call ListNext() with this to
+   * fetch the next page of Workspace Quota update result.
+   * **NOTE: This property will not be serialized. It can only be populated by the server.**
+   */
+  readonly nextLink?: string;
+}
+
+/**
+ * The Resource Name.
+ */
+export interface ResourceName {
+  /**
+   * The name of the resource.
+   * **NOTE: This property will not be serialized. It can only be populated by the server.**
+   */
+  readonly value?: string;
+  /**
+   * The localized name of the resource.
+   * **NOTE: This property will not be serialized. It can only be populated by the server.**
+   */
+  readonly localizedValue?: string;
+}
+
+/**
+ * The quota assigned to a resource.
+ */
+export interface ResourceQuota {
+  /**
+   * Specifies the resource ID.
+   * **NOTE: This property will not be serialized. It can only be populated by the server.**
+   */
+  readonly id?: string;
+  /**
+   * Specifies the resource type.
+   * **NOTE: This property will not be serialized. It can only be populated by the server.**
+   */
+  readonly type?: string;
+  /**
+   * Name of the resource.
+   * **NOTE: This property will not be serialized. It can only be populated by the server.**
+   */
+  readonly name?: ResourceName;
+  /**
+   * Limit. The maximum permitted quota of the resource.
+   * **NOTE: This property will not be serialized. It can only be populated by the server.**
+   */
+  readonly limit?: number;
+  /**
+   * An enum describing the unit of quota measurement. Possible values include: 'Count'
+   * **NOTE: This property will not be serialized. It can only be populated by the server.**
+   */
+  readonly unit?: QuotaUnit;
 }
 
 /**
@@ -393,7 +525,7 @@ export interface MachineLearningServiceError {
 /**
  * Contains the possible cases for Compute.
  */
-export type ComputeUnion = Compute | AKS | AmlCompute | VirtualMachine | HDInsight | DataFactory | Databricks | DataLakeAnalytics;
+export type ComputeUnion = Compute | AKS | AmlCompute | ComputeInstance | VirtualMachine | HDInsight | DataFactory | Databricks | DataLakeAnalytics;
 
 /**
  * Machine Learning compute object.
@@ -483,7 +615,7 @@ export interface SslConfiguration {
   /**
    * Enable or disable ssl for scoring. Possible values include: 'Disabled', 'Enabled'
    */
-  status?: Status;
+  status?: Status1;
   /**
    * Cert data
    */
@@ -635,7 +767,8 @@ export interface UserAccountCredentials {
    */
   adminUserName: string;
   /**
-   * SSH public key. SSH public key of the administrator user account.
+   * SSH public key. SSH public key of the administrator user account. This property is only
+   * supported on Linux based clusters.
    */
   adminUserSshPublicKey?: string;
   /**
@@ -693,6 +826,18 @@ export interface AmlComputeProperties {
    */
   vmPriority?: VmPriority;
   /**
+   * OS Type. Possible values include: 'Linux', 'Windows'. Default value: 'Linux'.
+   */
+  osType?: OsType;
+  /**
+   * Custom VM image. The ARM resource identifier of the virtual machine image for the compute
+   * nodes. This is of the form
+   * /subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Compute/galleries/{gallery
+   * name}/images/{image definition name}/versions/{version id}. The virtual machine image must be
+   * in the same region and subscription as the cluster.
+   */
+  virtualMachineImage?: ResourceId;
+  /**
    * Scale settings for AML Compute
    */
   scaleSettings?: ScaleSettings;
@@ -705,6 +850,16 @@ export interface AmlComputeProperties {
    * Subnet. Virtual network subnet resource ID the compute nodes belong to.
    */
   subnet?: ResourceId;
+  /**
+   * Close remote Login Access Port. State of the public SSH port. Possible values are: Disabled -
+   * Indicates that the public ssh port is closed on all nodes of the cluster. Enabled - Indicates
+   * that the public ssh port is open on all nodes of the cluster. NotSpecified - Indicates that
+   * the public ssh port is closed on all nodes of the cluster if VNet is defined, else is open all
+   * public nodes. It can be default only during cluster creation time, after creation it will be
+   * either enabled or disabled. Possible values include: 'Enabled', 'Disabled', 'NotSpecified'.
+   * Default value: 'NotSpecified'.
+   */
+  remoteLoginPortPublicAccess?: RemoteLoginPortPublicAccess;
   /**
    * Allocation state. Allocation state of the compute. Possible values are: steady - Indicates
    * that the compute is not resizing. There are no changes to the number of compute nodes in the
@@ -798,6 +953,194 @@ export interface AmlCompute {
    * AML Compute properties
    */
   properties?: AmlComputeProperties;
+}
+
+/**
+ * Specifies policy and settings for SSH access.
+ */
+export interface ComputeInstanceSshSettings {
+  /**
+   * Access policy for SSH. State of the public SSH port. Possible values are: Disabled - Indicates
+   * that the public ssh port is closed on this instance. Enabled - Indicates that the public ssh
+   * port is open and accessible according to the VNet/subnet policy if applicable. Possible values
+   * include: 'Enabled', 'Disabled'. Default value: 'Disabled'.
+   */
+  sshPublicAccess?: SshPublicAccess;
+  /**
+   * Describes the admin user name.
+   * **NOTE: This property will not be serialized. It can only be populated by the server.**
+   */
+  readonly adminUserName?: string;
+  /**
+   * Describes the port for connecting through SSH.
+   * **NOTE: This property will not be serialized. It can only be populated by the server.**
+   */
+  readonly sshPort?: number;
+  /**
+   * Specifies the SSH rsa public key file as a string. Use "ssh-keygen -t rsa -b 2048" to generate
+   * your SSH key pairs.
+   */
+  adminPublicKey?: string;
+}
+
+/**
+ * Defines all connectivity endpoints and properties for an ComputeInstance.
+ */
+export interface ComputeInstanceConnectivityEndpoints {
+  /**
+   * Public IP Address of this ComputeInstance.
+   * **NOTE: This property will not be serialized. It can only be populated by the server.**
+   */
+  readonly publicIpAddress?: string;
+  /**
+   * Private IP Address of this ComputeInstance (local to the VNET in which the compute instance is
+   * deployed).
+   * **NOTE: This property will not be serialized. It can only be populated by the server.**
+   */
+  readonly privateIpAddress?: string;
+}
+
+/**
+ * Defines an Aml Instance application and its connectivity endpoint URI.
+ */
+export interface ComputeInstanceApplication {
+  /**
+   * Name of the ComputeInstance application.
+   */
+  displayName?: string;
+  /**
+   * Application' endpoint URI.
+   */
+  endpointUri?: string;
+}
+
+/**
+ * Describes information on user who created this ComputeInstance.
+ */
+export interface ComputeInstanceCreatedBy {
+  /**
+   * Name of the user.
+   * **NOTE: This property will not be serialized. It can only be populated by the server.**
+   */
+  readonly userName?: string;
+  /**
+   * Uniquely identifies user' Azure Active Directory organization.
+   * **NOTE: This property will not be serialized. It can only be populated by the server.**
+   */
+  readonly userOrgId?: string;
+  /**
+   * Uniquely identifies the user within his/her organization.
+   * **NOTE: This property will not be serialized. It can only be populated by the server.**
+   */
+  readonly userId?: string;
+}
+
+/**
+ * Compute Instance properties
+ */
+export interface ComputeInstanceProperties {
+  /**
+   * Virtual Machine Size
+   */
+  vmSize?: string;
+  /**
+   * Subnet. Virtual network subnet resource ID the compute nodes belong to.
+   */
+  subnet?: ResourceId;
+  /**
+   * Sharing policy for applications on this compute instance. Policy for sharing applications on
+   * this compute instance among users of parent workspace. If Personal, only the creator can
+   * access applications on this compute instance. When Shared, any workspace user can access
+   * applications on this instance depending on his/her assigned role. Possible values include:
+   * 'Personal', 'Shared'. Default value: 'Shared'.
+   */
+  applicationSharingPolicy?: ApplicationSharingPolicy;
+  /**
+   * Specifies policy and settings for SSH access.
+   */
+  sshSettings?: ComputeInstanceSshSettings;
+  /**
+   * Describes all connectivity endpoints available for this ComputeInstance.
+   * **NOTE: This property will not be serialized. It can only be populated by the server.**
+   */
+  readonly connectivityEndpoints?: ComputeInstanceConnectivityEndpoints;
+  /**
+   * Describes available applications and their endpoints on this ComputeInstance.
+   * **NOTE: This property will not be serialized. It can only be populated by the server.**
+   */
+  readonly applications?: ComputeInstanceApplication[];
+  /**
+   * Describes information on user who created this ComputeInstance.
+   * **NOTE: This property will not be serialized. It can only be populated by the server.**
+   */
+  readonly createdBy?: ComputeInstanceCreatedBy;
+  /**
+   * Errors. Collection of errors encountered on this ComputeInstance.
+   * **NOTE: This property will not be serialized. It can only be populated by the server.**
+   */
+  readonly errors?: MachineLearningServiceError[];
+  /**
+   * The current state of this ComputeInstance. Possible values include: 'Creating',
+   * 'CreateFailed', 'Deleting', 'Running', 'Restarting', 'RestartFailed', 'JobRunning',
+   * 'SettingUp', 'Starting', 'StartFailed', 'StopFailed', 'Stopped', 'Stopping', 'UserSettingUp',
+   * 'Unknown', 'Unusable'
+   * **NOTE: This property will not be serialized. It can only be populated by the server.**
+   */
+  readonly state?: ComputeInstanceState;
+}
+
+/**
+ * An Azure Machine Learning compute instance.
+ */
+export interface ComputeInstance {
+  /**
+   * Polymorphic Discriminator
+   */
+  computeType: "ComputeInstance";
+  /**
+   * Location for the underlying compute
+   */
+  computeLocation?: string;
+  /**
+   * The provision state of the cluster. Valid values are Unknown, Updating, Provisioning,
+   * Succeeded, and Failed. Possible values include: 'Unknown', 'Updating', 'Creating', 'Deleting',
+   * 'Succeeded', 'Failed', 'Canceled'
+   * **NOTE: This property will not be serialized. It can only be populated by the server.**
+   */
+  readonly provisioningState?: ProvisioningState;
+  /**
+   * The description of the Machine Learning compute.
+   */
+  description?: string;
+  /**
+   * The date and time when the compute was created.
+   * **NOTE: This property will not be serialized. It can only be populated by the server.**
+   */
+  readonly createdOn?: Date;
+  /**
+   * The date and time when the compute was last modified.
+   * **NOTE: This property will not be serialized. It can only be populated by the server.**
+   */
+  readonly modifiedOn?: Date;
+  /**
+   * ARM resource id of the underlying compute
+   */
+  resourceId?: string;
+  /**
+   * Errors during provisioning
+   * **NOTE: This property will not be serialized. It can only be populated by the server.**
+   */
+  readonly provisioningErrors?: MachineLearningServiceError[];
+  /**
+   * Indicating whether the compute was provisioned by user and brought from outside if true, or
+   * machine learning service provisioned it if false.
+   * **NOTE: This property will not be serialized. It can only be populated by the server.**
+   */
+  readonly isAttachedCompute?: boolean;
+  /**
+   * Compute Instance properties
+   */
+  properties?: ComputeInstanceProperties;
 }
 
 /**
@@ -1191,15 +1534,32 @@ export interface AmlComputeNodeInformation {
    */
   readonly nodeId?: string;
   /**
-   * IP address. Public IP address of the compute node.
+   * Private IP address. Private IP address of the compute node.
    * **NOTE: This property will not be serialized. It can only be populated by the server.**
    */
-  readonly ipAddress?: string;
+  readonly privateIpAddress?: string;
+  /**
+   * Public IP address. Public IP address of the compute node.
+   * **NOTE: This property will not be serialized. It can only be populated by the server.**
+   */
+  readonly publicIpAddress?: string;
   /**
    * Port. SSH port number of the node.
    * **NOTE: This property will not be serialized. It can only be populated by the server.**
    */
   readonly port?: number;
+  /**
+   * State of the compute node. Values are idle, running, preparing, unusable, leaving and
+   * preempted. Possible values include: 'idle', 'running', 'preparing', 'unusable', 'leaving',
+   * 'preempted'
+   * **NOTE: This property will not be serialized. It can only be populated by the server.**
+   */
+  readonly nodeState?: NodeState;
+  /**
+   * Run ID. ID of the Experiment running on the node, if any else null.
+   * **NOTE: This property will not be serialized. It can only be populated by the server.**
+   */
+  readonly runId?: string;
 }
 
 /**
@@ -1310,6 +1670,16 @@ export interface WorkspacesListBySubscriptionOptionalParams extends msRest.Reque
 /**
  * Optional Parameters.
  */
+export interface UsagesListOptionalParams extends msRest.RequestOptionsBase {
+  /**
+   * Specifies if detailed usages of child resources are required.
+   */
+  expandChildren?: string;
+}
+
+/**
+ * Optional Parameters.
+ */
 export interface MachineLearningComputeListByWorkspaceOptionalParams extends msRest.RequestOptionsBase {
   /**
    * Continuation token for pagination.
@@ -1384,6 +1754,20 @@ export interface ListUsagesResult extends Array<Usage> {
 
 /**
  * @interface
+ * The List WorkspaceQuotasByVMFamily operation response.
+ * @extends Array<ResourceQuota>
+ */
+export interface ListWorkspaceQuotas extends Array<ResourceQuota> {
+  /**
+   * The URI to fetch the next page of workspace quota information by VM Family. Call ListNext()
+   * with this to fetch the next page of Workspace Quota information.
+   * **NOTE: This property will not be serialized. It can only be populated by the server.**
+   */
+  readonly nextLink?: string;
+}
+
+/**
+ * @interface
  * Paginated list of Machine Learning compute objects wrapped in ARM resource envelope.
  * @extends Array<ComputeResource>
  */
@@ -1412,6 +1796,23 @@ export type ProvisioningState = 'Unknown' | 'Updating' | 'Creating' | 'Deleting'
 export type UsageUnit = 'Count';
 
 /**
+ * Defines values for QuotaUnit.
+ * Possible values include: 'Count'
+ * @readonly
+ * @enum {string}
+ */
+export type QuotaUnit = 'Count';
+
+/**
+ * Defines values for Status.
+ * Possible values include: 'Undefined', 'Success', 'Failure', 'InvalidQuotaBelowClusterMinimum',
+ * 'InvalidQuotaExceedsSubscriptionLimit', 'InvalidVMFamilyName'
+ * @readonly
+ * @enum {string}
+ */
+export type Status = 'Undefined' | 'Success' | 'Failure' | 'InvalidQuotaBelowClusterMinimum' | 'InvalidQuotaExceedsSubscriptionLimit' | 'InvalidVMFamilyName';
+
+/**
  * Defines values for ResourceIdentityType.
  * Possible values include: 'SystemAssigned'
  * @readonly
@@ -1428,6 +1829,22 @@ export type ResourceIdentityType = 'SystemAssigned';
 export type VmPriority = 'Dedicated' | 'LowPriority';
 
 /**
+ * Defines values for OsType.
+ * Possible values include: 'Linux', 'Windows'
+ * @readonly
+ * @enum {string}
+ */
+export type OsType = 'Linux' | 'Windows';
+
+/**
+ * Defines values for RemoteLoginPortPublicAccess.
+ * Possible values include: 'Enabled', 'Disabled', 'NotSpecified'
+ * @readonly
+ * @enum {string}
+ */
+export type RemoteLoginPortPublicAccess = 'Enabled' | 'Disabled' | 'NotSpecified';
+
+/**
  * Defines values for AllocationState.
  * Possible values include: 'Steady', 'Resizing'
  * @readonly
@@ -1436,13 +1853,47 @@ export type VmPriority = 'Dedicated' | 'LowPriority';
 export type AllocationState = 'Steady' | 'Resizing';
 
 /**
- * Defines values for ComputeType.
- * Possible values include: 'AKS', 'AmlCompute', 'DataFactory', 'VirtualMachine', 'HDInsight',
- * 'Databricks', 'DataLakeAnalytics'
+ * Defines values for ApplicationSharingPolicy.
+ * Possible values include: 'Personal', 'Shared'
  * @readonly
  * @enum {string}
  */
-export type ComputeType = 'AKS' | 'AmlCompute' | 'DataFactory' | 'VirtualMachine' | 'HDInsight' | 'Databricks' | 'DataLakeAnalytics';
+export type ApplicationSharingPolicy = 'Personal' | 'Shared';
+
+/**
+ * Defines values for SshPublicAccess.
+ * Possible values include: 'Enabled', 'Disabled'
+ * @readonly
+ * @enum {string}
+ */
+export type SshPublicAccess = 'Enabled' | 'Disabled';
+
+/**
+ * Defines values for ComputeInstanceState.
+ * Possible values include: 'Creating', 'CreateFailed', 'Deleting', 'Running', 'Restarting',
+ * 'RestartFailed', 'JobRunning', 'SettingUp', 'Starting', 'StartFailed', 'StopFailed', 'Stopped',
+ * 'Stopping', 'UserSettingUp', 'Unknown', 'Unusable'
+ * @readonly
+ * @enum {string}
+ */
+export type ComputeInstanceState = 'Creating' | 'CreateFailed' | 'Deleting' | 'Running' | 'Restarting' | 'RestartFailed' | 'JobRunning' | 'SettingUp' | 'Starting' | 'StartFailed' | 'StopFailed' | 'Stopped' | 'Stopping' | 'UserSettingUp' | 'Unknown' | 'Unusable';
+
+/**
+ * Defines values for NodeState.
+ * Possible values include: 'idle', 'running', 'preparing', 'unusable', 'leaving', 'preempted'
+ * @readonly
+ * @enum {string}
+ */
+export type NodeState = 'idle' | 'running' | 'preparing' | 'unusable' | 'leaving' | 'preempted';
+
+/**
+ * Defines values for ComputeType.
+ * Possible values include: 'AKS', 'AmlCompute', 'ComputeInstance', 'DataFactory',
+ * 'VirtualMachine', 'HDInsight', 'Databricks', 'DataLakeAnalytics'
+ * @readonly
+ * @enum {string}
+ */
+export type ComputeType = 'AKS' | 'AmlCompute' | 'ComputeInstance' | 'DataFactory' | 'VirtualMachine' | 'HDInsight' | 'Databricks' | 'DataLakeAnalytics';
 
 /**
  * Defines values for UnderlyingResourceAction.
@@ -1453,12 +1904,12 @@ export type ComputeType = 'AKS' | 'AmlCompute' | 'DataFactory' | 'VirtualMachine
 export type UnderlyingResourceAction = 'Delete' | 'Detach';
 
 /**
- * Defines values for Status.
+ * Defines values for Status1.
  * Possible values include: 'Disabled', 'Enabled'
  * @readonly
  * @enum {string}
  */
-export type Status = 'Disabled' | 'Enabled';
+export type Status1 = 'Disabled' | 'Enabled';
 
 /**
  * Contains response data for the list operation.
@@ -1697,6 +2148,66 @@ export type VirtualMachineSizesListResponse = VirtualMachineSizeListResult & {
        * The response body as parsed JSON or XML
        */
       parsedBody: VirtualMachineSizeListResult;
+    };
+};
+
+/**
+ * Contains response data for the update operation.
+ */
+export type QuotasUpdateResponse = UpdateWorkspaceQuotasResult & {
+  /**
+   * The underlying HTTP response.
+   */
+  _response: msRest.HttpResponse & {
+      /**
+       * The response body as text (string format)
+       */
+      bodyAsText: string;
+
+      /**
+       * The response body as parsed JSON or XML
+       */
+      parsedBody: UpdateWorkspaceQuotasResult;
+    };
+};
+
+/**
+ * Contains response data for the list operation.
+ */
+export type QuotasListResponse = ListWorkspaceQuotas & {
+  /**
+   * The underlying HTTP response.
+   */
+  _response: msRest.HttpResponse & {
+      /**
+       * The response body as text (string format)
+       */
+      bodyAsText: string;
+
+      /**
+       * The response body as parsed JSON or XML
+       */
+      parsedBody: ListWorkspaceQuotas;
+    };
+};
+
+/**
+ * Contains response data for the listNext operation.
+ */
+export type QuotasListNextResponse = ListWorkspaceQuotas & {
+  /**
+   * The underlying HTTP response.
+   */
+  _response: msRest.HttpResponse & {
+      /**
+       * The response body as text (string format)
+       */
+      bodyAsText: string;
+
+      /**
+       * The response body as parsed JSON or XML
+       */
+      parsedBody: ListWorkspaceQuotas;
     };
 };
 

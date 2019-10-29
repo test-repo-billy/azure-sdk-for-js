@@ -40,6 +40,18 @@ export const computeName: msRest.OperationURLParameter = {
     }
   }
 };
+export const expandChildren: msRest.OperationQueryParameter = {
+  parameterPath: [
+    "options",
+    "expandChildren"
+  ],
+  mapper: {
+    serializedName: "expandChildren",
+    type: {
+      name: "String"
+    }
+  }
+};
 export const location: msRest.OperationURLParameter = {
   parameterPath: "location",
   mapper: {

@@ -336,6 +336,13 @@ export const VirtualMachineSize: msRest.CompositeMapper = {
           name: "Number"
         }
       },
+      gpus: {
+        readOnly: true,
+        serializedName: "gpus",
+        type: {
+          name: "Number"
+        }
+      },
       osVhdSizeMB: {
         readOnly: true,
         serializedName: "osVhdSizeMB",
@@ -391,6 +398,205 @@ export const VirtualMachineSizeListResult: msRest.CompositeMapper = {
               className: "VirtualMachineSize"
             }
           }
+        }
+      }
+    }
+  }
+};
+
+export const QuotaBaseProperties: msRest.CompositeMapper = {
+  serializedName: "QuotaBaseProperties",
+  type: {
+    name: "Composite",
+    className: "QuotaBaseProperties",
+    modelProperties: {
+      id: {
+        serializedName: "id",
+        type: {
+          name: "String"
+        }
+      },
+      type: {
+        serializedName: "type",
+        type: {
+          name: "String"
+        }
+      },
+      limit: {
+        serializedName: "limit",
+        type: {
+          name: "Number"
+        }
+      },
+      unit: {
+        serializedName: "unit",
+        type: {
+          name: "String"
+        }
+      }
+    }
+  }
+};
+
+export const QuotaUpdateParameters: msRest.CompositeMapper = {
+  serializedName: "QuotaUpdateParameters",
+  type: {
+    name: "Composite",
+    className: "QuotaUpdateParameters",
+    modelProperties: {
+      value: {
+        serializedName: "value",
+        type: {
+          name: "Sequence",
+          element: {
+            type: {
+              name: "Composite",
+              className: "QuotaBaseProperties"
+            }
+          }
+        }
+      }
+    }
+  }
+};
+
+export const UpdateWorkspaceQuotas: msRest.CompositeMapper = {
+  serializedName: "UpdateWorkspaceQuotas",
+  type: {
+    name: "Composite",
+    className: "UpdateWorkspaceQuotas",
+    modelProperties: {
+      id: {
+        readOnly: true,
+        serializedName: "id",
+        type: {
+          name: "String"
+        }
+      },
+      type: {
+        readOnly: true,
+        serializedName: "type",
+        type: {
+          name: "String"
+        }
+      },
+      limit: {
+        serializedName: "limit",
+        type: {
+          name: "Number"
+        }
+      },
+      unit: {
+        readOnly: true,
+        serializedName: "unit",
+        type: {
+          name: "String"
+        }
+      },
+      status: {
+        serializedName: "status",
+        type: {
+          name: "String"
+        }
+      }
+    }
+  }
+};
+
+export const UpdateWorkspaceQuotasResult: msRest.CompositeMapper = {
+  serializedName: "UpdateWorkspaceQuotasResult",
+  type: {
+    name: "Composite",
+    className: "UpdateWorkspaceQuotasResult",
+    modelProperties: {
+      value: {
+        readOnly: true,
+        serializedName: "value",
+        type: {
+          name: "Sequence",
+          element: {
+            type: {
+              name: "Composite",
+              className: "UpdateWorkspaceQuotas"
+            }
+          }
+        }
+      },
+      nextLink: {
+        readOnly: true,
+        serializedName: "nextLink",
+        type: {
+          name: "String"
+        }
+      }
+    }
+  }
+};
+
+export const ResourceName: msRest.CompositeMapper = {
+  serializedName: "ResourceName",
+  type: {
+    name: "Composite",
+    className: "ResourceName",
+    modelProperties: {
+      value: {
+        readOnly: true,
+        serializedName: "value",
+        type: {
+          name: "String"
+        }
+      },
+      localizedValue: {
+        readOnly: true,
+        serializedName: "localizedValue",
+        type: {
+          name: "String"
+        }
+      }
+    }
+  }
+};
+
+export const ResourceQuota: msRest.CompositeMapper = {
+  serializedName: "ResourceQuota",
+  type: {
+    name: "Composite",
+    className: "ResourceQuota",
+    modelProperties: {
+      id: {
+        readOnly: true,
+        serializedName: "id",
+        type: {
+          name: "String"
+        }
+      },
+      type: {
+        readOnly: true,
+        serializedName: "type",
+        type: {
+          name: "String"
+        }
+      },
+      name: {
+        readOnly: true,
+        serializedName: "name",
+        type: {
+          name: "Composite",
+          className: "ResourceName"
+        }
+      },
+      limit: {
+        readOnly: true,
+        serializedName: "limit",
+        type: {
+          name: "Number"
+        }
+      },
+      unit: {
+        readOnly: true,
+        serializedName: "unit",
+        type: {
+          name: "String"
         }
       }
     }
@@ -1039,6 +1245,20 @@ export const AmlComputeProperties: msRest.CompositeMapper = {
           name: "String"
         }
       },
+      osType: {
+        serializedName: "osType",
+        defaultValue: 'Linux',
+        type: {
+          name: "String"
+        }
+      },
+      virtualMachineImage: {
+        serializedName: "virtualMachineImage",
+        type: {
+          name: "Composite",
+          className: "ResourceId"
+        }
+      },
       scaleSettings: {
         serializedName: "scaleSettings",
         type: {
@@ -1058,6 +1278,13 @@ export const AmlComputeProperties: msRest.CompositeMapper = {
         type: {
           name: "Composite",
           className: "ResourceId"
+        }
+      },
+      remoteLoginPortPublicAccess: {
+        serializedName: "remoteLoginPortPublicAccess",
+        defaultValue: 'NotSpecified',
+        type: {
+          name: "String"
         }
       },
       allocationState: {
@@ -1127,6 +1354,226 @@ export const AmlCompute: msRest.CompositeMapper = {
         type: {
           name: "Composite",
           className: "AmlComputeProperties"
+        }
+      }
+    }
+  }
+};
+
+export const ComputeInstanceSshSettings: msRest.CompositeMapper = {
+  serializedName: "ComputeInstanceSshSettings",
+  type: {
+    name: "Composite",
+    className: "ComputeInstanceSshSettings",
+    modelProperties: {
+      sshPublicAccess: {
+        serializedName: "sshPublicAccess",
+        defaultValue: 'Disabled',
+        type: {
+          name: "String"
+        }
+      },
+      adminUserName: {
+        readOnly: true,
+        serializedName: "adminUserName",
+        type: {
+          name: "String"
+        }
+      },
+      sshPort: {
+        readOnly: true,
+        serializedName: "sshPort",
+        type: {
+          name: "Number"
+        }
+      },
+      adminPublicKey: {
+        serializedName: "adminPublicKey",
+        type: {
+          name: "String"
+        }
+      }
+    }
+  }
+};
+
+export const ComputeInstanceConnectivityEndpoints: msRest.CompositeMapper = {
+  serializedName: "ComputeInstanceConnectivityEndpoints",
+  type: {
+    name: "Composite",
+    className: "ComputeInstanceConnectivityEndpoints",
+    modelProperties: {
+      publicIpAddress: {
+        readOnly: true,
+        serializedName: "publicIpAddress",
+        type: {
+          name: "String"
+        }
+      },
+      privateIpAddress: {
+        readOnly: true,
+        serializedName: "privateIpAddress",
+        type: {
+          name: "String"
+        }
+      }
+    }
+  }
+};
+
+export const ComputeInstanceApplication: msRest.CompositeMapper = {
+  serializedName: "ComputeInstanceApplication",
+  type: {
+    name: "Composite",
+    className: "ComputeInstanceApplication",
+    modelProperties: {
+      displayName: {
+        serializedName: "displayName",
+        type: {
+          name: "String"
+        }
+      },
+      endpointUri: {
+        serializedName: "endpointUri",
+        type: {
+          name: "String"
+        }
+      }
+    }
+  }
+};
+
+export const ComputeInstanceCreatedBy: msRest.CompositeMapper = {
+  serializedName: "ComputeInstanceCreatedBy",
+  type: {
+    name: "Composite",
+    className: "ComputeInstanceCreatedBy",
+    modelProperties: {
+      userName: {
+        readOnly: true,
+        serializedName: "userName",
+        type: {
+          name: "String"
+        }
+      },
+      userOrgId: {
+        readOnly: true,
+        serializedName: "userOrgId",
+        type: {
+          name: "String"
+        }
+      },
+      userId: {
+        readOnly: true,
+        serializedName: "userId",
+        type: {
+          name: "String"
+        }
+      }
+    }
+  }
+};
+
+export const ComputeInstanceProperties: msRest.CompositeMapper = {
+  serializedName: "ComputeInstance_properties",
+  type: {
+    name: "Composite",
+    className: "ComputeInstanceProperties",
+    modelProperties: {
+      vmSize: {
+        serializedName: "vmSize",
+        type: {
+          name: "String"
+        }
+      },
+      subnet: {
+        serializedName: "subnet",
+        type: {
+          name: "Composite",
+          className: "ResourceId"
+        }
+      },
+      applicationSharingPolicy: {
+        serializedName: "applicationSharingPolicy",
+        defaultValue: 'Shared',
+        type: {
+          name: "String"
+        }
+      },
+      sshSettings: {
+        serializedName: "sshSettings",
+        type: {
+          name: "Composite",
+          className: "ComputeInstanceSshSettings"
+        }
+      },
+      connectivityEndpoints: {
+        readOnly: true,
+        serializedName: "connectivityEndpoints",
+        type: {
+          name: "Composite",
+          className: "ComputeInstanceConnectivityEndpoints"
+        }
+      },
+      applications: {
+        readOnly: true,
+        serializedName: "applications",
+        type: {
+          name: "Sequence",
+          element: {
+            type: {
+              name: "Composite",
+              className: "ComputeInstanceApplication"
+            }
+          }
+        }
+      },
+      createdBy: {
+        readOnly: true,
+        serializedName: "createdBy",
+        type: {
+          name: "Composite",
+          className: "ComputeInstanceCreatedBy"
+        }
+      },
+      errors: {
+        readOnly: true,
+        serializedName: "errors",
+        type: {
+          name: "Sequence",
+          element: {
+            type: {
+              name: "Composite",
+              className: "MachineLearningServiceError"
+            }
+          }
+        }
+      },
+      state: {
+        readOnly: true,
+        serializedName: "state",
+        type: {
+          name: "String"
+        }
+      }
+    }
+  }
+};
+
+export const ComputeInstance: msRest.CompositeMapper = {
+  serializedName: "ComputeInstance",
+  type: {
+    name: "Composite",
+    polymorphicDiscriminator: Compute.type.polymorphicDiscriminator,
+    uberParent: "Compute",
+    className: "ComputeInstance",
+    modelProperties: {
+      ...Compute.type.modelProperties,
+      properties: {
+        serializedName: "properties",
+        type: {
+          name: "Composite",
+          className: "ComputeInstanceProperties"
         }
       }
     }
@@ -1439,9 +1886,16 @@ export const AmlComputeNodeInformation: msRest.CompositeMapper = {
           name: "String"
         }
       },
-      ipAddress: {
+      privateIpAddress: {
         readOnly: true,
-        serializedName: "ipAddress",
+        serializedName: "privateIpAddress",
+        type: {
+          name: "String"
+        }
+      },
+      publicIpAddress: {
+        readOnly: true,
+        serializedName: "publicIpAddress",
         type: {
           name: "String"
         }
@@ -1451,6 +1905,20 @@ export const AmlComputeNodeInformation: msRest.CompositeMapper = {
         serializedName: "port",
         type: {
           name: "Number"
+        }
+      },
+      nodeState: {
+        readOnly: true,
+        serializedName: "nodeState",
+        type: {
+          name: "String"
+        }
+      },
+      runId: {
+        readOnly: true,
+        serializedName: "runId",
+        type: {
+          name: "String"
         }
       }
     }
@@ -1693,6 +2161,36 @@ export const ListUsagesResult: msRest.CompositeMapper = {
   }
 };
 
+export const ListWorkspaceQuotas: msRest.CompositeMapper = {
+  serializedName: "ListWorkspaceQuotas",
+  type: {
+    name: "Composite",
+    className: "ListWorkspaceQuotas",
+    modelProperties: {
+      value: {
+        readOnly: true,
+        serializedName: "",
+        type: {
+          name: "Sequence",
+          element: {
+            type: {
+              name: "Composite",
+              className: "ResourceQuota"
+            }
+          }
+        }
+      },
+      nextLink: {
+        readOnly: true,
+        serializedName: "nextLink",
+        type: {
+          name: "String"
+        }
+      }
+    }
+  }
+};
+
 export const PaginatedComputeResourcesList: msRest.CompositeMapper = {
   serializedName: "PaginatedComputeResourcesList",
   type: {
@@ -1725,6 +2223,7 @@ export const discriminators = {
   'Compute' : Compute,
   'Compute.AKS' : AKS,
   'Compute.AmlCompute' : AmlCompute,
+  'Compute.ComputeInstance' : ComputeInstance,
   'Compute.VirtualMachine' : VirtualMachine,
   'Compute.HDInsight' : HDInsight,
   'Compute.DataFactory' : DataFactory,
