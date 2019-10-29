@@ -33,7 +33,7 @@ export class Usages {
    * @param [options] The optional parameters
    * @returns Promise<Models.UsagesListResponse>
    */
-  list(location: string, options?: msRest.RequestOptionsBase): Promise<Models.UsagesListResponse>;
+  list(location: string, options?: Models.UsagesListOptionalParams): Promise<Models.UsagesListResponse>;
   /**
    * @param location The location for which resource usage is queried.
    * @param callback The callback
@@ -44,8 +44,8 @@ export class Usages {
    * @param options The optional parameters
    * @param callback The callback
    */
-  list(location: string, options: msRest.RequestOptionsBase, callback: msRest.ServiceCallback<Models.ListUsagesResult>): void;
-  list(location: string, options?: msRest.RequestOptionsBase | msRest.ServiceCallback<Models.ListUsagesResult>, callback?: msRest.ServiceCallback<Models.ListUsagesResult>): Promise<Models.UsagesListResponse> {
+  list(location: string, options: Models.UsagesListOptionalParams, callback: msRest.ServiceCallback<Models.ListUsagesResult>): void;
+  list(location: string, options?: Models.UsagesListOptionalParams | msRest.ServiceCallback<Models.ListUsagesResult>, callback?: msRest.ServiceCallback<Models.ListUsagesResult>): Promise<Models.UsagesListResponse> {
     return this.client.sendOperationRequest(
       {
         location,
@@ -95,7 +95,8 @@ const listOperationSpec: msRest.OperationSpec = {
     Parameters.location
   ],
   queryParameters: [
-    Parameters.apiVersion
+    Parameters.apiVersion,
+    Parameters.expandChildren
   ],
   headerParameters: [
     Parameters.acceptLanguage
