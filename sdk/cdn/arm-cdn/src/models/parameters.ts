@@ -61,6 +61,16 @@ export const nextPageLink: msRest.OperationURLParameter = {
   },
   skipEncoding: true
 };
+export const originGroupName: msRest.OperationURLParameter = {
+  parameterPath: "originGroupName",
+  mapper: {
+    required: true,
+    serializedName: "originGroupName",
+    type: {
+      name: "String"
+    }
+  }
+};
 export const originName: msRest.OperationURLParameter = {
   parameterPath: "originName",
   mapper: {
