@@ -17,7 +17,8 @@ export { BaseResource, CloudError };
 export interface Sku {
   /**
    * Name of the pricing tier. Possible values include: 'Standard_Verizon', 'Premium_Verizon',
-   * 'Custom_Verizon', 'Standard_Akamai', 'Standard_ChinaCdn', 'Standard_Microsoft'
+   * 'Custom_Verizon', 'Standard_Akamai', 'Standard_ChinaCdn', 'Standard_Microsoft',
+   * 'Premium_ChinaCdn'
    */
   name?: SkuName;
 }
@@ -116,21 +117,139 @@ export interface SupportedOptimizationTypesListResult {
  */
 export interface DeepCreatedOrigin extends BaseResource {
   /**
-   * Origin name
+   * Origin name which must be unique within the endpoint.
    */
   name: string;
   /**
-   * The address of the origin. It can be a domain name, IPv4 address, or IPv6 address.
+   * The address of the origin. It can be a domain name, IPv4 address, or IPv6 address. This should
+   * be unique across all origins in an endpoint.
    */
   hostName: string;
   /**
-   * The value of the HTTP port. Must be between 1 and 65535
+   * The value of the HTTP port. Must be between 1 and 65535.
    */
   httpPort?: number;
   /**
-   * The value of the HTTPS port. Must be between 1 and 65535
+   * The value of the HTTPS port. Must be between 1 and 65535.
    */
   httpsPort?: number;
+  /**
+   * The host header value sent to the origin with each request. If you leave this blank, the
+   * request hostname determines this value. Azure CDN origins, such as Web Apps, Blob Storage, and
+   * Cloud Services require this host header value to match the origin hostname by default.
+   */
+  originHostHeader?: string;
+  /**
+   * Priority of origin in given origin group for load balancing. Higher priorities will not be
+   * used for load balancing if any lower priority origin is healthy.Must be between 1 and 5.
+   */
+  priority?: number;
+  /**
+   * Weight of the origin in given origin group for load balancing. Must be between 1 and 1000
+   */
+  weight?: number;
+  /**
+   * Origin is enabled for load balancing or not. By default, origin is always enabled.
+   */
+  enabled?: boolean;
+}
+
+/**
+ * The JSON object that contains the properties to send health probes to origin.
+ */
+export interface HealthProbeParameters {
+  /**
+   * The path relative to the origin that is used to determine the health of the origin.
+   */
+  probePath?: string;
+  /**
+   * The type of health probe request that is made. Possible values include: 'NotSet', 'GET',
+   * 'HEAD'
+   */
+  probeRequestType?: HealthProbeRequestType;
+  /**
+   * Protocol to use for health probe. Possible values include: 'NotSet', 'Http', 'Https'
+   */
+  probeProtocol?: ProbeProtocol;
+  /**
+   * The number of seconds between health probes.Default is 240sec.
+   */
+  probeIntervalInSeconds?: number;
+}
+
+/**
+ * Reference to another resource.
+ */
+export interface ResourceReference extends BaseResource {
+  /**
+   * Resource ID.
+   */
+  id?: string;
+}
+
+/**
+ * The JSON object that represents the range for http status codes
+ */
+export interface HttpErrorRangeParameters {
+  /**
+   * The inclusive start of the http status code range.
+   */
+  begin?: number;
+  /**
+   * The inclusive end of the http status code range.
+   */
+  end?: number;
+}
+
+/**
+ * The JSON object that contains the properties to determine origin health using real
+ * requests/responses.
+ */
+export interface ResponseBasedOriginErrorDetectionParameters {
+  /**
+   * Type of response errors for real user requests for which origin will be deemed unhealthy.
+   * Possible values include: 'None', 'TcpErrorsOnly', 'TcpAndHttpErrors'
+   */
+  responseBasedDetectedErrorTypes?: ResponseBasedDetectedErrorTypes;
+  /**
+   * The percentage of failed requests in the sample where failover should trigger.
+   */
+  responseBasedFailoverThresholdPercentage?: number;
+  /**
+   * The list of Http status code ranges that are considered as server errors for origin and it is
+   * marked as unhealthy.
+   */
+  httpErrorRanges?: HttpErrorRangeParameters[];
+}
+
+/**
+ * The origin group for CDN content which is added when creating a CDN endpoint. Traffic is sent to
+ * the origins within the origin group based on origin health.
+ */
+export interface DeepCreatedOriginGroup extends BaseResource {
+  /**
+   * Origin group name which must be unique within the endpoint.
+   */
+  name: string;
+  /**
+   * Health probe settings to the origin that is used to determine the health of the origin.
+   */
+  healthProbeSettings?: HealthProbeParameters;
+  /**
+   * The source of the content being delivered via CDN within given origin group.
+   */
+  origins: ResourceReference[];
+  /**
+   * Time in minutes to shift the traffic to the endpoint gradually when an unhealthy endpoint
+   * comes healthy or a new endpoint is added. Default is 10 mins. This property is currently not
+   * supported.
+   */
+  trafficRestorationTimeToHealedOrNewEndpointsInMinutes?: number;
+  /**
+   * The JSON object that contains the properties to determine origin health using real
+   * requests/responses.This property is currently not supported.
+   */
+  responseBasedOriginErrorDetectionSettings?: ResponseBasedOriginErrorDetectionParameters;
 }
 
 /**
@@ -140,12 +259,6 @@ export interface DeepCreatedOrigin extends BaseResource {
  */
 export interface Endpoint extends TrackedResource {
   /**
-   * The host header value sent to the origin with each request. If you leave this blank, the
-   * request hostname determines this value. Azure CDN origins, such as Web Apps, Blob Storage, and
-   * Cloud Services require this host header value to match the origin hostname by default.
-   */
-  originHostHeader?: string;
-  /**
    * A directory path on the origin that CDN can use to retrieve content from, e.g.
    * contoso.cloudapp.net/originpath.
    */
@@ -154,6 +267,14 @@ export interface Endpoint extends TrackedResource {
    * List of content types on which compression applies. The value should be a valid MIME type.
    */
   contentTypesToCompress?: string[];
+  /**
+   * The host header value sent to the origin with each request. This property at Endpoint is only
+   * allowed when endpoint uses single origin and can be overridden by the same property specified
+   * at origin.If you leave this blank, the request hostname determines this value. Azure CDN
+   * origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to
+   * match the origin hostname by default.
+   */
+  originHostHeader?: string;
   /**
    * Indicates whether content compression is enabled on CDN. Default value is false. If
    * compression is enabled, content will be served as compressed if user requests for a compressed
@@ -187,7 +308,8 @@ export interface Endpoint extends TrackedResource {
   optimizationType?: OptimizationType;
   /**
    * Path to a file hosted on the origin which helps accelerate delivery of the dynamic content and
-   * calculate the most optimal routes for the CDN. This is relative to the origin path.
+   * calculate the most optimal routes for the CDN. This is relative to the origin path. This
+   * property is only relevant when using a single origin.
    */
   probePath?: string;
   /**
@@ -195,6 +317,10 @@ export interface Endpoint extends TrackedResource {
    * access rule to a specified path or content, e.g. block APAC for path /pictures/
    */
   geoFilters?: GeoFilter[];
+  /**
+   * A reference to the origin group.
+   */
+  defaultOriginGroup?: ResourceReference;
   /**
    * A policy that specifies the delivery rules to be used for an endpoint.
    */
@@ -209,6 +335,11 @@ export interface Endpoint extends TrackedResource {
    * The source of the content being delivered via CDN.
    */
   origins: DeepCreatedOrigin[];
+  /**
+   * The origin groups comprising of origins that are used for load balancing the traffic based on
+   * availability.
+   */
+  originGroups?: DeepCreatedOriginGroup[];
   /**
    * Resource status of the endpoint. Possible values include: 'Creating', 'Deleting', 'Running',
    * 'Starting', 'Stopped', 'Stopping'
@@ -242,24 +373,9 @@ export interface GeoFilter {
 }
 
 /**
- * Contains the possible cases for DeliveryRuleAction.
- */
-export type DeliveryRuleActionUnion = DeliveryRuleAction | DeliveryRuleCacheExpirationAction;
-
-/**
- * An action for the delivery rule.
- */
-export interface DeliveryRuleAction {
-  /**
-   * Polymorphic Discriminator
-   */
-  name: "DeliveryRuleAction";
-}
-
-/**
  * Contains the possible cases for DeliveryRuleCondition.
  */
-export type DeliveryRuleConditionUnion = DeliveryRuleCondition | DeliveryRuleUrlPathCondition | DeliveryRuleUrlFileExtensionCondition;
+export type DeliveryRuleConditionUnion = DeliveryRuleCondition | DeliveryRuleRemoteAddressCondition | DeliveryRuleRequestMethodCondition | DeliveryRuleQueryStringCondition | DeliveryRulePostArgsCondition | DeliveryRuleRequestUriCondition | DeliveryRuleRequestHeaderCondition | DeliveryRuleRequestBodyCondition | DeliveryRuleRequestSchemeCondition | DeliveryRuleUrlPathCondition | DeliveryRuleUrlFileExtensionCondition | DeliveryRuleUrlFileNameCondition | DeliveryRuleHttpVersionCondition | DeliveryRuleCookiesCondition | DeliveryRuleIsDeviceCondition;
 
 /**
  * A condition for the delivery rule.
@@ -272,9 +388,28 @@ export interface DeliveryRuleCondition {
 }
 
 /**
+ * Contains the possible cases for DeliveryRuleAction.
+ */
+export type DeliveryRuleActionUnion = DeliveryRuleAction | UrlRedirectAction | UrlRewriteAction | DeliveryRuleRequestHeaderAction | DeliveryRuleResponseHeaderAction | DeliveryRuleCacheExpirationAction | DeliveryRuleCacheKeyQueryStringAction;
+
+/**
+ * An action for the delivery rule.
+ */
+export interface DeliveryRuleAction {
+  /**
+   * Polymorphic Discriminator
+   */
+  name: "DeliveryRuleAction";
+}
+
+/**
  * A rule that specifies a set of actions and conditions
  */
 export interface DeliveryRule {
+  /**
+   * Name of the rule
+   */
+  name?: string;
   /**
    * The order in which the rules are applied for the endpoint. Possible values {0,1,2,3,………}. A
    * rule with a lesser order will be applied before a rule with a greater order. Rule with order 0
@@ -283,13 +418,13 @@ export interface DeliveryRule {
    */
   order: number;
   /**
-   * A list of actions that are executed when all the conditions of a rule are satisfied.
-   */
-  actions: DeliveryRuleActionUnion[];
-  /**
    * A list of conditions that must be matched for the actions to be executed
    */
   conditions?: DeliveryRuleConditionUnion[];
+  /**
+   * A list of actions that are executed when all the conditions of a rule are satisfied.
+   */
+  actions: DeliveryRuleActionUnion[];
 }
 
 /**
@@ -315,12 +450,6 @@ export interface EndpointUpdateParameters extends BaseResource {
    */
   tags?: { [propertyName: string]: string };
   /**
-   * The host header value sent to the origin with each request. If you leave this blank, the
-   * request hostname determines this value. Azure CDN origins, such as Web Apps, Blob Storage, and
-   * Cloud Services require this host header value to match the origin hostname by default.
-   */
-  originHostHeader?: string;
-  /**
    * A directory path on the origin that CDN can use to retrieve content from, e.g.
    * contoso.cloudapp.net/originpath.
    */
@@ -329,6 +458,14 @@ export interface EndpointUpdateParameters extends BaseResource {
    * List of content types on which compression applies. The value should be a valid MIME type.
    */
   contentTypesToCompress?: string[];
+  /**
+   * The host header value sent to the origin with each request. This property at Endpoint is only
+   * allowed when endpoint uses single origin and can be overridden by the same property specified
+   * at origin.If you leave this blank, the request hostname determines this value. Azure CDN
+   * origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to
+   * match the origin hostname by default.
+   */
+  originHostHeader?: string;
   /**
    * Indicates whether content compression is enabled on CDN. Default value is false. If
    * compression is enabled, content will be served as compressed if user requests for a compressed
@@ -362,7 +499,8 @@ export interface EndpointUpdateParameters extends BaseResource {
   optimizationType?: OptimizationType;
   /**
    * Path to a file hosted on the origin which helps accelerate delivery of the dynamic content and
-   * calculate the most optimal routes for the CDN. This is relative to the origin path.
+   * calculate the most optimal routes for the CDN. This is relative to the origin path. This
+   * property is only relevant when using a single origin.
    */
   probePath?: string;
   /**
@@ -371,28 +509,328 @@ export interface EndpointUpdateParameters extends BaseResource {
    */
   geoFilters?: GeoFilter[];
   /**
+   * A reference to the origin group.
+   */
+  defaultOriginGroup?: ResourceReference;
+  /**
    * A policy that specifies the delivery rules to be used for an endpoint.
    */
   deliveryPolicy?: EndpointPropertiesUpdateParametersDeliveryPolicy;
 }
 
 /**
- * Defines the parameters for the URL path condition.
+ * Defines the parameters for RemoteAddress match conditions
  */
-export interface UrlPathConditionParameters {
+export interface RemoteAddressMatchConditionParameters {
   /**
-   * A URL path for the condition of the delivery rule
+   * Describes operator to be matched. Possible values include: 'Any', 'IPMatch', 'GeoMatch'
    */
-  path: string;
+  operator: RemoteAddressOperator;
   /**
-   * The match type for the condition of the delivery rule. Possible values include: 'Literal',
-   * 'Wildcard'
+   * Describes if this is negate condition or not
    */
-  matchType: MatchType;
+  negateCondition?: boolean;
+  /**
+   * Match values to match against. The operator will apply to each value in here with OR
+   * semantics. If any of them match the variable with the given operator this match condition is
+   * considered a match.
+   */
+  matchValues: string[];
+  /**
+   * List of transforms
+   */
+  transforms?: Transform[];
 }
 
 /**
- * Defines the URL path condition for the delivery rule.
+ * Defines the RemoteAddress condition for the delivery rule.
+ */
+export interface DeliveryRuleRemoteAddressCondition {
+  /**
+   * Polymorphic Discriminator
+   */
+  name: "RemoteAddress";
+  /**
+   * Defines the parameters for the condition.
+   */
+  parameters: RemoteAddressMatchConditionParameters;
+}
+
+/**
+ * Defines the parameters for RequestMethod match conditions
+ */
+export interface RequestMethodMatchConditionParameters {
+  /**
+   * Describes if this is negate condition or not
+   */
+  negateCondition?: boolean;
+  /**
+   * The match value for the condition of the delivery rule
+   */
+  matchValues: string[];
+}
+
+/**
+ * Defines the RequestMethod condition for the delivery rule.
+ */
+export interface DeliveryRuleRequestMethodCondition {
+  /**
+   * Polymorphic Discriminator
+   */
+  name: "RequestMethod";
+  /**
+   * Defines the parameters for the condition.
+   */
+  parameters: RequestMethodMatchConditionParameters;
+}
+
+/**
+ * Defines the parameters for QueryString match conditions
+ */
+export interface QueryStringMatchConditionParameters {
+  /**
+   * Describes operator to be matched. Possible values include: 'Any', 'Equal', 'Contains',
+   * 'BeginsWith', 'EndsWith', 'LessThan', 'LessThanOrEqual', 'GreaterThan', 'GreaterThanOrEqual'
+   */
+  operator: QueryStringOperator;
+  /**
+   * Describes if this is negate condition or not
+   */
+  negateCondition?: boolean;
+  /**
+   * The match value for the condition of the delivery rule
+   */
+  matchValues: string[];
+  /**
+   * List of transforms
+   */
+  transforms?: Transform[];
+}
+
+/**
+ * Defines the QueryString condition for the delivery rule.
+ */
+export interface DeliveryRuleQueryStringCondition {
+  /**
+   * Polymorphic Discriminator
+   */
+  name: "QueryString";
+  /**
+   * Defines the parameters for the condition.
+   */
+  parameters: QueryStringMatchConditionParameters;
+}
+
+/**
+ * Defines the parameters for PostArgs match conditions
+ */
+export interface PostArgsMatchConditionParameters {
+  /**
+   * Name of PostArg to be matched
+   */
+  selector: string;
+  /**
+   * Describes operator to be matched. Possible values include: 'Any', 'Equal', 'Contains',
+   * 'BeginsWith', 'EndsWith', 'LessThan', 'LessThanOrEqual', 'GreaterThan', 'GreaterThanOrEqual'
+   */
+  operator: PostArgsOperator;
+  /**
+   * Describes if this is negate condition or not
+   */
+  negateCondition?: boolean;
+  /**
+   * The match value for the condition of the delivery rule
+   */
+  matchValues: string[];
+  /**
+   * List of transforms
+   */
+  transforms?: Transform[];
+}
+
+/**
+ * Defines the PostArgs condition for the delivery rule.
+ */
+export interface DeliveryRulePostArgsCondition {
+  /**
+   * Polymorphic Discriminator
+   */
+  name: "PostArgs";
+  /**
+   * Defines the parameters for the condition.
+   */
+  parameters: PostArgsMatchConditionParameters;
+}
+
+/**
+ * Defines the parameters for RequestUri match conditions
+ */
+export interface RequestUriMatchConditionParameters {
+  /**
+   * Describes operator to be matched. Possible values include: 'Any', 'Equal', 'Contains',
+   * 'BeginsWith', 'EndsWith', 'LessThan', 'LessThanOrEqual', 'GreaterThan', 'GreaterThanOrEqual'
+   */
+  operator: RequestUriOperator;
+  /**
+   * Describes if this is negate condition or not
+   */
+  negateCondition?: boolean;
+  /**
+   * The match value for the condition of the delivery rule
+   */
+  matchValues: string[];
+  /**
+   * List of transforms
+   */
+  transforms?: Transform[];
+}
+
+/**
+ * Defines the RequestUri condition for the delivery rule.
+ */
+export interface DeliveryRuleRequestUriCondition {
+  /**
+   * Polymorphic Discriminator
+   */
+  name: "RequestUri";
+  /**
+   * Defines the parameters for the condition.
+   */
+  parameters: RequestUriMatchConditionParameters;
+}
+
+/**
+ * Defines the parameters for RequestHeader match conditions
+ */
+export interface RequestHeaderMatchConditionParameters {
+  /**
+   * Name of Header to be matched
+   */
+  selector: string;
+  /**
+   * Describes operator to be matched. Possible values include: 'Any', 'Equal', 'Contains',
+   * 'BeginsWith', 'EndsWith', 'LessThan', 'LessThanOrEqual', 'GreaterThan', 'GreaterThanOrEqual'
+   */
+  operator: RequestHeaderOperator;
+  /**
+   * Describes if this is negate condition or not
+   */
+  negateCondition?: boolean;
+  /**
+   * The match value for the condition of the delivery rule
+   */
+  matchValues: string[];
+  /**
+   * List of transforms
+   */
+  transforms?: Transform[];
+}
+
+/**
+ * Defines the RequestHeader condition for the delivery rule.
+ */
+export interface DeliveryRuleRequestHeaderCondition {
+  /**
+   * Polymorphic Discriminator
+   */
+  name: "RequestHeader";
+  /**
+   * Defines the parameters for the condition.
+   */
+  parameters: RequestHeaderMatchConditionParameters;
+}
+
+/**
+ * Defines the parameters for RequestBody match conditions
+ */
+export interface RequestBodyMatchConditionParameters {
+  /**
+   * Describes operator to be matched. Possible values include: 'Any', 'Equal', 'Contains',
+   * 'BeginsWith', 'EndsWith', 'LessThan', 'LessThanOrEqual', 'GreaterThan', 'GreaterThanOrEqual'
+   */
+  operator: RequestBodyOperator;
+  /**
+   * Describes if this is negate condition or not
+   */
+  negateCondition?: boolean;
+  /**
+   * The match value for the condition of the delivery rule
+   */
+  matchValues: string[];
+  /**
+   * List of transforms
+   */
+  transforms?: Transform[];
+}
+
+/**
+ * Defines the RequestBody condition for the delivery rule.
+ */
+export interface DeliveryRuleRequestBodyCondition {
+  /**
+   * Polymorphic Discriminator
+   */
+  name: "RequestBody";
+  /**
+   * Defines the parameters for the condition.
+   */
+  parameters: RequestBodyMatchConditionParameters;
+}
+
+/**
+ * Defines the parameters for RequestScheme match conditions
+ */
+export interface RequestSchemeMatchConditionParameters {
+  /**
+   * Describes if this is negate condition or not
+   */
+  negateCondition?: boolean;
+  /**
+   * The match value for the condition of the delivery rule
+   */
+  matchValues: string[];
+}
+
+/**
+ * Defines the RequestScheme condition for the delivery rule.
+ */
+export interface DeliveryRuleRequestSchemeCondition {
+  /**
+   * Polymorphic Discriminator
+   */
+  name: "RequestScheme";
+  /**
+   * Defines the parameters for the condition.
+   */
+  parameters: RequestSchemeMatchConditionParameters;
+}
+
+/**
+ * Defines the parameters for UrlPath match conditions
+ */
+export interface UrlPathMatchConditionParameters {
+  /**
+   * Describes operator to be matched. Possible values include: 'Any', 'Equal', 'Contains',
+   * 'BeginsWith', 'EndsWith', 'LessThan', 'LessThanOrEqual', 'GreaterThan', 'GreaterThanOrEqual',
+   * 'Wildcard'
+   */
+  operator: UrlPathOperator;
+  /**
+   * Describes if this is negate condition or not
+   */
+  negateCondition?: boolean;
+  /**
+   * The match value for the condition of the delivery rule
+   */
+  matchValues: string[];
+  /**
+   * List of transforms
+   */
+  transforms?: Transform[];
+}
+
+/**
+ * Defines the UrlPath condition for the delivery rule.
  */
 export interface DeliveryRuleUrlPathCondition {
   /**
@@ -402,21 +840,34 @@ export interface DeliveryRuleUrlPathCondition {
   /**
    * Defines the parameters for the condition.
    */
-  parameters: UrlPathConditionParameters;
+  parameters: UrlPathMatchConditionParameters;
 }
 
 /**
- * Defines the parameters for the URL file extension condition.
+ * Defines the parameters for UrlFileExtension match conditions
  */
-export interface UrlFileExtensionConditionParameters {
+export interface UrlFileExtensionMatchConditionParameters {
   /**
-   * A list of extensions for the condition of the delivery rule.
+   * Describes operator to be matched. Possible values include: 'Any', 'Equal', 'Contains',
+   * 'BeginsWith', 'EndsWith', 'LessThan', 'LessThanOrEqual', 'GreaterThan', 'GreaterThanOrEqual'
    */
-  extensions: string[];
+  operator: UrlFileExtensionOperator;
+  /**
+   * Describes if this is negate condition or not
+   */
+  negateCondition?: boolean;
+  /**
+   * The match value for the condition of the delivery rule
+   */
+  matchValues: string[];
+  /**
+   * List of transforms
+   */
+  transforms?: Transform[];
 }
 
 /**
- * Defines the URL file extension condition for the delivery rule.
+ * Defines the UrlFileExtension condition for the delivery rule.
  */
 export interface DeliveryRuleUrlFileExtensionCondition {
   /**
@@ -426,7 +877,274 @@ export interface DeliveryRuleUrlFileExtensionCondition {
   /**
    * Defines the parameters for the condition.
    */
-  parameters: UrlFileExtensionConditionParameters;
+  parameters: UrlFileExtensionMatchConditionParameters;
+}
+
+/**
+ * Defines the parameters for UrlFilename match conditions
+ */
+export interface UrlFileNameMatchConditionParameters {
+  /**
+   * Describes operator to be matched. Possible values include: 'Any', 'Equal', 'Contains',
+   * 'BeginsWith', 'EndsWith', 'LessThan', 'LessThanOrEqual', 'GreaterThan', 'GreaterThanOrEqual'
+   */
+  operator: UrlFileNameOperator;
+  /**
+   * Describes if this is negate condition or not
+   */
+  negateCondition?: boolean;
+  /**
+   * The match value for the condition of the delivery rule
+   */
+  matchValues: string[];
+  /**
+   * List of transforms
+   */
+  transforms?: Transform[];
+}
+
+/**
+ * Defines the UrlFileName condition for the delivery rule.
+ */
+export interface DeliveryRuleUrlFileNameCondition {
+  /**
+   * Polymorphic Discriminator
+   */
+  name: "UrlFileName";
+  /**
+   * Defines the parameters for the condition.
+   */
+  parameters: UrlFileNameMatchConditionParameters;
+}
+
+/**
+ * Defines the parameters for HttpVersion match conditions
+ */
+export interface HttpVersionMatchConditionParameters {
+  /**
+   * Describes if this is negate condition or not
+   */
+  negateCondition?: boolean;
+  /**
+   * The match value for the condition of the delivery rule
+   */
+  matchValues: string[];
+}
+
+/**
+ * Defines the HttpVersion condition for the delivery rule.
+ */
+export interface DeliveryRuleHttpVersionCondition {
+  /**
+   * Polymorphic Discriminator
+   */
+  name: "HttpVersion";
+  /**
+   * Defines the parameters for the condition.
+   */
+  parameters: HttpVersionMatchConditionParameters;
+}
+
+/**
+ * Defines the parameters for Cookies match conditions
+ */
+export interface CookiesMatchConditionParameters {
+  /**
+   * Name of Cookies to be matched
+   */
+  selector: string;
+  /**
+   * Describes operator to be matched. Possible values include: 'Any', 'Equal', 'Contains',
+   * 'BeginsWith', 'EndsWith', 'LessThan', 'LessThanOrEqual', 'GreaterThan', 'GreaterThanOrEqual'
+   */
+  operator: CookiesOperator;
+  /**
+   * Describes if this is negate condition or not
+   */
+  negateCondition?: boolean;
+  /**
+   * The match value for the condition of the delivery rule
+   */
+  matchValues: string[];
+  /**
+   * List of transforms
+   */
+  transforms?: Transform[];
+}
+
+/**
+ * Defines the Cookies condition for the delivery rule.
+ */
+export interface DeliveryRuleCookiesCondition {
+  /**
+   * Polymorphic Discriminator
+   */
+  name: "Cookies";
+  /**
+   * Defines the parameters for the condition.
+   */
+  parameters: CookiesMatchConditionParameters;
+}
+
+/**
+ * Defines the parameters for IsDevice match conditions
+ */
+export interface IsDeviceMatchConditionParameters {
+  /**
+   * Describes if this is negate condition or not
+   */
+  negateCondition?: boolean;
+  /**
+   * The match value for the condition of the delivery rule
+   */
+  matchValues: string[];
+  /**
+   * List of transforms
+   */
+  transforms?: Transform[];
+}
+
+/**
+ * Defines the IsDevice condition for the delivery rule.
+ */
+export interface DeliveryRuleIsDeviceCondition {
+  /**
+   * Polymorphic Discriminator
+   */
+  name: "IsDevice";
+  /**
+   * Defines the parameters for the condition.
+   */
+  parameters: IsDeviceMatchConditionParameters;
+}
+
+/**
+ * Defines the parameters for the url redirect action.
+ */
+export interface UrlRedirectActionParameters {
+  /**
+   * The redirect type the rule will use when redirecting traffic. Possible values include:
+   * 'Moved', 'Found', 'TemporaryRedirect', 'PermanentRedirect'
+   */
+  redirectType: RedirectType;
+  /**
+   * Protocol to use for the redirect. The default value is MatchRequest. Possible values include:
+   * 'MatchRequest', 'Http', 'Https'
+   */
+  destinationProtocol?: DestinationProtocol;
+  /**
+   * The full path to redirect. Path cannot be empty and must start with /. Leave empty to use the
+   * incoming path as destination path.
+   */
+  customPath?: string;
+  /**
+   * Host to redirect. Leave empty to use the incoming host as the destination host.
+   */
+  customHostname?: string;
+  /**
+   * The set of query strings to be placed in the redirect URL. Setting this value would replace
+   * any existing query string; leave empty to preserve the incoming query string. Query string
+   * must be in <key>=<value> format. ? and & will be added automatically so do not include them.
+   */
+  customQueryString?: string;
+  /**
+   * Fragment to add to the redirect URL. Fragment is the part of the URL that comes after #. Do
+   * not include the #.
+   */
+  customFragment?: string;
+}
+
+/**
+ * Defines the url redirect action for the delivery rule.
+ */
+export interface UrlRedirectAction {
+  /**
+   * Polymorphic Discriminator
+   */
+  name: "UrlRedirect";
+  /**
+   * Defines the parameters for the action.
+   */
+  parameters: UrlRedirectActionParameters;
+}
+
+/**
+ * Defines the parameters for the url rewrite action.
+ */
+export interface UrlRewriteActionParameters {
+  /**
+   * define a request URI pattern that identifies the type of requests that may be rewritten. If
+   * value is blank, all strings are matched.
+   */
+  sourcePattern: string;
+  /**
+   * Define the relative URL to which the above requests will be rewritten by.
+   */
+  destination: string;
+  /**
+   * Whether to preserve unmatched path. Default value is true.
+   */
+  preserveUnmatchedPath?: boolean;
+}
+
+/**
+ * Defines the url rewrite action for the delivery rule.
+ */
+export interface UrlRewriteAction {
+  /**
+   * Polymorphic Discriminator
+   */
+  name: "UrlRewrite";
+  /**
+   * Defines the parameters for the action.
+   */
+  parameters: UrlRewriteActionParameters;
+}
+
+/**
+ * Defines the parameters for the request header action.
+ */
+export interface HeaderActionParameters {
+  /**
+   * Action to perform. Possible values include: 'Append', 'Overwrite', 'Delete'
+   */
+  headerAction: HeaderAction;
+  /**
+   * Name of the header to modify
+   */
+  headerName: string;
+  /**
+   * Value for the specified action
+   */
+  value?: string;
+}
+
+/**
+ * Defines the request header action for the delivery rule.
+ */
+export interface DeliveryRuleRequestHeaderAction {
+  /**
+   * Polymorphic Discriminator
+   */
+  name: "ModifyRequestHeader";
+  /**
+   * Defines the parameters for the action.
+   */
+  parameters: HeaderActionParameters;
+}
+
+/**
+ * Defines the response header action for the delivery rule.
+ */
+export interface DeliveryRuleResponseHeaderAction {
+  /**
+   * Polymorphic Discriminator
+   */
+  name: "ModifyResponseHeader";
+  /**
+   * Defines the parameters for the action.
+   */
+  parameters: HeaderActionParameters;
 }
 
 /**
@@ -434,8 +1152,8 @@ export interface DeliveryRuleUrlFileExtensionCondition {
  */
 export interface CacheExpirationActionParameters {
   /**
-   * Caching behavior for the requests that include query strings. Possible values include:
-   * 'BypassCache', 'Override', 'SetIfMissing'
+   * Caching behavior for the requests. Possible values include: 'BypassCache', 'Override',
+   * 'SetIfMissing'
    */
   cacheBehavior: CacheBehavior;
   /**
@@ -456,6 +1174,35 @@ export interface DeliveryRuleCacheExpirationAction {
    * Defines the parameters for the action.
    */
   parameters: CacheExpirationActionParameters;
+}
+
+/**
+ * Defines the parameters for the cache-key query string action.
+ */
+export interface CacheKeyQueryStringActionParameters {
+  /**
+   * Caching behavior for the requests. Possible values include: 'Include', 'IncludeAll',
+   * 'Exclude', 'ExcludeAll'
+   */
+  queryStringBehavior: QueryStringBehavior;
+  /**
+   * query parameters to include or exclude (comma separated).
+   */
+  queryParameters?: string;
+}
+
+/**
+ * Defines the cache-key query string action for the delivery rule.
+ */
+export interface DeliveryRuleCacheKeyQueryStringAction {
+  /**
+   * Polymorphic Discriminator
+   */
+  name: "CacheKeyQueryString";
+  /**
+   * Defines the parameters for the action.
+   */
+  parameters: CacheKeyQueryStringActionParameters;
 }
 
 /**
@@ -485,17 +1232,38 @@ export interface LoadParameters {
  */
 export interface Origin extends TrackedResource {
   /**
-   * The address of the origin. Domain names, IPv4 addresses, and IPv6 addresses are supported.
+   * The address of the origin. Domain names, IPv4 addresses, and IPv6 addresses are supported.This
+   * should be unique across all origins in an endpoint.
    */
-  hostName: string;
+  hostName?: string;
   /**
    * The value of the HTTP port. Must be between 1 and 65535.
    */
   httpPort?: number;
   /**
-   * The value of the https port. Must be between 1 and 65535.
+   * The value of the HTTPS port. Must be between 1 and 65535.
    */
   httpsPort?: number;
+  /**
+   * The host header value sent to the origin with each request. If you leave this blank, the
+   * request hostname determines this value. Azure CDN origins, such as Web Apps, Blob Storage, and
+   * Cloud Services require this host header value to match the origin hostname by default. This
+   * overrides the host header defined at Endpoint
+   */
+  originHostHeader?: string;
+  /**
+   * Priority of origin in given origin group for load balancing. Higher priorities will not be
+   * used for load balancing if any lower priority origin is healthy.Must be between 1 and 5
+   */
+  priority?: number;
+  /**
+   * Weight of the origin in given origin group for load balancing. Must be between 1 and 1000
+   */
+  weight?: number;
+  /**
+   * Origin is enabled for load balancing or not
+   */
+  enabled?: boolean;
   /**
    * Resource status of the origin. Possible values include: 'Creating', 'Active', 'Deleting'
    * **NOTE: This property will not be serialized. It can only be populated by the server.**
@@ -509,11 +1277,16 @@ export interface Origin extends TrackedResource {
 }
 
 /**
- * Origin properties needed for origin creation or update.
+ * Origin properties needed for origin update.
  */
 export interface OriginUpdateParameters extends BaseResource {
   /**
-   * The address of the origin. Domain names, IPv4 addresses, and IPv6 addresses are supported.
+   * Origin tags.
+   */
+  tags?: { [propertyName: string]: string };
+  /**
+   * The address of the origin. Domain names, IPv4 addresses, and IPv6 addresses are supported.This
+   * should be unique across all origins in an endpoint.
    */
   hostName?: string;
   /**
@@ -524,6 +1297,26 @@ export interface OriginUpdateParameters extends BaseResource {
    * The value of the HTTPS port. Must be between 1 and 65535.
    */
   httpsPort?: number;
+  /**
+   * The host header value sent to the origin with each request. If you leave this blank, the
+   * request hostname determines this value. Azure CDN origins, such as Web Apps, Blob Storage, and
+   * Cloud Services require this host header value to match the origin hostname by default. This
+   * overrides the host header defined at Endpoint
+   */
+  originHostHeader?: string;
+  /**
+   * Priority of origin in given origin group for load balancing. Higher priorities will not be
+   * used for load balancing if any lower priority origin is healthy.Must be between 1 and 5
+   */
+  priority?: number;
+  /**
+   * Weight of the origin in given origin group for load balancing. Must be between 1 and 1000
+   */
+  weight?: number;
+  /**
+   * Origin is enabled for load balancing or not
+   */
+  enabled?: boolean;
 }
 
 /**
@@ -531,6 +1324,67 @@ export interface OriginUpdateParameters extends BaseResource {
  * required location and tags
  */
 export interface ProxyResource extends Resource {
+}
+
+/**
+ * Origin group comprising of origins is used for load balancing to origins when the content cannot
+ * be served from CDN.
+ */
+export interface OriginGroup extends ProxyResource {
+  /**
+   * Health probe settings to the origin that is used to determine the health of the origin.
+   */
+  healthProbeSettings?: HealthProbeParameters;
+  /**
+   * The source of the content being delivered via CDN within given origin group.
+   */
+  origins?: ResourceReference[];
+  /**
+   * Time in minutes to shift the traffic to the endpoint gradually when an unhealthy endpoint
+   * comes healthy or a new endpoint is added. Default is 10 mins. This property is currently not
+   * supported.
+   */
+  trafficRestorationTimeToHealedOrNewEndpointsInMinutes?: number;
+  /**
+   * The JSON object that contains the properties to determine origin health using real
+   * requests/responses. This property is currently not supported.
+   */
+  responseBasedOriginErrorDetectionSettings?: ResponseBasedOriginErrorDetectionParameters;
+  /**
+   * Resource status of the origin group. Possible values include: 'Creating', 'Active', 'Deleting'
+   * **NOTE: This property will not be serialized. It can only be populated by the server.**
+   */
+  readonly resourceState?: OriginGroupResourceState;
+  /**
+   * Provisioning status of the origin group.
+   * **NOTE: This property will not be serialized. It can only be populated by the server.**
+   */
+  readonly provisioningState?: string;
+}
+
+/**
+ * Origin group properties needed for origin group creation or update.
+ */
+export interface OriginGroupUpdateParameters extends BaseResource {
+  /**
+   * Health probe settings to the origin that is used to determine the health of the origin.
+   */
+  healthProbeSettings?: HealthProbeParameters;
+  /**
+   * The source of the content being delivered via CDN within given origin group.
+   */
+  origins?: ResourceReference[];
+  /**
+   * Time in minutes to shift the traffic to the endpoint gradually when an unhealthy endpoint
+   * comes healthy or a new endpoint is added. Default is 10 mins. This property is currently not
+   * supported.
+   */
+  trafficRestorationTimeToHealedOrNewEndpointsInMinutes?: number;
+  /**
+   * The JSON object that contains the properties to determine origin health using real
+   * requests/responses. This property is currently not supported.
+   */
+  responseBasedOriginErrorDetectionSettings?: ResponseBasedOriginErrorDetectionParameters;
 }
 
 /**
@@ -605,6 +1459,11 @@ export interface CustomDomainHttpsParameters {
    * 'ServerNameIndication', 'IPBased'
    */
   protocolType: ProtocolType;
+  /**
+   * TLS protocol version that will be used for Https. Possible values include: 'None', 'TLS10',
+   * 'TLS12'
+   */
+  minimumTlsVersion?: MinimumTlsVersion;
 }
 
 /**
@@ -630,6 +1489,11 @@ export interface CdnManagedHttpsParameters {
    * 'ServerNameIndication', 'IPBased'
    */
   protocolType: ProtocolType;
+  /**
+   * TLS protocol version that will be used for Https. Possible values include: 'None', 'TLS10',
+   * 'TLS12'
+   */
+  minimumTlsVersion?: MinimumTlsVersion;
   /**
    * Defines the certificate source parameters using CDN managed certificate for enabling SSL.
    */
@@ -675,6 +1539,11 @@ export interface UserManagedHttpsParameters {
    * 'ServerNameIndication', 'IPBased'
    */
   protocolType: ProtocolType;
+  /**
+   * TLS protocol version that will be used for Https. Possible values include: 'None', 'TLS10',
+   * 'TLS12'
+   */
+  minimumTlsVersion?: MinimumTlsVersion;
   /**
    * Defines the certificate source parameters using user's keyvault certificate for enabling SSL.
    */
@@ -987,6 +1856,19 @@ export interface OriginListResult extends Array<Origin> {
 
 /**
  * @interface
+ * Result of the request to list origin groups. It contains a list of origin groups objects and a
+ * URL link to get the next set of results.
+ * @extends Array<OriginGroup>
+ */
+export interface OriginGroupListResult extends Array<OriginGroup> {
+  /**
+   * URL to get the next set of origin objects if there are any.
+   */
+  nextLink?: string;
+}
+
+/**
+ * @interface
  * Result of the request to list custom domains. It contains a list of custom domain objects and a
  * URL link to get the next set of results.
  * @extends Array<CustomDomain>
@@ -1027,11 +1909,11 @@ export interface EdgenodeResult extends Array<EdgeNode> {
 /**
  * Defines values for SkuName.
  * Possible values include: 'Standard_Verizon', 'Premium_Verizon', 'Custom_Verizon',
- * 'Standard_Akamai', 'Standard_ChinaCdn', 'Standard_Microsoft'
+ * 'Standard_Akamai', 'Standard_ChinaCdn', 'Standard_Microsoft', 'Premium_ChinaCdn'
  * @readonly
  * @enum {string}
  */
-export type SkuName = 'Standard_Verizon' | 'Premium_Verizon' | 'Custom_Verizon' | 'Standard_Akamai' | 'Standard_ChinaCdn' | 'Standard_Microsoft';
+export type SkuName = 'Standard_Verizon' | 'Premium_Verizon' | 'Custom_Verizon' | 'Standard_Akamai' | 'Standard_ChinaCdn' | 'Standard_Microsoft' | 'Premium_ChinaCdn';
 
 /**
  * Defines values for ProfileResourceState.
@@ -1049,6 +1931,30 @@ export type ProfileResourceState = 'Creating' | 'Active' | 'Deleting' | 'Disable
  * @enum {string}
  */
 export type OptimizationType = 'GeneralWebDelivery' | 'GeneralMediaStreaming' | 'VideoOnDemandMediaStreaming' | 'LargeFileDownload' | 'DynamicSiteAcceleration';
+
+/**
+ * Defines values for HealthProbeRequestType.
+ * Possible values include: 'NotSet', 'GET', 'HEAD'
+ * @readonly
+ * @enum {string}
+ */
+export type HealthProbeRequestType = 'NotSet' | 'GET' | 'HEAD';
+
+/**
+ * Defines values for ProbeProtocol.
+ * Possible values include: 'NotSet', 'Http', 'Https'
+ * @readonly
+ * @enum {string}
+ */
+export type ProbeProtocol = 'NotSet' | 'Http' | 'Https';
+
+/**
+ * Defines values for ResponseBasedDetectedErrorTypes.
+ * Possible values include: 'None', 'TcpErrorsOnly', 'TcpAndHttpErrors'
+ * @readonly
+ * @enum {string}
+ */
+export type ResponseBasedDetectedErrorTypes = 'None' | 'TcpErrorsOnly' | 'TcpAndHttpErrors';
 
 /**
  * Defines values for EndpointResourceState.
@@ -1075,12 +1981,157 @@ export type QueryStringCachingBehavior = 'IgnoreQueryString' | 'BypassCaching' |
 export type GeoFilterActions = 'Block' | 'Allow';
 
 /**
+ * Defines values for RemoteAddressOperator.
+ * Possible values include: 'Any', 'IPMatch', 'GeoMatch'
+ * @readonly
+ * @enum {string}
+ */
+export type RemoteAddressOperator = 'Any' | 'IPMatch' | 'GeoMatch';
+
+/**
+ * Defines values for Transform.
+ * Possible values include: 'Lowercase', 'Uppercase'
+ * @readonly
+ * @enum {string}
+ */
+export type Transform = 'Lowercase' | 'Uppercase';
+
+/**
+ * Defines values for QueryStringOperator.
+ * Possible values include: 'Any', 'Equal', 'Contains', 'BeginsWith', 'EndsWith', 'LessThan',
+ * 'LessThanOrEqual', 'GreaterThan', 'GreaterThanOrEqual'
+ * @readonly
+ * @enum {string}
+ */
+export type QueryStringOperator = 'Any' | 'Equal' | 'Contains' | 'BeginsWith' | 'EndsWith' | 'LessThan' | 'LessThanOrEqual' | 'GreaterThan' | 'GreaterThanOrEqual';
+
+/**
+ * Defines values for PostArgsOperator.
+ * Possible values include: 'Any', 'Equal', 'Contains', 'BeginsWith', 'EndsWith', 'LessThan',
+ * 'LessThanOrEqual', 'GreaterThan', 'GreaterThanOrEqual'
+ * @readonly
+ * @enum {string}
+ */
+export type PostArgsOperator = 'Any' | 'Equal' | 'Contains' | 'BeginsWith' | 'EndsWith' | 'LessThan' | 'LessThanOrEqual' | 'GreaterThan' | 'GreaterThanOrEqual';
+
+/**
+ * Defines values for RequestUriOperator.
+ * Possible values include: 'Any', 'Equal', 'Contains', 'BeginsWith', 'EndsWith', 'LessThan',
+ * 'LessThanOrEqual', 'GreaterThan', 'GreaterThanOrEqual'
+ * @readonly
+ * @enum {string}
+ */
+export type RequestUriOperator = 'Any' | 'Equal' | 'Contains' | 'BeginsWith' | 'EndsWith' | 'LessThan' | 'LessThanOrEqual' | 'GreaterThan' | 'GreaterThanOrEqual';
+
+/**
+ * Defines values for RequestHeaderOperator.
+ * Possible values include: 'Any', 'Equal', 'Contains', 'BeginsWith', 'EndsWith', 'LessThan',
+ * 'LessThanOrEqual', 'GreaterThan', 'GreaterThanOrEqual'
+ * @readonly
+ * @enum {string}
+ */
+export type RequestHeaderOperator = 'Any' | 'Equal' | 'Contains' | 'BeginsWith' | 'EndsWith' | 'LessThan' | 'LessThanOrEqual' | 'GreaterThan' | 'GreaterThanOrEqual';
+
+/**
+ * Defines values for RequestBodyOperator.
+ * Possible values include: 'Any', 'Equal', 'Contains', 'BeginsWith', 'EndsWith', 'LessThan',
+ * 'LessThanOrEqual', 'GreaterThan', 'GreaterThanOrEqual'
+ * @readonly
+ * @enum {string}
+ */
+export type RequestBodyOperator = 'Any' | 'Equal' | 'Contains' | 'BeginsWith' | 'EndsWith' | 'LessThan' | 'LessThanOrEqual' | 'GreaterThan' | 'GreaterThanOrEqual';
+
+/**
+ * Defines values for UrlPathOperator.
+ * Possible values include: 'Any', 'Equal', 'Contains', 'BeginsWith', 'EndsWith', 'LessThan',
+ * 'LessThanOrEqual', 'GreaterThan', 'GreaterThanOrEqual', 'Wildcard'
+ * @readonly
+ * @enum {string}
+ */
+export type UrlPathOperator = 'Any' | 'Equal' | 'Contains' | 'BeginsWith' | 'EndsWith' | 'LessThan' | 'LessThanOrEqual' | 'GreaterThan' | 'GreaterThanOrEqual' | 'Wildcard';
+
+/**
+ * Defines values for UrlFileExtensionOperator.
+ * Possible values include: 'Any', 'Equal', 'Contains', 'BeginsWith', 'EndsWith', 'LessThan',
+ * 'LessThanOrEqual', 'GreaterThan', 'GreaterThanOrEqual'
+ * @readonly
+ * @enum {string}
+ */
+export type UrlFileExtensionOperator = 'Any' | 'Equal' | 'Contains' | 'BeginsWith' | 'EndsWith' | 'LessThan' | 'LessThanOrEqual' | 'GreaterThan' | 'GreaterThanOrEqual';
+
+/**
+ * Defines values for UrlFileNameOperator.
+ * Possible values include: 'Any', 'Equal', 'Contains', 'BeginsWith', 'EndsWith', 'LessThan',
+ * 'LessThanOrEqual', 'GreaterThan', 'GreaterThanOrEqual'
+ * @readonly
+ * @enum {string}
+ */
+export type UrlFileNameOperator = 'Any' | 'Equal' | 'Contains' | 'BeginsWith' | 'EndsWith' | 'LessThan' | 'LessThanOrEqual' | 'GreaterThan' | 'GreaterThanOrEqual';
+
+/**
+ * Defines values for CookiesOperator.
+ * Possible values include: 'Any', 'Equal', 'Contains', 'BeginsWith', 'EndsWith', 'LessThan',
+ * 'LessThanOrEqual', 'GreaterThan', 'GreaterThanOrEqual'
+ * @readonly
+ * @enum {string}
+ */
+export type CookiesOperator = 'Any' | 'Equal' | 'Contains' | 'BeginsWith' | 'EndsWith' | 'LessThan' | 'LessThanOrEqual' | 'GreaterThan' | 'GreaterThanOrEqual';
+
+/**
+ * Defines values for RedirectType.
+ * Possible values include: 'Moved', 'Found', 'TemporaryRedirect', 'PermanentRedirect'
+ * @readonly
+ * @enum {string}
+ */
+export type RedirectType = 'Moved' | 'Found' | 'TemporaryRedirect' | 'PermanentRedirect';
+
+/**
+ * Defines values for DestinationProtocol.
+ * Possible values include: 'MatchRequest', 'Http', 'Https'
+ * @readonly
+ * @enum {string}
+ */
+export type DestinationProtocol = 'MatchRequest' | 'Http' | 'Https';
+
+/**
+ * Defines values for HeaderAction.
+ * Possible values include: 'Append', 'Overwrite', 'Delete'
+ * @readonly
+ * @enum {string}
+ */
+export type HeaderAction = 'Append' | 'Overwrite' | 'Delete';
+
+/**
+ * Defines values for CacheBehavior.
+ * Possible values include: 'BypassCache', 'Override', 'SetIfMissing'
+ * @readonly
+ * @enum {string}
+ */
+export type CacheBehavior = 'BypassCache' | 'Override' | 'SetIfMissing';
+
+/**
+ * Defines values for QueryStringBehavior.
+ * Possible values include: 'Include', 'IncludeAll', 'Exclude', 'ExcludeAll'
+ * @readonly
+ * @enum {string}
+ */
+export type QueryStringBehavior = 'Include' | 'IncludeAll' | 'Exclude' | 'ExcludeAll';
+
+/**
  * Defines values for OriginResourceState.
  * Possible values include: 'Creating', 'Active', 'Deleting'
  * @readonly
  * @enum {string}
  */
 export type OriginResourceState = 'Creating' | 'Active' | 'Deleting';
+
+/**
+ * Defines values for OriginGroupResourceState.
+ * Possible values include: 'Creating', 'Active', 'Deleting'
+ * @readonly
+ * @enum {string}
+ */
+export type OriginGroupResourceState = 'Creating' | 'Active' | 'Deleting';
 
 /**
  * Defines values for CustomDomainResourceState.
@@ -1119,6 +2170,14 @@ export type CustomHttpsProvisioningSubstate = 'SubmittingDomainControlValidation
 export type ProtocolType = 'ServerNameIndication' | 'IPBased';
 
 /**
+ * Defines values for MinimumTlsVersion.
+ * Possible values include: 'None', 'TLS10', 'TLS12'
+ * @readonly
+ * @enum {string}
+ */
+export type MinimumTlsVersion = 'None' | 'TLS10' | 'TLS12';
+
+/**
  * Defines values for CertificateType.
  * Possible values include: 'Shared', 'Dedicated'
  * @readonly
@@ -1133,22 +2192,6 @@ export type CertificateType = 'Shared' | 'Dedicated';
  * @enum {string}
  */
 export type ResourceType = 'Microsoft.Cdn/Profiles/Endpoints';
-
-/**
- * Defines values for MatchType.
- * Possible values include: 'Literal', 'Wildcard'
- * @readonly
- * @enum {string}
- */
-export type MatchType = 'Literal' | 'Wildcard';
-
-/**
- * Defines values for CacheBehavior.
- * Possible values include: 'BypassCache', 'Override', 'SetIfMissing'
- * @readonly
- * @enum {string}
- */
-export type CacheBehavior = 'BypassCache' | 'Override' | 'SetIfMissing';
 
 /**
  * Contains response data for the list operation.
@@ -1731,9 +2774,49 @@ export type OriginsGetResponse = Origin & {
 };
 
 /**
+ * Contains response data for the create operation.
+ */
+export type OriginsCreateResponse = Origin & {
+  /**
+   * The underlying HTTP response.
+   */
+  _response: msRest.HttpResponse & {
+      /**
+       * The response body as text (string format)
+       */
+      bodyAsText: string;
+
+      /**
+       * The response body as parsed JSON or XML
+       */
+      parsedBody: Origin;
+    };
+};
+
+/**
  * Contains response data for the update operation.
  */
 export type OriginsUpdateResponse = Origin & {
+  /**
+   * The underlying HTTP response.
+   */
+  _response: msRest.HttpResponse & {
+      /**
+       * The response body as text (string format)
+       */
+      bodyAsText: string;
+
+      /**
+       * The response body as parsed JSON or XML
+       */
+      parsedBody: Origin;
+    };
+};
+
+/**
+ * Contains response data for the beginCreate operation.
+ */
+export type OriginsBeginCreateResponse = Origin & {
   /**
    * The underlying HTTP response.
    */
@@ -1787,6 +2870,146 @@ export type OriginsListByEndpointNextResponse = OriginListResult & {
        * The response body as parsed JSON or XML
        */
       parsedBody: OriginListResult;
+    };
+};
+
+/**
+ * Contains response data for the listByEndpoint operation.
+ */
+export type OriginGroupsListByEndpointResponse = OriginGroupListResult & {
+  /**
+   * The underlying HTTP response.
+   */
+  _response: msRest.HttpResponse & {
+      /**
+       * The response body as text (string format)
+       */
+      bodyAsText: string;
+
+      /**
+       * The response body as parsed JSON or XML
+       */
+      parsedBody: OriginGroupListResult;
+    };
+};
+
+/**
+ * Contains response data for the get operation.
+ */
+export type OriginGroupsGetResponse = OriginGroup & {
+  /**
+   * The underlying HTTP response.
+   */
+  _response: msRest.HttpResponse & {
+      /**
+       * The response body as text (string format)
+       */
+      bodyAsText: string;
+
+      /**
+       * The response body as parsed JSON or XML
+       */
+      parsedBody: OriginGroup;
+    };
+};
+
+/**
+ * Contains response data for the create operation.
+ */
+export type OriginGroupsCreateResponse = OriginGroup & {
+  /**
+   * The underlying HTTP response.
+   */
+  _response: msRest.HttpResponse & {
+      /**
+       * The response body as text (string format)
+       */
+      bodyAsText: string;
+
+      /**
+       * The response body as parsed JSON or XML
+       */
+      parsedBody: OriginGroup;
+    };
+};
+
+/**
+ * Contains response data for the update operation.
+ */
+export type OriginGroupsUpdateResponse = OriginGroup & {
+  /**
+   * The underlying HTTP response.
+   */
+  _response: msRest.HttpResponse & {
+      /**
+       * The response body as text (string format)
+       */
+      bodyAsText: string;
+
+      /**
+       * The response body as parsed JSON or XML
+       */
+      parsedBody: OriginGroup;
+    };
+};
+
+/**
+ * Contains response data for the beginCreate operation.
+ */
+export type OriginGroupsBeginCreateResponse = OriginGroup & {
+  /**
+   * The underlying HTTP response.
+   */
+  _response: msRest.HttpResponse & {
+      /**
+       * The response body as text (string format)
+       */
+      bodyAsText: string;
+
+      /**
+       * The response body as parsed JSON or XML
+       */
+      parsedBody: OriginGroup;
+    };
+};
+
+/**
+ * Contains response data for the beginUpdate operation.
+ */
+export type OriginGroupsBeginUpdateResponse = OriginGroup & {
+  /**
+   * The underlying HTTP response.
+   */
+  _response: msRest.HttpResponse & {
+      /**
+       * The response body as text (string format)
+       */
+      bodyAsText: string;
+
+      /**
+       * The response body as parsed JSON or XML
+       */
+      parsedBody: OriginGroup;
+    };
+};
+
+/**
+ * Contains response data for the listByEndpointNext operation.
+ */
+export type OriginGroupsListByEndpointNextResponse = OriginGroupListResult & {
+  /**
+   * The underlying HTTP response.
+   */
+  _response: msRest.HttpResponse & {
+      /**
+       * The response body as text (string format)
+       */
+      bodyAsText: string;
+
+      /**
+       * The response body as parsed JSON or XML
+       */
+      parsedBody: OriginGroupListResult;
     };
 };
 
