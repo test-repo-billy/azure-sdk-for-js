@@ -22,6 +22,7 @@ class VMwareCloudSimpleClient extends VMwareCloudSimpleClientContext {
   dedicatedCloudServices: operations.DedicatedCloudServices;
   skusAvailability: operations.SkusAvailability;
   privateClouds: operations.PrivateClouds;
+  customizationPolicies: operations.CustomizationPolicies;
   resourcePools: operations.ResourcePools;
   virtualMachineTemplates: operations.VirtualMachineTemplates;
   virtualNetworks: operations.VirtualNetworks;
@@ -42,6 +43,7 @@ class VMwareCloudSimpleClient extends VMwareCloudSimpleClientContext {
     this.dedicatedCloudServices = new operations.DedicatedCloudServices(this);
     this.skusAvailability = new operations.SkusAvailability(this);
     this.privateClouds = new operations.PrivateClouds(this);
+    this.customizationPolicies = new operations.CustomizationPolicies(this);
     this.resourcePools = new operations.ResourcePools(this);
     this.virtualMachineTemplates = new operations.VirtualMachineTemplates(this);
     this.virtualNetworks = new operations.VirtualNetworks(this);

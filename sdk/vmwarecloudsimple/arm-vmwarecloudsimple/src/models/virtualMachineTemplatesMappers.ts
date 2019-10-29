@@ -9,6 +9,7 @@
 export {
   CSRPError,
   CSRPErrorBody,
+  GuestOSNICCustomization,
   VirtualDisk,
   VirtualDiskController,
   VirtualMachineTemplate,

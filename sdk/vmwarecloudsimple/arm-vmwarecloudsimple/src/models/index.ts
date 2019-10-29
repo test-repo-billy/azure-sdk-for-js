@@ -132,6 +132,161 @@ export interface CSRPError {
 }
 
 /**
+ * Host name model
+ */
+export interface CustomizationHostName {
+  /**
+   * Hostname
+   */
+  name?: string;
+  /**
+   * Type of host name. Possible values include: 'USER_DEFINED', 'PREFIX_BASED', 'FIXED',
+   * 'VIRTUAL_MACHINE_NAME', 'CUSTOM_NAME'
+   */
+  type?: Type;
+}
+
+/**
+ * An interface representing CustomizationIPAddress.
+ */
+export interface CustomizationIPAddress {
+  /**
+   * Argument when Custom ip type is selected
+   */
+  argument?: string;
+  /**
+   * Defined Ip Address when Fixed ip type is selected
+   */
+  ipAddress?: string;
+  /**
+   * Customization Specification ip type. Possible values include: 'CUSTOM', 'DHCP_IP', 'FIXED_IP',
+   * 'USER_DEFINED'
+   */
+  type?: Type1;
+}
+
+/**
+ * An interface representing CustomizationIPSettings.
+ */
+export interface CustomizationIPSettings {
+  /**
+   * The list of gateways
+   */
+  gateway?: string[];
+  /**
+   * Ip address customization settings
+   */
+  ip?: CustomizationIPAddress;
+  /**
+   * Adapter subnet mask
+   */
+  subnetMask?: string;
+}
+
+/**
+ * Windows Identity. User data customization
+ */
+export interface CustomizationIdentityUserData {
+  /**
+   * Is password predefined in customization policy. Default value: false.
+   */
+  isPasswordPredefined?: boolean;
+}
+
+/**
+ * An interface representing CustomizationIdentity.
+ */
+export interface CustomizationIdentity {
+  /**
+   * Windows Text Identity. Prepared data
+   */
+  data?: string;
+  /**
+   * Virtual machine host name settings
+   */
+  hostName?: CustomizationHostName;
+  /**
+   * Identity type. Possible values include: 'WINDOWS_TEXT', 'WINDOWS', 'LINUX'
+   */
+  type?: Type2;
+  /**
+   * Windows Identity. User data customization
+   */
+  userData?: CustomizationIdentityUserData;
+}
+
+/**
+ * An interface representing CustomizationNicSetting.
+ */
+export interface CustomizationNicSetting {
+  /**
+   * The list of adapters' settings
+   */
+  adapter?: CustomizationIPSettings;
+  /**
+   * NIC mac address
+   */
+  macAddress?: string;
+}
+
+/**
+ * The specification for Customization Policy
+ */
+export interface CustomizationSpecification {
+  /**
+   * Customization Identity. It contains data about user and hostname
+   */
+  identity?: CustomizationIdentity;
+  /**
+   * Network interface settings
+   */
+  nicSettings?: CustomizationNicSetting[];
+}
+
+/**
+ * The virtual machine customization policy
+ */
+export interface CustomizationPolicy {
+  /**
+   * Customization policy azure id
+   */
+  id?: string;
+  /**
+   * Azure region
+   */
+  location?: string;
+  /**
+   * Customization policy name
+   * **NOTE: This property will not be serialized. It can only be populated by the server.**
+   */
+  readonly name?: string;
+  /**
+   * Policy description
+   */
+  description?: string;
+  /**
+   * The Private cloud id
+   */
+  privateCloudId?: string;
+  /**
+   * Detailed customization policy specification
+   */
+  specification?: CustomizationSpecification;
+  /**
+   * The type of customization (Linux or Windows). Possible values include: 'LINUX', 'WINDOWS'
+   */
+  customizationPolicyPropertiesType?: CustomizationPolicyPropertiesType;
+  /**
+   * Policy version
+   */
+  version?: string;
+  /**
+   * **NOTE: This property will not be serialized. It can only be populated by the server.**
+   */
+  readonly type?: string;
+}
+
+/**
  * The purchase SKU for CloudSimple paid resources
  */
 export interface Sku {
@@ -292,12 +447,14 @@ export interface DedicatedCloudService extends BaseResource {
   readonly isAccountOnboarded?: OnboardingStatus;
   /**
    * total nodes purchased
+   * **NOTE: This property will not be serialized. It can only be populated by the server.**
    */
-  nodes?: number;
+  readonly nodes?: number;
   /**
    * link to a service management web portal
+   * **NOTE: This property will not be serialized. It can only be populated by the server.**
    */
-  serviceURL?: string;
+  readonly serviceURL?: string;
   /**
    * The list of tags
    */
@@ -307,6 +464,66 @@ export interface DedicatedCloudService extends BaseResource {
    * **NOTE: This property will not be serialized. It can only be populated by the server.**
    */
   readonly type?: string;
+}
+
+/**
+ * Guest OS Customization properties
+ */
+export interface GuestOSCustomization {
+  /**
+   * List of dns servers to use
+   */
+  dnsServers?: string[];
+  /**
+   * Virtual Machine hostname
+   */
+  hostName?: string;
+  /**
+   * Password for login
+   */
+  password?: string;
+  /**
+   * id of customization policy
+   */
+  policyId?: string;
+  /**
+   * Username for login
+   */
+  username?: string;
+}
+
+/**
+ * Guest OS nic customization
+ */
+export interface GuestOSNICCustomization {
+  /**
+   * IP address allocation method. Possible values include: 'static', 'dynamic'
+   */
+  allocation?: Allocation;
+  /**
+   * List of dns servers to use
+   */
+  dnsServers?: string[];
+  /**
+   * Gateway addresses assigned to nic
+   */
+  gateway?: string[];
+  /**
+   * Static ip address for nic
+   */
+  ipAddress?: string;
+  /**
+   * Network mask for nic
+   */
+  mask?: string;
+  /**
+   * primary WINS server for Windows
+   */
+  primaryWinsServer?: string;
+  /**
+   * secondary WINS server for Windows
+   */
+  secondaryWinsServer?: string;
 }
 
 /**
@@ -496,6 +713,10 @@ export interface VirtualNetwork {
  * Virtual NIC model
  */
 export interface VirtualNic {
+  /**
+   * guest OS customization for nic
+   */
+  customization?: GuestOSNICCustomization;
   /**
    * NIC ip address
    */
@@ -835,6 +1056,10 @@ export interface VirtualMachine extends BaseResource {
    */
   readonly controllers?: VirtualDiskController[];
   /**
+   * Virtual machine properties
+   */
+  customization?: GuestOSCustomization;
+  /**
    * The list of Virtual Disks
    */
   disks?: VirtualDisk[];
@@ -871,7 +1096,7 @@ export interface VirtualMachine extends BaseResource {
    */
   numberOfCores: number;
   /**
-   * Password for login
+   * Password for login. Deprecated - use customization property
    */
   password?: string;
   /**
@@ -903,7 +1128,7 @@ export interface VirtualMachine extends BaseResource {
    */
   templateId?: string;
   /**
-   * Username for login
+   * Username for login. Deprecated - use customization property
    */
   username?: string;
   /**
@@ -1042,6 +1267,17 @@ export interface SkusAvailabilityListOptionalParams extends msRest.RequestOption
    * sku id, if no sku is passed availability for all skus will be returned
    */
   skuId?: string;
+}
+
+/**
+ * Optional Parameters.
+ */
+export interface CustomizationPoliciesListOptionalParams extends msRest.RequestOptionsBase {
+  /**
+   * The filter to apply on the list operation. only type is allowed here as a filter e.g.
+   * $filter=type eq 'xxxx'
+   */
+  filter?: string;
 }
 
 /**
@@ -1281,6 +1517,18 @@ export interface PrivateCloudList extends Array<PrivateCloud> {
 
 /**
  * @interface
+ * List of customization polices response model
+ * @extends Array<CustomizationPolicy>
+ */
+export interface CustomizationPoliciesListResponse extends Array<CustomizationPolicy> {
+  /**
+   * Link for next list of the Customization policy
+   */
+  nextLink?: string;
+}
+
+/**
+ * @interface
  * List of resource pools response model
  * @extends Array<ResourcePool>
  */
@@ -1428,6 +1676,47 @@ export type VirtualMachineStatus = 'running' | 'suspended' | 'poweredoff' | 'upd
  * @enum {string}
  */
 export type StopMode = 'reboot' | 'suspend' | 'shutdown' | 'poweroff';
+
+/**
+ * Defines values for Type.
+ * Possible values include: 'USER_DEFINED', 'PREFIX_BASED', 'FIXED', 'VIRTUAL_MACHINE_NAME',
+ * 'CUSTOM_NAME'
+ * @readonly
+ * @enum {string}
+ */
+export type Type = 'USER_DEFINED' | 'PREFIX_BASED' | 'FIXED' | 'VIRTUAL_MACHINE_NAME' | 'CUSTOM_NAME';
+
+/**
+ * Defines values for Type1.
+ * Possible values include: 'CUSTOM', 'DHCP_IP', 'FIXED_IP', 'USER_DEFINED'
+ * @readonly
+ * @enum {string}
+ */
+export type Type1 = 'CUSTOM' | 'DHCP_IP' | 'FIXED_IP' | 'USER_DEFINED';
+
+/**
+ * Defines values for Type2.
+ * Possible values include: 'WINDOWS_TEXT', 'WINDOWS', 'LINUX'
+ * @readonly
+ * @enum {string}
+ */
+export type Type2 = 'WINDOWS_TEXT' | 'WINDOWS' | 'LINUX';
+
+/**
+ * Defines values for CustomizationPolicyPropertiesType.
+ * Possible values include: 'LINUX', 'WINDOWS'
+ * @readonly
+ * @enum {string}
+ */
+export type CustomizationPolicyPropertiesType = 'LINUX' | 'WINDOWS';
+
+/**
+ * Defines values for Allocation.
+ * Possible values include: 'static', 'dynamic'
+ * @readonly
+ * @enum {string}
+ */
+export type Allocation = 'static' | 'dynamic';
 
 /**
  * Contains response data for the list operation.
@@ -1906,6 +2195,66 @@ export type PrivateCloudsListNextResponse = PrivateCloudList & {
        * The response body as parsed JSON or XML
        */
       parsedBody: PrivateCloudList;
+    };
+};
+
+/**
+ * Contains response data for the list operation.
+ */
+export type CustomizationPoliciesListResponse2 = CustomizationPoliciesListResponse & {
+  /**
+   * The underlying HTTP response.
+   */
+  _response: msRest.HttpResponse & {
+      /**
+       * The response body as text (string format)
+       */
+      bodyAsText: string;
+
+      /**
+       * The response body as parsed JSON or XML
+       */
+      parsedBody: CustomizationPoliciesListResponse;
+    };
+};
+
+/**
+ * Contains response data for the get operation.
+ */
+export type CustomizationPoliciesGetResponse = CustomizationPolicy & {
+  /**
+   * The underlying HTTP response.
+   */
+  _response: msRest.HttpResponse & {
+      /**
+       * The response body as text (string format)
+       */
+      bodyAsText: string;
+
+      /**
+       * The response body as parsed JSON or XML
+       */
+      parsedBody: CustomizationPolicy;
+    };
+};
+
+/**
+ * Contains response data for the listNext operation.
+ */
+export type CustomizationPoliciesListNextResponse = CustomizationPoliciesListResponse & {
+  /**
+   * The underlying HTTP response.
+   */
+  _response: msRest.HttpResponse & {
+      /**
+       * The response body as text (string format)
+       */
+      bodyAsText: string;
+
+      /**
+       * The response body as parsed JSON or XML
+       */
+      parsedBody: CustomizationPoliciesListResponse;
     };
 };
 

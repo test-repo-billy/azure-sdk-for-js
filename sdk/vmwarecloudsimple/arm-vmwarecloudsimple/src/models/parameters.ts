@@ -30,13 +30,23 @@ export const apiVersion: msRest.OperationQueryParameter = {
     }
   }
 };
+export const customizationPolicyName: msRest.OperationURLParameter = {
+  parameterPath: "customizationPolicyName",
+  mapper: {
+    required: true,
+    serializedName: "customizationPolicyName",
+    type: {
+      name: "String"
+    }
+  }
+};
 export const dedicatedCloudNodeName: msRest.OperationURLParameter = {
   parameterPath: "dedicatedCloudNodeName",
   mapper: {
     required: true,
     serializedName: "dedicatedCloudNodeName",
     constraints: {
-      Pattern: /^[-a-zA-Z0-9]+$/
+      Pattern: /^[a-zA-Z0-9]([-_.a-zA-Z0-9]*[a-zA-Z0-9])?$/
     },
     type: {
       name: "String"
@@ -59,7 +69,7 @@ export const dedicatedCloudServiceName1: msRest.OperationURLParameter = {
     required: true,
     serializedName: "dedicatedCloudServiceName",
     constraints: {
-      Pattern: /^[-a-zA-Z0-9]+$/
+      Pattern: /^[a-zA-Z0-9]([-_.a-zA-Z0-9]*[a-zA-Z0-9])?$/
     },
     type: {
       name: "String"
@@ -229,7 +239,7 @@ export const virtualMachineName1: msRest.OperationURLParameter = {
     required: true,
     serializedName: "virtualMachineName",
     constraints: {
-      Pattern: /^[-a-zA-Z0-9]+$/
+      Pattern: /^[a-zA-Z0-9]([-_.a-zA-Z0-9]*[a-zA-Z0-9])?$/
     },
     type: {
       name: "String"

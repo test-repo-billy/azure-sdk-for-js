@@ -7,22 +7,15 @@
  */
 
 export {
-  BaseResource,
   CSRPError,
   CSRPErrorBody,
-  DedicatedCloudNode,
-  DedicatedCloudNodeListResponse,
-  DedicatedCloudNodesCreateOrUpdateHeaders,
-  DedicatedCloudNodesDeleteHeaders,
-  DedicatedCloudService,
-  GuestOSCustomization,
-  GuestOSNICCustomization,
-  PatchPayload,
-  ResourcePool,
-  Sku,
-  VirtualDisk,
-  VirtualDiskController,
-  VirtualMachine,
-  VirtualNetwork,
-  VirtualNic
+  CustomizationHostName,
+  CustomizationIdentity,
+  CustomizationIdentityUserData,
+  CustomizationIPAddress,
+  CustomizationIPSettings,
+  CustomizationNicSetting,
+  CustomizationPoliciesListResponse,
+  CustomizationPolicy,
+  CustomizationSpecification
 } from "../models/mappers";

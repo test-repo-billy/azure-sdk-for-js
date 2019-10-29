@@ -12,6 +12,8 @@ export {
   CSRPErrorBody,
   DedicatedCloudNode,
   DedicatedCloudService,
+  GuestOSCustomization,
+  GuestOSNICCustomization,
   PatchPayload,
   ResourcePool,
   Sku,
