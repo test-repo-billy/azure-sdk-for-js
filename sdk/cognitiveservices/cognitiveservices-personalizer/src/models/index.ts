@@ -10,6 +10,190 @@
 import * as msRest from "@azure/ms-rest-js";
 
 /**
+ * The configuration of the service.
+ */
+export interface ServiceConfiguration {
+  /**
+   * The time span waited until a request is marked with the default reward.
+   */
+  rewardWaitTime: string;
+  /**
+   * The reward given if a reward is not received within the specified wait time.
+   */
+  defaultReward: number;
+  /**
+   * The function used to process rewards.
+   */
+  rewardAggregation: string;
+  /**
+   * The percentage of rank responses that will use exploration.
+   */
+  explorationPercentage: number;
+  /**
+   * The time delay between exporting trained models.
+   */
+  modelExportFrequency: string;
+  /**
+   * Flag indicates whether log mirroring is enabled.
+   */
+  logMirrorEnabled?: boolean;
+  /**
+   * Azure storage account container SAS URI for log mirroring.
+   */
+  logMirrorSasUri?: string;
+  /**
+   * Number of days historical logs are to be maintained.
+   */
+  logRetentionDays: number;
+}
+
+/**
+ * Policy specifying how to train the model.
+ */
+export interface PolicyContract {
+  /**
+   * Name of the Policy.
+   */
+  name: string;
+  /**
+   * Arguments of the Policy.
+   */
+  argumentsProperty: string;
+}
+
+/**
+ * An interface representing PolicyResultSummary.
+ */
+export interface PolicyResultSummary {
+  /**
+   * **NOTE: This property will not be serialized. It can only be populated by the server.**
+   */
+  readonly timeStamp?: Date;
+  /**
+   * **NOTE: This property will not be serialized. It can only be populated by the server.**
+   */
+  readonly ipsEstimatorNumerator?: number;
+  /**
+   * **NOTE: This property will not be serialized. It can only be populated by the server.**
+   */
+  readonly ipsEstimatorDenominator?: number;
+  /**
+   * **NOTE: This property will not be serialized. It can only be populated by the server.**
+   */
+  readonly snipsEstimatorDenominator?: number;
+  /**
+   * **NOTE: This property will not be serialized. It can only be populated by the server.**
+   */
+  readonly aggregateTimeWindow?: string;
+  nonZeroProbability?: number;
+  /**
+   * **NOTE: This property will not be serialized. It can only be populated by the server.**
+   */
+  readonly confidenceInterval?: number;
+  /**
+   * **NOTE: This property will not be serialized. It can only be populated by the server.**
+   */
+  readonly sumOfSquares?: number;
+}
+
+/**
+ * An interface representing PolicyResultTotalSummary.
+ */
+export interface PolicyResultTotalSummary extends PolicyResultSummary {
+}
+
+/**
+ * An interface representing PolicyResult.
+ */
+export interface PolicyResult {
+  /**
+   * **NOTE: This property will not be serialized. It can only be populated by the server.**
+   */
+  readonly name?: string;
+  /**
+   * **NOTE: This property will not be serialized. It can only be populated by the server.**
+   */
+  readonly argumentsProperty?: string;
+  /**
+   * **NOTE: This property will not be serialized. It can only be populated by the server.**
+   */
+  readonly summary?: PolicyResultSummary[];
+  /**
+   * **NOTE: This property will not be serialized. It can only be populated by the server.**
+   */
+  readonly totalSummary?: PolicyResultTotalSummary;
+}
+
+/**
+ * An interface representing Evaluation.
+ */
+export interface Evaluation {
+  /**
+   * **NOTE: This property will not be serialized. It can only be populated by the server.**
+   */
+  readonly id?: string;
+  /**
+   * **NOTE: This property will not be serialized. It can only be populated by the server.**
+   */
+  readonly name?: string;
+  /**
+   * **NOTE: This property will not be serialized. It can only be populated by the server.**
+   */
+  readonly startTime?: Date;
+  /**
+   * **NOTE: This property will not be serialized. It can only be populated by the server.**
+   */
+  readonly endTime?: Date;
+  /**
+   * **NOTE: This property will not be serialized. It can only be populated by the server.**
+   */
+  readonly jobId?: string;
+  /**
+   * Possible values include: 'completed', 'pending', 'failed', 'notSubmitted'
+   * **NOTE: This property will not be serialized. It can only be populated by the server.**
+   */
+  readonly status?: EvaluationJobStatus;
+  policyResults?: PolicyResult[];
+  featureImportance?: string[][];
+}
+
+/**
+ * A counterfactual evaluation.
+ */
+export interface EvaluationContract {
+  /**
+   * True if the evaluation should explore for a more optimal policy.
+   */
+  enableOfflineExperimentation?: boolean;
+  /**
+   * The name of the evaluation.
+   */
+  name: string;
+  /**
+   * The start time of the evaluation.
+   */
+  startTime: Date;
+  /**
+   * The end time of the evaluation.
+   */
+  endTime: Date;
+  /**
+   * Additional policies to evaluate.
+   */
+  policies: PolicyContract[];
+}
+
+/**
+ * Reward given to a rank response.
+ */
+export interface RewardRequest {
+  /**
+   * Reward to be assigned to an action. Value should be between -1 and 1 inclusive.
+   */
+  value: number;
+}
+
+/**
  * An object containing more specific information than the parent object about the error.
  */
 export interface InternalError {
@@ -61,13 +245,47 @@ export interface ErrorResponse {
 }
 
 /**
- * Reward given to a rank response.
+ * An interface representing DateRange.
  */
-export interface RewardRequest {
+export interface DateRange {
   /**
-   * Reward to be assigned to an action. Value should be between -1 and 1 inclusive.
+   * **NOTE: This property will not be serialized. It can only be populated by the server.**
    */
-  value: number;
+  readonly from?: Date;
+  /**
+   * **NOTE: This property will not be serialized. It can only be populated by the server.**
+   */
+  readonly to?: Date;
+}
+
+/**
+ * An interface representing LogsPropertiesDateRange.
+ */
+export interface LogsPropertiesDateRange extends DateRange {
+}
+
+/**
+ * An interface representing LogsProperties.
+ */
+export interface LogsProperties {
+  /**
+   * **NOTE: This property will not be serialized. It can only be populated by the server.**
+   */
+  readonly dateRange?: LogsPropertiesDateRange;
+}
+
+/**
+ * An interface representing ModelProperties.
+ */
+export interface ModelProperties {
+  /**
+   * **NOTE: This property will not be serialized. It can only be populated by the server.**
+   */
+  readonly creationTime?: Date;
+  /**
+   * **NOTE: This property will not be serialized. It can only be populated by the server.**
+   */
+  readonly lastModifiedTime?: Date;
 }
 
 /**
@@ -154,8 +372,8 @@ export interface RankResponse {
    */
   readonly eventId?: string;
   /**
-   * The action chosen by the Personalizer service. This is the action for which to report the
-   * reward. This might not be the
+   * The action chosen by the Personalizer service. This is the action your application should
+   * display, and for which to report the reward. This might not be the
    * first found in 'ranking' if an action in the request in first position was part of the
    * excluded ids.
    * **NOTE: This property will not be serialized. It can only be populated by the server.**
@@ -164,12 +382,255 @@ export interface RankResponse {
 }
 
 /**
+ * An interface representing ContainerStatus.
+ */
+export interface ContainerStatus {
+  service?: string;
+  apiStatus?: string;
+  apiStatusMessage?: string;
+}
+
+/**
+ * Defines values for EvaluationJobStatus.
+ * Possible values include: 'completed', 'pending', 'failed', 'notSubmitted'
+ * @readonly
+ * @enum {string}
+ */
+export type EvaluationJobStatus = 'completed' | 'pending' | 'failed' | 'notSubmitted';
+
+/**
  * Defines values for ErrorCode.
  * Possible values include: 'BadRequest', 'ResourceNotFound', 'InternalServerError'
  * @readonly
  * @enum {string}
  */
 export type ErrorCode = 'BadRequest' | 'ResourceNotFound' | 'InternalServerError';
+
+/**
+ * Contains response data for the get operation.
+ */
+export type ServiceConfigurationGetResponse = ServiceConfiguration & {
+  /**
+   * The underlying HTTP response.
+   */
+  _response: msRest.HttpResponse & {
+      /**
+       * The response body as text (string format)
+       */
+      bodyAsText: string;
+
+      /**
+       * The response body as parsed JSON or XML
+       */
+      parsedBody: ServiceConfiguration;
+    };
+};
+
+/**
+ * Contains response data for the update operation.
+ */
+export type ServiceConfigurationUpdateResponse = ServiceConfiguration & {
+  /**
+   * The underlying HTTP response.
+   */
+  _response: msRest.HttpResponse & {
+      /**
+       * The response body as text (string format)
+       */
+      bodyAsText: string;
+
+      /**
+       * The response body as parsed JSON or XML
+       */
+      parsedBody: ServiceConfiguration;
+    };
+};
+
+/**
+ * Contains response data for the get operation.
+ */
+export type PolicyGetResponse = PolicyContract & {
+  /**
+   * The underlying HTTP response.
+   */
+  _response: msRest.HttpResponse & {
+      /**
+       * The response body as text (string format)
+       */
+      bodyAsText: string;
+
+      /**
+       * The response body as parsed JSON or XML
+       */
+      parsedBody: PolicyContract;
+    };
+};
+
+/**
+ * Contains response data for the update operation.
+ */
+export type PolicyUpdateResponse = PolicyContract & {
+  /**
+   * The underlying HTTP response.
+   */
+  _response: msRest.HttpResponse & {
+      /**
+       * The response body as text (string format)
+       */
+      bodyAsText: string;
+
+      /**
+       * The response body as parsed JSON or XML
+       */
+      parsedBody: PolicyContract;
+    };
+};
+
+/**
+ * Contains response data for the deleteMethod operation.
+ */
+export type PolicyDeleteMethodResponse = PolicyContract & {
+  /**
+   * The underlying HTTP response.
+   */
+  _response: msRest.HttpResponse & {
+      /**
+       * The response body as text (string format)
+       */
+      bodyAsText: string;
+
+      /**
+       * The response body as parsed JSON or XML
+       */
+      parsedBody: PolicyContract;
+    };
+};
+
+/**
+ * Contains response data for the get operation.
+ */
+export type EvaluationsGetResponse = Evaluation & {
+  /**
+   * The underlying HTTP response.
+   */
+  _response: msRest.HttpResponse & {
+      /**
+       * The response body as text (string format)
+       */
+      bodyAsText: string;
+
+      /**
+       * The response body as parsed JSON or XML
+       */
+      parsedBody: Evaluation;
+    };
+};
+
+/**
+ * Contains response data for the list operation.
+ */
+export type EvaluationsListResponse = Array<Evaluation> & {
+  /**
+   * The underlying HTTP response.
+   */
+  _response: msRest.HttpResponse & {
+      /**
+       * The response body as text (string format)
+       */
+      bodyAsText: string;
+
+      /**
+       * The response body as parsed JSON or XML
+       */
+      parsedBody: Evaluation[];
+    };
+};
+
+/**
+ * Contains response data for the create operation.
+ */
+export type EvaluationsCreateResponse = Evaluation & {
+  /**
+   * The underlying HTTP response.
+   */
+  _response: msRest.HttpResponse & {
+      /**
+       * The response body as text (string format)
+       */
+      bodyAsText: string;
+
+      /**
+       * The response body as parsed JSON or XML
+       */
+      parsedBody: Evaluation;
+    };
+};
+
+/**
+ * Contains response data for the getProperties operation.
+ */
+export type LogGetPropertiesResponse = LogsProperties & {
+  /**
+   * The underlying HTTP response.
+   */
+  _response: msRest.HttpResponse & {
+      /**
+       * The response body as text (string format)
+       */
+      bodyAsText: string;
+
+      /**
+       * The response body as parsed JSON or XML
+       */
+      parsedBody: LogsProperties;
+    };
+};
+
+/**
+ * Contains response data for the get operation.
+ */
+export type ModelGetResponse = {
+  /**
+   * BROWSER ONLY
+   *
+   * The response body as a browser Blob.
+   * Always undefined in node.js.
+   */
+  blobBody?: Promise<Blob>;
+
+  /**
+   * NODEJS ONLY
+   *
+   * The response body as a node.js Readable stream.
+   * Always undefined in the browser.
+   */
+  readableStreamBody?: NodeJS.ReadableStream;
+
+  /**
+   * The underlying HTTP response.
+   */
+  _response: msRest.HttpResponse;
+};
+
+/**
+ * Contains response data for the getProperties operation.
+ */
+export type ModelGetPropertiesResponse = ModelProperties & {
+  /**
+   * The underlying HTTP response.
+   */
+  _response: msRest.HttpResponse & {
+      /**
+       * The response body as text (string format)
+       */
+      bodyAsText: string;
+
+      /**
+       * The response body as parsed JSON or XML
+       */
+      parsedBody: ModelProperties;
+    };
+};
 
 /**
  * Contains response data for the rank operation.
