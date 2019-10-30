@@ -11,4 +11,5 @@
 export * from "./linkedServices";
 export * from "./dataSources";
 export * from "./workspaces";
+export * from "./tables";
 export * from "./operations";

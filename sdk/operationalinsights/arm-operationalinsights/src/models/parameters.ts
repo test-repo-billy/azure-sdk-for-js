@@ -81,7 +81,7 @@ export const nextPageLink: msRest.OperationURLParameter = {
   },
   skipEncoding: true
 };
-export const resourceGroupName0: msRest.OperationURLParameter = {
+export const resourceGroupName: msRest.OperationURLParameter = {
   parameterPath: "resourceGroupName",
   mapper: {
     required: true,
@@ -91,16 +91,6 @@ export const resourceGroupName0: msRest.OperationURLParameter = {
       MinLength: 1,
       Pattern: /^[-\w\._\(\)]+$/
     },
-    type: {
-      name: "String"
-    }
-  }
-};
-export const resourceGroupName1: msRest.OperationURLParameter = {
-  parameterPath: "resourceGroupName",
-  mapper: {
-    required: true,
-    serializedName: "resourceGroupName",
     type: {
       name: "String"
     }
@@ -128,17 +118,17 @@ export const subscriptionId: msRest.OperationURLParameter = {
     }
   }
 };
-export const workspaceName0: msRest.OperationURLParameter = {
-  parameterPath: "workspaceName",
+export const tableName: msRest.OperationURLParameter = {
+  parameterPath: "tableName",
   mapper: {
     required: true,
-    serializedName: "workspaceName",
+    serializedName: "tableName",
     type: {
       name: "String"
     }
   }
 };
-export const workspaceName1: msRest.OperationURLParameter = {
+export const workspaceName: msRest.OperationURLParameter = {
   parameterPath: "workspaceName",
   mapper: {
     required: true,

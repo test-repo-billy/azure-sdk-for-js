@@ -29,31 +29,38 @@ export class Workspaces {
 
   /**
    * Disables an intelligence pack for a given workspace.
+   * @param subscriptionId Gets subscription credentials which uniquely identify Microsoft Azure
+   * subscription. The subscription ID forms part of the URI for every service call.
    * @param resourceGroupName The name of the resource group to get. The name is case insensitive.
-   * @param workspaceName Name of the Log Analytics Workspace.
+   * @param workspaceName The name of the workspace.
    * @param intelligencePackName The name of the intelligence pack to be disabled.
    * @param [options] The optional parameters
    * @returns Promise<msRest.RestResponse>
    */
-  disableIntelligencePack(resourceGroupName: string, workspaceName: string, intelligencePackName: string, options?: msRest.RequestOptionsBase): Promise<msRest.RestResponse>;
+  disableIntelligencePack(subscriptionId: string, resourceGroupName: string, workspaceName: string, intelligencePackName: string, options?: msRest.RequestOptionsBase): Promise<msRest.RestResponse>;
   /**
+   * @param subscriptionId Gets subscription credentials which uniquely identify Microsoft Azure
+   * subscription. The subscription ID forms part of the URI for every service call.
    * @param resourceGroupName The name of the resource group to get. The name is case insensitive.
-   * @param workspaceName Name of the Log Analytics Workspace.
+   * @param workspaceName The name of the workspace.
    * @param intelligencePackName The name of the intelligence pack to be disabled.
    * @param callback The callback
    */
-  disableIntelligencePack(resourceGroupName: string, workspaceName: string, intelligencePackName: string, callback: msRest.ServiceCallback<void>): void;
+  disableIntelligencePack(subscriptionId: string, resourceGroupName: string, workspaceName: string, intelligencePackName: string, callback: msRest.ServiceCallback<void>): void;
   /**
+   * @param subscriptionId Gets subscription credentials which uniquely identify Microsoft Azure
+   * subscription. The subscription ID forms part of the URI for every service call.
    * @param resourceGroupName The name of the resource group to get. The name is case insensitive.
-   * @param workspaceName Name of the Log Analytics Workspace.
+   * @param workspaceName The name of the workspace.
    * @param intelligencePackName The name of the intelligence pack to be disabled.
    * @param options The optional parameters
    * @param callback The callback
    */
-  disableIntelligencePack(resourceGroupName: string, workspaceName: string, intelligencePackName: string, options: msRest.RequestOptionsBase, callback: msRest.ServiceCallback<void>): void;
-  disableIntelligencePack(resourceGroupName: string, workspaceName: string, intelligencePackName: string, options?: msRest.RequestOptionsBase | msRest.ServiceCallback<void>, callback?: msRest.ServiceCallback<void>): Promise<msRest.RestResponse> {
+  disableIntelligencePack(subscriptionId: string, resourceGroupName: string, workspaceName: string, intelligencePackName: string, options: msRest.RequestOptionsBase, callback: msRest.ServiceCallback<void>): void;
+  disableIntelligencePack(subscriptionId: string, resourceGroupName: string, workspaceName: string, intelligencePackName: string, options?: msRest.RequestOptionsBase | msRest.ServiceCallback<void>, callback?: msRest.ServiceCallback<void>): Promise<msRest.RestResponse> {
     return this.client.sendOperationRequest(
       {
+        subscriptionId,
         resourceGroupName,
         workspaceName,
         intelligencePackName,
@@ -65,31 +72,38 @@ export class Workspaces {
 
   /**
    * Enables an intelligence pack for a given workspace.
+   * @param subscriptionId Gets subscription credentials which uniquely identify Microsoft Azure
+   * subscription. The subscription ID forms part of the URI for every service call.
    * @param resourceGroupName The name of the resource group to get. The name is case insensitive.
-   * @param workspaceName Name of the Log Analytics Workspace.
+   * @param workspaceName The name of the workspace.
    * @param intelligencePackName The name of the intelligence pack to be enabled.
    * @param [options] The optional parameters
    * @returns Promise<msRest.RestResponse>
    */
-  enableIntelligencePack(resourceGroupName: string, workspaceName: string, intelligencePackName: string, options?: msRest.RequestOptionsBase): Promise<msRest.RestResponse>;
+  enableIntelligencePack(subscriptionId: string, resourceGroupName: string, workspaceName: string, intelligencePackName: string, options?: msRest.RequestOptionsBase): Promise<msRest.RestResponse>;
   /**
+   * @param subscriptionId Gets subscription credentials which uniquely identify Microsoft Azure
+   * subscription. The subscription ID forms part of the URI for every service call.
    * @param resourceGroupName The name of the resource group to get. The name is case insensitive.
-   * @param workspaceName Name of the Log Analytics Workspace.
+   * @param workspaceName The name of the workspace.
    * @param intelligencePackName The name of the intelligence pack to be enabled.
    * @param callback The callback
    */
-  enableIntelligencePack(resourceGroupName: string, workspaceName: string, intelligencePackName: string, callback: msRest.ServiceCallback<void>): void;
+  enableIntelligencePack(subscriptionId: string, resourceGroupName: string, workspaceName: string, intelligencePackName: string, callback: msRest.ServiceCallback<void>): void;
   /**
+   * @param subscriptionId Gets subscription credentials which uniquely identify Microsoft Azure
+   * subscription. The subscription ID forms part of the URI for every service call.
    * @param resourceGroupName The name of the resource group to get. The name is case insensitive.
-   * @param workspaceName Name of the Log Analytics Workspace.
+   * @param workspaceName The name of the workspace.
    * @param intelligencePackName The name of the intelligence pack to be enabled.
    * @param options The optional parameters
    * @param callback The callback
    */
-  enableIntelligencePack(resourceGroupName: string, workspaceName: string, intelligencePackName: string, options: msRest.RequestOptionsBase, callback: msRest.ServiceCallback<void>): void;
-  enableIntelligencePack(resourceGroupName: string, workspaceName: string, intelligencePackName: string, options?: msRest.RequestOptionsBase | msRest.ServiceCallback<void>, callback?: msRest.ServiceCallback<void>): Promise<msRest.RestResponse> {
+  enableIntelligencePack(subscriptionId: string, resourceGroupName: string, workspaceName: string, intelligencePackName: string, options: msRest.RequestOptionsBase, callback: msRest.ServiceCallback<void>): void;
+  enableIntelligencePack(subscriptionId: string, resourceGroupName: string, workspaceName: string, intelligencePackName: string, options?: msRest.RequestOptionsBase | msRest.ServiceCallback<void>, callback?: msRest.ServiceCallback<void>): Promise<msRest.RestResponse> {
     return this.client.sendOperationRequest(
       {
+        subscriptionId,
         resourceGroupName,
         workspaceName,
         intelligencePackName,
@@ -102,28 +116,35 @@ export class Workspaces {
   /**
    * Lists all the intelligence packs possible and whether they are enabled or disabled for a given
    * workspace.
+   * @param subscriptionId Gets subscription credentials which uniquely identify Microsoft Azure
+   * subscription. The subscription ID forms part of the URI for every service call.
    * @param resourceGroupName The name of the resource group to get. The name is case insensitive.
-   * @param workspaceName Name of the Log Analytics Workspace.
+   * @param workspaceName The name of the workspace.
    * @param [options] The optional parameters
    * @returns Promise<Models.WorkspacesListIntelligencePacksResponse>
    */
-  listIntelligencePacks(resourceGroupName: string, workspaceName: string, options?: msRest.RequestOptionsBase): Promise<Models.WorkspacesListIntelligencePacksResponse>;
+  listIntelligencePacks(subscriptionId: string, resourceGroupName: string, workspaceName: string, options?: msRest.RequestOptionsBase): Promise<Models.WorkspacesListIntelligencePacksResponse>;
   /**
+   * @param subscriptionId Gets subscription credentials which uniquely identify Microsoft Azure
+   * subscription. The subscription ID forms part of the URI for every service call.
    * @param resourceGroupName The name of the resource group to get. The name is case insensitive.
-   * @param workspaceName Name of the Log Analytics Workspace.
+   * @param workspaceName The name of the workspace.
    * @param callback The callback
    */
-  listIntelligencePacks(resourceGroupName: string, workspaceName: string, callback: msRest.ServiceCallback<Models.IntelligencePack[]>): void;
+  listIntelligencePacks(subscriptionId: string, resourceGroupName: string, workspaceName: string, callback: msRest.ServiceCallback<Models.IntelligencePack[]>): void;
   /**
+   * @param subscriptionId Gets subscription credentials which uniquely identify Microsoft Azure
+   * subscription. The subscription ID forms part of the URI for every service call.
    * @param resourceGroupName The name of the resource group to get. The name is case insensitive.
-   * @param workspaceName Name of the Log Analytics Workspace.
+   * @param workspaceName The name of the workspace.
    * @param options The optional parameters
    * @param callback The callback
    */
-  listIntelligencePacks(resourceGroupName: string, workspaceName: string, options: msRest.RequestOptionsBase, callback: msRest.ServiceCallback<Models.IntelligencePack[]>): void;
-  listIntelligencePacks(resourceGroupName: string, workspaceName: string, options?: msRest.RequestOptionsBase | msRest.ServiceCallback<Models.IntelligencePack[]>, callback?: msRest.ServiceCallback<Models.IntelligencePack[]>): Promise<Models.WorkspacesListIntelligencePacksResponse> {
+  listIntelligencePacks(subscriptionId: string, resourceGroupName: string, workspaceName: string, options: msRest.RequestOptionsBase, callback: msRest.ServiceCallback<Models.IntelligencePack[]>): void;
+  listIntelligencePacks(subscriptionId: string, resourceGroupName: string, workspaceName: string, options?: msRest.RequestOptionsBase | msRest.ServiceCallback<Models.IntelligencePack[]>, callback?: msRest.ServiceCallback<Models.IntelligencePack[]>): Promise<Models.WorkspacesListIntelligencePacksResponse> {
     return this.client.sendOperationRequest(
       {
+        subscriptionId,
         resourceGroupName,
         workspaceName,
         options
@@ -134,28 +155,35 @@ export class Workspaces {
 
   /**
    * Gets the shared keys for a workspace.
+   * @param subscriptionId Gets subscription credentials which uniquely identify Microsoft Azure
+   * subscription. The subscription ID forms part of the URI for every service call.
    * @param resourceGroupName The name of the resource group to get. The name is case insensitive.
-   * @param workspaceName Name of the Log Analytics Workspace.
+   * @param workspaceName The name of the workspace.
    * @param [options] The optional parameters
    * @returns Promise<Models.WorkspacesGetSharedKeysResponse>
    */
-  getSharedKeys(resourceGroupName: string, workspaceName: string, options?: msRest.RequestOptionsBase): Promise<Models.WorkspacesGetSharedKeysResponse>;
+  getSharedKeys(subscriptionId: string, resourceGroupName: string, workspaceName: string, options?: msRest.RequestOptionsBase): Promise<Models.WorkspacesGetSharedKeysResponse>;
   /**
+   * @param subscriptionId Gets subscription credentials which uniquely identify Microsoft Azure
+   * subscription. The subscription ID forms part of the URI for every service call.
    * @param resourceGroupName The name of the resource group to get. The name is case insensitive.
-   * @param workspaceName Name of the Log Analytics Workspace.
+   * @param workspaceName The name of the workspace.
    * @param callback The callback
    */
-  getSharedKeys(resourceGroupName: string, workspaceName: string, callback: msRest.ServiceCallback<Models.SharedKeys>): void;
+  getSharedKeys(subscriptionId: string, resourceGroupName: string, workspaceName: string, callback: msRest.ServiceCallback<Models.SharedKeys>): void;
   /**
+   * @param subscriptionId Gets subscription credentials which uniquely identify Microsoft Azure
+   * subscription. The subscription ID forms part of the URI for every service call.
    * @param resourceGroupName The name of the resource group to get. The name is case insensitive.
-   * @param workspaceName Name of the Log Analytics Workspace.
+   * @param workspaceName The name of the workspace.
    * @param options The optional parameters
    * @param callback The callback
    */
-  getSharedKeys(resourceGroupName: string, workspaceName: string, options: msRest.RequestOptionsBase, callback: msRest.ServiceCallback<Models.SharedKeys>): void;
-  getSharedKeys(resourceGroupName: string, workspaceName: string, options?: msRest.RequestOptionsBase | msRest.ServiceCallback<Models.SharedKeys>, callback?: msRest.ServiceCallback<Models.SharedKeys>): Promise<Models.WorkspacesGetSharedKeysResponse> {
+  getSharedKeys(subscriptionId: string, resourceGroupName: string, workspaceName: string, options: msRest.RequestOptionsBase, callback: msRest.ServiceCallback<Models.SharedKeys>): void;
+  getSharedKeys(subscriptionId: string, resourceGroupName: string, workspaceName: string, options?: msRest.RequestOptionsBase | msRest.ServiceCallback<Models.SharedKeys>, callback?: msRest.ServiceCallback<Models.SharedKeys>): Promise<Models.WorkspacesGetSharedKeysResponse> {
     return this.client.sendOperationRequest(
       {
+        subscriptionId,
         resourceGroupName,
         workspaceName,
         options
@@ -166,28 +194,35 @@ export class Workspaces {
 
   /**
    * Gets a list of usage metrics for a workspace.
+   * @param subscriptionId Gets subscription credentials which uniquely identify Microsoft Azure
+   * subscription. The subscription ID forms part of the URI for every service call.
    * @param resourceGroupName The name of the resource group to get. The name is case insensitive.
    * @param workspaceName The name of the workspace.
    * @param [options] The optional parameters
    * @returns Promise<Models.WorkspacesListUsagesResponse>
    */
-  listUsages(resourceGroupName: string, workspaceName: string, options?: msRest.RequestOptionsBase): Promise<Models.WorkspacesListUsagesResponse>;
+  listUsages(subscriptionId: string, resourceGroupName: string, workspaceName: string, options?: msRest.RequestOptionsBase): Promise<Models.WorkspacesListUsagesResponse>;
   /**
+   * @param subscriptionId Gets subscription credentials which uniquely identify Microsoft Azure
+   * subscription. The subscription ID forms part of the URI for every service call.
    * @param resourceGroupName The name of the resource group to get. The name is case insensitive.
    * @param workspaceName The name of the workspace.
    * @param callback The callback
    */
-  listUsages(resourceGroupName: string, workspaceName: string, callback: msRest.ServiceCallback<Models.WorkspaceListUsagesResult>): void;
+  listUsages(subscriptionId: string, resourceGroupName: string, workspaceName: string, callback: msRest.ServiceCallback<Models.WorkspaceListUsagesResult>): void;
   /**
+   * @param subscriptionId Gets subscription credentials which uniquely identify Microsoft Azure
+   * subscription. The subscription ID forms part of the URI for every service call.
    * @param resourceGroupName The name of the resource group to get. The name is case insensitive.
    * @param workspaceName The name of the workspace.
    * @param options The optional parameters
    * @param callback The callback
    */
-  listUsages(resourceGroupName: string, workspaceName: string, options: msRest.RequestOptionsBase, callback: msRest.ServiceCallback<Models.WorkspaceListUsagesResult>): void;
-  listUsages(resourceGroupName: string, workspaceName: string, options?: msRest.RequestOptionsBase | msRest.ServiceCallback<Models.WorkspaceListUsagesResult>, callback?: msRest.ServiceCallback<Models.WorkspaceListUsagesResult>): Promise<Models.WorkspacesListUsagesResponse> {
+  listUsages(subscriptionId: string, resourceGroupName: string, workspaceName: string, options: msRest.RequestOptionsBase, callback: msRest.ServiceCallback<Models.WorkspaceListUsagesResult>): void;
+  listUsages(subscriptionId: string, resourceGroupName: string, workspaceName: string, options?: msRest.RequestOptionsBase | msRest.ServiceCallback<Models.WorkspaceListUsagesResult>, callback?: msRest.ServiceCallback<Models.WorkspaceListUsagesResult>): Promise<Models.WorkspacesListUsagesResponse> {
     return this.client.sendOperationRequest(
       {
+        subscriptionId,
         resourceGroupName,
         workspaceName,
         options
@@ -198,28 +233,35 @@ export class Workspaces {
 
   /**
    * Gets a list of management groups connected to a workspace.
+   * @param subscriptionId Gets subscription credentials which uniquely identify Microsoft Azure
+   * subscription. The subscription ID forms part of the URI for every service call.
    * @param resourceGroupName The name of the resource group to get. The name is case insensitive.
    * @param workspaceName The name of the workspace.
    * @param [options] The optional parameters
    * @returns Promise<Models.WorkspacesListManagementGroupsResponse>
    */
-  listManagementGroups(resourceGroupName: string, workspaceName: string, options?: msRest.RequestOptionsBase): Promise<Models.WorkspacesListManagementGroupsResponse>;
+  listManagementGroups(subscriptionId: string, resourceGroupName: string, workspaceName: string, options?: msRest.RequestOptionsBase): Promise<Models.WorkspacesListManagementGroupsResponse>;
   /**
+   * @param subscriptionId Gets subscription credentials which uniquely identify Microsoft Azure
+   * subscription. The subscription ID forms part of the URI for every service call.
    * @param resourceGroupName The name of the resource group to get. The name is case insensitive.
    * @param workspaceName The name of the workspace.
    * @param callback The callback
    */
-  listManagementGroups(resourceGroupName: string, workspaceName: string, callback: msRest.ServiceCallback<Models.WorkspaceListManagementGroupsResult>): void;
+  listManagementGroups(subscriptionId: string, resourceGroupName: string, workspaceName: string, callback: msRest.ServiceCallback<Models.WorkspaceListManagementGroupsResult>): void;
   /**
+   * @param subscriptionId Gets subscription credentials which uniquely identify Microsoft Azure
+   * subscription. The subscription ID forms part of the URI for every service call.
    * @param resourceGroupName The name of the resource group to get. The name is case insensitive.
    * @param workspaceName The name of the workspace.
    * @param options The optional parameters
    * @param callback The callback
    */
-  listManagementGroups(resourceGroupName: string, workspaceName: string, options: msRest.RequestOptionsBase, callback: msRest.ServiceCallback<Models.WorkspaceListManagementGroupsResult>): void;
-  listManagementGroups(resourceGroupName: string, workspaceName: string, options?: msRest.RequestOptionsBase | msRest.ServiceCallback<Models.WorkspaceListManagementGroupsResult>, callback?: msRest.ServiceCallback<Models.WorkspaceListManagementGroupsResult>): Promise<Models.WorkspacesListManagementGroupsResponse> {
+  listManagementGroups(subscriptionId: string, resourceGroupName: string, workspaceName: string, options: msRest.RequestOptionsBase, callback: msRest.ServiceCallback<Models.WorkspaceListManagementGroupsResult>): void;
+  listManagementGroups(subscriptionId: string, resourceGroupName: string, workspaceName: string, options?: msRest.RequestOptionsBase | msRest.ServiceCallback<Models.WorkspaceListManagementGroupsResult>, callback?: msRest.ServiceCallback<Models.WorkspaceListManagementGroupsResult>): Promise<Models.WorkspacesListManagementGroupsResponse> {
     return this.client.sendOperationRequest(
       {
+        subscriptionId,
         resourceGroupName,
         workspaceName,
         options
@@ -231,25 +273,32 @@ export class Workspaces {
   /**
    * Gets workspaces in a resource group.
    * @param resourceGroupName The name of the resource group to get. The name is case insensitive.
+   * @param subscriptionId Gets subscription credentials which uniquely identify Microsoft Azure
+   * subscription. The subscription ID forms part of the URI for every service call.
    * @param [options] The optional parameters
    * @returns Promise<Models.WorkspacesListByResourceGroupResponse>
    */
-  listByResourceGroup(resourceGroupName: string, options?: msRest.RequestOptionsBase): Promise<Models.WorkspacesListByResourceGroupResponse>;
+  listByResourceGroup(resourceGroupName: string, subscriptionId: string, options?: msRest.RequestOptionsBase): Promise<Models.WorkspacesListByResourceGroupResponse>;
   /**
    * @param resourceGroupName The name of the resource group to get. The name is case insensitive.
+   * @param subscriptionId Gets subscription credentials which uniquely identify Microsoft Azure
+   * subscription. The subscription ID forms part of the URI for every service call.
    * @param callback The callback
    */
-  listByResourceGroup(resourceGroupName: string, callback: msRest.ServiceCallback<Models.WorkspaceListResult>): void;
+  listByResourceGroup(resourceGroupName: string, subscriptionId: string, callback: msRest.ServiceCallback<Models.WorkspaceListResult>): void;
   /**
    * @param resourceGroupName The name of the resource group to get. The name is case insensitive.
+   * @param subscriptionId Gets subscription credentials which uniquely identify Microsoft Azure
+   * subscription. The subscription ID forms part of the URI for every service call.
    * @param options The optional parameters
    * @param callback The callback
    */
-  listByResourceGroup(resourceGroupName: string, options: msRest.RequestOptionsBase, callback: msRest.ServiceCallback<Models.WorkspaceListResult>): void;
-  listByResourceGroup(resourceGroupName: string, options?: msRest.RequestOptionsBase | msRest.ServiceCallback<Models.WorkspaceListResult>, callback?: msRest.ServiceCallback<Models.WorkspaceListResult>): Promise<Models.WorkspacesListByResourceGroupResponse> {
+  listByResourceGroup(resourceGroupName: string, subscriptionId: string, options: msRest.RequestOptionsBase, callback: msRest.ServiceCallback<Models.WorkspaceListResult>): void;
+  listByResourceGroup(resourceGroupName: string, subscriptionId: string, options?: msRest.RequestOptionsBase | msRest.ServiceCallback<Models.WorkspaceListResult>, callback?: msRest.ServiceCallback<Models.WorkspaceListResult>): Promise<Models.WorkspacesListByResourceGroupResponse> {
     return this.client.sendOperationRequest(
       {
         resourceGroupName,
+        subscriptionId,
         options
       },
       listByResourceGroupOperationSpec,
@@ -258,22 +307,29 @@ export class Workspaces {
 
   /**
    * Gets the workspaces in a subscription.
+   * @param subscriptionId Gets subscription credentials which uniquely identify Microsoft Azure
+   * subscription. The subscription ID forms part of the URI for every service call.
    * @param [options] The optional parameters
    * @returns Promise<Models.WorkspacesListResponse>
    */
-  list(options?: msRest.RequestOptionsBase): Promise<Models.WorkspacesListResponse>;
+  list(subscriptionId: string, options?: msRest.RequestOptionsBase): Promise<Models.WorkspacesListResponse>;
   /**
+   * @param subscriptionId Gets subscription credentials which uniquely identify Microsoft Azure
+   * subscription. The subscription ID forms part of the URI for every service call.
    * @param callback The callback
    */
-  list(callback: msRest.ServiceCallback<Models.WorkspaceListResult>): void;
+  list(subscriptionId: string, callback: msRest.ServiceCallback<Models.WorkspaceListResult>): void;
   /**
+   * @param subscriptionId Gets subscription credentials which uniquely identify Microsoft Azure
+   * subscription. The subscription ID forms part of the URI for every service call.
    * @param options The optional parameters
    * @param callback The callback
    */
-  list(options: msRest.RequestOptionsBase, callback: msRest.ServiceCallback<Models.WorkspaceListResult>): void;
-  list(options?: msRest.RequestOptionsBase | msRest.ServiceCallback<Models.WorkspaceListResult>, callback?: msRest.ServiceCallback<Models.WorkspaceListResult>): Promise<Models.WorkspacesListResponse> {
+  list(subscriptionId: string, options: msRest.RequestOptionsBase, callback: msRest.ServiceCallback<Models.WorkspaceListResult>): void;
+  list(subscriptionId: string, options?: msRest.RequestOptionsBase | msRest.ServiceCallback<Models.WorkspaceListResult>, callback?: msRest.ServiceCallback<Models.WorkspaceListResult>): Promise<Models.WorkspacesListResponse> {
     return this.client.sendOperationRequest(
       {
+        subscriptionId,
         options
       },
       listOperationSpec,
@@ -282,41 +338,50 @@ export class Workspaces {
 
   /**
    * Create or update a workspace.
-   * @param resourceGroupName The resource group name of the workspace.
+   * @param subscriptionId Gets subscription credentials which uniquely identify Microsoft Azure
+   * subscription. The subscription ID forms part of the URI for every service call.
+   * @param resourceGroupName The name of the resource group to get. The name is case insensitive.
    * @param workspaceName The name of the workspace.
    * @param parameters The parameters required to create or update a workspace.
    * @param [options] The optional parameters
    * @returns Promise<Models.WorkspacesCreateOrUpdateResponse>
    */
-  createOrUpdate(resourceGroupName: string, workspaceName: string, parameters: Models.Workspace, options?: msRest.RequestOptionsBase): Promise<Models.WorkspacesCreateOrUpdateResponse> {
-    return this.beginCreateOrUpdate(resourceGroupName,workspaceName,parameters,options)
+  createOrUpdate(subscriptionId: string, resourceGroupName: string, workspaceName: string, parameters: Models.Workspace, options?: msRest.RequestOptionsBase): Promise<Models.WorkspacesCreateOrUpdateResponse> {
+    return this.beginCreateOrUpdate(subscriptionId,resourceGroupName,workspaceName,parameters,options)
       .then(lroPoller => lroPoller.pollUntilFinished()) as Promise<Models.WorkspacesCreateOrUpdateResponse>;
   }
 
   /**
    * Deletes a workspace instance.
-   * @param resourceGroupName The resource group name of the workspace.
-   * @param workspaceName Name of the Log Analytics Workspace.
+   * @param subscriptionId Gets subscription credentials which uniquely identify Microsoft Azure
+   * subscription. The subscription ID forms part of the URI for every service call.
+   * @param resourceGroupName The name of the resource group to get. The name is case insensitive.
+   * @param workspaceName The name of the workspace.
    * @param [options] The optional parameters
    * @returns Promise<msRest.RestResponse>
    */
-  deleteMethod(resourceGroupName: string, workspaceName: string, options?: msRest.RequestOptionsBase): Promise<msRest.RestResponse>;
+  deleteMethod(subscriptionId: string, resourceGroupName: string, workspaceName: string, options?: msRest.RequestOptionsBase): Promise<msRest.RestResponse>;
   /**
-   * @param resourceGroupName The resource group name of the workspace.
-   * @param workspaceName Name of the Log Analytics Workspace.
+   * @param subscriptionId Gets subscription credentials which uniquely identify Microsoft Azure
+   * subscription. The subscription ID forms part of the URI for every service call.
+   * @param resourceGroupName The name of the resource group to get. The name is case insensitive.
+   * @param workspaceName The name of the workspace.
    * @param callback The callback
    */
-  deleteMethod(resourceGroupName: string, workspaceName: string, callback: msRest.ServiceCallback<void>): void;
+  deleteMethod(subscriptionId: string, resourceGroupName: string, workspaceName: string, callback: msRest.ServiceCallback<void>): void;
   /**
-   * @param resourceGroupName The resource group name of the workspace.
-   * @param workspaceName Name of the Log Analytics Workspace.
+   * @param subscriptionId Gets subscription credentials which uniquely identify Microsoft Azure
+   * subscription. The subscription ID forms part of the URI for every service call.
+   * @param resourceGroupName The name of the resource group to get. The name is case insensitive.
+   * @param workspaceName The name of the workspace.
    * @param options The optional parameters
    * @param callback The callback
    */
-  deleteMethod(resourceGroupName: string, workspaceName: string, options: msRest.RequestOptionsBase, callback: msRest.ServiceCallback<void>): void;
-  deleteMethod(resourceGroupName: string, workspaceName: string, options?: msRest.RequestOptionsBase | msRest.ServiceCallback<void>, callback?: msRest.ServiceCallback<void>): Promise<msRest.RestResponse> {
+  deleteMethod(subscriptionId: string, resourceGroupName: string, workspaceName: string, options: msRest.RequestOptionsBase, callback: msRest.ServiceCallback<void>): void;
+  deleteMethod(subscriptionId: string, resourceGroupName: string, workspaceName: string, options?: msRest.RequestOptionsBase | msRest.ServiceCallback<void>, callback?: msRest.ServiceCallback<void>): Promise<msRest.RestResponse> {
     return this.client.sendOperationRequest(
       {
+        subscriptionId,
         resourceGroupName,
         workspaceName,
         options
@@ -327,28 +392,35 @@ export class Workspaces {
 
   /**
    * Gets a workspace instance.
-   * @param resourceGroupName The resource group name of the workspace.
-   * @param workspaceName Name of the Log Analytics Workspace.
+   * @param subscriptionId Gets subscription credentials which uniquely identify Microsoft Azure
+   * subscription. The subscription ID forms part of the URI for every service call.
+   * @param resourceGroupName The name of the resource group to get. The name is case insensitive.
+   * @param workspaceName The name of the workspace.
    * @param [options] The optional parameters
    * @returns Promise<Models.WorkspacesGetResponse>
    */
-  get(resourceGroupName: string, workspaceName: string, options?: msRest.RequestOptionsBase): Promise<Models.WorkspacesGetResponse>;
+  get(subscriptionId: string, resourceGroupName: string, workspaceName: string, options?: msRest.RequestOptionsBase): Promise<Models.WorkspacesGetResponse>;
   /**
-   * @param resourceGroupName The resource group name of the workspace.
-   * @param workspaceName Name of the Log Analytics Workspace.
+   * @param subscriptionId Gets subscription credentials which uniquely identify Microsoft Azure
+   * subscription. The subscription ID forms part of the URI for every service call.
+   * @param resourceGroupName The name of the resource group to get. The name is case insensitive.
+   * @param workspaceName The name of the workspace.
    * @param callback The callback
    */
-  get(resourceGroupName: string, workspaceName: string, callback: msRest.ServiceCallback<Models.Workspace>): void;
+  get(subscriptionId: string, resourceGroupName: string, workspaceName: string, callback: msRest.ServiceCallback<Models.Workspace>): void;
   /**
-   * @param resourceGroupName The resource group name of the workspace.
-   * @param workspaceName Name of the Log Analytics Workspace.
+   * @param subscriptionId Gets subscription credentials which uniquely identify Microsoft Azure
+   * subscription. The subscription ID forms part of the URI for every service call.
+   * @param resourceGroupName The name of the resource group to get. The name is case insensitive.
+   * @param workspaceName The name of the workspace.
    * @param options The optional parameters
    * @param callback The callback
    */
-  get(resourceGroupName: string, workspaceName: string, options: msRest.RequestOptionsBase, callback: msRest.ServiceCallback<Models.Workspace>): void;
-  get(resourceGroupName: string, workspaceName: string, options?: msRest.RequestOptionsBase | msRest.ServiceCallback<Models.Workspace>, callback?: msRest.ServiceCallback<Models.Workspace>): Promise<Models.WorkspacesGetResponse> {
+  get(subscriptionId: string, resourceGroupName: string, workspaceName: string, options: msRest.RequestOptionsBase, callback: msRest.ServiceCallback<Models.Workspace>): void;
+  get(subscriptionId: string, resourceGroupName: string, workspaceName: string, options?: msRest.RequestOptionsBase | msRest.ServiceCallback<Models.Workspace>, callback?: msRest.ServiceCallback<Models.Workspace>): Promise<Models.WorkspacesGetResponse> {
     return this.client.sendOperationRequest(
       {
+        subscriptionId,
         resourceGroupName,
         workspaceName,
         options
@@ -359,31 +431,38 @@ export class Workspaces {
 
   /**
    * Updates a workspace.
-   * @param resourceGroupName The resource group name of the workspace.
+   * @param subscriptionId Gets subscription credentials which uniquely identify Microsoft Azure
+   * subscription. The subscription ID forms part of the URI for every service call.
+   * @param resourceGroupName The name of the resource group to get. The name is case insensitive.
    * @param workspaceName The name of the workspace.
    * @param parameters The parameters required to patch a workspace.
    * @param [options] The optional parameters
    * @returns Promise<Models.WorkspacesUpdateResponse>
    */
-  update(resourceGroupName: string, workspaceName: string, parameters: Models.Workspace, options?: msRest.RequestOptionsBase): Promise<Models.WorkspacesUpdateResponse>;
+  update(subscriptionId: string, resourceGroupName: string, workspaceName: string, parameters: Models.Workspace, options?: msRest.RequestOptionsBase): Promise<Models.WorkspacesUpdateResponse>;
   /**
-   * @param resourceGroupName The resource group name of the workspace.
+   * @param subscriptionId Gets subscription credentials which uniquely identify Microsoft Azure
+   * subscription. The subscription ID forms part of the URI for every service call.
+   * @param resourceGroupName The name of the resource group to get. The name is case insensitive.
    * @param workspaceName The name of the workspace.
    * @param parameters The parameters required to patch a workspace.
    * @param callback The callback
    */
-  update(resourceGroupName: string, workspaceName: string, parameters: Models.Workspace, callback: msRest.ServiceCallback<Models.Workspace>): void;
+  update(subscriptionId: string, resourceGroupName: string, workspaceName: string, parameters: Models.Workspace, callback: msRest.ServiceCallback<Models.Workspace>): void;
   /**
-   * @param resourceGroupName The resource group name of the workspace.
+   * @param subscriptionId Gets subscription credentials which uniquely identify Microsoft Azure
+   * subscription. The subscription ID forms part of the URI for every service call.
+   * @param resourceGroupName The name of the resource group to get. The name is case insensitive.
    * @param workspaceName The name of the workspace.
    * @param parameters The parameters required to patch a workspace.
    * @param options The optional parameters
    * @param callback The callback
    */
-  update(resourceGroupName: string, workspaceName: string, parameters: Models.Workspace, options: msRest.RequestOptionsBase, callback: msRest.ServiceCallback<Models.Workspace>): void;
-  update(resourceGroupName: string, workspaceName: string, parameters: Models.Workspace, options?: msRest.RequestOptionsBase | msRest.ServiceCallback<Models.Workspace>, callback?: msRest.ServiceCallback<Models.Workspace>): Promise<Models.WorkspacesUpdateResponse> {
+  update(subscriptionId: string, resourceGroupName: string, workspaceName: string, parameters: Models.Workspace, options: msRest.RequestOptionsBase, callback: msRest.ServiceCallback<Models.Workspace>): void;
+  update(subscriptionId: string, resourceGroupName: string, workspaceName: string, parameters: Models.Workspace, options?: msRest.RequestOptionsBase | msRest.ServiceCallback<Models.Workspace>, callback?: msRest.ServiceCallback<Models.Workspace>): Promise<Models.WorkspacesUpdateResponse> {
     return this.client.sendOperationRequest(
       {
+        subscriptionId,
         resourceGroupName,
         workspaceName,
         parameters,
@@ -395,15 +474,18 @@ export class Workspaces {
 
   /**
    * Create or update a workspace.
-   * @param resourceGroupName The resource group name of the workspace.
+   * @param subscriptionId Gets subscription credentials which uniquely identify Microsoft Azure
+   * subscription. The subscription ID forms part of the URI for every service call.
+   * @param resourceGroupName The name of the resource group to get. The name is case insensitive.
    * @param workspaceName The name of the workspace.
    * @param parameters The parameters required to create or update a workspace.
    * @param [options] The optional parameters
    * @returns Promise<msRestAzure.LROPoller>
    */
-  beginCreateOrUpdate(resourceGroupName: string, workspaceName: string, parameters: Models.Workspace, options?: msRest.RequestOptionsBase): Promise<msRestAzure.LROPoller> {
+  beginCreateOrUpdate(subscriptionId: string, resourceGroupName: string, workspaceName: string, parameters: Models.Workspace, options?: msRest.RequestOptionsBase): Promise<msRestAzure.LROPoller> {
     return this.client.sendLRORequest(
       {
+        subscriptionId,
         resourceGroupName,
         workspaceName,
         parameters,
@@ -420,10 +502,10 @@ const disableIntelligencePackOperationSpec: msRest.OperationSpec = {
   httpMethod: "POST",
   path: "subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/intelligencePacks/{intelligencePackName}/Disable",
   urlParameters: [
-    Parameters.resourceGroupName0,
-    Parameters.workspaceName0,
-    Parameters.intelligencePackName,
-    Parameters.subscriptionId
+    Parameters.subscriptionId,
+    Parameters.resourceGroupName,
+    Parameters.workspaceName,
+    Parameters.intelligencePackName
   ],
   queryParameters: [
     Parameters.apiVersion
@@ -444,10 +526,10 @@ const enableIntelligencePackOperationSpec: msRest.OperationSpec = {
   httpMethod: "POST",
   path: "subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/intelligencePacks/{intelligencePackName}/Enable",
   urlParameters: [
-    Parameters.resourceGroupName0,
-    Parameters.workspaceName0,
-    Parameters.intelligencePackName,
-    Parameters.subscriptionId
+    Parameters.subscriptionId,
+    Parameters.resourceGroupName,
+    Parameters.workspaceName,
+    Parameters.intelligencePackName
   ],
   queryParameters: [
     Parameters.apiVersion
@@ -468,9 +550,9 @@ const listIntelligencePacksOperationSpec: msRest.OperationSpec = {
   httpMethod: "GET",
   path: "subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/intelligencePacks",
   urlParameters: [
-    Parameters.resourceGroupName0,
-    Parameters.workspaceName0,
-    Parameters.subscriptionId
+    Parameters.subscriptionId,
+    Parameters.resourceGroupName,
+    Parameters.workspaceName
   ],
   queryParameters: [
     Parameters.apiVersion
@@ -504,9 +586,9 @@ const getSharedKeysOperationSpec: msRest.OperationSpec = {
   httpMethod: "POST",
   path: "subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/sharedKeys",
   urlParameters: [
-    Parameters.resourceGroupName0,
-    Parameters.workspaceName0,
-    Parameters.subscriptionId
+    Parameters.subscriptionId,
+    Parameters.resourceGroupName,
+    Parameters.workspaceName
   ],
   queryParameters: [
     Parameters.apiVersion
@@ -529,9 +611,9 @@ const listUsagesOperationSpec: msRest.OperationSpec = {
   httpMethod: "GET",
   path: "subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/usages",
   urlParameters: [
-    Parameters.resourceGroupName0,
-    Parameters.workspaceName0,
-    Parameters.subscriptionId
+    Parameters.subscriptionId,
+    Parameters.resourceGroupName,
+    Parameters.workspaceName
   ],
   queryParameters: [
     Parameters.apiVersion
@@ -554,9 +636,9 @@ const listManagementGroupsOperationSpec: msRest.OperationSpec = {
   httpMethod: "GET",
   path: "subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/managementGroups",
   urlParameters: [
-    Parameters.resourceGroupName0,
-    Parameters.workspaceName0,
-    Parameters.subscriptionId
+    Parameters.subscriptionId,
+    Parameters.resourceGroupName,
+    Parameters.workspaceName
   ],
   queryParameters: [
     Parameters.apiVersion
@@ -579,7 +661,7 @@ const listByResourceGroupOperationSpec: msRest.OperationSpec = {
   httpMethod: "GET",
   path: "subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces",
   urlParameters: [
-    Parameters.resourceGroupName0,
+    Parameters.resourceGroupName,
     Parameters.subscriptionId
   ],
   queryParameters: [
@@ -626,9 +708,9 @@ const deleteMethodOperationSpec: msRest.OperationSpec = {
   httpMethod: "DELETE",
   path: "subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}",
   urlParameters: [
-    Parameters.resourceGroupName1,
-    Parameters.workspaceName0,
-    Parameters.subscriptionId
+    Parameters.subscriptionId,
+    Parameters.resourceGroupName,
+    Parameters.workspaceName
   ],
   queryParameters: [
     Parameters.apiVersion
@@ -650,9 +732,9 @@ const getOperationSpec: msRest.OperationSpec = {
   httpMethod: "GET",
   path: "subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}",
   urlParameters: [
-    Parameters.resourceGroupName1,
-    Parameters.workspaceName0,
-    Parameters.subscriptionId
+    Parameters.subscriptionId,
+    Parameters.resourceGroupName,
+    Parameters.workspaceName
   ],
   queryParameters: [
     Parameters.apiVersion
@@ -675,9 +757,9 @@ const updateOperationSpec: msRest.OperationSpec = {
   httpMethod: "PATCH",
   path: "subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}",
   urlParameters: [
-    Parameters.resourceGroupName1,
-    Parameters.workspaceName1,
-    Parameters.subscriptionId
+    Parameters.subscriptionId,
+    Parameters.resourceGroupName,
+    Parameters.workspaceName
   ],
   queryParameters: [
     Parameters.apiVersion
@@ -707,9 +789,9 @@ const beginCreateOrUpdateOperationSpec: msRest.OperationSpec = {
   httpMethod: "PUT",
   path: "subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}",
   urlParameters: [
-    Parameters.resourceGroupName1,
-    Parameters.workspaceName1,
-    Parameters.subscriptionId
+    Parameters.subscriptionId,
+    Parameters.resourceGroupName,
+    Parameters.workspaceName
   ],
   queryParameters: [
     Parameters.apiVersion
