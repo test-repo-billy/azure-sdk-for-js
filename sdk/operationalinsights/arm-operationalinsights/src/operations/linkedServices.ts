@@ -28,37 +28,41 @@ export class LinkedServices {
 
   /**
    * Create or update a linked service.
+   * @param subscriptionId Gets subscription credentials which uniquely identify Microsoft Azure
+   * subscription. The subscription ID forms part of the URI for every service call.
    * @param resourceGroupName The name of the resource group to get. The name is case insensitive.
-   * @param workspaceName Name of the Log Analytics Workspace that will contain the linkedServices
-   * resource
+   * @param workspaceName The name of the workspace.
    * @param linkedServiceName Name of the linkedServices resource
    * @param parameters The parameters required to create or update a linked service.
    * @param [options] The optional parameters
    * @returns Promise<Models.LinkedServicesCreateOrUpdateResponse>
    */
-  createOrUpdate(resourceGroupName: string, workspaceName: string, linkedServiceName: string, parameters: Models.LinkedService, options?: msRest.RequestOptionsBase): Promise<Models.LinkedServicesCreateOrUpdateResponse>;
+  createOrUpdate(subscriptionId: string, resourceGroupName: string, workspaceName: string, linkedServiceName: string, parameters: Models.LinkedService, options?: msRest.RequestOptionsBase): Promise<Models.LinkedServicesCreateOrUpdateResponse>;
   /**
+   * @param subscriptionId Gets subscription credentials which uniquely identify Microsoft Azure
+   * subscription. The subscription ID forms part of the URI for every service call.
    * @param resourceGroupName The name of the resource group to get. The name is case insensitive.
-   * @param workspaceName Name of the Log Analytics Workspace that will contain the linkedServices
-   * resource
+   * @param workspaceName The name of the workspace.
    * @param linkedServiceName Name of the linkedServices resource
    * @param parameters The parameters required to create or update a linked service.
    * @param callback The callback
    */
-  createOrUpdate(resourceGroupName: string, workspaceName: string, linkedServiceName: string, parameters: Models.LinkedService, callback: msRest.ServiceCallback<Models.LinkedService>): void;
+  createOrUpdate(subscriptionId: string, resourceGroupName: string, workspaceName: string, linkedServiceName: string, parameters: Models.LinkedService, callback: msRest.ServiceCallback<Models.LinkedService>): void;
   /**
+   * @param subscriptionId Gets subscription credentials which uniquely identify Microsoft Azure
+   * subscription. The subscription ID forms part of the URI for every service call.
    * @param resourceGroupName The name of the resource group to get. The name is case insensitive.
-   * @param workspaceName Name of the Log Analytics Workspace that will contain the linkedServices
-   * resource
+   * @param workspaceName The name of the workspace.
    * @param linkedServiceName Name of the linkedServices resource
    * @param parameters The parameters required to create or update a linked service.
    * @param options The optional parameters
    * @param callback The callback
    */
-  createOrUpdate(resourceGroupName: string, workspaceName: string, linkedServiceName: string, parameters: Models.LinkedService, options: msRest.RequestOptionsBase, callback: msRest.ServiceCallback<Models.LinkedService>): void;
-  createOrUpdate(resourceGroupName: string, workspaceName: string, linkedServiceName: string, parameters: Models.LinkedService, options?: msRest.RequestOptionsBase | msRest.ServiceCallback<Models.LinkedService>, callback?: msRest.ServiceCallback<Models.LinkedService>): Promise<Models.LinkedServicesCreateOrUpdateResponse> {
+  createOrUpdate(subscriptionId: string, resourceGroupName: string, workspaceName: string, linkedServiceName: string, parameters: Models.LinkedService, options: msRest.RequestOptionsBase, callback: msRest.ServiceCallback<Models.LinkedService>): void;
+  createOrUpdate(subscriptionId: string, resourceGroupName: string, workspaceName: string, linkedServiceName: string, parameters: Models.LinkedService, options?: msRest.RequestOptionsBase | msRest.ServiceCallback<Models.LinkedService>, callback?: msRest.ServiceCallback<Models.LinkedService>): Promise<Models.LinkedServicesCreateOrUpdateResponse> {
     return this.client.sendOperationRequest(
       {
+        subscriptionId,
         resourceGroupName,
         workspaceName,
         linkedServiceName,
@@ -71,34 +75,38 @@ export class LinkedServices {
 
   /**
    * Deletes a linked service instance.
+   * @param subscriptionId Gets subscription credentials which uniquely identify Microsoft Azure
+   * subscription. The subscription ID forms part of the URI for every service call.
    * @param resourceGroupName The name of the resource group to get. The name is case insensitive.
-   * @param workspaceName Name of the Log Analytics Workspace that contains the linkedServices
-   * resource
+   * @param workspaceName The name of the workspace.
    * @param linkedServiceName Name of the linked service.
    * @param [options] The optional parameters
    * @returns Promise<msRest.RestResponse>
    */
-  deleteMethod(resourceGroupName: string, workspaceName: string, linkedServiceName: string, options?: msRest.RequestOptionsBase): Promise<msRest.RestResponse>;
+  deleteMethod(subscriptionId: string, resourceGroupName: string, workspaceName: string, linkedServiceName: string, options?: msRest.RequestOptionsBase): Promise<msRest.RestResponse>;
   /**
+   * @param subscriptionId Gets subscription credentials which uniquely identify Microsoft Azure
+   * subscription. The subscription ID forms part of the URI for every service call.
    * @param resourceGroupName The name of the resource group to get. The name is case insensitive.
-   * @param workspaceName Name of the Log Analytics Workspace that contains the linkedServices
-   * resource
+   * @param workspaceName The name of the workspace.
    * @param linkedServiceName Name of the linked service.
    * @param callback The callback
    */
-  deleteMethod(resourceGroupName: string, workspaceName: string, linkedServiceName: string, callback: msRest.ServiceCallback<void>): void;
+  deleteMethod(subscriptionId: string, resourceGroupName: string, workspaceName: string, linkedServiceName: string, callback: msRest.ServiceCallback<void>): void;
   /**
+   * @param subscriptionId Gets subscription credentials which uniquely identify Microsoft Azure
+   * subscription. The subscription ID forms part of the URI for every service call.
    * @param resourceGroupName The name of the resource group to get. The name is case insensitive.
-   * @param workspaceName Name of the Log Analytics Workspace that contains the linkedServices
-   * resource
+   * @param workspaceName The name of the workspace.
    * @param linkedServiceName Name of the linked service.
    * @param options The optional parameters
    * @param callback The callback
    */
-  deleteMethod(resourceGroupName: string, workspaceName: string, linkedServiceName: string, options: msRest.RequestOptionsBase, callback: msRest.ServiceCallback<void>): void;
-  deleteMethod(resourceGroupName: string, workspaceName: string, linkedServiceName: string, options?: msRest.RequestOptionsBase | msRest.ServiceCallback<void>, callback?: msRest.ServiceCallback<void>): Promise<msRest.RestResponse> {
+  deleteMethod(subscriptionId: string, resourceGroupName: string, workspaceName: string, linkedServiceName: string, options: msRest.RequestOptionsBase, callback: msRest.ServiceCallback<void>): void;
+  deleteMethod(subscriptionId: string, resourceGroupName: string, workspaceName: string, linkedServiceName: string, options?: msRest.RequestOptionsBase | msRest.ServiceCallback<void>, callback?: msRest.ServiceCallback<void>): Promise<msRest.RestResponse> {
     return this.client.sendOperationRequest(
       {
+        subscriptionId,
         resourceGroupName,
         workspaceName,
         linkedServiceName,
@@ -110,34 +118,38 @@ export class LinkedServices {
 
   /**
    * Gets a linked service instance.
+   * @param subscriptionId Gets subscription credentials which uniquely identify Microsoft Azure
+   * subscription. The subscription ID forms part of the URI for every service call.
    * @param resourceGroupName The name of the resource group to get. The name is case insensitive.
-   * @param workspaceName Name of the Log Analytics Workspace that contains the linkedServices
-   * resource
+   * @param workspaceName The name of the workspace.
    * @param linkedServiceName Name of the linked service.
    * @param [options] The optional parameters
    * @returns Promise<Models.LinkedServicesGetResponse>
    */
-  get(resourceGroupName: string, workspaceName: string, linkedServiceName: string, options?: msRest.RequestOptionsBase): Promise<Models.LinkedServicesGetResponse>;
+  get(subscriptionId: string, resourceGroupName: string, workspaceName: string, linkedServiceName: string, options?: msRest.RequestOptionsBase): Promise<Models.LinkedServicesGetResponse>;
   /**
+   * @param subscriptionId Gets subscription credentials which uniquely identify Microsoft Azure
+   * subscription. The subscription ID forms part of the URI for every service call.
    * @param resourceGroupName The name of the resource group to get. The name is case insensitive.
-   * @param workspaceName Name of the Log Analytics Workspace that contains the linkedServices
-   * resource
+   * @param workspaceName The name of the workspace.
    * @param linkedServiceName Name of the linked service.
    * @param callback The callback
    */
-  get(resourceGroupName: string, workspaceName: string, linkedServiceName: string, callback: msRest.ServiceCallback<Models.LinkedService>): void;
+  get(subscriptionId: string, resourceGroupName: string, workspaceName: string, linkedServiceName: string, callback: msRest.ServiceCallback<Models.LinkedService>): void;
   /**
+   * @param subscriptionId Gets subscription credentials which uniquely identify Microsoft Azure
+   * subscription. The subscription ID forms part of the URI for every service call.
    * @param resourceGroupName The name of the resource group to get. The name is case insensitive.
-   * @param workspaceName Name of the Log Analytics Workspace that contains the linkedServices
-   * resource
+   * @param workspaceName The name of the workspace.
    * @param linkedServiceName Name of the linked service.
    * @param options The optional parameters
    * @param callback The callback
    */
-  get(resourceGroupName: string, workspaceName: string, linkedServiceName: string, options: msRest.RequestOptionsBase, callback: msRest.ServiceCallback<Models.LinkedService>): void;
-  get(resourceGroupName: string, workspaceName: string, linkedServiceName: string, options?: msRest.RequestOptionsBase | msRest.ServiceCallback<Models.LinkedService>, callback?: msRest.ServiceCallback<Models.LinkedService>): Promise<Models.LinkedServicesGetResponse> {
+  get(subscriptionId: string, resourceGroupName: string, workspaceName: string, linkedServiceName: string, options: msRest.RequestOptionsBase, callback: msRest.ServiceCallback<Models.LinkedService>): void;
+  get(subscriptionId: string, resourceGroupName: string, workspaceName: string, linkedServiceName: string, options?: msRest.RequestOptionsBase | msRest.ServiceCallback<Models.LinkedService>, callback?: msRest.ServiceCallback<Models.LinkedService>): Promise<Models.LinkedServicesGetResponse> {
     return this.client.sendOperationRequest(
       {
+        subscriptionId,
         resourceGroupName,
         workspaceName,
         linkedServiceName,
@@ -149,28 +161,35 @@ export class LinkedServices {
 
   /**
    * Gets the linked services instances in a workspace.
+   * @param subscriptionId Gets subscription credentials which uniquely identify Microsoft Azure
+   * subscription. The subscription ID forms part of the URI for every service call.
    * @param resourceGroupName The name of the resource group to get. The name is case insensitive.
-   * @param workspaceName Name of the Log Analytics Workspace that contains the linked services.
+   * @param workspaceName The name of the workspace.
    * @param [options] The optional parameters
    * @returns Promise<Models.LinkedServicesListByWorkspaceResponse>
    */
-  listByWorkspace(resourceGroupName: string, workspaceName: string, options?: msRest.RequestOptionsBase): Promise<Models.LinkedServicesListByWorkspaceResponse>;
+  listByWorkspace(subscriptionId: string, resourceGroupName: string, workspaceName: string, options?: msRest.RequestOptionsBase): Promise<Models.LinkedServicesListByWorkspaceResponse>;
   /**
+   * @param subscriptionId Gets subscription credentials which uniquely identify Microsoft Azure
+   * subscription. The subscription ID forms part of the URI for every service call.
    * @param resourceGroupName The name of the resource group to get. The name is case insensitive.
-   * @param workspaceName Name of the Log Analytics Workspace that contains the linked services.
+   * @param workspaceName The name of the workspace.
    * @param callback The callback
    */
-  listByWorkspace(resourceGroupName: string, workspaceName: string, callback: msRest.ServiceCallback<Models.LinkedServiceListResult>): void;
+  listByWorkspace(subscriptionId: string, resourceGroupName: string, workspaceName: string, callback: msRest.ServiceCallback<Models.LinkedServiceListResult>): void;
   /**
+   * @param subscriptionId Gets subscription credentials which uniquely identify Microsoft Azure
+   * subscription. The subscription ID forms part of the URI for every service call.
    * @param resourceGroupName The name of the resource group to get. The name is case insensitive.
-   * @param workspaceName Name of the Log Analytics Workspace that contains the linked services.
+   * @param workspaceName The name of the workspace.
    * @param options The optional parameters
    * @param callback The callback
    */
-  listByWorkspace(resourceGroupName: string, workspaceName: string, options: msRest.RequestOptionsBase, callback: msRest.ServiceCallback<Models.LinkedServiceListResult>): void;
-  listByWorkspace(resourceGroupName: string, workspaceName: string, options?: msRest.RequestOptionsBase | msRest.ServiceCallback<Models.LinkedServiceListResult>, callback?: msRest.ServiceCallback<Models.LinkedServiceListResult>): Promise<Models.LinkedServicesListByWorkspaceResponse> {
+  listByWorkspace(subscriptionId: string, resourceGroupName: string, workspaceName: string, options: msRest.RequestOptionsBase, callback: msRest.ServiceCallback<Models.LinkedServiceListResult>): void;
+  listByWorkspace(subscriptionId: string, resourceGroupName: string, workspaceName: string, options?: msRest.RequestOptionsBase | msRest.ServiceCallback<Models.LinkedServiceListResult>, callback?: msRest.ServiceCallback<Models.LinkedServiceListResult>): Promise<Models.LinkedServicesListByWorkspaceResponse> {
     return this.client.sendOperationRequest(
       {
+        subscriptionId,
         resourceGroupName,
         workspaceName,
         options
@@ -186,10 +205,10 @@ const createOrUpdateOperationSpec: msRest.OperationSpec = {
   httpMethod: "PUT",
   path: "subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/linkedServices/{linkedServiceName}",
   urlParameters: [
-    Parameters.resourceGroupName0,
-    Parameters.workspaceName0,
-    Parameters.linkedServiceName,
-    Parameters.subscriptionId
+    Parameters.subscriptionId,
+    Parameters.resourceGroupName,
+    Parameters.workspaceName,
+    Parameters.linkedServiceName
   ],
   queryParameters: [
     Parameters.apiVersion
@@ -222,10 +241,10 @@ const deleteMethodOperationSpec: msRest.OperationSpec = {
   httpMethod: "DELETE",
   path: "subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/linkedServices/{linkedServiceName}",
   urlParameters: [
-    Parameters.resourceGroupName0,
-    Parameters.workspaceName0,
-    Parameters.linkedServiceName,
-    Parameters.subscriptionId
+    Parameters.subscriptionId,
+    Parameters.resourceGroupName,
+    Parameters.workspaceName,
+    Parameters.linkedServiceName
   ],
   queryParameters: [
     Parameters.apiVersion
@@ -247,10 +266,10 @@ const getOperationSpec: msRest.OperationSpec = {
   httpMethod: "GET",
   path: "subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/linkedServices/{linkedServiceName}",
   urlParameters: [
-    Parameters.resourceGroupName0,
-    Parameters.workspaceName0,
-    Parameters.linkedServiceName,
-    Parameters.subscriptionId
+    Parameters.subscriptionId,
+    Parameters.resourceGroupName,
+    Parameters.workspaceName,
+    Parameters.linkedServiceName
   ],
   queryParameters: [
     Parameters.apiVersion
@@ -273,9 +292,9 @@ const listByWorkspaceOperationSpec: msRest.OperationSpec = {
   httpMethod: "GET",
   path: "subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/linkedServices",
   urlParameters: [
-    Parameters.resourceGroupName0,
-    Parameters.workspaceName0,
-    Parameters.subscriptionId
+    Parameters.subscriptionId,
+    Parameters.resourceGroupName,
+    Parameters.workspaceName
   ],
   queryParameters: [
     Parameters.apiVersion

@@ -11,6 +11,7 @@
 import * as msRest from "@azure/ms-rest-js";
 import * as Models from "./models";
 import * as Mappers from "./models/mappers";
+import * as Parameters from "./models/parameters";
 import * as operations from "./operations";
 import { OperationalInsightsManagementClientContext } from "./operationalInsightsManagementClientContext";
 
@@ -20,25 +21,89 @@ class OperationalInsightsManagementClient extends OperationalInsightsManagementC
   linkedServices: operations.LinkedServices;
   dataSources: operations.DataSources;
   workspaces: operations.Workspaces;
+  tables: operations.Tables;
   operations: operations.Operations;
 
   /**
    * Initializes a new instance of the OperationalInsightsManagementClient class.
    * @param credentials Credentials needed for the client to connect to Azure.
-   * @param subscriptionId Gets subscription credentials which uniquely identify Microsoft Azure
-   * subscription. The subscription ID forms part of the URI for every service call.
    * @param [options] The parameter options
    */
-  constructor(credentials: msRest.ServiceClientCredentials, subscriptionId: string, options?: Models.OperationalInsightsManagementClientOptions) {
-    super(credentials, subscriptionId, options);
+  constructor(credentials: msRest.ServiceClientCredentials, options?: Models.OperationalInsightsManagementClientOptions) {
+    super(credentials, options);
     this.linkedServices = new operations.LinkedServices(this);
     this.dataSources = new operations.DataSources(this);
     this.workspaces = new operations.Workspaces(this);
+    this.tables = new operations.Tables(this);
     this.operations = new operations.Operations(this);
+  }
+
+  /**
+   * Gets all the tables for the specified Log Analytics workspace.
+   * @param subscriptionId Gets subscription credentials which uniquely identify Microsoft Azure
+   * subscription. The subscription ID forms part of the URI for every service call.
+   * @param resourceGroupName The name of the resource group to get. The name is case insensitive.
+   * @param workspaceName The name of the workspace.
+   * @param [options] The optional parameters
+   * @returns Promise<Models.ListTablesResponse>
+   */
+  listTables(subscriptionId: string, resourceGroupName: string, workspaceName: string, options?: msRest.RequestOptionsBase): Promise<Models.ListTablesResponse>;
+  /**
+   * @param subscriptionId Gets subscription credentials which uniquely identify Microsoft Azure
+   * subscription. The subscription ID forms part of the URI for every service call.
+   * @param resourceGroupName The name of the resource group to get. The name is case insensitive.
+   * @param workspaceName The name of the workspace.
+   * @param callback The callback
+   */
+  listTables(subscriptionId: string, resourceGroupName: string, workspaceName: string, callback: msRest.ServiceCallback<Models.TablesListResult>): void;
+  /**
+   * @param subscriptionId Gets subscription credentials which uniquely identify Microsoft Azure
+   * subscription. The subscription ID forms part of the URI for every service call.
+   * @param resourceGroupName The name of the resource group to get. The name is case insensitive.
+   * @param workspaceName The name of the workspace.
+   * @param options The optional parameters
+   * @param callback The callback
+   */
+  listTables(subscriptionId: string, resourceGroupName: string, workspaceName: string, options: msRest.RequestOptionsBase, callback: msRest.ServiceCallback<Models.TablesListResult>): void;
+  listTables(subscriptionId: string, resourceGroupName: string, workspaceName: string, options?: msRest.RequestOptionsBase | msRest.ServiceCallback<Models.TablesListResult>, callback?: msRest.ServiceCallback<Models.TablesListResult>): Promise<Models.ListTablesResponse> {
+    return this.sendOperationRequest(
+      {
+        subscriptionId,
+        resourceGroupName,
+        workspaceName,
+        options
+      },
+      listTablesOperationSpec,
+      callback) as Promise<Models.ListTablesResponse>;
   }
 }
 
 // Operation Specifications
+const serializer = new msRest.Serializer(Mappers);
+const listTablesOperationSpec: msRest.OperationSpec = {
+  httpMethod: "GET",
+  path: "subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/tables",
+  urlParameters: [
+    Parameters.subscriptionId,
+    Parameters.resourceGroupName,
+    Parameters.workspaceName
+  ],
+  queryParameters: [
+    Parameters.apiVersion
+  ],
+  headerParameters: [
+    Parameters.acceptLanguage
+  ],
+  responses: {
+    200: {
+      bodyMapper: Mappers.TablesListResult
+    },
+    default: {
+      bodyMapper: Mappers.CloudError
+    }
+  },
+  serializer
+};
 
 export {
   OperationalInsightsManagementClient,

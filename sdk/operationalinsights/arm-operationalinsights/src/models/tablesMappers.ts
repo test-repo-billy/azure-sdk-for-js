@@ -10,17 +10,9 @@ export {
   BaseResource,
   CloudError,
   DataSource,
-  IntelligencePack,
   LinkedService,
-  ManagementGroup,
-  MetricName,
   Resource,
-  SharedKeys,
   Sku,
   Table,
-  UsageMetric,
-  Workspace,
-  WorkspaceListManagementGroupsResult,
-  WorkspaceListResult,
-  WorkspaceListUsagesResult
+  Workspace
 } from "../models/mappers";
