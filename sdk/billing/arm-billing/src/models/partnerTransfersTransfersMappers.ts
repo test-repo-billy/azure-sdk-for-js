@@ -7,9 +7,10 @@
  */
 
 export {
+  DetailedTransferStatus,
   ErrorDetails,
+  ErrorModel,
   ErrorResponse,
-  Operation,
-  OperationDisplay,
-  OperationListResult
+  TransferDetails,
+  TransferDetailsListResult
 } from "../models/mappers";
