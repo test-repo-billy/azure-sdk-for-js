@@ -96,7 +96,7 @@ export class Formulas {
   }
 
   /**
-   * Create or replace an existing Formula. This operation can take a while to complete.
+   * Create or replace an existing formula. This operation can take a while to complete.
    * @param resourceGroupName The name of the resource group.
    * @param labName The name of the lab.
    * @param name The name of the formula.
@@ -146,7 +146,7 @@ export class Formulas {
   }
 
   /**
-   * Modify properties of formulas.
+   * Allows modifying tags of formulas. All other properties will be ignored.
    * @param resourceGroupName The name of the resource group.
    * @param labName The name of the lab.
    * @param name The name of the formula.
@@ -186,7 +186,7 @@ export class Formulas {
   }
 
   /**
-   * Create or replace an existing Formula. This operation can take a while to complete.
+   * Create or replace an existing formula. This operation can take a while to complete.
    * @param resourceGroupName The name of the resource group.
    * @param labName The name of the lab.
    * @param name The name of the formula.

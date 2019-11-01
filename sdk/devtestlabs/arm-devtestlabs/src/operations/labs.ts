@@ -137,7 +137,7 @@ export class Labs {
   }
 
   /**
-   * Modify properties of labs.
+   * Allows modifying tags of labs. All other properties will be ignored.
    * @param resourceGroupName The name of the resource group.
    * @param name The name of the lab.
    * @param lab A lab.

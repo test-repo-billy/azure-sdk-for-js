@@ -123,7 +123,7 @@ export class CustomImages {
   }
 
   /**
-   * Modify properties of custom images.
+   * Allows modifying tags of custom images. All other properties will be ignored.
    * @param resourceGroupName The name of the resource group.
    * @param labName The name of the lab.
    * @param name The name of the custom image.

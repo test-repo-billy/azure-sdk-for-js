@@ -65,7 +65,6 @@ export {
   Secret,
   ServiceFabric,
   ServiceRunner,
-  ServiceRunnerList,
   SharedPublicIpAddressConfiguration,
   Subnet,
   SubnetOverride,

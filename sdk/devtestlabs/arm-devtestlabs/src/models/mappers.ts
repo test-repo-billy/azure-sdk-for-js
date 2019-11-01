@@ -6493,34 +6493,6 @@ export const PolicyList: msRest.CompositeMapper = {
   }
 };
 
-export const ServiceRunnerList: msRest.CompositeMapper = {
-  serializedName: "ServiceRunnerList",
-  type: {
-    name: "Composite",
-    className: "ServiceRunnerList",
-    modelProperties: {
-      value: {
-        serializedName: "",
-        type: {
-          name: "Sequence",
-          element: {
-            type: {
-              name: "Composite",
-              className: "ServiceRunner"
-            }
-          }
-        }
-      },
-      nextLink: {
-        serializedName: "nextLink",
-        type: {
-          name: "String"
-        }
-      }
-    }
-  }
-};
-
 export const UserList: msRest.CompositeMapper = {
   serializedName: "UserList",
   type: {

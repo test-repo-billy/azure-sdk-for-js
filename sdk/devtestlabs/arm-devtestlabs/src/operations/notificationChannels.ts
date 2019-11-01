@@ -62,7 +62,7 @@ export class NotificationChannels {
    * Get notification channel.
    * @param resourceGroupName The name of the resource group.
    * @param labName The name of the lab.
-   * @param name The name of the notificationChannel.
+   * @param name The name of the notification channel.
    * @param [options] The optional parameters
    * @returns Promise<Models.NotificationChannelsGetResponse>
    */
@@ -70,14 +70,14 @@ export class NotificationChannels {
   /**
    * @param resourceGroupName The name of the resource group.
    * @param labName The name of the lab.
-   * @param name The name of the notificationChannel.
+   * @param name The name of the notification channel.
    * @param callback The callback
    */
   get(resourceGroupName: string, labName: string, name: string, callback: msRest.ServiceCallback<Models.NotificationChannel>): void;
   /**
    * @param resourceGroupName The name of the resource group.
    * @param labName The name of the lab.
-   * @param name The name of the notificationChannel.
+   * @param name The name of the notification channel.
    * @param options The optional parameters
    * @param callback The callback
    */
@@ -95,10 +95,10 @@ export class NotificationChannels {
   }
 
   /**
-   * Create or replace an existing notificationChannel.
+   * Create or replace an existing notification channel.
    * @param resourceGroupName The name of the resource group.
    * @param labName The name of the lab.
-   * @param name The name of the notificationChannel.
+   * @param name The name of the notification channel.
    * @param notificationChannel A notification.
    * @param [options] The optional parameters
    * @returns Promise<Models.NotificationChannelsCreateOrUpdateResponse>
@@ -107,7 +107,7 @@ export class NotificationChannels {
   /**
    * @param resourceGroupName The name of the resource group.
    * @param labName The name of the lab.
-   * @param name The name of the notificationChannel.
+   * @param name The name of the notification channel.
    * @param notificationChannel A notification.
    * @param callback The callback
    */
@@ -115,7 +115,7 @@ export class NotificationChannels {
   /**
    * @param resourceGroupName The name of the resource group.
    * @param labName The name of the lab.
-   * @param name The name of the notificationChannel.
+   * @param name The name of the notification channel.
    * @param notificationChannel A notification.
    * @param options The optional parameters
    * @param callback The callback
@@ -138,7 +138,7 @@ export class NotificationChannels {
    * Delete notification channel.
    * @param resourceGroupName The name of the resource group.
    * @param labName The name of the lab.
-   * @param name The name of the notificationChannel.
+   * @param name The name of the notification channel.
    * @param [options] The optional parameters
    * @returns Promise<msRest.RestResponse>
    */
@@ -146,14 +146,14 @@ export class NotificationChannels {
   /**
    * @param resourceGroupName The name of the resource group.
    * @param labName The name of the lab.
-   * @param name The name of the notificationChannel.
+   * @param name The name of the notification channel.
    * @param callback The callback
    */
   deleteMethod(resourceGroupName: string, labName: string, name: string, callback: msRest.ServiceCallback<void>): void;
   /**
    * @param resourceGroupName The name of the resource group.
    * @param labName The name of the lab.
-   * @param name The name of the notificationChannel.
+   * @param name The name of the notification channel.
    * @param options The optional parameters
    * @param callback The callback
    */
@@ -171,10 +171,10 @@ export class NotificationChannels {
   }
 
   /**
-   * Modify properties of notification channels.
+   * Allows modifying tags of notification channels. All other properties will be ignored.
    * @param resourceGroupName The name of the resource group.
    * @param labName The name of the lab.
-   * @param name The name of the notificationChannel.
+   * @param name The name of the notification channel.
    * @param notificationChannel A notification.
    * @param [options] The optional parameters
    * @returns Promise<Models.NotificationChannelsUpdateResponse>
@@ -183,7 +183,7 @@ export class NotificationChannels {
   /**
    * @param resourceGroupName The name of the resource group.
    * @param labName The name of the lab.
-   * @param name The name of the notificationChannel.
+   * @param name The name of the notification channel.
    * @param notificationChannel A notification.
    * @param callback The callback
    */
@@ -191,7 +191,7 @@ export class NotificationChannels {
   /**
    * @param resourceGroupName The name of the resource group.
    * @param labName The name of the lab.
-   * @param name The name of the notificationChannel.
+   * @param name The name of the notification channel.
    * @param notificationChannel A notification.
    * @param options The optional parameters
    * @param callback The callback
@@ -214,7 +214,7 @@ export class NotificationChannels {
    * Send notification to provided channel.
    * @param resourceGroupName The name of the resource group.
    * @param labName The name of the lab.
-   * @param name The name of the notificationChannel.
+   * @param name The name of the notification channel.
    * @param notifyParameters Properties for generating a Notification.
    * @param [options] The optional parameters
    * @returns Promise<msRest.RestResponse>
@@ -223,7 +223,7 @@ export class NotificationChannels {
   /**
    * @param resourceGroupName The name of the resource group.
    * @param labName The name of the lab.
-   * @param name The name of the notificationChannel.
+   * @param name The name of the notification channel.
    * @param notifyParameters Properties for generating a Notification.
    * @param callback The callback
    */
@@ -231,7 +231,7 @@ export class NotificationChannels {
   /**
    * @param resourceGroupName The name of the resource group.
    * @param labName The name of the lab.
-   * @param name The name of the notificationChannel.
+   * @param name The name of the notification channel.
    * @param notifyParameters Properties for generating a Notification.
    * @param options The optional parameters
    * @param callback The callback

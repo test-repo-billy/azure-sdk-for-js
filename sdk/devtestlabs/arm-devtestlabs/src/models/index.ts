@@ -696,7 +696,7 @@ export interface AttachDiskProperties {
  */
 export interface AttachNewDataDiskOptions {
   /**
-   * Size of the disk to be attached in Gibibytes.
+   * Size of the disk to be attached in GibiBytes.
    */
   diskSizeGiB?: number;
   /**
@@ -705,7 +705,7 @@ export interface AttachNewDataDiskOptions {
   diskName?: string;
   /**
    * The storage type for the disk (i.e. Standard, Premium). Possible values include: 'Standard',
-   * 'Premium'
+   * 'Premium', 'StandardSSD'
    */
   diskType?: StorageType;
 }
@@ -715,7 +715,7 @@ export interface AttachNewDataDiskOptions {
  */
 export interface AttachNewDataDiskOptionsFragment {
   /**
-   * Size of the disk to be attached in Gibibytes.
+   * Size of the disk to be attached in GibiBytes.
    */
   diskSizeGiB?: number;
   /**
@@ -724,7 +724,7 @@ export interface AttachNewDataDiskOptionsFragment {
   diskName?: string;
   /**
    * The storage type for the disk (i.e. Standard, Premium). Possible values include: 'Standard',
-   * 'Premium'
+   * 'Premium', 'StandardSSD'
    */
   diskType?: StorageType;
 }
@@ -1003,7 +1003,7 @@ export interface DataDiskStorageTypeInfo {
    */
   lun?: string;
   /**
-   * Disk Storage Type. Possible values include: 'Standard', 'Premium'
+   * Disk Storage Type. Possible values include: 'Standard', 'Premium', 'StandardSSD'
    */
   storageType?: StorageType;
 }
@@ -1152,7 +1152,7 @@ export interface DataDiskStorageTypeInfoFragment {
    */
   lun?: string;
   /**
-   * Disk Storage Type. Possible values include: 'Standard', 'Premium'
+   * Disk Storage Type. Possible values include: 'Standard', 'Premium', 'StandardSSD'
    */
   storageType?: StorageType;
 }
@@ -1282,11 +1282,11 @@ export interface DetachDiskProperties {
 export interface Disk extends Resource {
   /**
    * The storage type for the disk (i.e. Standard, Premium). Possible values include: 'Standard',
-   * 'Premium'
+   * 'Premium', 'StandardSSD'
    */
   diskType?: StorageType;
   /**
-   * The size of the disk in Gibibytes.
+   * The size of the disk in GibiBytes.
    */
   diskSizeGiB?: number;
   /**
@@ -1332,11 +1332,11 @@ export interface Disk extends Resource {
 export interface DiskFragment extends UpdateResource {
   /**
    * The storage type for the disk (i.e. Standard, Premium). Possible values include: 'Standard',
-   * 'Premium'
+   * 'Premium', 'StandardSSD'
    */
   diskType?: StorageType;
   /**
-   * The size of the disk in Gibibytes.
+   * The size of the disk in GibiBytes.
    */
   diskSizeGiB?: number;
   /**
@@ -1838,7 +1838,7 @@ export interface LabVirtualMachineCreationParameter {
   storageType?: string;
   /**
    * Tells source of creation of lab virtual machine. Output property only. Possible values
-   * include: 'FromCustomImage', 'FromGalleryImage'
+   * include: 'FromCustomImage', 'FromGalleryImage', 'FromSharedGalleryImage'
    */
   virtualMachineCreationSource?: VirtualMachineCreationSource;
   /**
@@ -2187,7 +2187,7 @@ export interface LabVirtualMachineCreationParameterFragment {
   storageType?: string;
   /**
    * Tells source of creation of lab virtual machine. Output property only. Possible values
-   * include: 'FromCustomImage', 'FromGalleryImage'
+   * include: 'FromCustomImage', 'FromGalleryImage', 'FromSharedGalleryImage'
    */
   virtualMachineCreationSource?: VirtualMachineCreationSource;
   /**
@@ -2474,7 +2474,7 @@ export interface Lab extends Resource {
   readonly vaultName?: string;
   /**
    * Type of storage used by the lab. It can be either Premium or Standard. Default is Premium.
-   * Possible values include: 'Standard', 'Premium'
+   * Possible values include: 'Standard', 'Premium', 'StandardSSD'
    */
   labStorageType?: StorageType;
   /**
@@ -2513,7 +2513,8 @@ export interface Lab extends Resource {
    */
   support?: LabSupportProperties;
   /**
-   * The resource group in which lab virtual machines will be created in.
+   * The resource group in which all new lab virtual machines will be created. To let DevTest Labs
+   * manage resource group creation, set this value to null.
    * **NOTE: This property will not be serialized. It can only be populated by the server.**
    */
   readonly vmCreationResourceGroup?: string;
@@ -2749,7 +2750,7 @@ export interface LabSupportPropertiesFragment {
 export interface LabFragment extends UpdateResource {
   /**
    * Type of storage used by the lab. It can be either Premium or Standard. Default is Premium.
-   * Possible values include: 'Standard', 'Premium'
+   * Possible values include: 'Standard', 'Premium', 'StandardSSD'
    */
   labStorageType?: StorageType;
   /**
@@ -2918,7 +2919,7 @@ export interface LabVirtualMachine extends Resource {
   storageType?: string;
   /**
    * Tells source of creation of lab virtual machine. Output property only. Possible values
-   * include: 'FromCustomImage', 'FromGalleryImage'
+   * include: 'FromCustomImage', 'FromGalleryImage', 'FromSharedGalleryImage'
    */
   virtualMachineCreationSource?: VirtualMachineCreationSource;
   /**
@@ -3059,7 +3060,7 @@ export interface LabVirtualMachineFragment extends UpdateResource {
   storageType?: string;
   /**
    * Tells source of creation of lab virtual machine. Output property only. Possible values
-   * include: 'FromCustomImage', 'FromGalleryImage'
+   * include: 'FromCustomImage', 'FromGalleryImage', 'FromSharedGalleryImage'
    */
   virtualMachineCreationSource?: VirtualMachineCreationSource;
   /**
@@ -4241,24 +4242,6 @@ export interface SchedulesGetOptionalParams extends msRest.RequestOptionsBase {
 /**
  * Optional Parameters.
  */
-export interface ServiceRunnersListOptionalParams extends msRest.RequestOptionsBase {
-  /**
-   * The filter to apply to the operation. Example: '$filter=contains(name,'myName')
-   */
-  filter?: string;
-  /**
-   * The maximum number of resources to return from the operation. Example: '$top=10'
-   */
-  top?: number;
-  /**
-   * The ordering expression for the results, using OData notation. Example: '$orderby=name desc'
-   */
-  orderby?: string;
-}
-
-/**
- * Optional Parameters.
- */
 export interface UsersListOptionalParams extends msRest.RequestOptionsBase {
   /**
    * Specify the $expand query. Example: 'properties($select=identity)'
@@ -4701,18 +4684,6 @@ export interface PolicyList extends Array<Policy> {
 /**
  * @interface
  * The response of a list operation.
- * @extends Array<ServiceRunner>
- */
-export interface ServiceRunnerList extends Array<ServiceRunner> {
-  /**
-   * Link for next set of results.
-   */
-  nextLink?: string;
-}
-
-/**
- * @interface
- * The response of a list operation.
  * @extends Array<User>
  */
 export interface UserList extends Array<User> {
@@ -4812,11 +4783,11 @@ export type SourceControlType = 'VsoGit' | 'GitHub';
 
 /**
  * Defines values for StorageType.
- * Possible values include: 'Standard', 'Premium'
+ * Possible values include: 'Standard', 'Premium', 'StandardSSD'
  * @readonly
  * @enum {string}
  */
-export type StorageType = 'Standard' | 'Premium';
+export type StorageType = 'Standard' | 'Premium' | 'StandardSSD';
 
 /**
  * Defines values for CostThresholdStatus.
@@ -4876,11 +4847,11 @@ export type TransportProtocol = 'Tcp' | 'Udp';
 
 /**
  * Defines values for VirtualMachineCreationSource.
- * Possible values include: 'FromCustomImage', 'FromGalleryImage'
+ * Possible values include: 'FromCustomImage', 'FromGalleryImage', 'FromSharedGalleryImage'
  * @readonly
  * @enum {string}
  */
-export type VirtualMachineCreationSource = 'FromCustomImage' | 'FromGalleryImage';
+export type VirtualMachineCreationSource = 'FromCustomImage' | 'FromGalleryImage' | 'FromSharedGalleryImage';
 
 /**
  * Defines values for FileUploadOptions.
@@ -6321,26 +6292,6 @@ export type SchedulesListApplicableNextResponse = ScheduleList & {
 };
 
 /**
- * Contains response data for the list operation.
- */
-export type ServiceRunnersListResponse = ServiceRunnerList & {
-  /**
-   * The underlying HTTP response.
-   */
-  _response: msRest.HttpResponse & {
-      /**
-       * The response body as text (string format)
-       */
-      bodyAsText: string;
-
-      /**
-       * The response body as parsed JSON or XML
-       */
-      parsedBody: ServiceRunnerList;
-    };
-};
-
-/**
  * Contains response data for the get operation.
  */
 export type ServiceRunnersGetResponse = ServiceRunner & {
@@ -6377,26 +6328,6 @@ export type ServiceRunnersCreateOrUpdateResponse = ServiceRunner & {
        * The response body as parsed JSON or XML
        */
       parsedBody: ServiceRunner;
-    };
-};
-
-/**
- * Contains response data for the listNext operation.
- */
-export type ServiceRunnersListNextResponse = ServiceRunnerList & {
-  /**
-   * The underlying HTTP response.
-   */
-  _response: msRest.HttpResponse & {
-      /**
-       * The response body as text (string format)
-       */
-      bodyAsText: string;
-
-      /**
-       * The response body as parsed JSON or XML
-       */
-      parsedBody: ServiceRunnerList;
     };
 };
 

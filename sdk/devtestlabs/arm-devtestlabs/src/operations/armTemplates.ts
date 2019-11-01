@@ -67,7 +67,7 @@ export class ArmTemplates {
    * @param resourceGroupName The name of the resource group.
    * @param labName The name of the lab.
    * @param artifactSourceName The name of the artifact source.
-   * @param name The name of the azure Resource Manager template.
+   * @param name The name of the azure resource manager template.
    * @param [options] The optional parameters
    * @returns Promise<Models.ArmTemplatesGetResponse>
    */
@@ -76,7 +76,7 @@ export class ArmTemplates {
    * @param resourceGroupName The name of the resource group.
    * @param labName The name of the lab.
    * @param artifactSourceName The name of the artifact source.
-   * @param name The name of the azure Resource Manager template.
+   * @param name The name of the azure resource manager template.
    * @param callback The callback
    */
   get(resourceGroupName: string, labName: string, artifactSourceName: string, name: string, callback: msRest.ServiceCallback<Models.ArmTemplate>): void;
@@ -84,7 +84,7 @@ export class ArmTemplates {
    * @param resourceGroupName The name of the resource group.
    * @param labName The name of the lab.
    * @param artifactSourceName The name of the artifact source.
-   * @param name The name of the azure Resource Manager template.
+   * @param name The name of the azure resource manager template.
    * @param options The optional parameters
    * @param callback The callback
    */
