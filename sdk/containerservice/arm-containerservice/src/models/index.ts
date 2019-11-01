@@ -1275,6 +1275,11 @@ export interface ManagedCluster extends Resource {
    */
   readonly fqdn?: string;
   /**
+   * FQDN of private cluster.
+   * **NOTE: This property will not be serialized. It can only be populated by the server.**
+   */
+  readonly privateFQDN?: string;
+  /**
    * Properties of the agent pool.
    */
   agentPoolProfiles?: ManagedClusterAgentPoolProfile[];
