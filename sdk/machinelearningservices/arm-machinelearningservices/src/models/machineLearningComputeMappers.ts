@@ -41,6 +41,7 @@ export {
   Resource,
   ResourceId,
   ScaleSettings,
+  Sku,
   SslConfiguration,
   SystemService,
   UserAccountCredentials,
