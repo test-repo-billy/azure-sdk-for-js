@@ -1849,6 +1849,13 @@ export const ManagedCluster: msRest.CompositeMapper = {
           name: "String"
         }
       },
+      privateFQDN: {
+        readOnly: true,
+        serializedName: "properties.privateFQDN",
+        type: {
+          name: "String"
+        }
+      },
       agentPoolProfiles: {
         serializedName: "properties.agentPoolProfiles",
         type: {
