@@ -7,11 +7,8 @@
  */
 
 export {
-  CatalogSku,
   CloudError,
-  SkuCapability,
-  SkuCapacity,
-  SkuCost,
-  SkuListResult,
-  SkuRestrictions
+  OperationDisplayInfo,
+  OperationEntity,
+  OperationEntityListResult
 } from "../models/mappers";
