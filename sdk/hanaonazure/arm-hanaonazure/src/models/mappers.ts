@@ -505,9 +505,41 @@ export const SapMonitor: msRest.CompositeMapper = {
           name: "String"
         }
       },
+      hanaDbPasswordKeyVaultUrl: {
+        serializedName: "properties.hanaDbPasswordKeyVaultUrl",
+        type: {
+          name: "String"
+        }
+      },
+      hanaDbCredentialsMsiId: {
+        serializedName: "properties.hanaDbCredentialsMsiId",
+        type: {
+          name: "String"
+        }
+      },
+      keyVaultId: {
+        serializedName: "properties.keyVaultId",
+        type: {
+          name: "String"
+        }
+      },
       provisioningState: {
         readOnly: true,
         serializedName: "properties.provisioningState",
+        type: {
+          name: "String"
+        }
+      },
+      managedResourceGroupName: {
+        readOnly: true,
+        serializedName: "properties.managedResourceGroupName",
+        type: {
+          name: "String"
+        }
+      },
+      logAnalyticsWorkspaceArmId: {
+        readOnly: true,
+        serializedName: "properties.logAnalyticsWorkspaceArmId",
         type: {
           name: "String"
         }
