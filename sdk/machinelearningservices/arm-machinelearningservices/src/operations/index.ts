@@ -10,6 +10,8 @@
 
 export * from "./operations";
 export * from "./workspaces";
+export * from "./workspaceFeatures";
 export * from "./usages";
 export * from "./virtualMachineSizes";
+export * from "./quotas";
 export * from "./machineLearningCompute";
