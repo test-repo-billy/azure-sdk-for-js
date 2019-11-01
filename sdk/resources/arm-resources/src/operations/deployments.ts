@@ -311,7 +311,7 @@ export class Deployments {
    * @param [options] The optional parameters
    * @returns Promise<Models.DeploymentsCreateOrUpdateAtTenantScopeResponse>
    */
-  createOrUpdateAtTenantScope(deploymentName: string, parameters: Models.Deployment, options?: msRest.RequestOptionsBase): Promise<Models.DeploymentsCreateOrUpdateAtTenantScopeResponse> {
+  createOrUpdateAtTenantScope(deploymentName: string, parameters: Models.ScopedDeployment, options?: msRest.RequestOptionsBase): Promise<Models.DeploymentsCreateOrUpdateAtTenantScopeResponse> {
     return this.beginCreateOrUpdateAtTenantScope(deploymentName,parameters,options)
       .then(lroPoller => lroPoller.pollUntilFinished()) as Promise<Models.DeploymentsCreateOrUpdateAtTenantScopeResponse>;
   }
@@ -384,21 +384,21 @@ export class Deployments {
    * @param [options] The optional parameters
    * @returns Promise<Models.DeploymentsValidateAtTenantScopeResponse>
    */
-  validateAtTenantScope(deploymentName: string, parameters: Models.Deployment, options?: msRest.RequestOptionsBase): Promise<Models.DeploymentsValidateAtTenantScopeResponse>;
+  validateAtTenantScope(deploymentName: string, parameters: Models.ScopedDeployment, options?: msRest.RequestOptionsBase): Promise<Models.DeploymentsValidateAtTenantScopeResponse>;
   /**
    * @param deploymentName The name of the deployment.
    * @param parameters Parameters to validate.
    * @param callback The callback
    */
-  validateAtTenantScope(deploymentName: string, parameters: Models.Deployment, callback: msRest.ServiceCallback<Models.DeploymentValidateResult>): void;
+  validateAtTenantScope(deploymentName: string, parameters: Models.ScopedDeployment, callback: msRest.ServiceCallback<Models.DeploymentValidateResult>): void;
   /**
    * @param deploymentName The name of the deployment.
    * @param parameters Parameters to validate.
    * @param options The optional parameters
    * @param callback The callback
    */
-  validateAtTenantScope(deploymentName: string, parameters: Models.Deployment, options: msRest.RequestOptionsBase, callback: msRest.ServiceCallback<Models.DeploymentValidateResult>): void;
-  validateAtTenantScope(deploymentName: string, parameters: Models.Deployment, options?: msRest.RequestOptionsBase | msRest.ServiceCallback<Models.DeploymentValidateResult>, callback?: msRest.ServiceCallback<Models.DeploymentValidateResult>): Promise<Models.DeploymentsValidateAtTenantScopeResponse> {
+  validateAtTenantScope(deploymentName: string, parameters: Models.ScopedDeployment, options: msRest.RequestOptionsBase, callback: msRest.ServiceCallback<Models.DeploymentValidateResult>): void;
+  validateAtTenantScope(deploymentName: string, parameters: Models.ScopedDeployment, options?: msRest.RequestOptionsBase | msRest.ServiceCallback<Models.DeploymentValidateResult>, callback?: msRest.ServiceCallback<Models.DeploymentValidateResult>): Promise<Models.DeploymentsValidateAtTenantScopeResponse> {
     return this.client.sendOperationRequest(
       {
         deploymentName,
@@ -521,7 +521,7 @@ export class Deployments {
    * @param [options] The optional parameters
    * @returns Promise<Models.DeploymentsCreateOrUpdateAtManagementGroupScopeResponse>
    */
-  createOrUpdateAtManagementGroupScope(groupId: string, deploymentName: string, parameters: Models.Deployment, options?: msRest.RequestOptionsBase): Promise<Models.DeploymentsCreateOrUpdateAtManagementGroupScopeResponse> {
+  createOrUpdateAtManagementGroupScope(groupId: string, deploymentName: string, parameters: Models.ScopedDeployment, options?: msRest.RequestOptionsBase): Promise<Models.DeploymentsCreateOrUpdateAtManagementGroupScopeResponse> {
     return this.beginCreateOrUpdateAtManagementGroupScope(groupId,deploymentName,parameters,options)
       .then(lroPoller => lroPoller.pollUntilFinished()) as Promise<Models.DeploymentsCreateOrUpdateAtManagementGroupScopeResponse>;
   }
@@ -603,14 +603,14 @@ export class Deployments {
    * @param [options] The optional parameters
    * @returns Promise<Models.DeploymentsValidateAtManagementGroupScopeResponse>
    */
-  validateAtManagementGroupScope(groupId: string, deploymentName: string, parameters: Models.Deployment, options?: msRest.RequestOptionsBase): Promise<Models.DeploymentsValidateAtManagementGroupScopeResponse>;
+  validateAtManagementGroupScope(groupId: string, deploymentName: string, parameters: Models.ScopedDeployment, options?: msRest.RequestOptionsBase): Promise<Models.DeploymentsValidateAtManagementGroupScopeResponse>;
   /**
    * @param groupId The management group ID.
    * @param deploymentName The name of the deployment.
    * @param parameters Parameters to validate.
    * @param callback The callback
    */
-  validateAtManagementGroupScope(groupId: string, deploymentName: string, parameters: Models.Deployment, callback: msRest.ServiceCallback<Models.DeploymentValidateResult>): void;
+  validateAtManagementGroupScope(groupId: string, deploymentName: string, parameters: Models.ScopedDeployment, callback: msRest.ServiceCallback<Models.DeploymentValidateResult>): void;
   /**
    * @param groupId The management group ID.
    * @param deploymentName The name of the deployment.
@@ -618,8 +618,8 @@ export class Deployments {
    * @param options The optional parameters
    * @param callback The callback
    */
-  validateAtManagementGroupScope(groupId: string, deploymentName: string, parameters: Models.Deployment, options: msRest.RequestOptionsBase, callback: msRest.ServiceCallback<Models.DeploymentValidateResult>): void;
-  validateAtManagementGroupScope(groupId: string, deploymentName: string, parameters: Models.Deployment, options?: msRest.RequestOptionsBase | msRest.ServiceCallback<Models.DeploymentValidateResult>, callback?: msRest.ServiceCallback<Models.DeploymentValidateResult>): Promise<Models.DeploymentsValidateAtManagementGroupScopeResponse> {
+  validateAtManagementGroupScope(groupId: string, deploymentName: string, parameters: Models.ScopedDeployment, options: msRest.RequestOptionsBase, callback: msRest.ServiceCallback<Models.DeploymentValidateResult>): void;
+  validateAtManagementGroupScope(groupId: string, deploymentName: string, parameters: Models.ScopedDeployment, options?: msRest.RequestOptionsBase | msRest.ServiceCallback<Models.DeploymentValidateResult>, callback?: msRest.ServiceCallback<Models.DeploymentValidateResult>): Promise<Models.DeploymentsValidateAtManagementGroupScopeResponse> {
     return this.client.sendOperationRequest(
       {
         groupId,
@@ -1270,7 +1270,7 @@ export class Deployments {
    * @param [options] The optional parameters
    * @returns Promise<msRestAzure.LROPoller>
    */
-  beginCreateOrUpdateAtTenantScope(deploymentName: string, parameters: Models.Deployment, options?: msRest.RequestOptionsBase): Promise<msRestAzure.LROPoller> {
+  beginCreateOrUpdateAtTenantScope(deploymentName: string, parameters: Models.ScopedDeployment, options?: msRest.RequestOptionsBase): Promise<msRestAzure.LROPoller> {
     return this.client.sendLRORequest(
       {
         deploymentName,
@@ -1315,7 +1315,7 @@ export class Deployments {
    * @param [options] The optional parameters
    * @returns Promise<msRestAzure.LROPoller>
    */
-  beginCreateOrUpdateAtManagementGroupScope(groupId: string, deploymentName: string, parameters: Models.Deployment, options?: msRest.RequestOptionsBase): Promise<msRestAzure.LROPoller> {
+  beginCreateOrUpdateAtManagementGroupScope(groupId: string, deploymentName: string, parameters: Models.ScopedDeployment, options?: msRest.RequestOptionsBase): Promise<msRestAzure.LROPoller> {
     return this.client.sendLRORequest(
       {
         groupId,
@@ -1835,7 +1835,7 @@ const validateAtTenantScopeOperationSpec: msRest.OperationSpec = {
   requestBody: {
     parameterPath: "parameters",
     mapper: {
-      ...Mappers.Deployment,
+      ...Mappers.ScopedDeployment,
       required: true
     }
   },
@@ -1983,7 +1983,7 @@ const validateAtManagementGroupScopeOperationSpec: msRest.OperationSpec = {
   requestBody: {
     parameterPath: "parameters",
     mapper: {
-      ...Mappers.Deployment,
+      ...Mappers.ScopedDeployment,
       required: true
     }
   },
@@ -2484,7 +2484,7 @@ const beginCreateOrUpdateAtTenantScopeOperationSpec: msRest.OperationSpec = {
   requestBody: {
     parameterPath: "parameters",
     mapper: {
-      ...Mappers.Deployment,
+      ...Mappers.ScopedDeployment,
       required: true
     }
   },
@@ -2541,7 +2541,7 @@ const beginCreateOrUpdateAtManagementGroupScopeOperationSpec: msRest.OperationSp
   requestBody: {
     parameterPath: "parameters",
     mapper: {
-      ...Mappers.Deployment,
+      ...Mappers.ScopedDeployment,
       required: true
     }
   },
