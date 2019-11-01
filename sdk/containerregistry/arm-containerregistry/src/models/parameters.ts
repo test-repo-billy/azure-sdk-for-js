@@ -140,7 +140,7 @@ export const scopeMapName: msRest.OperationURLParameter = {
     constraints: {
       MaxLength: 50,
       MinLength: 5,
-      Pattern: /^[a-zA-Z0-9-]*$/
+      Pattern: /^[a-zA-Z0-9-_]*$/
     },
     type: {
       name: "String"

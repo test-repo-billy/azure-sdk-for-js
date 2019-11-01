@@ -50,7 +50,7 @@ export {
   SourceTriggerDescriptor,
   SourceTriggerUpdateParameters,
   SourceUpdateParameters,
-  Status1,
+  Status,
   StorageAccountProperties,
   Task,
   TaskListResult,

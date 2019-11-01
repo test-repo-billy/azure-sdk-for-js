@@ -42,7 +42,7 @@ export {
   SourceRegistryCredentials,
   SourceTrigger,
   SourceTriggerDescriptor,
-  Status1,
+  Status,
   StorageAccountProperties,
   Task,
   TaskStepProperties,
