@@ -427,7 +427,7 @@ export interface RouteProperties {
   /**
    * The source that the routing rule is to be applied to, such as DeviceMessages. Possible values
    * include: 'Invalid', 'DeviceMessages', 'TwinChangeEvents', 'DeviceLifecycleEvents',
-   * 'DeviceJobLifecycleEvents'
+   * 'DeviceJobLifecycleEvents', 'DigitalTwinChangeEvents'
    */
   source: RoutingSource;
   /**
@@ -608,6 +608,20 @@ export interface IotHubPropertiesDeviceStreams {
 }
 
 /**
+ * Public representation of one of the locations where a resource is provisioned.
+ */
+export interface IotHubLocationDescription {
+  /**
+   * Azure Geo Regions
+   */
+  location?: string;
+  /**
+   * Specific Role assigned to this location. Possible values include: 'primary', 'secondary'
+   */
+  role?: IotHubReplicaRoleType;
+}
+
+/**
  * The properties of an IoT hub.
  */
 export interface IotHubProperties {
@@ -670,6 +684,11 @@ export interface IotHubProperties {
    * 'DeviceManagement'
    */
   features?: Capabilities;
+  /**
+   * Primary and secondary location for iot hub
+   * **NOTE: This property will not be serialized. It can only be populated by the server.**
+   */
+  readonly locations?: IotHubLocationDescription[];
 }
 
 /**
@@ -1141,7 +1160,7 @@ export interface RoutingTwin {
 export interface TestAllRoutesInput {
   /**
    * Routing source. Possible values include: 'Invalid', 'DeviceMessages', 'TwinChangeEvents',
-   * 'DeviceLifecycleEvents', 'DeviceJobLifecycleEvents'
+   * 'DeviceLifecycleEvents', 'DeviceJobLifecycleEvents', 'DigitalTwinChangeEvents'
    */
   routingSource?: RoutingSource;
   /**
@@ -1503,11 +1522,11 @@ export type IpFilterActionType = 'Accept' | 'Reject';
 /**
  * Defines values for RoutingSource.
  * Possible values include: 'Invalid', 'DeviceMessages', 'TwinChangeEvents',
- * 'DeviceLifecycleEvents', 'DeviceJobLifecycleEvents'
+ * 'DeviceLifecycleEvents', 'DeviceJobLifecycleEvents', 'DigitalTwinChangeEvents'
  * @readonly
  * @enum {string}
  */
-export type RoutingSource = 'Invalid' | 'DeviceMessages' | 'TwinChangeEvents' | 'DeviceLifecycleEvents' | 'DeviceJobLifecycleEvents';
+export type RoutingSource = 'Invalid' | 'DeviceMessages' | 'TwinChangeEvents' | 'DeviceLifecycleEvents' | 'DeviceJobLifecycleEvents' | 'DigitalTwinChangeEvents';
 
 /**
  * Defines values for Capabilities.
@@ -1516,6 +1535,14 @@ export type RoutingSource = 'Invalid' | 'DeviceMessages' | 'TwinChangeEvents' | 
  * @enum {string}
  */
 export type Capabilities = 'None' | 'DeviceManagement';
+
+/**
+ * Defines values for IotHubReplicaRoleType.
+ * Possible values include: 'primary', 'secondary'
+ * @readonly
+ * @enum {string}
+ */
+export type IotHubReplicaRoleType = 'primary' | 'secondary';
 
 /**
  * Defines values for IotHubSku.
