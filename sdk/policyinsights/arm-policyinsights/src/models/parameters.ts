@@ -44,6 +44,18 @@ export const apiVersion1: msRest.OperationQueryParameter = {
     }
   }
 };
+export const apiVersion2: msRest.OperationQueryParameter = {
+  parameterPath: "apiVersion",
+  mapper: {
+    required: true,
+    isConstant: true,
+    serializedName: "api-version",
+    defaultValue: '2019-10-01',
+    type: {
+      name: "String"
+    }
+  }
+};
 export const apply: msRest.OperationQueryParameter = {
   parameterPath: [
     "options",
@@ -265,6 +277,17 @@ export const resourceId: msRest.OperationURLParameter = {
   mapper: {
     required: true,
     serializedName: "resourceId",
+    type: {
+      name: "String"
+    }
+  },
+  skipEncoding: true
+};
+export const resourceName: msRest.OperationURLParameter = {
+  parameterPath: "resourceName",
+  mapper: {
+    required: true,
+    serializedName: "resourceName",
     type: {
       name: "String"
     }
