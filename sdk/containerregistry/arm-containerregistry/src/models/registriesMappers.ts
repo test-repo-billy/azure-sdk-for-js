@@ -62,7 +62,7 @@ export {
   SourceTrigger,
   SourceTriggerDescriptor,
   SourceUploadDefinition,
-  Status1,
+  Status,
   StorageAccountProperties,
   Task,
   TaskRunRequest,

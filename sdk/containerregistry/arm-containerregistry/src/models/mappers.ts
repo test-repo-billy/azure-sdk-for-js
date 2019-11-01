@@ -339,11 +339,11 @@ export const Sku: msRest.CompositeMapper = {
   }
 };
 
-export const Status1: msRest.CompositeMapper = {
+export const Status: msRest.CompositeMapper = {
   serializedName: "Status",
   type: {
     name: "Composite",
-    className: "Status1",
+    className: "Status",
     modelProperties: {
       displayStatus: {
         readOnly: true,
@@ -485,6 +485,7 @@ export const QuarantinePolicy: msRest.CompositeMapper = {
     modelProperties: {
       status: {
         serializedName: "status",
+        defaultValue: 'disabled',
         type: {
           name: "String"
         }
@@ -501,12 +502,14 @@ export const TrustPolicy: msRest.CompositeMapper = {
     modelProperties: {
       type: {
         serializedName: "type",
+        defaultValue: 'Notary',
         type: {
           name: "String"
         }
       },
       status: {
         serializedName: "status",
+        defaultValue: 'disabled',
         type: {
           name: "String"
         }
@@ -523,6 +526,7 @@ export const RetentionPolicy: msRest.CompositeMapper = {
     modelProperties: {
       days: {
         serializedName: "days",
+        defaultValue: 7,
         type: {
           name: "Number"
         }
@@ -536,6 +540,7 @@ export const RetentionPolicy: msRest.CompositeMapper = {
       },
       status: {
         serializedName: "status",
+        defaultValue: 'disabled',
         type: {
           name: "String"
         }
@@ -665,7 +670,7 @@ export const Registry: msRest.CompositeMapper = {
         serializedName: "properties.status",
         type: {
           name: "Composite",
-          className: "Status1"
+          className: "Status"
         }
       },
       adminUserEnabled: {
@@ -898,7 +903,7 @@ export const Replication: msRest.CompositeMapper = {
         serializedName: "properties.status",
         type: {
           name: "Composite",
-          className: "Status1"
+          className: "Status"
         }
       }
     }
@@ -3857,7 +3862,6 @@ export const GenerateCredentialsParameters: msRest.CompositeMapper = {
       },
       expiry: {
         serializedName: "expiry",
-        defaultValue: new Date('9999-12-31T15:59:59.9999999-08:00'),
         type: {
           name: "DateTime"
         }

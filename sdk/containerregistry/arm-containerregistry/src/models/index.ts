@@ -157,7 +157,7 @@ export interface OperationMetricSpecificationDefinition {
 }
 
 /**
- * The definition of Azure Monitoring metrics list.
+ * The definition of Azure Monitoring list.
  */
 export interface OperationServiceSpecificationDefinition {
   /**
@@ -208,7 +208,7 @@ export interface Sku {
 /**
  * The status of an Azure resource at the time the operation was called.
  */
-export interface Status1 {
+export interface Status {
   /**
    * The short label for the status.
    * **NOTE: This property will not be serialized. It can only be populated by the server.**
@@ -290,7 +290,7 @@ export interface NetworkRuleSet {
 export interface QuarantinePolicy {
   /**
    * The value that indicates whether the policy is enabled or not. Possible values include:
-   * 'enabled', 'disabled'
+   * 'enabled', 'disabled'. Default value: 'disabled'.
    */
   status?: PolicyStatus;
 }
@@ -300,12 +300,12 @@ export interface QuarantinePolicy {
  */
 export interface TrustPolicy {
   /**
-   * The type of trust policy. Possible values include: 'Notary'
+   * The type of trust policy. Possible values include: 'Notary'. Default value: 'Notary'.
    */
   type?: TrustPolicyType;
   /**
    * The value that indicates whether the policy is enabled or not. Possible values include:
-   * 'enabled', 'disabled'
+   * 'enabled', 'disabled'. Default value: 'disabled'.
    */
   status?: PolicyStatus;
 }
@@ -315,7 +315,8 @@ export interface TrustPolicy {
  */
 export interface RetentionPolicy {
   /**
-   * The number of days to retain manifest before it expires.
+   * The number of days to retain an untagged manifest after which it gets purged. Default value:
+   * 7.
    */
   days?: number;
   /**
@@ -325,7 +326,7 @@ export interface RetentionPolicy {
   readonly lastUpdatedTime?: Date;
   /**
    * The value that indicates whether the policy is enabled or not. Possible values include:
-   * 'enabled', 'disabled'
+   * 'enabled', 'disabled'. Default value: 'disabled'.
    */
   status?: PolicyStatus;
 }
@@ -405,7 +406,7 @@ export interface Registry extends Resource {
    * The status of the container registry at the time the operation was called.
    * **NOTE: This property will not be serialized. It can only be populated by the server.**
    */
-  readonly status?: Status1;
+  readonly status?: Status;
   /**
    * The value that indicates whether the admin user is enabled. Default value: false.
    */
@@ -536,7 +537,7 @@ export interface Replication extends Resource {
    * The status of the replication at the time the operation was called.
    * **NOTE: This property will not be serialized. It can only be populated by the server.**
    */
-  readonly status?: Status1;
+  readonly status?: Status;
 }
 
 /**
@@ -2279,8 +2280,8 @@ export interface ScopeMap extends ProxyResource {
   readonly provisioningState?: ProvisioningState;
   /**
    * The list of scoped permissions for registry artifacts.
-   * E.g. repositories/repository-name/pull,
-   * repositories/repository-name/delete
+   * E.g. repositories/repository-name/content/read,
+   * repositories/repository-name/metadata/write
    */
   actions: string[];
 }
@@ -2329,7 +2330,7 @@ export interface TokenCertificate {
  */
 export interface TokenPassword {
   /**
-   * The password created datetime of the password.
+   * The creation datetime of the password.
    */
   creationTime?: Date;
   /**
@@ -2337,7 +2338,8 @@ export interface TokenPassword {
    */
   expiry?: Date;
   /**
-   * The password name "password" or "password2". Possible values include: 'password1', 'password2'
+   * The password name "password1" or "password2". Possible values include: 'password1',
+   * 'password2'
    */
   name?: TokenPasswordName;
   /**
@@ -2386,7 +2388,7 @@ export interface Token extends ProxyResource {
    * The status of the token example enabled or disabled. Possible values include: 'enabled',
    * 'disabled'
    */
-  status?: Status;
+  status?: TokenStatus;
 }
 
 /**
@@ -2401,7 +2403,7 @@ export interface TokenUpdateParameters {
    * The status of the token example enabled or disabled. Possible values include: 'enabled',
    * 'disabled'
    */
-  status?: Status;
+  status?: TokenStatus;
   /**
    * The credentials that can be used for authenticating the token.
    */
@@ -2419,11 +2421,10 @@ export interface GenerateCredentialsParameters {
   tokenId?: string;
   /**
    * The expiry date of the generated credentials after which the credentials become invalid.
-   * Default value: new Date('9999-12-31T15:59:59.9999999-08:00').
    */
   expiry?: Date;
   /**
-   * Specifies name of the password which should be regenerated if any -- password or password2.
+   * Specifies name of the password which should be regenerated if any -- password1 or password2.
    * Possible values include: 'password1', 'password2'
    */
   name?: TokenPasswordName;
@@ -2816,12 +2817,12 @@ export type TokenCertificateName = 'certificate1' | 'certificate2';
 export type TokenPasswordName = 'password1' | 'password2';
 
 /**
- * Defines values for Status.
+ * Defines values for TokenStatus.
  * Possible values include: 'enabled', 'disabled'
  * @readonly
  * @enum {string}
  */
-export type Status = 'enabled' | 'disabled';
+export type TokenStatus = 'enabled' | 'disabled';
 
 /**
  * Contains response data for the checkNameAvailability operation.
