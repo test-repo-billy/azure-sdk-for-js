@@ -123,7 +123,7 @@ export class Users {
   }
 
   /**
-   * Modify properties of user profiles.
+   * Allows modifying tags of user profiles. All other properties will be ignored.
    * @param resourceGroupName The name of the resource group.
    * @param labName The name of the lab.
    * @param name The name of the user profile.

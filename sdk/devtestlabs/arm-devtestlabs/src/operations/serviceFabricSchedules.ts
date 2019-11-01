@@ -32,7 +32,7 @@ export class ServiceFabricSchedules {
    * @param resourceGroupName The name of the resource group.
    * @param labName The name of the lab.
    * @param userName The name of the user profile.
-   * @param serviceFabricName The name of the service Fabric.
+   * @param serviceFabricName The name of the service fabric.
    * @param [options] The optional parameters
    * @returns Promise<Models.ServiceFabricSchedulesListResponse>
    */
@@ -41,7 +41,7 @@ export class ServiceFabricSchedules {
    * @param resourceGroupName The name of the resource group.
    * @param labName The name of the lab.
    * @param userName The name of the user profile.
-   * @param serviceFabricName The name of the service Fabric.
+   * @param serviceFabricName The name of the service fabric.
    * @param callback The callback
    */
   list(resourceGroupName: string, labName: string, userName: string, serviceFabricName: string, callback: msRest.ServiceCallback<Models.ScheduleList>): void;
@@ -49,7 +49,7 @@ export class ServiceFabricSchedules {
    * @param resourceGroupName The name of the resource group.
    * @param labName The name of the lab.
    * @param userName The name of the user profile.
-   * @param serviceFabricName The name of the service Fabric.
+   * @param serviceFabricName The name of the service fabric.
    * @param options The optional parameters
    * @param callback The callback
    */
@@ -72,7 +72,7 @@ export class ServiceFabricSchedules {
    * @param resourceGroupName The name of the resource group.
    * @param labName The name of the lab.
    * @param userName The name of the user profile.
-   * @param serviceFabricName The name of the service Fabric.
+   * @param serviceFabricName The name of the service fabric.
    * @param name The name of the schedule.
    * @param [options] The optional parameters
    * @returns Promise<Models.ServiceFabricSchedulesGetResponse>
@@ -82,7 +82,7 @@ export class ServiceFabricSchedules {
    * @param resourceGroupName The name of the resource group.
    * @param labName The name of the lab.
    * @param userName The name of the user profile.
-   * @param serviceFabricName The name of the service Fabric.
+   * @param serviceFabricName The name of the service fabric.
    * @param name The name of the schedule.
    * @param callback The callback
    */
@@ -91,7 +91,7 @@ export class ServiceFabricSchedules {
    * @param resourceGroupName The name of the resource group.
    * @param labName The name of the lab.
    * @param userName The name of the user profile.
-   * @param serviceFabricName The name of the service Fabric.
+   * @param serviceFabricName The name of the service fabric.
    * @param name The name of the schedule.
    * @param options The optional parameters
    * @param callback The callback
@@ -116,7 +116,7 @@ export class ServiceFabricSchedules {
    * @param resourceGroupName The name of the resource group.
    * @param labName The name of the lab.
    * @param userName The name of the user profile.
-   * @param serviceFabricName The name of the service Fabric.
+   * @param serviceFabricName The name of the service fabric.
    * @param name The name of the schedule.
    * @param schedule A schedule.
    * @param [options] The optional parameters
@@ -127,7 +127,7 @@ export class ServiceFabricSchedules {
    * @param resourceGroupName The name of the resource group.
    * @param labName The name of the lab.
    * @param userName The name of the user profile.
-   * @param serviceFabricName The name of the service Fabric.
+   * @param serviceFabricName The name of the service fabric.
    * @param name The name of the schedule.
    * @param schedule A schedule.
    * @param callback The callback
@@ -137,7 +137,7 @@ export class ServiceFabricSchedules {
    * @param resourceGroupName The name of the resource group.
    * @param labName The name of the lab.
    * @param userName The name of the user profile.
-   * @param serviceFabricName The name of the service Fabric.
+   * @param serviceFabricName The name of the service fabric.
    * @param name The name of the schedule.
    * @param schedule A schedule.
    * @param options The optional parameters
@@ -164,7 +164,7 @@ export class ServiceFabricSchedules {
    * @param resourceGroupName The name of the resource group.
    * @param labName The name of the lab.
    * @param userName The name of the user profile.
-   * @param serviceFabricName The name of the service Fabric.
+   * @param serviceFabricName The name of the service fabric.
    * @param name The name of the schedule.
    * @param [options] The optional parameters
    * @returns Promise<msRest.RestResponse>
@@ -174,7 +174,7 @@ export class ServiceFabricSchedules {
    * @param resourceGroupName The name of the resource group.
    * @param labName The name of the lab.
    * @param userName The name of the user profile.
-   * @param serviceFabricName The name of the service Fabric.
+   * @param serviceFabricName The name of the service fabric.
    * @param name The name of the schedule.
    * @param callback The callback
    */
@@ -183,7 +183,7 @@ export class ServiceFabricSchedules {
    * @param resourceGroupName The name of the resource group.
    * @param labName The name of the lab.
    * @param userName The name of the user profile.
-   * @param serviceFabricName The name of the service Fabric.
+   * @param serviceFabricName The name of the service fabric.
    * @param name The name of the schedule.
    * @param options The optional parameters
    * @param callback The callback
@@ -204,11 +204,11 @@ export class ServiceFabricSchedules {
   }
 
   /**
-   * Modify properties of schedules.
+   * Allows modifying tags of schedules. All other properties will be ignored.
    * @param resourceGroupName The name of the resource group.
    * @param labName The name of the lab.
    * @param userName The name of the user profile.
-   * @param serviceFabricName The name of the service Fabric.
+   * @param serviceFabricName The name of the service fabric.
    * @param name The name of the schedule.
    * @param schedule A schedule.
    * @param [options] The optional parameters
@@ -219,7 +219,7 @@ export class ServiceFabricSchedules {
    * @param resourceGroupName The name of the resource group.
    * @param labName The name of the lab.
    * @param userName The name of the user profile.
-   * @param serviceFabricName The name of the service Fabric.
+   * @param serviceFabricName The name of the service fabric.
    * @param name The name of the schedule.
    * @param schedule A schedule.
    * @param callback The callback
@@ -229,7 +229,7 @@ export class ServiceFabricSchedules {
    * @param resourceGroupName The name of the resource group.
    * @param labName The name of the lab.
    * @param userName The name of the user profile.
-   * @param serviceFabricName The name of the service Fabric.
+   * @param serviceFabricName The name of the service fabric.
    * @param name The name of the schedule.
    * @param schedule A schedule.
    * @param options The optional parameters
@@ -256,7 +256,7 @@ export class ServiceFabricSchedules {
    * @param resourceGroupName The name of the resource group.
    * @param labName The name of the lab.
    * @param userName The name of the user profile.
-   * @param serviceFabricName The name of the service Fabric.
+   * @param serviceFabricName The name of the service fabric.
    * @param name The name of the schedule.
    * @param [options] The optional parameters
    * @returns Promise<msRest.RestResponse>
@@ -271,7 +271,7 @@ export class ServiceFabricSchedules {
    * @param resourceGroupName The name of the resource group.
    * @param labName The name of the lab.
    * @param userName The name of the user profile.
-   * @param serviceFabricName The name of the service Fabric.
+   * @param serviceFabricName The name of the service fabric.
    * @param name The name of the schedule.
    * @param [options] The optional parameters
    * @returns Promise<msRestAzure.LROPoller>

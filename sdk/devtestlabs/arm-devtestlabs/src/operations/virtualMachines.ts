@@ -96,7 +96,7 @@ export class VirtualMachines {
   }
 
   /**
-   * Create or replace an existing Virtual machine. This operation can take a while to complete.
+   * Create or replace an existing virtual machine. This operation can take a while to complete.
    * @param resourceGroupName The name of the resource group.
    * @param labName The name of the lab.
    * @param name The name of the virtual machine.
@@ -123,7 +123,7 @@ export class VirtualMachines {
   }
 
   /**
-   * Modify properties of virtual machines.
+   * Allows modifying tags of virtual machines. All other properties will be ignored.
    * @param resourceGroupName The name of the resource group.
    * @param labName The name of the lab.
    * @param name The name of the virtual machine.
@@ -385,7 +385,7 @@ export class VirtualMachines {
   }
 
   /**
-   * Create or replace an existing Virtual machine. This operation can take a while to complete.
+   * Create or replace an existing virtual machine. This operation can take a while to complete.
    * @param resourceGroupName The name of the resource group.
    * @param labName The name of the lab.
    * @param name The name of the virtual machine.

@@ -171,7 +171,7 @@ export class ArtifactSources {
   }
 
   /**
-   * Modify properties of artifact sources.
+   * Allows modifying tags of artifact sources. All other properties will be ignored.
    * @param resourceGroupName The name of the resource group.
    * @param labName The name of the lab.
    * @param name The name of the artifact source.

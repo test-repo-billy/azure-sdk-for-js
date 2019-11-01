@@ -187,7 +187,7 @@ export class Policies {
   }
 
   /**
-   * Modify properties of policies.
+   * Allows modifying tags of policies. All other properties will be ignored.
    * @param resourceGroupName The name of the resource group.
    * @param labName The name of the lab.
    * @param policySetName The name of the policy set.

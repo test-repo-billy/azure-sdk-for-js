@@ -133,7 +133,7 @@ export class Disks {
   }
 
   /**
-   * Modify properties of disks.
+   * Allows modifying tags of disks. All other properties will be ignored.
    * @param resourceGroupName The name of the resource group.
    * @param labName The name of the lab.
    * @param userName The name of the user profile.

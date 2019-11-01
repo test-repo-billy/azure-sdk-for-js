@@ -159,7 +159,7 @@ export class Secrets {
   }
 
   /**
-   * Modify properties of secrets.
+   * Allows modifying tags of secrets. All other properties will be ignored.
    * @param resourceGroupName The name of the resource group.
    * @param labName The name of the lab.
    * @param userName The name of the user profile.
