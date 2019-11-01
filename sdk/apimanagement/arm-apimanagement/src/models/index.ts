@@ -295,12 +295,6 @@ export interface AuthenticationSettingsContract {
    * OpenID Connect Authentication Settings
    */
   openid?: OpenIdAuthenticationSettingsContract;
-  /**
-   * Specifies whether subscription key is required during call to this API, true - API is included
-   * into closed products only, false - API is included into open products alone, null - there is a
-   * mix of products.
-   */
-  subscriptionKeyRequired?: boolean;
 }
 
 /**
@@ -3116,6 +3110,10 @@ export interface IdentityProviderBaseParameters {
    */
   type?: IdentityProviderType;
   /**
+   * The TenantId to use instead of Common when logging into Active Directory
+   */
+  signinTenant?: string;
+  /**
    * List of Allowed Tenants when configuring Azure Active Directory login.
    */
   allowedTenants?: string[];
@@ -3150,6 +3148,10 @@ export interface IdentityProviderUpdateParameters {
    * 'twitter', 'aad', 'aadB2C'
    */
   type?: IdentityProviderType;
+  /**
+   * The TenantId to use instead of Common when logging into Active Directory
+   */
+  signinTenant?: string;
   /**
    * List of Allowed Tenants when configuring Azure Active Directory login.
    */
@@ -3196,6 +3198,10 @@ export interface IdentityProviderContract extends Resource {
    * 'twitter', 'aad', 'aadB2C'
    */
   identityProviderContractType?: IdentityProviderType;
+  /**
+   * The TenantId to use instead of Common when logging into Active Directory
+   */
+  signinTenant?: string;
   /**
    * List of Allowed Tenants when configuring Azure Active Directory login.
    */

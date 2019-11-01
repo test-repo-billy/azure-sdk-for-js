@@ -450,12 +450,6 @@ export const AuthenticationSettingsContract: msRest.CompositeMapper = {
           name: "Composite",
           className: "OpenIdAuthenticationSettingsContract"
         }
-      },
-      subscriptionKeyRequired: {
-        serializedName: "subscriptionKeyRequired",
-        type: {
-          name: "Boolean"
-        }
       }
     }
   }
@@ -5336,6 +5330,12 @@ export const IdentityProviderBaseParameters: msRest.CompositeMapper = {
           name: "String"
         }
       },
+      signinTenant: {
+        serializedName: "signinTenant",
+        type: {
+          name: "String"
+        }
+      },
       allowedTenants: {
         serializedName: "allowedTenants",
         constraints: {
@@ -5404,6 +5404,12 @@ export const IdentityProviderUpdateParameters: msRest.CompositeMapper = {
     modelProperties: {
       type: {
         serializedName: "properties.type",
+        type: {
+          name: "String"
+        }
+      },
+      signinTenant: {
+        serializedName: "properties.signinTenant",
         type: {
           name: "String"
         }
@@ -5495,6 +5501,12 @@ export const IdentityProviderContract: msRest.CompositeMapper = {
       ...Resource.type.modelProperties,
       identityProviderContractType: {
         serializedName: "properties.type",
+        type: {
+          name: "String"
+        }
+      },
+      signinTenant: {
+        serializedName: "properties.signinTenant",
         type: {
           name: "String"
         }
