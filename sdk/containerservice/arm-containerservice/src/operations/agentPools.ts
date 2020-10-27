@@ -199,6 +199,20 @@ export class AgentPools {
   }
 
   /**
+   * Upgrade node image version of an agent pool to the latest.
+   * @summary Upgrade node image version of an agent pool to the latest.
+   * @param resourceGroupName The name of the resource group.
+   * @param resourceName The name of the managed cluster resource.
+   * @param agentPoolName The name of the agent pool.
+   * @param [options] The optional parameters
+   * @returns Promise<Models.AgentPoolsUpgradeNodeImageVersionResponse>
+   */
+  upgradeNodeImageVersion(resourceGroupName: string, resourceName: string, agentPoolName: string, options?: msRest.RequestOptionsBase): Promise<Models.AgentPoolsUpgradeNodeImageVersionResponse> {
+    return this.beginUpgradeNodeImageVersion(resourceGroupName,resourceName,agentPoolName,options)
+      .then(lroPoller => lroPoller.pollUntilFinished()) as Promise<Models.AgentPoolsUpgradeNodeImageVersionResponse>;
+  }
+
+  /**
    * Creates or updates an agent pool in the specified managed cluster.
    * @summary Creates or updates an agent pool.
    * @param resourceGroupName The name of the resource group.
@@ -243,6 +257,27 @@ export class AgentPools {
   }
 
   /**
+   * Upgrade node image version of an agent pool to the latest.
+   * @summary Upgrade node image version of an agent pool to the latest.
+   * @param resourceGroupName The name of the resource group.
+   * @param resourceName The name of the managed cluster resource.
+   * @param agentPoolName The name of the agent pool.
+   * @param [options] The optional parameters
+   * @returns Promise<msRestAzure.LROPoller>
+   */
+  beginUpgradeNodeImageVersion(resourceGroupName: string, resourceName: string, agentPoolName: string, options?: msRest.RequestOptionsBase): Promise<msRestAzure.LROPoller> {
+    return this.client.sendLRORequest(
+      {
+        resourceGroupName,
+        resourceName,
+        agentPoolName,
+        options
+      },
+      beginUpgradeNodeImageVersionOperationSpec,
+      options);
+  }
+
+  /**
    * Gets a list of agent pools in the specified managed cluster. The operation returns properties of
    * each agent pool.
    * @summary Gets a list of agent pools in the specified managed cluster.
@@ -280,11 +315,11 @@ const listOperationSpec: msRest.OperationSpec = {
   path: "subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{resourceName}/agentPools",
   urlParameters: [
     Parameters.subscriptionId,
-    Parameters.resourceGroupName0,
-    Parameters.resourceName1
+    Parameters.resourceGroupName,
+    Parameters.resourceName
   ],
   queryParameters: [
-    Parameters.apiVersion3
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -305,12 +340,12 @@ const getOperationSpec: msRest.OperationSpec = {
   path: "subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{resourceName}/agentPools/{agentPoolName}",
   urlParameters: [
     Parameters.subscriptionId,
-    Parameters.resourceGroupName0,
-    Parameters.resourceName1,
+    Parameters.resourceGroupName,
+    Parameters.resourceName,
     Parameters.agentPoolName
   ],
   queryParameters: [
-    Parameters.apiVersion3
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -331,12 +366,12 @@ const getUpgradeProfileOperationSpec: msRest.OperationSpec = {
   path: "subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{resourceName}/agentPools/{agentPoolName}/upgradeProfiles/default",
   urlParameters: [
     Parameters.subscriptionId,
-    Parameters.resourceGroupName0,
-    Parameters.resourceName1,
+    Parameters.resourceGroupName,
+    Parameters.resourceName,
     Parameters.agentPoolName
   ],
   queryParameters: [
-    Parameters.apiVersion3
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -357,11 +392,11 @@ const getAvailableAgentPoolVersionsOperationSpec: msRest.OperationSpec = {
   path: "subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{resourceName}/availableAgentPoolVersions",
   urlParameters: [
     Parameters.subscriptionId,
-    Parameters.resourceGroupName0,
-    Parameters.resourceName1
+    Parameters.resourceGroupName,
+    Parameters.resourceName
   ],
   queryParameters: [
-    Parameters.apiVersion3
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -382,12 +417,12 @@ const beginCreateOrUpdateOperationSpec: msRest.OperationSpec = {
   path: "subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{resourceName}/agentPools/{agentPoolName}",
   urlParameters: [
     Parameters.subscriptionId,
-    Parameters.resourceGroupName0,
-    Parameters.resourceName1,
+    Parameters.resourceGroupName,
+    Parameters.resourceName,
     Parameters.agentPoolName
   ],
   queryParameters: [
-    Parameters.apiVersion3
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -418,12 +453,12 @@ const beginDeleteMethodOperationSpec: msRest.OperationSpec = {
   path: "subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{resourceName}/agentPools/{agentPoolName}",
   urlParameters: [
     Parameters.subscriptionId,
-    Parameters.resourceGroupName0,
-    Parameters.resourceName1,
+    Parameters.resourceGroupName,
+    Parameters.resourceName,
     Parameters.agentPoolName
   ],
   queryParameters: [
-    Parameters.apiVersion3
+    Parameters.apiVersion
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -431,6 +466,33 @@ const beginDeleteMethodOperationSpec: msRest.OperationSpec = {
   responses: {
     202: {},
     204: {},
+    default: {
+      bodyMapper: Mappers.CloudError
+    }
+  },
+  serializer
+};
+
+const beginUpgradeNodeImageVersionOperationSpec: msRest.OperationSpec = {
+  httpMethod: "POST",
+  path: "subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{resourceName}/agentPools/{agentPoolName}/upgradeNodeImageVersion",
+  urlParameters: [
+    Parameters.subscriptionId,
+    Parameters.resourceGroupName,
+    Parameters.resourceName,
+    Parameters.agentPoolName
+  ],
+  queryParameters: [
+    Parameters.apiVersion
+  ],
+  headerParameters: [
+    Parameters.acceptLanguage
+  ],
+  responses: {
+    200: {},
+    202: {
+      bodyMapper: Mappers.AgentPool
+    },
     default: {
       bodyMapper: Mappers.CloudError
     }

@@ -8,6 +8,5 @@
 
 export {
   CloudError,
-  OperationListResult,
-  OperationValue
+  PrivateLinkResource
 } from "../models/mappers";
