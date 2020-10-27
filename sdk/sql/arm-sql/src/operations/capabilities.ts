@@ -66,7 +66,7 @@ const listByLocationOperationSpec: msRest.OperationSpec = {
   ],
   queryParameters: [
     Parameters.include,
-    Parameters.apiVersion2
+    Parameters.apiVersion6
   ],
   headerParameters: [
     Parameters.acceptLanguage
