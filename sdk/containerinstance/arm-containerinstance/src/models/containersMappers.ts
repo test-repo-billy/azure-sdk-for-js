@@ -8,7 +8,8 @@
 
 export {
   CloudError,
-  Operation,
-  OperationDisplay,
-  OperationListResult
+  ContainerExecRequest,
+  ContainerExecRequestTerminalSize,
+  ContainerExecResponse,
+  Logs
 } from "../models/mappers";
