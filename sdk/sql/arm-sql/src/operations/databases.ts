@@ -28,51 +28,6 @@ export class Databases {
   }
 
   /**
-   * Imports a bacpac into a new database.
-   * @param resourceGroupName The name of the resource group that contains the resource. You can
-   * obtain this value from the Azure Resource Manager API or the portal.
-   * @param serverName The name of the server.
-   * @param parameters The required parameters for importing a Bacpac into a database.
-   * @param [options] The optional parameters
-   * @returns Promise<Models.DatabasesImportMethodResponse>
-   */
-  importMethod(resourceGroupName: string, serverName: string, parameters: Models.ImportRequest, options?: msRest.RequestOptionsBase): Promise<Models.DatabasesImportMethodResponse> {
-    return this.beginImportMethod(resourceGroupName,serverName,parameters,options)
-      .then(lroPoller => lroPoller.pollUntilFinished()) as Promise<Models.DatabasesImportMethodResponse>;
-  }
-
-  /**
-   * Creates an import operation that imports a bacpac into an existing database. The existing
-   * database must be empty.
-   * @param resourceGroupName The name of the resource group that contains the resource. You can
-   * obtain this value from the Azure Resource Manager API or the portal.
-   * @param serverName The name of the server.
-   * @param databaseName The name of the database to import into
-   * @param parameters The required parameters for importing a Bacpac into a database.
-   * @param [options] The optional parameters
-   * @returns Promise<Models.DatabasesCreateImportOperationResponse>
-   */
-  createImportOperation(resourceGroupName: string, serverName: string, databaseName: string, parameters: Models.ImportExtensionRequest, options?: msRest.RequestOptionsBase): Promise<Models.DatabasesCreateImportOperationResponse> {
-    return this.beginCreateImportOperation(resourceGroupName,serverName,databaseName,parameters,options)
-      .then(lroPoller => lroPoller.pollUntilFinished()) as Promise<Models.DatabasesCreateImportOperationResponse>;
-  }
-
-  /**
-   * Exports a database to a bacpac.
-   * @param resourceGroupName The name of the resource group that contains the resource. You can
-   * obtain this value from the Azure Resource Manager API or the portal.
-   * @param serverName The name of the server.
-   * @param databaseName The name of the database to be exported.
-   * @param parameters The required parameters for exporting a database.
-   * @param [options] The optional parameters
-   * @returns Promise<Models.DatabasesExportMethodResponse>
-   */
-  exportMethod(resourceGroupName: string, serverName: string, databaseName: string, parameters: Models.ExportRequest, options?: msRest.RequestOptionsBase): Promise<Models.DatabasesExportMethodResponse> {
-    return this.beginExportMethod(resourceGroupName,serverName,databaseName,parameters,options)
-      .then(lroPoller => lroPoller.pollUntilFinished()) as Promise<Models.DatabasesExportMethodResponse>;
-  }
-
-  /**
    * Returns database metrics.
    * @param resourceGroupName The name of the resource group that contains the resource. You can
    * obtain this value from the Azure Resource Manager API or the portal.
@@ -152,6 +107,21 @@ export class Databases {
       },
       listMetricDefinitionsOperationSpec,
       callback) as Promise<Models.DatabasesListMetricDefinitionsResponse>;
+  }
+
+  /**
+   * Exports a database.
+   * @param resourceGroupName The name of the resource group that contains the resource. You can
+   * obtain this value from the Azure Resource Manager API or the portal.
+   * @param serverName The name of the server.
+   * @param databaseName The name of the database.
+   * @param parameters The database export request parameters.
+   * @param [options] The optional parameters
+   * @returns Promise<Models.DatabasesExportMethodResponse>
+   */
+  exportMethod(resourceGroupName: string, serverName: string, databaseName: string, parameters: Models.ExportDatabaseDefinition, options?: msRest.RequestOptionsBase): Promise<Models.DatabasesExportMethodResponse> {
+    return this.beginExportMethod(resourceGroupName,serverName,databaseName,parameters,options)
+      .then(lroPoller => lroPoller.pollUntilFinished()) as Promise<Models.DatabasesExportMethodResponse>;
   }
 
   /**
@@ -312,6 +282,20 @@ export class Databases {
   }
 
   /**
+   * Failovers a database.
+   * @param resourceGroupName The name of the resource group that contains the resource. You can
+   * obtain this value from the Azure Resource Manager API or the portal.
+   * @param serverName The name of the server.
+   * @param databaseName The name of the database to failover.
+   * @param [options] The optional parameters
+   * @returns Promise<msRest.RestResponse>
+   */
+  failover(resourceGroupName: string, serverName: string, databaseName: string, options?: Models.DatabasesFailoverOptionalParams): Promise<msRest.RestResponse> {
+    return this.beginFailover(resourceGroupName,serverName,databaseName,options)
+      .then(lroPoller => lroPoller.pollUntilFinished());
+  }
+
+  /**
    * Pauses a database.
    * @param resourceGroupName The name of the resource group that contains the resource. You can
    * obtain this value from the Azure Resource Manager API or the portal.
@@ -397,75 +381,16 @@ export class Databases {
   }
 
   /**
-   * Failovers a database.
+   * Exports a database.
    * @param resourceGroupName The name of the resource group that contains the resource. You can
    * obtain this value from the Azure Resource Manager API or the portal.
    * @param serverName The name of the server.
-   * @param databaseName The name of the database to failover.
-   * @param [options] The optional parameters
-   * @returns Promise<msRest.RestResponse>
-   */
-  failover(resourceGroupName: string, serverName: string, databaseName: string, options?: Models.DatabasesFailoverOptionalParams): Promise<msRest.RestResponse> {
-    return this.beginFailover(resourceGroupName,serverName,databaseName,options)
-      .then(lroPoller => lroPoller.pollUntilFinished());
-  }
-
-  /**
-   * Imports a bacpac into a new database.
-   * @param resourceGroupName The name of the resource group that contains the resource. You can
-   * obtain this value from the Azure Resource Manager API or the portal.
-   * @param serverName The name of the server.
-   * @param parameters The required parameters for importing a Bacpac into a database.
+   * @param databaseName The name of the database.
+   * @param parameters The database export request parameters.
    * @param [options] The optional parameters
    * @returns Promise<msRestAzure.LROPoller>
    */
-  beginImportMethod(resourceGroupName: string, serverName: string, parameters: Models.ImportRequest, options?: msRest.RequestOptionsBase): Promise<msRestAzure.LROPoller> {
-    return this.client.sendLRORequest(
-      {
-        resourceGroupName,
-        serverName,
-        parameters,
-        options
-      },
-      beginImportMethodOperationSpec,
-      options);
-  }
-
-  /**
-   * Creates an import operation that imports a bacpac into an existing database. The existing
-   * database must be empty.
-   * @param resourceGroupName The name of the resource group that contains the resource. You can
-   * obtain this value from the Azure Resource Manager API or the portal.
-   * @param serverName The name of the server.
-   * @param databaseName The name of the database to import into
-   * @param parameters The required parameters for importing a Bacpac into a database.
-   * @param [options] The optional parameters
-   * @returns Promise<msRestAzure.LROPoller>
-   */
-  beginCreateImportOperation(resourceGroupName: string, serverName: string, databaseName: string, parameters: Models.ImportExtensionRequest, options?: msRest.RequestOptionsBase): Promise<msRestAzure.LROPoller> {
-    return this.client.sendLRORequest(
-      {
-        resourceGroupName,
-        serverName,
-        databaseName,
-        parameters,
-        options
-      },
-      beginCreateImportOperationOperationSpec,
-      options);
-  }
-
-  /**
-   * Exports a database to a bacpac.
-   * @param resourceGroupName The name of the resource group that contains the resource. You can
-   * obtain this value from the Azure Resource Manager API or the portal.
-   * @param serverName The name of the server.
-   * @param databaseName The name of the database to be exported.
-   * @param parameters The required parameters for exporting a database.
-   * @param [options] The optional parameters
-   * @returns Promise<msRestAzure.LROPoller>
-   */
-  beginExportMethod(resourceGroupName: string, serverName: string, databaseName: string, parameters: Models.ExportRequest, options?: msRest.RequestOptionsBase): Promise<msRestAzure.LROPoller> {
+  beginExportMethod(resourceGroupName: string, serverName: string, databaseName: string, parameters: Models.ExportDatabaseDefinition, options?: msRest.RequestOptionsBase): Promise<msRestAzure.LROPoller> {
     return this.client.sendLRORequest(
       {
         resourceGroupName,
@@ -546,6 +471,27 @@ export class Databases {
   }
 
   /**
+   * Failovers a database.
+   * @param resourceGroupName The name of the resource group that contains the resource. You can
+   * obtain this value from the Azure Resource Manager API or the portal.
+   * @param serverName The name of the server.
+   * @param databaseName The name of the database to failover.
+   * @param [options] The optional parameters
+   * @returns Promise<msRestAzure.LROPoller>
+   */
+  beginFailover(resourceGroupName: string, serverName: string, databaseName: string, options?: Models.DatabasesBeginFailoverOptionalParams): Promise<msRestAzure.LROPoller> {
+    return this.client.sendLRORequest(
+      {
+        resourceGroupName,
+        serverName,
+        databaseName,
+        options
+      },
+      beginFailoverOperationSpec,
+      options);
+  }
+
+  /**
    * Pauses a database.
    * @param resourceGroupName The name of the resource group that contains the resource. You can
    * obtain this value from the Azure Resource Manager API or the portal.
@@ -605,27 +551,6 @@ export class Databases {
         options
       },
       beginUpgradeDataWarehouseOperationSpec,
-      options);
-  }
-
-  /**
-   * Failovers a database.
-   * @param resourceGroupName The name of the resource group that contains the resource. You can
-   * obtain this value from the Azure Resource Manager API or the portal.
-   * @param serverName The name of the server.
-   * @param databaseName The name of the database to failover.
-   * @param [options] The optional parameters
-   * @returns Promise<msRestAzure.LROPoller>
-   */
-  beginFailover(resourceGroupName: string, serverName: string, databaseName: string, options?: Models.DatabasesBeginFailoverOptionalParams): Promise<msRestAzure.LROPoller> {
-    return this.client.sendLRORequest(
-      {
-        resourceGroupName,
-        serverName,
-        databaseName,
-        options
-      },
-      beginFailoverOperationSpec,
       options);
   }
 
@@ -693,7 +618,7 @@ const listMetricsOperationSpec: msRest.OperationSpec = {
   path: "subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/databases/{databaseName}/metrics",
   urlParameters: [
     Parameters.subscriptionId,
-    Parameters.resourceGroupName,
+    Parameters.resourceGroupName0,
     Parameters.serverName,
     Parameters.databaseName
   ],
@@ -720,7 +645,7 @@ const listMetricDefinitionsOperationSpec: msRest.OperationSpec = {
   path: "subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/databases/{databaseName}/metricDefinitions",
   urlParameters: [
     Parameters.subscriptionId,
-    Parameters.resourceGroupName,
+    Parameters.resourceGroupName0,
     Parameters.serverName,
     Parameters.databaseName
   ],
@@ -745,7 +670,7 @@ const listByServerOperationSpec: msRest.OperationSpec = {
   httpMethod: "GET",
   path: "subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/databases",
   urlParameters: [
-    Parameters.resourceGroupName,
+    Parameters.resourceGroupName0,
     Parameters.serverName,
     Parameters.subscriptionId
   ],
@@ -770,7 +695,7 @@ const getOperationSpec: msRest.OperationSpec = {
   httpMethod: "GET",
   path: "subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/databases/{databaseName}",
   urlParameters: [
-    Parameters.resourceGroupName,
+    Parameters.resourceGroupName0,
     Parameters.serverName,
     Parameters.databaseName,
     Parameters.subscriptionId
@@ -796,7 +721,7 @@ const listByElasticPoolOperationSpec: msRest.OperationSpec = {
   httpMethod: "GET",
   path: "subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/elasticPools/{elasticPoolName}/databases",
   urlParameters: [
-    Parameters.resourceGroupName,
+    Parameters.resourceGroupName0,
     Parameters.serverName,
     Parameters.elasticPoolName,
     Parameters.subscriptionId
@@ -822,7 +747,7 @@ const renameOperationSpec: msRest.OperationSpec = {
   httpMethod: "POST",
   path: "subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/databases/{databaseName}/move",
   urlParameters: [
-    Parameters.resourceGroupName,
+    Parameters.resourceGroupName0,
     Parameters.serverName,
     Parameters.databaseName,
     Parameters.subscriptionId
@@ -849,85 +774,17 @@ const renameOperationSpec: msRest.OperationSpec = {
   serializer
 };
 
-const beginImportMethodOperationSpec: msRest.OperationSpec = {
-  httpMethod: "POST",
-  path: "subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/import",
-  urlParameters: [
-    Parameters.subscriptionId,
-    Parameters.resourceGroupName,
-    Parameters.serverName
-  ],
-  queryParameters: [
-    Parameters.apiVersion0
-  ],
-  headerParameters: [
-    Parameters.acceptLanguage
-  ],
-  requestBody: {
-    parameterPath: "parameters",
-    mapper: {
-      ...Mappers.ImportRequest,
-      required: true
-    }
-  },
-  responses: {
-    200: {
-      bodyMapper: Mappers.ImportExportResponse
-    },
-    202: {},
-    default: {
-      bodyMapper: Mappers.CloudError
-    }
-  },
-  serializer
-};
-
-const beginCreateImportOperationOperationSpec: msRest.OperationSpec = {
-  httpMethod: "PUT",
-  path: "subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/databases/{databaseName}/extensions/{extensionName}",
-  urlParameters: [
-    Parameters.subscriptionId,
-    Parameters.resourceGroupName,
-    Parameters.serverName,
-    Parameters.databaseName,
-    Parameters.extensionName
-  ],
-  queryParameters: [
-    Parameters.apiVersion0
-  ],
-  headerParameters: [
-    Parameters.acceptLanguage
-  ],
-  requestBody: {
-    parameterPath: "parameters",
-    mapper: {
-      ...Mappers.ImportExtensionRequest,
-      required: true
-    }
-  },
-  responses: {
-    201: {
-      bodyMapper: Mappers.ImportExportResponse
-    },
-    202: {},
-    default: {
-      bodyMapper: Mappers.CloudError
-    }
-  },
-  serializer
-};
-
 const beginExportMethodOperationSpec: msRest.OperationSpec = {
   httpMethod: "POST",
   path: "subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/databases/{databaseName}/export",
   urlParameters: [
-    Parameters.subscriptionId,
-    Parameters.resourceGroupName,
+    Parameters.resourceGroupName0,
     Parameters.serverName,
-    Parameters.databaseName
+    Parameters.databaseName,
+    Parameters.subscriptionId
   ],
   queryParameters: [
-    Parameters.apiVersion0
+    Parameters.apiVersion1
   ],
   headerParameters: [
     Parameters.acceptLanguage
@@ -935,13 +792,13 @@ const beginExportMethodOperationSpec: msRest.OperationSpec = {
   requestBody: {
     parameterPath: "parameters",
     mapper: {
-      ...Mappers.ExportRequest,
+      ...Mappers.ExportDatabaseDefinition,
       required: true
     }
   },
   responses: {
     200: {
-      bodyMapper: Mappers.ImportExportResponse
+      bodyMapper: Mappers.ImportExportOperationResult
     },
     202: {},
     default: {
@@ -955,7 +812,7 @@ const beginCreateOrUpdateOperationSpec: msRest.OperationSpec = {
   httpMethod: "PUT",
   path: "subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/databases/{databaseName}",
   urlParameters: [
-    Parameters.resourceGroupName,
+    Parameters.resourceGroupName0,
     Parameters.serverName,
     Parameters.databaseName,
     Parameters.subscriptionId
@@ -992,7 +849,7 @@ const beginDeleteMethodOperationSpec: msRest.OperationSpec = {
   httpMethod: "DELETE",
   path: "subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/databases/{databaseName}",
   urlParameters: [
-    Parameters.resourceGroupName,
+    Parameters.resourceGroupName0,
     Parameters.serverName,
     Parameters.databaseName,
     Parameters.subscriptionId
@@ -1018,7 +875,7 @@ const beginUpdateOperationSpec: msRest.OperationSpec = {
   httpMethod: "PATCH",
   path: "subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/databases/{databaseName}",
   urlParameters: [
-    Parameters.resourceGroupName,
+    Parameters.resourceGroupName0,
     Parameters.serverName,
     Parameters.databaseName,
     Parameters.subscriptionId
@@ -1048,11 +905,37 @@ const beginUpdateOperationSpec: msRest.OperationSpec = {
   serializer
 };
 
+const beginFailoverOperationSpec: msRest.OperationSpec = {
+  httpMethod: "POST",
+  path: "subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/databases/{databaseName}/failover",
+  urlParameters: [
+    Parameters.resourceGroupName0,
+    Parameters.serverName,
+    Parameters.databaseName,
+    Parameters.subscriptionId
+  ],
+  queryParameters: [
+    Parameters.replicaType,
+    Parameters.apiVersion2
+  ],
+  headerParameters: [
+    Parameters.acceptLanguage
+  ],
+  responses: {
+    200: {},
+    202: {},
+    default: {
+      bodyMapper: Mappers.CloudError
+    }
+  },
+  serializer
+};
+
 const beginPauseOperationSpec: msRest.OperationSpec = {
   httpMethod: "POST",
   path: "subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/databases/{databaseName}/pause",
   urlParameters: [
-    Parameters.resourceGroupName,
+    Parameters.resourceGroupName0,
     Parameters.serverName,
     Parameters.databaseName,
     Parameters.subscriptionId
@@ -1079,7 +962,7 @@ const beginResumeOperationSpec: msRest.OperationSpec = {
   httpMethod: "POST",
   path: "subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/databases/{databaseName}/resume",
   urlParameters: [
-    Parameters.resourceGroupName,
+    Parameters.resourceGroupName0,
     Parameters.serverName,
     Parameters.databaseName,
     Parameters.subscriptionId
@@ -1106,39 +989,13 @@ const beginUpgradeDataWarehouseOperationSpec: msRest.OperationSpec = {
   httpMethod: "POST",
   path: "subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/databases/{databaseName}/upgradeDataWarehouse",
   urlParameters: [
-    Parameters.resourceGroupName,
+    Parameters.resourceGroupName0,
     Parameters.serverName,
     Parameters.databaseName,
     Parameters.subscriptionId
   ],
   queryParameters: [
     Parameters.apiVersion2
-  ],
-  headerParameters: [
-    Parameters.acceptLanguage
-  ],
-  responses: {
-    200: {},
-    202: {},
-    default: {
-      bodyMapper: Mappers.CloudError
-    }
-  },
-  serializer
-};
-
-const beginFailoverOperationSpec: msRest.OperationSpec = {
-  httpMethod: "POST",
-  path: "subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/databases/{databaseName}/failover",
-  urlParameters: [
-    Parameters.resourceGroupName,
-    Parameters.serverName,
-    Parameters.databaseName,
-    Parameters.subscriptionId
-  ],
-  queryParameters: [
-    Parameters.replicaType,
-    Parameters.apiVersion3
   ],
   headerParameters: [
     Parameters.acceptLanguage
