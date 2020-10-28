@@ -22,9 +22,11 @@ class ComputeManagementClient extends ComputeManagementClientContext {
   proximityPlacementGroups: operations.ProximityPlacementGroups;
   dedicatedHostGroups: operations.DedicatedHostGroups;
   dedicatedHosts: operations.DedicatedHosts;
+  sshPublicKeys: operations.SshPublicKeys;
   virtualMachineExtensionImages: operations.VirtualMachineExtensionImages;
   virtualMachineExtensions: operations.VirtualMachineExtensions;
   virtualMachineImages: operations.VirtualMachineImages;
+  virtualMachineImagesEdgeZone: operations.VirtualMachineImagesEdgeZone;
   usage: operations.UsageOperations;
   virtualMachines: operations.VirtualMachines;
   virtualMachineSizes: operations.VirtualMachineSizes;
@@ -40,11 +42,16 @@ class ComputeManagementClient extends ComputeManagementClientContext {
   disks: operations.Disks;
   snapshots: operations.Snapshots;
   diskEncryptionSets: operations.DiskEncryptionSets;
+  diskAccesses: operations.DiskAccesses;
   galleries: operations.Galleries;
   galleryImages: operations.GalleryImages;
   galleryImageVersions: operations.GalleryImageVersions;
   galleryApplications: operations.GalleryApplications;
   galleryApplicationVersions: operations.GalleryApplicationVersions;
+  gallerySharingProfile: operations.GallerySharingProfile;
+  sharedGalleries: operations.SharedGalleries;
+  sharedGalleryImages: operations.SharedGalleryImages;
+  sharedGalleryImageVersions: operations.SharedGalleryImageVersions;
   containerServices: operations.ContainerServices;
 
   /**
@@ -61,9 +68,11 @@ class ComputeManagementClient extends ComputeManagementClientContext {
     this.proximityPlacementGroups = new operations.ProximityPlacementGroups(this);
     this.dedicatedHostGroups = new operations.DedicatedHostGroups(this);
     this.dedicatedHosts = new operations.DedicatedHosts(this);
+    this.sshPublicKeys = new operations.SshPublicKeys(this);
     this.virtualMachineExtensionImages = new operations.VirtualMachineExtensionImages(this);
     this.virtualMachineExtensions = new operations.VirtualMachineExtensions(this);
     this.virtualMachineImages = new operations.VirtualMachineImages(this);
+    this.virtualMachineImagesEdgeZone = new operations.VirtualMachineImagesEdgeZone(this);
     this.usage = new operations.UsageOperations(this);
     this.virtualMachines = new operations.VirtualMachines(this);
     this.virtualMachineSizes = new operations.VirtualMachineSizes(this);
@@ -79,11 +88,16 @@ class ComputeManagementClient extends ComputeManagementClientContext {
     this.disks = new operations.Disks(this);
     this.snapshots = new operations.Snapshots(this);
     this.diskEncryptionSets = new operations.DiskEncryptionSets(this);
+    this.diskAccesses = new operations.DiskAccesses(this);
     this.galleries = new operations.Galleries(this);
     this.galleryImages = new operations.GalleryImages(this);
     this.galleryImageVersions = new operations.GalleryImageVersions(this);
     this.galleryApplications = new operations.GalleryApplications(this);
     this.galleryApplicationVersions = new operations.GalleryApplicationVersions(this);
+    this.gallerySharingProfile = new operations.GallerySharingProfile(this);
+    this.sharedGalleries = new operations.SharedGalleries(this);
+    this.sharedGalleryImages = new operations.SharedGalleryImages(this);
+    this.sharedGalleryImageVersions = new operations.SharedGalleryImageVersions(this);
     this.containerServices = new operations.ContainerServices(this);
   }
 }

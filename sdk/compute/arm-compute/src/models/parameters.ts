@@ -26,7 +26,7 @@ export const apiVersion0: msRest.OperationQueryParameter = {
     required: true,
     isConstant: true,
     serializedName: "api-version",
-    defaultValue: '2019-07-01',
+    defaultValue: '2020-12-01',
     type: {
       name: "String"
     }
@@ -50,7 +50,7 @@ export const apiVersion2: msRest.OperationQueryParameter = {
     required: true,
     isConstant: true,
     serializedName: "api-version",
-    defaultValue: '2019-11-01',
+    defaultValue: '2020-06-30',
     type: {
       name: "String"
     }
@@ -62,7 +62,7 @@ export const apiVersion3: msRest.OperationQueryParameter = {
     required: true,
     isConstant: true,
     serializedName: "api-version",
-    defaultValue: '2019-12-01',
+    defaultValue: '2020-09-30',
     type: {
       name: "String"
     }
@@ -110,6 +110,16 @@ export const containerServiceName: msRest.OperationURLParameter = {
     }
   }
 };
+export const diskAccessName: msRest.OperationURLParameter = {
+  parameterPath: "diskAccessName",
+  mapper: {
+    required: true,
+    serializedName: "diskAccessName",
+    type: {
+      name: "String"
+    }
+  }
+};
 export const diskEncryptionSetName: msRest.OperationURLParameter = {
   parameterPath: "diskEncryptionSetName",
   mapper: {
@@ -125,6 +135,16 @@ export const diskName: msRest.OperationURLParameter = {
   mapper: {
     required: true,
     serializedName: "diskName",
+    type: {
+      name: "String"
+    }
+  }
+};
+export const edgeZone: msRest.OperationURLParameter = {
+  parameterPath: "edgeZone",
+  mapper: {
+    required: true,
+    serializedName: "edgeZone",
     type: {
       name: "String"
     }
@@ -214,6 +234,16 @@ export const galleryName: msRest.OperationURLParameter = {
   mapper: {
     required: true,
     serializedName: "galleryName",
+    type: {
+      name: "String"
+    }
+  }
+};
+export const galleryUniqueName: msRest.OperationURLParameter = {
+  parameterPath: "galleryUniqueName",
+  mapper: {
+    required: true,
+    serializedName: "galleryUniqueName",
     type: {
       name: "String"
     }
@@ -367,6 +397,18 @@ export const resourceGroupName: msRest.OperationURLParameter = {
     }
   }
 };
+export const sasUriExpirationTimeInMinutes: msRest.OperationQueryParameter = {
+  parameterPath: [
+    "options",
+    "sasUriExpirationTimeInMinutes"
+  ],
+  mapper: {
+    serializedName: "sasUriExpirationTimeInMinutes",
+    type: {
+      name: "Number"
+    }
+  }
+};
 export const select: msRest.OperationQueryParameter = {
   parameterPath: [
     "options",
@@ -374,6 +416,18 @@ export const select: msRest.OperationQueryParameter = {
   ],
   mapper: {
     serializedName: "$select",
+    type: {
+      name: "String"
+    }
+  }
+};
+export const sharedTo: msRest.OperationQueryParameter = {
+  parameterPath: [
+    "options",
+    "sharedTo"
+  ],
+  mapper: {
+    serializedName: "sharedTo",
     type: {
       name: "String"
     }
@@ -407,6 +461,16 @@ export const snapshotName: msRest.OperationURLParameter = {
   mapper: {
     required: true,
     serializedName: "snapshotName",
+    type: {
+      name: "String"
+    }
+  }
+};
+export const sshPublicKeyName: msRest.OperationURLParameter = {
+  parameterPath: "sshPublicKeyName",
+  mapper: {
+    required: true,
+    serializedName: "sshPublicKeyName",
     type: {
       name: "String"
     }
