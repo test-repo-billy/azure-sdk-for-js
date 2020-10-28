@@ -8,9 +8,9 @@
 
 export {
   discriminators,
-  AppWhitelistingGroup,
-  AppWhitelistingGroups,
-  AppWhitelistingIssueSummary,
+  AdaptiveApplicationControlGroup,
+  AdaptiveApplicationControlGroups,
+  AdaptiveApplicationControlIssueSummary,
   CloudError,
   PathRecommendation,
   ProtectionMode,
