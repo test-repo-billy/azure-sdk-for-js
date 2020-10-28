@@ -460,6 +460,7 @@ const createOrUpdateOperationSpec: msRest.OperationSpec = {
     Parameters.subscriptionId
   ],
   queryParameters: [
+    Parameters.notify,
     Parameters.apiVersion
   ],
   headerParameters: [
@@ -533,7 +534,8 @@ const deleteMethodOperationSpec: msRest.OperationSpec = {
   queryParameters: [
     Parameters.deleteSubscriptions,
     Parameters.notify,
-    Parameters.apiVersion
+    Parameters.apiVersion,
+    Parameters.appType
   ],
   headerParameters: [
     Parameters.ifMatch1,
