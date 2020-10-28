@@ -91,6 +91,28 @@ export const connectionPolicyName: msRest.OperationURLParameter = {
     }
   }
 };
+export const dataMaskingPolicyName: msRest.OperationURLParameter = {
+  parameterPath: "dataMaskingPolicyName",
+  mapper: {
+    required: true,
+    isConstant: true,
+    serializedName: "dataMaskingPolicyName",
+    defaultValue: 'Default',
+    type: {
+      name: "String"
+    }
+  }
+};
+export const dataMaskingRuleName: msRest.OperationURLParameter = {
+  parameterPath: "dataMaskingRuleName",
+  mapper: {
+    required: true,
+    serializedName: "dataMaskingRuleName",
+    type: {
+      name: "String"
+    }
+  }
+};
 export const dataWarehouseUserActivityName: msRest.OperationURLParameter = {
   parameterPath: "dataWarehouseUserActivityName",
   mapper: {
@@ -227,6 +249,16 @@ export const privateEndpointConnectionName: msRest.OperationURLParameter = {
     }
   }
 };
+export const privateLinkHubName: msRest.OperationURLParameter = {
+  parameterPath: "privateLinkHubName",
+  mapper: {
+    required: true,
+    serializedName: "privateLinkHubName",
+    type: {
+      name: "String"
+    }
+  }
+};
 export const privateLinkResourceName: msRest.OperationURLParameter = {
   parameterPath: "privateLinkResourceName",
   mapper: {
@@ -317,6 +349,20 @@ export const sensitivityLabelSource0: msRest.OperationURLParameter = {
   }
 };
 export const sensitivityLabelSource1: msRest.OperationURLParameter = {
+  parameterPath: "sensitivityLabelSource",
+  mapper: {
+    required: true,
+    serializedName: "sensitivityLabelSource",
+    type: {
+      name: "Enum",
+      allowedValues: [
+        "current",
+        "recommended"
+      ]
+    }
+  }
+};
+export const sensitivityLabelSource2: msRest.OperationURLParameter = {
   parameterPath: "sensitivityLabelSource",
   mapper: {
     required: true,
