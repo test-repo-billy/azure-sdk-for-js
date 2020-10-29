@@ -31,25 +31,25 @@ export class Configurations {
    * groups.
    * @summary Retrieve Azure Advisor configurations.
    * @param [options] The optional parameters
-   * @returns Promise<Models.ConfigurationsListBySubscriptionResponse>
+   * @returns Promise<Models.ConfigurationsAAAABySubscriptionResponse>
    */
-  listBySubscription(options?: msRest.RequestOptionsBase): Promise<Models.ConfigurationsListBySubscriptionResponse>;
+  aAAABySubscription(options?: msRest.RequestOptionsBase): Promise<Models.ConfigurationsAAAABySubscriptionResponse>;
   /**
    * @param callback The callback
    */
-  listBySubscription(callback: msRest.ServiceCallback<Models.ConfigurationListResult>): void;
+  aAAABySubscription(callback: msRest.ServiceCallback<Models.ConfigurationListResult>): void;
   /**
    * @param options The optional parameters
    * @param callback The callback
    */
-  listBySubscription(options: msRest.RequestOptionsBase, callback: msRest.ServiceCallback<Models.ConfigurationListResult>): void;
-  listBySubscription(options?: msRest.RequestOptionsBase | msRest.ServiceCallback<Models.ConfigurationListResult>, callback?: msRest.ServiceCallback<Models.ConfigurationListResult>): Promise<Models.ConfigurationsListBySubscriptionResponse> {
+  aAAABySubscription(options: msRest.RequestOptionsBase, callback: msRest.ServiceCallback<Models.ConfigurationListResult>): void;
+  aAAABySubscription(options?: msRest.RequestOptionsBase | msRest.ServiceCallback<Models.ConfigurationListResult>, callback?: msRest.ServiceCallback<Models.ConfigurationListResult>): Promise<Models.ConfigurationsAAAABySubscriptionResponse> {
     return this.client.sendOperationRequest(
       {
         options
       },
-      listBySubscriptionOperationSpec,
-      callback) as Promise<Models.ConfigurationsListBySubscriptionResponse>;
+      aAAABySubscriptionOperationSpec,
+      callback) as Promise<Models.ConfigurationsAAAABySubscriptionResponse>;
   }
 
   /**
@@ -65,14 +65,14 @@ export class Configurations {
    * @param configContract The Azure Advisor configuration data structure.
    * @param callback The callback
    */
-  createInSubscription(configContract: Models.ConfigData, callback: msRest.ServiceCallback<Models.ARMErrorResponseBody>): void;
+  createInSubscription(configContract: Models.ConfigData, callback: msRest.ServiceCallback<Models.ConfigData>): void;
   /**
    * @param configContract The Azure Advisor configuration data structure.
    * @param options The optional parameters
    * @param callback The callback
    */
-  createInSubscription(configContract: Models.ConfigData, options: msRest.RequestOptionsBase, callback: msRest.ServiceCallback<Models.ARMErrorResponseBody>): void;
-  createInSubscription(configContract: Models.ConfigData, options?: msRest.RequestOptionsBase | msRest.ServiceCallback<Models.ARMErrorResponseBody>, callback?: msRest.ServiceCallback<Models.ARMErrorResponseBody>): Promise<Models.ConfigurationsCreateInSubscriptionResponse> {
+  createInSubscription(configContract: Models.ConfigData, options: msRest.RequestOptionsBase, callback: msRest.ServiceCallback<Models.ConfigData>): void;
+  createInSubscription(configContract: Models.ConfigData, options?: msRest.RequestOptionsBase | msRest.ServiceCallback<Models.ConfigData>, callback?: msRest.ServiceCallback<Models.ConfigData>): Promise<Models.ConfigurationsCreateInSubscriptionResponse> {
     return this.client.sendOperationRequest(
       {
         configContract,
@@ -123,15 +123,15 @@ export class Configurations {
    * @param resourceGroup The name of the Azure resource group.
    * @param callback The callback
    */
-  createInResourceGroup(configContract: Models.ConfigData, resourceGroup: string, callback: msRest.ServiceCallback<Models.ARMErrorResponseBody>): void;
+  createInResourceGroup(configContract: Models.ConfigData, resourceGroup: string, callback: msRest.ServiceCallback<Models.ConfigData>): void;
   /**
    * @param configContract The Azure Advisor configuration data structure.
    * @param resourceGroup The name of the Azure resource group.
    * @param options The optional parameters
    * @param callback The callback
    */
-  createInResourceGroup(configContract: Models.ConfigData, resourceGroup: string, options: msRest.RequestOptionsBase, callback: msRest.ServiceCallback<Models.ARMErrorResponseBody>): void;
-  createInResourceGroup(configContract: Models.ConfigData, resourceGroup: string, options?: msRest.RequestOptionsBase | msRest.ServiceCallback<Models.ARMErrorResponseBody>, callback?: msRest.ServiceCallback<Models.ARMErrorResponseBody>): Promise<Models.ConfigurationsCreateInResourceGroupResponse> {
+  createInResourceGroup(configContract: Models.ConfigData, resourceGroup: string, options: msRest.RequestOptionsBase, callback: msRest.ServiceCallback<Models.ConfigData>): void;
+  createInResourceGroup(configContract: Models.ConfigData, resourceGroup: string, options?: msRest.RequestOptionsBase | msRest.ServiceCallback<Models.ConfigData>, callback?: msRest.ServiceCallback<Models.ConfigData>): Promise<Models.ConfigurationsCreateInResourceGroupResponse> {
     return this.client.sendOperationRequest(
       {
         configContract,
@@ -148,34 +148,34 @@ export class Configurations {
    * @summary Retrieve Azure Advisor configurations.
    * @param nextPageLink The NextLink from the previous successful call to List operation.
    * @param [options] The optional parameters
-   * @returns Promise<Models.ConfigurationsListBySubscriptionNextResponse>
+   * @returns Promise<Models.ConfigurationsAAAABySubscriptionNextResponse>
    */
-  listBySubscriptionNext(nextPageLink: string, options?: msRest.RequestOptionsBase): Promise<Models.ConfigurationsListBySubscriptionNextResponse>;
+  aAAABySubscriptionNext(nextPageLink: string, options?: msRest.RequestOptionsBase): Promise<Models.ConfigurationsAAAABySubscriptionNextResponse>;
   /**
    * @param nextPageLink The NextLink from the previous successful call to List operation.
    * @param callback The callback
    */
-  listBySubscriptionNext(nextPageLink: string, callback: msRest.ServiceCallback<Models.ConfigurationListResult>): void;
+  aAAABySubscriptionNext(nextPageLink: string, callback: msRest.ServiceCallback<Models.ConfigurationListResult>): void;
   /**
    * @param nextPageLink The NextLink from the previous successful call to List operation.
    * @param options The optional parameters
    * @param callback The callback
    */
-  listBySubscriptionNext(nextPageLink: string, options: msRest.RequestOptionsBase, callback: msRest.ServiceCallback<Models.ConfigurationListResult>): void;
-  listBySubscriptionNext(nextPageLink: string, options?: msRest.RequestOptionsBase | msRest.ServiceCallback<Models.ConfigurationListResult>, callback?: msRest.ServiceCallback<Models.ConfigurationListResult>): Promise<Models.ConfigurationsListBySubscriptionNextResponse> {
+  aAAABySubscriptionNext(nextPageLink: string, options: msRest.RequestOptionsBase, callback: msRest.ServiceCallback<Models.ConfigurationListResult>): void;
+  aAAABySubscriptionNext(nextPageLink: string, options?: msRest.RequestOptionsBase | msRest.ServiceCallback<Models.ConfigurationListResult>, callback?: msRest.ServiceCallback<Models.ConfigurationListResult>): Promise<Models.ConfigurationsAAAABySubscriptionNextResponse> {
     return this.client.sendOperationRequest(
       {
         nextPageLink,
         options
       },
-      listBySubscriptionNextOperationSpec,
-      callback) as Promise<Models.ConfigurationsListBySubscriptionNextResponse>;
+      aAAABySubscriptionNextOperationSpec,
+      callback) as Promise<Models.ConfigurationsAAAABySubscriptionNextResponse>;
   }
 }
 
 // Operation Specifications
 const serializer = new msRest.Serializer(Mappers);
-const listBySubscriptionOperationSpec: msRest.OperationSpec = {
+const aAAABySubscriptionOperationSpec: msRest.OperationSpec = {
   httpMethod: "GET",
   path: "subscriptions/{subscriptionId}/providers/Microsoft.Advisor/configurations",
   urlParameters: [
@@ -192,7 +192,7 @@ const listBySubscriptionOperationSpec: msRest.OperationSpec = {
       bodyMapper: Mappers.ConfigurationListResult
     },
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.ArmErrorResponse
     }
   },
   serializer
@@ -200,9 +200,10 @@ const listBySubscriptionOperationSpec: msRest.OperationSpec = {
 
 const createInSubscriptionOperationSpec: msRest.OperationSpec = {
   httpMethod: "PUT",
-  path: "subscriptions/{subscriptionId}/providers/Microsoft.Advisor/configurations",
+  path: "subscriptions/{subscriptionId}/providers/Microsoft.Advisor/configurations/{configurationName}",
   urlParameters: [
-    Parameters.subscriptionId
+    Parameters.subscriptionId,
+    Parameters.configurationName
   ],
   queryParameters: [
     Parameters.apiVersion
@@ -218,12 +219,11 @@ const createInSubscriptionOperationSpec: msRest.OperationSpec = {
     }
   },
   responses: {
-    204: {},
-    400: {
-      bodyMapper: Mappers.ARMErrorResponseBody
+    200: {
+      bodyMapper: Mappers.ConfigData
     },
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.ArmErrorResponse
     }
   },
   serializer
@@ -247,7 +247,7 @@ const listByResourceGroupOperationSpec: msRest.OperationSpec = {
       bodyMapper: Mappers.ConfigurationListResult
     },
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.ArmErrorResponse
     }
   },
   serializer
@@ -255,9 +255,10 @@ const listByResourceGroupOperationSpec: msRest.OperationSpec = {
 
 const createInResourceGroupOperationSpec: msRest.OperationSpec = {
   httpMethod: "PUT",
-  path: "subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Advisor/configurations",
+  path: "subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Advisor/configurations/{configurationName}",
   urlParameters: [
     Parameters.subscriptionId,
+    Parameters.configurationName,
     Parameters.resourceGroup
   ],
   queryParameters: [
@@ -274,18 +275,17 @@ const createInResourceGroupOperationSpec: msRest.OperationSpec = {
     }
   },
   responses: {
-    204: {},
-    400: {
-      bodyMapper: Mappers.ARMErrorResponseBody
+    200: {
+      bodyMapper: Mappers.ConfigData
     },
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.ArmErrorResponse
     }
   },
   serializer
 };
 
-const listBySubscriptionNextOperationSpec: msRest.OperationSpec = {
+const aAAABySubscriptionNextOperationSpec: msRest.OperationSpec = {
   httpMethod: "GET",
   baseUrl: "https://management.azure.com",
   path: "{nextLink}",
@@ -300,7 +300,7 @@ const listBySubscriptionNextOperationSpec: msRest.OperationSpec = {
       bodyMapper: Mappers.ConfigurationListResult
     },
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.ArmErrorResponse
     }
   },
   serializer

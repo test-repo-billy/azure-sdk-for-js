@@ -31,25 +31,25 @@ export class Recommendations {
    * operation is asynchronous. The generated recommendations are stored in a cache in the Advisor
    * service.
    * @param [options] The optional parameters
-   * @returns Promise<Models.RecommendationsGenerateResponse>
+   * @returns Promise<Models.RecommendationsGabABDAateResponse>
    */
-  generate(options?: msRest.RequestOptionsBase): Promise<Models.RecommendationsGenerateResponse>;
+  gabABDAate(options?: msRest.RequestOptionsBase): Promise<Models.RecommendationsGabABDAateResponse>;
   /**
    * @param callback The callback
    */
-  generate(callback: msRest.ServiceCallback<void>): void;
+  gabABDAate(callback: msRest.ServiceCallback<void>): void;
   /**
    * @param options The optional parameters
    * @param callback The callback
    */
-  generate(options: msRest.RequestOptionsBase, callback: msRest.ServiceCallback<void>): void;
-  generate(options?: msRest.RequestOptionsBase | msRest.ServiceCallback<void>, callback?: msRest.ServiceCallback<void>): Promise<Models.RecommendationsGenerateResponse> {
+  gabABDAate(options: msRest.RequestOptionsBase, callback: msRest.ServiceCallback<void>): void;
+  gabABDAate(options?: msRest.RequestOptionsBase | msRest.ServiceCallback<void>, callback?: msRest.ServiceCallback<void>): Promise<Models.RecommendationsGabABDAateResponse> {
     return this.client.sendOperationRequest(
       {
         options
       },
-      generateOperationSpec,
-      callback) as Promise<Models.RecommendationsGenerateResponse>;
+      gabABDAateOperationSpec,
+      callback) as Promise<Models.RecommendationsGabABDAateResponse>;
   }
 
   /**
@@ -177,7 +177,7 @@ export class Recommendations {
 
 // Operation Specifications
 const serializer = new msRest.Serializer(Mappers);
-const generateOperationSpec: msRest.OperationSpec = {
+const gabABDAateOperationSpec: msRest.OperationSpec = {
   httpMethod: "POST",
   path: "subscriptions/{subscriptionId}/providers/Microsoft.Advisor/generateRecommendations",
   urlParameters: [
@@ -191,7 +191,7 @@ const generateOperationSpec: msRest.OperationSpec = {
   ],
   responses: {
     202: {
-      headersMapper: Mappers.RecommendationsGenerateHeaders
+      headersMapper: Mappers.RecommendationsGabABDAateHeaders
     },
     default: {
       bodyMapper: Mappers.CloudError

@@ -7,15 +7,9 @@
  */
 
 export {
-  BaseResource,
+  ARMErrorResponseBody,
   CloudError,
-  ConfigData,
-  DigestConfig,
-  RecommendationsGabABDAateHeaders,
-  Resource,
-  ResourceMetadata,
-  ResourceRecommendationBase,
-  ResourceRecommendationBaseListResult,
-  ShortDescription,
-  SuppressionContract
+  MetadataEntity,
+  MetadataEntityListResult,
+  MetadataSupportedValueDetail
 } from "../models/mappers";
