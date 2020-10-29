@@ -147,7 +147,7 @@ const listOperationSpec: msRest.OperationSpec = {
       bodyMapper: Mappers.PrivateLinkResourceListResult
     },
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.ErrorContract
     }
   },
   serializer
@@ -194,7 +194,7 @@ const listNextOperationSpec: msRest.OperationSpec = {
       bodyMapper: Mappers.PrivateLinkResourceListResult
     },
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.ErrorContract
     }
   },
   serializer
