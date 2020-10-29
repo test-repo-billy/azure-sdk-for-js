@@ -95,6 +95,14 @@ const getLocationHeaderResultOperationSpec: msRest.OperationSpec = {
         }
       }
     },
+    202: {
+      bodyMapper: {
+        serializedName: "parsedResponse",
+        type: {
+          name: "Object"
+        }
+      }
+    },
     default: {
       bodyMapper: Mappers.CloudError
     }
