@@ -516,7 +516,8 @@ const createOrUpdateOperationSpec: msRest.OperationSpec = {
   ],
   queryParameters: [
     Parameters.notify,
-    Parameters.apiVersion
+    Parameters.apiVersion,
+    Parameters.appType
   ],
   headerParameters: [
     Parameters.ifMatch0,
@@ -556,7 +557,8 @@ const updateOperationSpec: msRest.OperationSpec = {
   ],
   queryParameters: [
     Parameters.notify,
-    Parameters.apiVersion
+    Parameters.apiVersion,
+    Parameters.appType
   ],
   headerParameters: [
     Parameters.ifMatch1,
