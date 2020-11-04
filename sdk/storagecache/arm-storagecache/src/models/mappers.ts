@@ -103,6 +103,75 @@ export const CloudErrorBody: msRest.CompositeMapper = {
   }
 };
 
+export const ErrorResponse: msRest.CompositeMapper = {
+  serializedName: "ErrorResponse",
+  type: {
+    name: "Composite",
+    className: "ErrorResponse",
+    modelProperties: {
+      code: {
+        serializedName: "code",
+        type: {
+          name: "String"
+        }
+      },
+      message: {
+        serializedName: "message",
+        type: {
+          name: "String"
+        }
+      }
+    }
+  }
+};
+
+export const AscOperation: msRest.CompositeMapper = {
+  serializedName: "AscOperation",
+  type: {
+    name: "Composite",
+    className: "AscOperation",
+    modelProperties: {
+      id: {
+        serializedName: "id",
+        type: {
+          name: "String"
+        }
+      },
+      name: {
+        serializedName: "name",
+        type: {
+          name: "String"
+        }
+      },
+      startTime: {
+        serializedName: "startTime",
+        type: {
+          name: "String"
+        }
+      },
+      endTime: {
+        serializedName: "endTime",
+        type: {
+          name: "String"
+        }
+      },
+      status: {
+        serializedName: "status",
+        type: {
+          name: "String"
+        }
+      },
+      error: {
+        serializedName: "error",
+        type: {
+          name: "Composite",
+          className: "ErrorResponse"
+        }
+      }
+    }
+  }
+};
+
 export const CacheIdentity: msRest.CompositeMapper = {
   serializedName: "CacheIdentity",
   type: {
@@ -131,6 +200,52 @@ export const CacheIdentity: msRest.CompositeMapper = {
             "SystemAssigned",
             "None"
           ]
+        }
+      }
+    }
+  }
+};
+
+export const SystemData: msRest.CompositeMapper = {
+  serializedName: "systemData",
+  type: {
+    name: "Composite",
+    className: "SystemData",
+    modelProperties: {
+      createdBy: {
+        serializedName: "createdBy",
+        type: {
+          name: "String"
+        }
+      },
+      createdByType: {
+        serializedName: "createdByType",
+        type: {
+          name: "String"
+        }
+      },
+      createdAt: {
+        serializedName: "createdAt",
+        type: {
+          name: "DateTime"
+        }
+      },
+      lastModifiedBy: {
+        serializedName: "lastModifiedBy",
+        type: {
+          name: "String"
+        }
+      },
+      lastModifiedByType: {
+        serializedName: "lastModifiedByType",
+        type: {
+          name: "String"
+        }
+      },
+      lastModifiedAt: {
+        serializedName: "lastModifiedAt",
+        type: {
+          name: "DateTime"
         }
       }
     }
@@ -295,16 +410,326 @@ export const CacheEncryptionSettings: msRest.CompositeMapper = {
   }
 };
 
+export const NfsAccessRule: msRest.CompositeMapper = {
+  serializedName: "NfsAccessRule",
+  type: {
+    name: "Composite",
+    className: "NfsAccessRule",
+    modelProperties: {
+      scope: {
+        serializedName: "scope",
+        type: {
+          name: "String"
+        }
+      },
+      filter: {
+        serializedName: "filter",
+        type: {
+          name: "String"
+        }
+      },
+      access: {
+        serializedName: "access",
+        type: {
+          name: "String"
+        }
+      },
+      suid: {
+        serializedName: "suid",
+        type: {
+          name: "Boolean"
+        }
+      },
+      submountAccess: {
+        serializedName: "submountAccess",
+        type: {
+          name: "Boolean"
+        }
+      },
+      rootSquash: {
+        serializedName: "rootSquash",
+        type: {
+          name: "Boolean"
+        }
+      },
+      anonymousUID: {
+        serializedName: "anonymousUID",
+        defaultValue: '-2',
+        type: {
+          name: "String"
+        }
+      },
+      anonymousGID: {
+        serializedName: "anonymousGID",
+        defaultValue: '-2',
+        type: {
+          name: "String"
+        }
+      }
+    }
+  }
+};
+
+export const NfsAccessPolicy: msRest.CompositeMapper = {
+  serializedName: "NfsAccessPolicy",
+  type: {
+    name: "Composite",
+    className: "NfsAccessPolicy",
+    modelProperties: {
+      name: {
+        serializedName: "name",
+        type: {
+          name: "String"
+        }
+      },
+      accessRules: {
+        serializedName: "accessRules",
+        type: {
+          name: "Sequence",
+          element: {
+            type: {
+              name: "Composite",
+              className: "NfsAccessRule"
+            }
+          }
+        }
+      }
+    }
+  }
+};
+
 export const CacheSecuritySettings: msRest.CompositeMapper = {
   serializedName: "CacheSecuritySettings",
   type: {
     name: "Composite",
     className: "CacheSecuritySettings",
     modelProperties: {
-      rootSquash: {
-        serializedName: "rootSquash",
+      accessPolicies: {
+        serializedName: "accessPolicies",
+        type: {
+          name: "Sequence",
+          element: {
+            type: {
+              name: "Composite",
+              className: "NfsAccessPolicy"
+            }
+          }
+        }
+      }
+    }
+  }
+};
+
+export const CacheActiveDirectorySettingsCredentials: msRest.CompositeMapper = {
+  serializedName: "CacheActiveDirectorySettings_credentials",
+  type: {
+    name: "Composite",
+    className: "CacheActiveDirectorySettingsCredentials",
+    modelProperties: {
+      username: {
+        required: true,
+        serializedName: "username",
+        type: {
+          name: "String"
+        }
+      },
+      password: {
+        required: true,
+        serializedName: "password",
+        type: {
+          name: "String"
+        }
+      }
+    }
+  }
+};
+
+export const CacheActiveDirectorySettings: msRest.CompositeMapper = {
+  serializedName: "CacheActiveDirectorySettings",
+  type: {
+    name: "Composite",
+    className: "CacheActiveDirectorySettings",
+    modelProperties: {
+      primaryDnsIpAddress: {
+        required: true,
+        serializedName: "primaryDnsIpAddress",
+        type: {
+          name: "String"
+        }
+      },
+      secondaryDnsIpAddress: {
+        required: true,
+        serializedName: "secondaryDnsIpAddress",
+        type: {
+          name: "String"
+        }
+      },
+      domainName: {
+        required: true,
+        serializedName: "domainName",
+        type: {
+          name: "String"
+        }
+      },
+      domainNetBios: {
+        serializedName: "domainNetBios",
+        type: {
+          name: "String"
+        }
+      },
+      smbServerName: {
+        required: true,
+        serializedName: "smbServerName",
+        constraints: {
+          Pattern: /^[-0-9a-zA-Z_]{1,15}$/
+        },
+        type: {
+          name: "String"
+        }
+      },
+      domainJoined: {
+        readOnly: true,
+        serializedName: "domainJoined",
+        type: {
+          name: "String"
+        }
+      },
+      credentials: {
+        serializedName: "credentials",
+        type: {
+          name: "Composite",
+          className: "CacheActiveDirectorySettingsCredentials"
+        }
+      }
+    }
+  }
+};
+
+export const CacheUsernameDownloadSettingsCredentials: msRest.CompositeMapper = {
+  serializedName: "CacheUsernameDownloadSettings_credentials",
+  type: {
+    name: "Composite",
+    className: "CacheUsernameDownloadSettingsCredentials",
+    modelProperties: {
+      bindDn: {
+        serializedName: "bindDn",
+        type: {
+          name: "String"
+        }
+      },
+      bindPassword: {
+        serializedName: "bindPassword",
+        type: {
+          name: "String"
+        }
+      }
+    }
+  }
+};
+
+export const CacheUsernameDownloadSettings: msRest.CompositeMapper = {
+  serializedName: "CacheUsernameDownloadSettings",
+  type: {
+    name: "Composite",
+    className: "CacheUsernameDownloadSettings",
+    modelProperties: {
+      extendedGroupsEnabled: {
+        serializedName: "extendedGroupsEnabled",
         type: {
           name: "Boolean"
+        }
+      },
+      usernameSource: {
+        serializedName: "usernameSource",
+        defaultValue: 'None',
+        type: {
+          name: "String"
+        }
+      },
+      groupFileURI: {
+        serializedName: "groupFileURI",
+        type: {
+          name: "String"
+        }
+      },
+      userFileURI: {
+        serializedName: "userFileURI",
+        type: {
+          name: "String"
+        }
+      },
+      ldapServer: {
+        serializedName: "ldapServer",
+        type: {
+          name: "String"
+        }
+      },
+      ldapBaseDn: {
+        serializedName: "ldapBaseDn",
+        type: {
+          name: "String"
+        }
+      },
+      encryptLdapConnection: {
+        serializedName: "encryptLdapConnection",
+        type: {
+          name: "Boolean"
+        }
+      },
+      requireValidCertificate: {
+        serializedName: "requireValidCertificate",
+        type: {
+          name: "Boolean"
+        }
+      },
+      autoDownloadCertificate: {
+        serializedName: "autoDownloadCertificate",
+        type: {
+          name: "Boolean"
+        }
+      },
+      caCertificateURI: {
+        serializedName: "caCertificateURI",
+        type: {
+          name: "String"
+        }
+      },
+      usernamePolled: {
+        readOnly: true,
+        serializedName: "usernamePolled",
+        type: {
+          name: "String"
+        }
+      },
+      credentials: {
+        serializedName: "credentials",
+        type: {
+          name: "Composite",
+          className: "CacheUsernameDownloadSettingsCredentials"
+        }
+      }
+    }
+  }
+};
+
+export const CacheDirectorySettings: msRest.CompositeMapper = {
+  serializedName: "CacheDirectorySettings",
+  type: {
+    name: "Composite",
+    className: "CacheDirectorySettings",
+    modelProperties: {
+      activeDirectory: {
+        serializedName: "activeDirectory",
+        type: {
+          name: "Composite",
+          className: "CacheActiveDirectorySettings"
+        }
+      },
+      usernameDownload: {
+        serializedName: "usernameDownload",
+        type: {
+          name: "Composite",
+          className: "CacheUsernameDownloadSettings"
         }
       }
     }
@@ -373,6 +798,14 @@ export const Cache: msRest.CompositeMapper = {
           className: "CacheIdentity"
         }
       },
+      systemData: {
+        readOnly: true,
+        serializedName: "systemData",
+        type: {
+          name: "Composite",
+          className: "SystemData"
+        }
+      },
       cacheSizeGB: {
         serializedName: "properties.cacheSizeGB",
         type: {
@@ -439,6 +872,13 @@ export const Cache: msRest.CompositeMapper = {
           className: "CacheSecuritySettings"
         }
       },
+      directoryServicesSettings: {
+        serializedName: "properties.directoryServicesSettings",
+        type: {
+          name: "Composite",
+          className: "CacheDirectorySettings"
+        }
+      },
       sku: {
         serializedName: "sku",
         type: {
@@ -470,6 +910,12 @@ export const NamespaceJunction: msRest.CompositeMapper = {
       },
       nfsExport: {
         serializedName: "nfsExport",
+        type: {
+          name: "String"
+        }
+      },
+      nfsAccessPolicy: {
+        serializedName: "nfsAccessPolicy",
         type: {
           name: "String"
         }
@@ -540,73 +986,6 @@ export const UnknownTarget: msRest.CompositeMapper = {
   }
 };
 
-export const StorageTargetProperties: msRest.CompositeMapper = {
-  serializedName: "StorageTargetProperties",
-  type: {
-    name: "Composite",
-    polymorphicDiscriminator: {
-      serializedName: "targetBaseType",
-      clientName: "targetBaseType"
-    },
-    uberParent: "StorageTargetProperties",
-    className: "StorageTargetProperties",
-    modelProperties: {
-      junctions: {
-        serializedName: "junctions",
-        type: {
-          name: "Sequence",
-          element: {
-            type: {
-              name: "Composite",
-              className: "NamespaceJunction"
-            }
-          }
-        }
-      },
-      targetType: {
-        serializedName: "targetType",
-        type: {
-          name: "String"
-        }
-      },
-      provisioningState: {
-        serializedName: "provisioningState",
-        type: {
-          name: "String"
-        }
-      },
-      nfs3: {
-        serializedName: "nfs3",
-        type: {
-          name: "Composite",
-          className: "Nfs3Target"
-        }
-      },
-      clfs: {
-        serializedName: "clfs",
-        type: {
-          name: "Composite",
-          className: "ClfsTarget"
-        }
-      },
-      unknown: {
-        serializedName: "unknown",
-        type: {
-          name: "Composite",
-          className: "UnknownTarget"
-        }
-      },
-      targetBaseType: {
-        required: true,
-        serializedName: "targetBaseType",
-        type: {
-          name: "String"
-        }
-      }
-    }
-  }
-};
-
 export const StorageTargetResource: msRest.CompositeMapper = {
   serializedName: "StorageTargetResource",
   type: {
@@ -633,6 +1012,21 @@ export const StorageTargetResource: msRest.CompositeMapper = {
         type: {
           name: "String"
         }
+      },
+      location: {
+        readOnly: true,
+        serializedName: "location",
+        type: {
+          name: "String"
+        }
+      },
+      systemData: {
+        readOnly: true,
+        serializedName: "systemData",
+        type: {
+          name: "Composite",
+          className: "SystemData"
+        }
       }
     }
   }
@@ -658,6 +1052,7 @@ export const StorageTarget: msRest.CompositeMapper = {
         }
       },
       targetType: {
+        required: true,
         serializedName: "properties.targetType",
         type: {
           name: "String"
@@ -689,53 +1084,7 @@ export const StorageTarget: msRest.CompositeMapper = {
           name: "Composite",
           className: "UnknownTarget"
         }
-      },
-      targetBaseType: {
-        required: true,
-        serializedName: "properties.targetBaseType",
-        type: {
-          name: "String"
-        }
       }
-    }
-  }
-};
-
-export const Nfs3TargetProperties: msRest.CompositeMapper = {
-  serializedName: "nfs3",
-  type: {
-    name: "Composite",
-    polymorphicDiscriminator: StorageTargetProperties.type.polymorphicDiscriminator,
-    uberParent: "StorageTargetProperties",
-    className: "Nfs3TargetProperties",
-    modelProperties: {
-      ...StorageTargetProperties.type.modelProperties
-    }
-  }
-};
-
-export const ClfsTargetProperties: msRest.CompositeMapper = {
-  serializedName: "clfs",
-  type: {
-    name: "Composite",
-    polymorphicDiscriminator: StorageTargetProperties.type.polymorphicDiscriminator,
-    uberParent: "StorageTargetProperties",
-    className: "ClfsTargetProperties",
-    modelProperties: {
-      ...StorageTargetProperties.type.modelProperties
-    }
-  }
-};
-
-export const UnknownTargetProperties: msRest.CompositeMapper = {
-  serializedName: "unknown",
-  type: {
-    name: "Composite",
-    polymorphicDiscriminator: StorageTargetProperties.type.polymorphicDiscriminator,
-    uberParent: "StorageTargetProperties",
-    className: "UnknownTargetProperties",
-    modelProperties: {
-      ...StorageTargetProperties.type.modelProperties
     }
   }
 };
@@ -1079,12 +1428,4 @@ export const StorageTargetsResult: msRest.CompositeMapper = {
       }
     }
   }
-};
-
-export const discriminators = {
-  'StorageTargetProperties' : StorageTargetProperties,
-  'StorageTargetProperties.nfs3' : Nfs3TargetProperties,
-  'StorageTargetProperties.clfs' : ClfsTargetProperties,
-  'StorageTargetProperties.unknown' : UnknownTargetProperties
-
 };

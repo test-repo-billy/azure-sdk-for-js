@@ -68,6 +68,50 @@ export interface CloudErrorBody {
 }
 
 /**
+ * Describes the format of Error response.
+ */
+export interface ErrorResponse {
+  /**
+   * Error code
+   */
+  code?: string;
+  /**
+   * Error message indicating why the operation failed.
+   */
+  message?: string;
+}
+
+/**
+ * The status of operation.
+ */
+export interface AscOperation {
+  /**
+   * The operation Id.
+   */
+  id?: string;
+  /**
+   * The operation name.
+   */
+  name?: string;
+  /**
+   * The start time of the operation.
+   */
+  startTime?: string;
+  /**
+   * The end time of the operation.
+   */
+  endTime?: string;
+  /**
+   * The status of the operation.
+   */
+  status?: string;
+  /**
+   * The error detail of the operation if any.
+   */
+  error?: ErrorResponse;
+}
+
+/**
  * Cache identity properties.
  */
 export interface CacheIdentity {
@@ -85,6 +129,38 @@ export interface CacheIdentity {
    * The type of identity used for the cache. Possible values include: 'SystemAssigned', 'None'
    */
   type?: CacheIdentityType;
+}
+
+/**
+ * Metadata pertaining to creation and last modification of the resource.
+ */
+export interface SystemData {
+  /**
+   * The identity that created the resource.
+   */
+  createdBy?: string;
+  /**
+   * The type of identity that created the resource. Possible values include: 'User',
+   * 'Application', 'ManagedIdentity', 'Key'
+   */
+  createdByType?: CreatedByType;
+  /**
+   * The timestamp of resource creation (UTC).
+   */
+  createdAt?: Date;
+  /**
+   * The identity that last modified the resource.
+   */
+  lastModifiedBy?: string;
+  /**
+   * The type of identity that last modified the resource. Possible values include: 'User',
+   * 'Application', 'ManagedIdentity', 'Key'
+   */
+  lastModifiedByType?: CreatedByType;
+  /**
+   * The type of identity that last modified the resource.
+   */
+  lastModifiedAt?: Date;
 }
 
 /**
@@ -186,13 +262,216 @@ export interface CacheEncryptionSettings {
 }
 
 /**
+ * Rule to place restrictions on portions of the NFS namespace being presented to clients.
+ */
+export interface NfsAccessRule {
+  /**
+   * Scope applied to this rule. Possible values include: 'default', 'network', 'host'
+   */
+  scope?: NfsAccessRuleScope;
+  /**
+   * Filter applied to this rule. The filter's format depends on its scope.  'default' scope is
+   * reserved for system use. 'network' is in CIDR format (e.g., 10.99.1.0/24) and 'host' is an IP
+   * address or fully qualified domain name.
+   */
+  filter?: string;
+  /**
+   * Access allowed by this rule. Possible values include: 'no', 'ro', 'rw'
+   */
+  access?: NfsAccessRuleAccess;
+  /**
+   * Allow SUID semantics.
+   */
+  suid?: boolean;
+  /**
+   * Allow mounts below the junction.
+   */
+  submountAccess?: boolean;
+  /**
+   * Map root accesses to anonymousUID and anonymousGID.
+   */
+  rootSquash?: boolean;
+  /**
+   * UID value that replaces 0 when rootSquash is true. Default value: '-2'.
+   */
+  anonymousUID?: string;
+  /**
+   * GID value that replaces 0 when rootSquash is true. Default value: '-2'.
+   */
+  anonymousGID?: string;
+}
+
+/**
+ * A set of rules describing access policies applied to NFSv3 clients of the cache.
+ */
+export interface NfsAccessPolicy {
+  /**
+   * Name identifying this policy. Access Policy names are not case sensitive.
+   */
+  name?: string;
+  /**
+   * The set of rules describing client accesses allowed under this policy.
+   */
+  accessRules?: NfsAccessRule[];
+}
+
+/**
  * Cache security settings.
  */
 export interface CacheSecuritySettings {
   /**
-   * root squash of cache property.
+   * NFS access policies defined for this cache.
    */
-  rootSquash?: boolean;
+  accessPolicies?: NfsAccessPolicy[];
+}
+
+/**
+ * Active Directory admin or user credentials used to join the HPC Cache to a domain.
+ */
+export interface CacheActiveDirectorySettingsCredentials {
+  /**
+   * User name of the Active Directory domain administrator. This value is stored encrypted and not
+   * returned on response.
+   */
+  username: string;
+  /**
+   * Plain text password of the Active Directory domain administrator. This value is stored
+   * encrypted and not returned on response.
+   */
+  password: string;
+}
+
+/**
+ * Active Directory settings used to join a Cache to a Domain.
+ */
+export interface CacheActiveDirectorySettings {
+  /**
+   * Primary DNS IP address used to resolve the Active Directory domain controller's fully
+   * qualified domain name.
+   */
+  primaryDnsIpAddress: string;
+  /**
+   * Secondary DNS IP address used to resolve the Active Directory domain controller's fully
+   * qualified domain name.
+   */
+  secondaryDnsIpAddress: string;
+  /**
+   * The fully qualified domain name of the Active Directory domain controller.
+   */
+  domainName: string;
+  /**
+   * The Active Directory domain's NetBIOS name.
+   */
+  domainNetBios?: string;
+  /**
+   * The name (NetBIOS) used for the HPC Cache to join the Active Directory Domain. Length must not
+   * be greater than 15 and chars must be in list of [-0-9a-zA-Z_] char class.
+   */
+  smbServerName: string;
+  /**
+   * This field indicates if the HPC Cache is joined to the Active Directory Domain. Possible
+   * values include: 'Yes', 'No', 'Error'
+   * **NOTE: This property will not be serialized. It can only be populated by the server.**
+   */
+  readonly domainJoined?: DomainJoinedType;
+  /**
+   * Active Directory admin or user credentials used to join the HPC Cache to a domain.
+   */
+  credentials?: CacheActiveDirectorySettingsCredentials;
+}
+
+/**
+ * When present, these are the credentials for the secure LDAP connection.
+ */
+export interface CacheUsernameDownloadSettingsCredentials {
+  /**
+   * The Bind distinguished name identity to be used in the secure LDAP connection. This value is
+   * stored encrypted and not returned on response.
+   */
+  bindDn?: string;
+  /**
+   * The Bind password to be used in the secure LDAP connection. This value is stored encrypted and
+   * not returned on response.
+   */
+  bindPassword?: string;
+}
+
+/**
+ * Settings for username and group download for Extended groups.
+ */
+export interface CacheUsernameDownloadSettings {
+  /**
+   * This indicates if Extended Groups is enabled.
+   */
+  extendedGroupsEnabled?: boolean;
+  /**
+   * This setting determines how the system gets username and group names for clients. Possible
+   * values include: 'AD', 'LDAP', 'File', 'None'. Default value: 'None'.
+   */
+  usernameSource?: UsernameSource;
+  /**
+   * The URI of the file containing the group information (in etc/group file format).  This field
+   * must be populated when 'usernameSource' is set to 'File'.
+   */
+  groupFileURI?: string;
+  /**
+   * The URI of the file containing the user information (in etc/passwd file format). This field
+   * must be populated when 'usernameSource' is set to 'File'.
+   */
+  userFileURI?: string;
+  /**
+   * The fully qualified domain name or IP address of the LDAP server to use.
+   */
+  ldapServer?: string;
+  /**
+   * The base distinguished name for the LDAP domain.
+   */
+  ldapBaseDn?: string;
+  /**
+   * This indicates if the LDAP connection should be encrypted.
+   */
+  encryptLdapConnection?: boolean;
+  /**
+   * Determines if the certificates should be validated by a certificate authority. When true
+   * caCertificateURI must be provided.
+   */
+  requireValidCertificate?: boolean;
+  /**
+   * Determines if the certificate should be automatically downloaded. This applies to
+   * 'caCertificateURI' when 'requireValidCertificate' is true, or a self signed certificate
+   * otherwise.
+   */
+  autoDownloadCertificate?: boolean;
+  /**
+   * The URI of the CA certificate to validate the LDAP secure connection. This field must be
+   * populated when 'requireValidCertificate' is set to true.
+   */
+  caCertificateURI?: string;
+  /**
+   * Indicates if the HPC Cache has performed the username download successfully. Possible values
+   * include: 'Yes', 'No', 'Error'
+   * **NOTE: This property will not be serialized. It can only be populated by the server.**
+   */
+  readonly usernamePolled?: UsernamePolledType;
+  /**
+   * When present, these are the credentials for the secure LDAP connection.
+   */
+  credentials?: CacheUsernameDownloadSettingsCredentials;
+}
+
+/**
+ * Cache Directory Services settings.
+ */
+export interface CacheDirectorySettings {
+  /**
+   * Specifies the settings for joining the HPC Cache to an Active Directory domain.
+   */
+  activeDirectory?: CacheActiveDirectorySettings;
+  /**
+   * Specifies the settings for Extended Groups. Extended Groups allows users to be members of more
+   * than 16 groups.
+   */
+  usernameDownload?: CacheUsernameDownloadSettings;
 }
 
 /**
@@ -238,6 +517,11 @@ export interface Cache extends BaseResource {
    */
   identity?: CacheIdentity;
   /**
+   * The system meta data relating to this resource.
+   * **NOTE: This property will not be serialized. It can only be populated by the server.**
+   */
+  readonly systemData?: SystemData;
+  /**
    * The size of this Cache, in GB.
    */
   cacheSizeGB?: number;
@@ -279,6 +563,10 @@ export interface Cache extends BaseResource {
    */
   securitySettings?: CacheSecuritySettings;
   /**
+   * Specifies Directory Services settings of the cache.
+   */
+  directoryServicesSettings?: CacheDirectorySettings;
+  /**
    * SKU for the Cache.
    */
   sku?: CacheSku;
@@ -300,10 +588,14 @@ export interface NamespaceJunction {
    * NFS export where targetPath exists.
    */
   nfsExport?: string;
+  /**
+   * Name of the access policy applied to this junction.
+   */
+  nfsAccessPolicy?: string;
 }
 
 /**
- * Properties pertained to Nfs3Target
+ * Properties pertaining to the Nfs3Target
  */
 export interface Nfs3Target {
   /**
@@ -311,14 +603,14 @@ export interface Nfs3Target {
    */
   target?: string;
   /**
-   * Identifies the primary usage model to be used for this Storage Target. Get choices from
+   * Identifies the usage model to be used for this Storage Target. Get choices from
    * .../usageModels
    */
   usageModel?: string;
 }
 
 /**
- * Properties pertained to ClfsTarget
+ * Properties pertaining to the ClfsTarget
  */
 export interface ClfsTarget {
   /**
@@ -328,55 +620,13 @@ export interface ClfsTarget {
 }
 
 /**
- * Properties pertained to UnknownTarget
+ * Properties pertaining to the UnknownTarget
  */
 export interface UnknownTarget {
   /**
    * Dictionary of string->string pairs containing information about the Storage Target.
    */
   unknownMap?: { [propertyName: string]: string };
-}
-
-/**
- * Contains the possible cases for StorageTargetProperties.
- */
-export type StorageTargetPropertiesUnion = StorageTargetProperties | Nfs3TargetProperties | ClfsTargetProperties | UnknownTargetProperties;
-
-/**
- * Properties of the Storage Target.
- */
-export interface StorageTargetProperties {
-  /**
-   * Polymorphic Discriminator
-   */
-  targetBaseType: "StorageTargetProperties";
-  /**
-   * List of Cache namespace junctions to target for namespace associations.
-   */
-  junctions?: NamespaceJunction[];
-  /**
-   * Type of the Storage Target.
-   */
-  targetType?: string;
-  /**
-   * ARM provisioning state, see
-   * https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property.
-   * Possible values include: 'Succeeded', 'Failed', 'Cancelled', 'Creating', 'Deleting',
-   * 'Updating'
-   */
-  provisioningState?: ProvisioningStateType;
-  /**
-   * Properties when targetType is nfs3.
-   */
-  nfs3?: Nfs3Target;
-  /**
-   * Properties when targetType is clfs.
-   */
-  clfs?: ClfsTarget;
-  /**
-   * Properties when targetType is unknown.
-   */
-  unknown?: UnknownTarget;
 }
 
 /**
@@ -398,6 +648,16 @@ export interface StorageTargetResource extends BaseResource {
    * **NOTE: This property will not be serialized. It can only be populated by the server.**
    */
   readonly type?: string;
+  /**
+   * Region name string.
+   * **NOTE: This property will not be serialized. It can only be populated by the server.**
+   */
+  readonly location?: string;
+  /**
+   * The system meta data relating to this resource.
+   * **NOTE: This property will not be serialized. It can only be populated by the server.**
+   */
+  readonly systemData?: SystemData;
 }
 
 /**
@@ -409,124 +669,9 @@ export interface StorageTarget extends StorageTargetResource {
    */
   junctions?: NamespaceJunction[];
   /**
-   * Type of the Storage Target.
+   * Type of the Storage Target. Possible values include: 'nfs3', 'clfs', 'unknown'
    */
-  targetType?: string;
-  /**
-   * ARM provisioning state, see
-   * https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property.
-   * Possible values include: 'Succeeded', 'Failed', 'Cancelled', 'Creating', 'Deleting',
-   * 'Updating'
-   */
-  provisioningState?: ProvisioningStateType;
-  /**
-   * Properties when targetType is nfs3.
-   */
-  nfs3?: Nfs3Target;
-  /**
-   * Properties when targetType is clfs.
-   */
-  clfs?: ClfsTarget;
-  /**
-   * Properties when targetType is unknown.
-   */
-  unknown?: UnknownTarget;
-  /**
-   * Polymorphic Discriminator
-   */
-  targetBaseType: string;
-}
-
-/**
- * An NFSv3 mount point for use as a Storage Target.
- */
-export interface Nfs3TargetProperties {
-  /**
-   * Polymorphic Discriminator
-   */
-  targetBaseType: "nfs3";
-  /**
-   * List of Cache namespace junctions to target for namespace associations.
-   */
-  junctions?: NamespaceJunction[];
-  /**
-   * Type of the Storage Target.
-   */
-  targetType?: string;
-  /**
-   * ARM provisioning state, see
-   * https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property.
-   * Possible values include: 'Succeeded', 'Failed', 'Cancelled', 'Creating', 'Deleting',
-   * 'Updating'
-   */
-  provisioningState?: ProvisioningStateType;
-  /**
-   * Properties when targetType is nfs3.
-   */
-  nfs3?: Nfs3Target;
-  /**
-   * Properties when targetType is clfs.
-   */
-  clfs?: ClfsTarget;
-  /**
-   * Properties when targetType is unknown.
-   */
-  unknown?: UnknownTarget;
-}
-
-/**
- * Storage container for use as a CLFS Storage Target.
- */
-export interface ClfsTargetProperties {
-  /**
-   * Polymorphic Discriminator
-   */
-  targetBaseType: "clfs";
-  /**
-   * List of Cache namespace junctions to target for namespace associations.
-   */
-  junctions?: NamespaceJunction[];
-  /**
-   * Type of the Storage Target.
-   */
-  targetType?: string;
-  /**
-   * ARM provisioning state, see
-   * https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property.
-   * Possible values include: 'Succeeded', 'Failed', 'Cancelled', 'Creating', 'Deleting',
-   * 'Updating'
-   */
-  provisioningState?: ProvisioningStateType;
-  /**
-   * Properties when targetType is nfs3.
-   */
-  nfs3?: Nfs3Target;
-  /**
-   * Properties when targetType is clfs.
-   */
-  clfs?: ClfsTarget;
-  /**
-   * Properties when targetType is unknown.
-   */
-  unknown?: UnknownTarget;
-}
-
-/**
- * Storage container for use as an Unknown Storage Target.
- */
-export interface UnknownTargetProperties {
-  /**
-   * Polymorphic Discriminator
-   */
-  targetBaseType: "unknown";
-  /**
-   * List of Cache namespace junctions to target for namespace associations.
-   */
-  junctions?: NamespaceJunction[];
-  /**
-   * Type of the Storage Target.
-   */
-  targetType?: string;
+  targetType: StorageTargetType;
   /**
    * ARM provisioning state, see
    * https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property.
@@ -614,13 +759,13 @@ export interface ResourceSku {
    */
   capabilities?: ResourceSkuCapabilities[];
   /**
-   * The set of locations that the SKU is available. This will be supported and registered Azure
+   * The set of locations where the SKU is available. This is the supported and registered Azure
    * Geo Regions (e.g., West US, East US, Southeast Asia, etc.).
    * **NOTE: This property will not be serialized. It can only be populated by the server.**
    */
   readonly locations?: string[];
   /**
-   * The set of locations that the SKU is available.
+   * The set of locations where the SKU is available.
    */
   locationInfo?: ResourceSkuLocationInfo[];
   /**
@@ -793,6 +938,14 @@ export interface StorageTargetsResult extends Array<StorageTarget> {
 export type CacheIdentityType = 'SystemAssigned' | 'None';
 
 /**
+ * Defines values for CreatedByType.
+ * Possible values include: 'User', 'Application', 'ManagedIdentity', 'Key'
+ * @readonly
+ * @enum {string}
+ */
+export type CreatedByType = 'User' | 'Application' | 'ManagedIdentity' | 'Key';
+
+/**
  * Defines values for HealthStateType.
  * Possible values include: 'Unknown', 'Healthy', 'Degraded', 'Down', 'Transitioning', 'Stopping',
  * 'Stopped', 'Upgrading', 'Flushing'
@@ -816,6 +969,46 @@ export type ProvisioningStateType = 'Succeeded' | 'Failed' | 'Cancelled' | 'Crea
  * @enum {string}
  */
 export type FirmwareStatusType = 'available' | 'unavailable';
+
+/**
+ * Defines values for NfsAccessRuleScope.
+ * Possible values include: 'default', 'network', 'host'
+ * @readonly
+ * @enum {string}
+ */
+export type NfsAccessRuleScope = 'default' | 'network' | 'host';
+
+/**
+ * Defines values for NfsAccessRuleAccess.
+ * Possible values include: 'no', 'ro', 'rw'
+ * @readonly
+ * @enum {string}
+ */
+export type NfsAccessRuleAccess = 'no' | 'ro' | 'rw';
+
+/**
+ * Defines values for DomainJoinedType.
+ * Possible values include: 'Yes', 'No', 'Error'
+ * @readonly
+ * @enum {string}
+ */
+export type DomainJoinedType = 'Yes' | 'No' | 'Error';
+
+/**
+ * Defines values for UsernameSource.
+ * Possible values include: 'AD', 'LDAP', 'File', 'None'
+ * @readonly
+ * @enum {string}
+ */
+export type UsernameSource = 'AD' | 'LDAP' | 'File' | 'None';
+
+/**
+ * Defines values for UsernamePolledType.
+ * Possible values include: 'Yes', 'No', 'Error'
+ * @readonly
+ * @enum {string}
+ */
+export type UsernamePolledType = 'Yes' | 'No' | 'Error';
 
 /**
  * Defines values for StorageTargetType.
@@ -954,6 +1147,26 @@ export type UsageModelsListNextResponse = UsageModelsResult & {
 };
 
 /**
+ * Contains response data for the get operation.
+ */
+export type AscOperationsGetResponse = AscOperation & {
+  /**
+   * The underlying HTTP response.
+   */
+  _response: msRest.HttpResponse & {
+      /**
+       * The response body as text (string format)
+       */
+      bodyAsText: string;
+
+      /**
+       * The response body as parsed JSON or XML
+       */
+      parsedBody: AscOperation;
+    };
+};
+
+/**
  * Contains response data for the list operation.
  */
 export type CachesListResponse = CachesListResult & {
@@ -990,31 +1203,6 @@ export type CachesListByResourceGroupResponse = CachesListResult & {
        * The response body as parsed JSON or XML
        */
       parsedBody: CachesListResult;
-    };
-};
-
-/**
- * Contains response data for the deleteMethod operation.
- */
-export type CachesDeleteMethodResponse = {
-  /**
-   * The parsed response body.
-   */
-  body: any;
-
-  /**
-   * The underlying HTTP response.
-   */
-  _response: msRest.HttpResponse & {
-      /**
-       * The response body as text (string format)
-       */
-      bodyAsText: string;
-
-      /**
-       * The response body as parsed JSON or XML
-       */
-      parsedBody: any;
     };
 };
 
@@ -1079,131 +1267,6 @@ export type CachesUpdateResponse = Cache & {
 };
 
 /**
- * Contains response data for the flush operation.
- */
-export type CachesFlushResponse = {
-  /**
-   * The parsed response body.
-   */
-  body: any;
-
-  /**
-   * The underlying HTTP response.
-   */
-  _response: msRest.HttpResponse & {
-      /**
-       * The response body as text (string format)
-       */
-      bodyAsText: string;
-
-      /**
-       * The response body as parsed JSON or XML
-       */
-      parsedBody: any;
-    };
-};
-
-/**
- * Contains response data for the start operation.
- */
-export type CachesStartResponse = {
-  /**
-   * The parsed response body.
-   */
-  body: any;
-
-  /**
-   * The underlying HTTP response.
-   */
-  _response: msRest.HttpResponse & {
-      /**
-       * The response body as text (string format)
-       */
-      bodyAsText: string;
-
-      /**
-       * The response body as parsed JSON or XML
-       */
-      parsedBody: any;
-    };
-};
-
-/**
- * Contains response data for the stop operation.
- */
-export type CachesStopResponse = {
-  /**
-   * The parsed response body.
-   */
-  body: any;
-
-  /**
-   * The underlying HTTP response.
-   */
-  _response: msRest.HttpResponse & {
-      /**
-       * The response body as text (string format)
-       */
-      bodyAsText: string;
-
-      /**
-       * The response body as parsed JSON or XML
-       */
-      parsedBody: any;
-    };
-};
-
-/**
- * Contains response data for the upgradeFirmware operation.
- */
-export type CachesUpgradeFirmwareResponse = {
-  /**
-   * The parsed response body.
-   */
-  body: any;
-
-  /**
-   * The underlying HTTP response.
-   */
-  _response: msRest.HttpResponse & {
-      /**
-       * The response body as text (string format)
-       */
-      bodyAsText: string;
-
-      /**
-       * The response body as parsed JSON or XML
-       */
-      parsedBody: any;
-    };
-};
-
-/**
- * Contains response data for the beginDeleteMethod operation.
- */
-export type CachesBeginDeleteMethodResponse = {
-  /**
-   * The parsed response body.
-   */
-  body: any;
-
-  /**
-   * The underlying HTTP response.
-   */
-  _response: msRest.HttpResponse & {
-      /**
-       * The response body as text (string format)
-       */
-      bodyAsText: string;
-
-      /**
-       * The response body as parsed JSON or XML
-       */
-      parsedBody: any;
-    };
-};
-
-/**
  * Contains response data for the beginCreateOrUpdate operation.
  */
 export type CachesBeginCreateOrUpdateResponse = Cache & {
@@ -1220,106 +1283,6 @@ export type CachesBeginCreateOrUpdateResponse = Cache & {
        * The response body as parsed JSON or XML
        */
       parsedBody: Cache;
-    };
-};
-
-/**
- * Contains response data for the beginFlush operation.
- */
-export type CachesBeginFlushResponse = {
-  /**
-   * The parsed response body.
-   */
-  body: any;
-
-  /**
-   * The underlying HTTP response.
-   */
-  _response: msRest.HttpResponse & {
-      /**
-       * The response body as text (string format)
-       */
-      bodyAsText: string;
-
-      /**
-       * The response body as parsed JSON or XML
-       */
-      parsedBody: any;
-    };
-};
-
-/**
- * Contains response data for the beginStart operation.
- */
-export type CachesBeginStartResponse = {
-  /**
-   * The parsed response body.
-   */
-  body: any;
-
-  /**
-   * The underlying HTTP response.
-   */
-  _response: msRest.HttpResponse & {
-      /**
-       * The response body as text (string format)
-       */
-      bodyAsText: string;
-
-      /**
-       * The response body as parsed JSON or XML
-       */
-      parsedBody: any;
-    };
-};
-
-/**
- * Contains response data for the beginStop operation.
- */
-export type CachesBeginStopResponse = {
-  /**
-   * The parsed response body.
-   */
-  body: any;
-
-  /**
-   * The underlying HTTP response.
-   */
-  _response: msRest.HttpResponse & {
-      /**
-       * The response body as text (string format)
-       */
-      bodyAsText: string;
-
-      /**
-       * The response body as parsed JSON or XML
-       */
-      parsedBody: any;
-    };
-};
-
-/**
- * Contains response data for the beginUpgradeFirmware operation.
- */
-export type CachesBeginUpgradeFirmwareResponse = {
-  /**
-   * The parsed response body.
-   */
-  body: any;
-
-  /**
-   * The underlying HTTP response.
-   */
-  _response: msRest.HttpResponse & {
-      /**
-       * The response body as text (string format)
-       */
-      bodyAsText: string;
-
-      /**
-       * The response body as parsed JSON or XML
-       */
-      parsedBody: any;
     };
 };
 
@@ -1384,31 +1347,6 @@ export type StorageTargetsListByCacheResponse = StorageTargetsResult & {
 };
 
 /**
- * Contains response data for the deleteMethod operation.
- */
-export type StorageTargetsDeleteMethodResponse = {
-  /**
-   * The parsed response body.
-   */
-  body: any;
-
-  /**
-   * The underlying HTTP response.
-   */
-  _response: msRest.HttpResponse & {
-      /**
-       * The response body as text (string format)
-       */
-      bodyAsText: string;
-
-      /**
-       * The response body as parsed JSON or XML
-       */
-      parsedBody: any;
-    };
-};
-
-/**
  * Contains response data for the get operation.
  */
 export type StorageTargetsGetResponse = StorageTarget & {
@@ -1445,31 +1383,6 @@ export type StorageTargetsCreateOrUpdateResponse = StorageTarget & {
        * The response body as parsed JSON or XML
        */
       parsedBody: StorageTarget;
-    };
-};
-
-/**
- * Contains response data for the beginDeleteMethod operation.
- */
-export type StorageTargetsBeginDeleteMethodResponse = {
-  /**
-   * The parsed response body.
-   */
-  body: any;
-
-  /**
-   * The underlying HTTP response.
-   */
-  _response: msRest.HttpResponse & {
-      /**
-       * The response body as text (string format)
-       */
-      bodyAsText: string;
-
-      /**
-       * The response body as parsed JSON or XML
-       */
-      parsedBody: any;
     };
 };
 
