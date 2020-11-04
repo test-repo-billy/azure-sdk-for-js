@@ -30,7 +30,7 @@ export class StorageTargets {
   /**
    * Returns a list of Storage Targets for the specified Cache.
    * @param resourceGroupName Target resource group.
-   * @param cacheName Name of Cache. Length of name must be not greater than 80 and chars must be in
+   * @param cacheName Name of Cache. Length of name must not be greater than 80 and chars must be in
    * list of [-0-9a-zA-Z_] char class.
    * @param [options] The optional parameters
    * @returns Promise<Models.StorageTargetsListByCacheResponse>
@@ -38,14 +38,14 @@ export class StorageTargets {
   listByCache(resourceGroupName: string, cacheName: string, options?: msRest.RequestOptionsBase): Promise<Models.StorageTargetsListByCacheResponse>;
   /**
    * @param resourceGroupName Target resource group.
-   * @param cacheName Name of Cache. Length of name must be not greater than 80 and chars must be in
+   * @param cacheName Name of Cache. Length of name must not be greater than 80 and chars must be in
    * list of [-0-9a-zA-Z_] char class.
    * @param callback The callback
    */
   listByCache(resourceGroupName: string, cacheName: string, callback: msRest.ServiceCallback<Models.StorageTargetsResult>): void;
   /**
    * @param resourceGroupName Target resource group.
-   * @param cacheName Name of Cache. Length of name must be not greater than 80 and chars must be in
+   * @param cacheName Name of Cache. Length of name must not be greater than 80 and chars must be in
    * list of [-0-9a-zA-Z_] char class.
    * @param options The optional parameters
    * @param callback The callback
@@ -68,23 +68,23 @@ export class StorageTargets {
    * healthy again. Note that if the Cache has data to flush to the Storage Target, the data will be
    * flushed before the Storage Target will be deleted.
    * @param resourceGroupName Target resource group.
-   * @param cacheName Name of Cache. Length of name must be not greater than 80 and chars must be in
+   * @param cacheName Name of Cache. Length of name must not be greater than 80 and chars must be in
    * list of [-0-9a-zA-Z_] char class.
    * @param storageTargetName Name of Storage Target.
    * @param [options] The optional parameters
-   * @returns Promise<Models.StorageTargetsDeleteMethodResponse>
+   * @returns Promise<msRest.RestResponse>
    */
-  deleteMethod(resourceGroupName: string, cacheName: string, storageTargetName: string, options?: msRest.RequestOptionsBase): Promise<Models.StorageTargetsDeleteMethodResponse> {
+  deleteMethod(resourceGroupName: string, cacheName: string, storageTargetName: string, options?: msRest.RequestOptionsBase): Promise<msRest.RestResponse> {
     return this.beginDeleteMethod(resourceGroupName,cacheName,storageTargetName,options)
-      .then(lroPoller => lroPoller.pollUntilFinished()) as Promise<Models.StorageTargetsDeleteMethodResponse>;
+      .then(lroPoller => lroPoller.pollUntilFinished());
   }
 
   /**
    * Returns a Storage Target from a Cache.
    * @param resourceGroupName Target resource group.
-   * @param cacheName Name of Cache. Length of name must be not greater than 80 and chars must be in
+   * @param cacheName Name of Cache. Length of name must not be greater than 80 and chars must be in
    * list of [-0-9a-zA-Z_] char class.
-   * @param storageTargetName Name of the Storage Target. Length of name must be not greater than 80
+   * @param storageTargetName Name of the Storage Target. Length of name must not be greater than 80
    * and chars must be in list of [-0-9a-zA-Z_] char class.
    * @param [options] The optional parameters
    * @returns Promise<Models.StorageTargetsGetResponse>
@@ -92,18 +92,18 @@ export class StorageTargets {
   get(resourceGroupName: string, cacheName: string, storageTargetName: string, options?: msRest.RequestOptionsBase): Promise<Models.StorageTargetsGetResponse>;
   /**
    * @param resourceGroupName Target resource group.
-   * @param cacheName Name of Cache. Length of name must be not greater than 80 and chars must be in
+   * @param cacheName Name of Cache. Length of name must not be greater than 80 and chars must be in
    * list of [-0-9a-zA-Z_] char class.
-   * @param storageTargetName Name of the Storage Target. Length of name must be not greater than 80
+   * @param storageTargetName Name of the Storage Target. Length of name must not be greater than 80
    * and chars must be in list of [-0-9a-zA-Z_] char class.
    * @param callback The callback
    */
   get(resourceGroupName: string, cacheName: string, storageTargetName: string, callback: msRest.ServiceCallback<Models.StorageTarget>): void;
   /**
    * @param resourceGroupName Target resource group.
-   * @param cacheName Name of Cache. Length of name must be not greater than 80 and chars must be in
+   * @param cacheName Name of Cache. Length of name must not be greater than 80 and chars must be in
    * list of [-0-9a-zA-Z_] char class.
-   * @param storageTargetName Name of the Storage Target. Length of name must be not greater than 80
+   * @param storageTargetName Name of the Storage Target. Length of name must not be greater than 80
    * and chars must be in list of [-0-9a-zA-Z_] char class.
    * @param options The optional parameters
    * @param callback The callback
@@ -126,9 +126,9 @@ export class StorageTargets {
    * down or unhealthy, the actual creation/modification of the Storage Target may be delayed until
    * the Cache is healthy again.
    * @param resourceGroupName Target resource group.
-   * @param cacheName Name of Cache. Length of name must be not greater than 80 and chars must be in
+   * @param cacheName Name of Cache. Length of name must not be greater than 80 and chars must be in
    * list of [-0-9a-zA-Z_] char class.
-   * @param storageTargetName Name of the Storage Target. Length of name must be not greater than 80
+   * @param storageTargetName Name of the Storage Target. Length of name must not be greater than 80
    * and chars must be in list of [-0-9a-zA-Z_] char class.
    * @param [options] The optional parameters
    * @returns Promise<Models.StorageTargetsCreateOrUpdateResponse>
@@ -144,7 +144,7 @@ export class StorageTargets {
    * healthy again. Note that if the Cache has data to flush to the Storage Target, the data will be
    * flushed before the Storage Target will be deleted.
    * @param resourceGroupName Target resource group.
-   * @param cacheName Name of Cache. Length of name must be not greater than 80 and chars must be in
+   * @param cacheName Name of Cache. Length of name must not be greater than 80 and chars must be in
    * list of [-0-9a-zA-Z_] char class.
    * @param storageTargetName Name of Storage Target.
    * @param [options] The optional parameters
@@ -167,9 +167,9 @@ export class StorageTargets {
    * down or unhealthy, the actual creation/modification of the Storage Target may be delayed until
    * the Cache is healthy again.
    * @param resourceGroupName Target resource group.
-   * @param cacheName Name of Cache. Length of name must be not greater than 80 and chars must be in
+   * @param cacheName Name of Cache. Length of name must not be greater than 80 and chars must be in
    * list of [-0-9a-zA-Z_] char class.
-   * @param storageTargetName Name of the Storage Target. Length of name must be not greater than 80
+   * @param storageTargetName Name of the Storage Target. Length of name must not be greater than 80
    * and chars must be in list of [-0-9a-zA-Z_] char class.
    * @param [options] The optional parameters
    * @returns Promise<msRestAzure.LROPoller>
@@ -284,30 +284,9 @@ const beginDeleteMethodOperationSpec: msRest.OperationSpec = {
     Parameters.acceptLanguage
   ],
   responses: {
-    200: {
-      bodyMapper: {
-        serializedName: "parsedResponse",
-        type: {
-          name: "Object"
-        }
-      }
-    },
-    202: {
-      bodyMapper: {
-        serializedName: "parsedResponse",
-        type: {
-          name: "Object"
-        }
-      }
-    },
-    204: {
-      bodyMapper: {
-        serializedName: "parsedResponse",
-        type: {
-          name: "Object"
-        }
-      }
-    },
+    200: {},
+    202: {},
+    204: {},
     default: {
       bodyMapper: Mappers.CloudError
     }
@@ -344,6 +323,7 @@ const beginCreateOrUpdateOperationSpec: msRest.OperationSpec = {
     201: {
       bodyMapper: Mappers.StorageTarget
     },
+    202: {},
     default: {
       bodyMapper: Mappers.CloudError
     }

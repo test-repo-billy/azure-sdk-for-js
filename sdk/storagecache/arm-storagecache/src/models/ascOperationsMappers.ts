@@ -7,8 +7,7 @@
  */
 
 export {
+  AscOperation,
   CloudError,
-  UsageModel,
-  UsageModelDisplay,
-  UsageModelsResult
+  ErrorResponse
 } from "../models/mappers";

@@ -7,9 +7,11 @@
  */
 
 export {
-  discriminators,
   BaseResource,
   Cache,
+  CacheActiveDirectorySettings,
+  CacheActiveDirectorySettingsCredentials,
+  CacheDirectorySettings,
   CacheEncryptionSettings,
   CacheHealth,
   CacheIdentity,
@@ -17,14 +19,19 @@ export {
   CacheSecuritySettings,
   CacheSku,
   CacheUpgradeStatus,
+  CacheUsernameDownloadSettings,
+  CacheUsernameDownloadSettingsCredentials,
   ClfsTarget,
   CloudError,
   KeyVaultKeyReference,
   KeyVaultKeyReferenceSourceVault,
   NamespaceJunction,
   Nfs3Target,
+  NfsAccessPolicy,
+  NfsAccessRule,
   StorageTarget,
   StorageTargetResource,
   StorageTargetsResult,
+  SystemData,
   UnknownTarget
 } from "../models/mappers";
