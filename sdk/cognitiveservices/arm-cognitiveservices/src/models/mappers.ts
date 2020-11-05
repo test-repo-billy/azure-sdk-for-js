@@ -33,7 +33,8 @@ export const Sku: msRest.CompositeMapper = {
           allowedValues: [
             "Free",
             "Standard",
-            "Premium"
+            "Premium",
+            "Enterprise"
           ]
         }
       }
@@ -384,6 +385,42 @@ export const CognitiveServicesAccountApiProperties: msRest.CompositeMapper = {
         type: {
           name: "String"
         }
+      },
+      aadClientId: {
+        serializedName: "aadClientId",
+        constraints: {
+          MaxLength: 500
+        },
+        type: {
+          name: "String"
+        }
+      },
+      aadTenantId: {
+        serializedName: "aadTenantId",
+        constraints: {
+          MaxLength: 500
+        },
+        type: {
+          name: "String"
+        }
+      },
+      superUser: {
+        serializedName: "superUser",
+        constraints: {
+          MaxLength: 500
+        },
+        type: {
+          name: "String"
+        }
+      },
+      websiteName: {
+        serializedName: "websiteName",
+        constraints: {
+          MaxLength: 500
+        },
+        type: {
+          name: "String"
+        }
       }
     }
   }
@@ -484,6 +521,13 @@ export const CognitiveServicesAccountProperties: msRest.CompositeMapper = {
         type: {
           name: "Composite",
           className: "CognitiveServicesAccountApiProperties"
+        }
+      },
+      dateCreated: {
+        readOnly: true,
+        serializedName: "dateCreated",
+        type: {
+          name: "String"
         }
       }
     }
@@ -1244,6 +1288,28 @@ export const ResourceSku: msRest.CompositeMapper = {
             type: {
               name: "Composite",
               className: "ResourceSkuRestrictions"
+            }
+          }
+        }
+      }
+    }
+  }
+};
+
+export const PrivateEndpointConnectionListResult: msRest.CompositeMapper = {
+  serializedName: "PrivateEndpointConnectionListResult",
+  type: {
+    name: "Composite",
+    className: "PrivateEndpointConnectionListResult",
+    modelProperties: {
+      value: {
+        serializedName: "value",
+        type: {
+          name: "Sequence",
+          element: {
+            type: {
+              name: "Composite",
+              className: "PrivateEndpointConnection"
             }
           }
         }
