@@ -9,6 +9,7 @@
  */
 
 import * as msRest from "@azure/ms-rest-js";
+import * as msRestAzure from "@azure/ms-rest-azure-js";
 import * as Models from "../models";
 import * as Mappers from "../models/integrationRuntimesMappers";
 import * as Parameters from "../models/parameters";
@@ -114,35 +115,9 @@ export class IntegrationRuntimes {
    * @param [options] The optional parameters
    * @returns Promise<Models.IntegrationRuntimesCreateResponse>
    */
-  create(resourceGroupName: string, workspaceName: string, integrationRuntimeName: string, integrationRuntime: Models.IntegrationRuntimeResource, options?: Models.IntegrationRuntimesCreateOptionalParams): Promise<Models.IntegrationRuntimesCreateResponse>;
-  /**
-   * @param resourceGroupName The name of the resource group. The name is case insensitive.
-   * @param workspaceName The name of the workspace
-   * @param integrationRuntimeName Integration runtime name
-   * @param integrationRuntime Integration runtime resource definition.
-   * @param callback The callback
-   */
-  create(resourceGroupName: string, workspaceName: string, integrationRuntimeName: string, integrationRuntime: Models.IntegrationRuntimeResource, callback: msRest.ServiceCallback<Models.IntegrationRuntimeResource>): void;
-  /**
-   * @param resourceGroupName The name of the resource group. The name is case insensitive.
-   * @param workspaceName The name of the workspace
-   * @param integrationRuntimeName Integration runtime name
-   * @param integrationRuntime Integration runtime resource definition.
-   * @param options The optional parameters
-   * @param callback The callback
-   */
-  create(resourceGroupName: string, workspaceName: string, integrationRuntimeName: string, integrationRuntime: Models.IntegrationRuntimeResource, options: Models.IntegrationRuntimesCreateOptionalParams, callback: msRest.ServiceCallback<Models.IntegrationRuntimeResource>): void;
-  create(resourceGroupName: string, workspaceName: string, integrationRuntimeName: string, integrationRuntime: Models.IntegrationRuntimeResource, options?: Models.IntegrationRuntimesCreateOptionalParams | msRest.ServiceCallback<Models.IntegrationRuntimeResource>, callback?: msRest.ServiceCallback<Models.IntegrationRuntimeResource>): Promise<Models.IntegrationRuntimesCreateResponse> {
-    return this.client.sendOperationRequest(
-      {
-        resourceGroupName,
-        workspaceName,
-        integrationRuntimeName,
-        integrationRuntime,
-        options
-      },
-      createOperationSpec,
-      callback) as Promise<Models.IntegrationRuntimesCreateResponse>;
+  create(resourceGroupName: string, workspaceName: string, integrationRuntimeName: string, integrationRuntime: Models.IntegrationRuntimeResource, options?: Models.IntegrationRuntimesCreateOptionalParams): Promise<Models.IntegrationRuntimesCreateResponse> {
+    return this.beginCreate(resourceGroupName,workspaceName,integrationRuntimeName,integrationRuntime,options)
+      .then(lroPoller => lroPoller.pollUntilFinished()) as Promise<Models.IntegrationRuntimesCreateResponse>;
   }
 
   /**
@@ -154,32 +129,9 @@ export class IntegrationRuntimes {
    * @param [options] The optional parameters
    * @returns Promise<msRest.RestResponse>
    */
-  deleteMethod(resourceGroupName: string, workspaceName: string, integrationRuntimeName: string, options?: msRest.RequestOptionsBase): Promise<msRest.RestResponse>;
-  /**
-   * @param resourceGroupName The name of the resource group. The name is case insensitive.
-   * @param workspaceName The name of the workspace
-   * @param integrationRuntimeName Integration runtime name
-   * @param callback The callback
-   */
-  deleteMethod(resourceGroupName: string, workspaceName: string, integrationRuntimeName: string, callback: msRest.ServiceCallback<void>): void;
-  /**
-   * @param resourceGroupName The name of the resource group. The name is case insensitive.
-   * @param workspaceName The name of the workspace
-   * @param integrationRuntimeName Integration runtime name
-   * @param options The optional parameters
-   * @param callback The callback
-   */
-  deleteMethod(resourceGroupName: string, workspaceName: string, integrationRuntimeName: string, options: msRest.RequestOptionsBase, callback: msRest.ServiceCallback<void>): void;
-  deleteMethod(resourceGroupName: string, workspaceName: string, integrationRuntimeName: string, options?: msRest.RequestOptionsBase | msRest.ServiceCallback<void>, callback?: msRest.ServiceCallback<void>): Promise<msRest.RestResponse> {
-    return this.client.sendOperationRequest(
-      {
-        resourceGroupName,
-        workspaceName,
-        integrationRuntimeName,
-        options
-      },
-      deleteMethodOperationSpec,
-      callback);
+  deleteMethod(resourceGroupName: string, workspaceName: string, integrationRuntimeName: string, options?: msRest.RequestOptionsBase): Promise<msRest.RestResponse> {
+    return this.beginDeleteMethod(resourceGroupName,workspaceName,integrationRuntimeName,options)
+      .then(lroPoller => lroPoller.pollUntilFinished());
   }
 
   /**
@@ -261,32 +213,9 @@ export class IntegrationRuntimes {
    * @param [options] The optional parameters
    * @returns Promise<Models.IntegrationRuntimesStartResponse>
    */
-  start(resourceGroupName: string, workspaceName: string, integrationRuntimeName: string, options?: msRest.RequestOptionsBase): Promise<Models.IntegrationRuntimesStartResponse>;
-  /**
-   * @param resourceGroupName The name of the resource group. The name is case insensitive.
-   * @param workspaceName The name of the workspace
-   * @param integrationRuntimeName Integration runtime name
-   * @param callback The callback
-   */
-  start(resourceGroupName: string, workspaceName: string, integrationRuntimeName: string, callback: msRest.ServiceCallback<Models.IntegrationRuntimeStatusResponse>): void;
-  /**
-   * @param resourceGroupName The name of the resource group. The name is case insensitive.
-   * @param workspaceName The name of the workspace
-   * @param integrationRuntimeName Integration runtime name
-   * @param options The optional parameters
-   * @param callback The callback
-   */
-  start(resourceGroupName: string, workspaceName: string, integrationRuntimeName: string, options: msRest.RequestOptionsBase, callback: msRest.ServiceCallback<Models.IntegrationRuntimeStatusResponse>): void;
-  start(resourceGroupName: string, workspaceName: string, integrationRuntimeName: string, options?: msRest.RequestOptionsBase | msRest.ServiceCallback<Models.IntegrationRuntimeStatusResponse>, callback?: msRest.ServiceCallback<Models.IntegrationRuntimeStatusResponse>): Promise<Models.IntegrationRuntimesStartResponse> {
-    return this.client.sendOperationRequest(
-      {
-        resourceGroupName,
-        workspaceName,
-        integrationRuntimeName,
-        options
-      },
-      startOperationSpec,
-      callback) as Promise<Models.IntegrationRuntimesStartResponse>;
+  start(resourceGroupName: string, workspaceName: string, integrationRuntimeName: string, options?: msRest.RequestOptionsBase): Promise<Models.IntegrationRuntimesStartResponse> {
+    return this.beginStart(resourceGroupName,workspaceName,integrationRuntimeName,options)
+      .then(lroPoller => lroPoller.pollUntilFinished()) as Promise<Models.IntegrationRuntimesStartResponse>;
   }
 
   /**
@@ -298,32 +227,128 @@ export class IntegrationRuntimes {
    * @param [options] The optional parameters
    * @returns Promise<msRest.RestResponse>
    */
-  stop(resourceGroupName: string, workspaceName: string, integrationRuntimeName: string, options?: msRest.RequestOptionsBase): Promise<msRest.RestResponse>;
+  stop(resourceGroupName: string, workspaceName: string, integrationRuntimeName: string, options?: msRest.RequestOptionsBase): Promise<msRest.RestResponse> {
+    return this.beginStop(resourceGroupName,workspaceName,integrationRuntimeName,options)
+      .then(lroPoller => lroPoller.pollUntilFinished());
+  }
+
   /**
+   * Enable interactive query in integration runtime
    * @param resourceGroupName The name of the resource group. The name is case insensitive.
    * @param workspaceName The name of the workspace
    * @param integrationRuntimeName Integration runtime name
-   * @param callback The callback
+   * @param [options] The optional parameters
+   * @returns Promise<msRest.RestResponse>
    */
-  stop(resourceGroupName: string, workspaceName: string, integrationRuntimeName: string, callback: msRest.ServiceCallback<void>): void;
+  enableInteractiveQuery(resourceGroupName: string, workspaceName: string, integrationRuntimeName: string, options?: msRest.RequestOptionsBase): Promise<msRest.RestResponse> {
+    return this.beginEnableInteractiveQuery(resourceGroupName,workspaceName,integrationRuntimeName,options)
+      .then(lroPoller => lroPoller.pollUntilFinished());
+  }
+
   /**
+   * Create an integration runtime
+   * @summary Create integration runtime
    * @param resourceGroupName The name of the resource group. The name is case insensitive.
    * @param workspaceName The name of the workspace
    * @param integrationRuntimeName Integration runtime name
-   * @param options The optional parameters
-   * @param callback The callback
+   * @param integrationRuntime Integration runtime resource definition.
+   * @param [options] The optional parameters
+   * @returns Promise<msRestAzure.LROPoller>
    */
-  stop(resourceGroupName: string, workspaceName: string, integrationRuntimeName: string, options: msRest.RequestOptionsBase, callback: msRest.ServiceCallback<void>): void;
-  stop(resourceGroupName: string, workspaceName: string, integrationRuntimeName: string, options?: msRest.RequestOptionsBase | msRest.ServiceCallback<void>, callback?: msRest.ServiceCallback<void>): Promise<msRest.RestResponse> {
-    return this.client.sendOperationRequest(
+  beginCreate(resourceGroupName: string, workspaceName: string, integrationRuntimeName: string, integrationRuntime: Models.IntegrationRuntimeResource, options?: Models.IntegrationRuntimesBeginCreateOptionalParams): Promise<msRestAzure.LROPoller> {
+    return this.client.sendLRORequest(
+      {
+        resourceGroupName,
+        workspaceName,
+        integrationRuntimeName,
+        integrationRuntime,
+        options
+      },
+      beginCreateOperationSpec,
+      options);
+  }
+
+  /**
+   * Delete an integration runtime
+   * @summary Delete integration runtime
+   * @param resourceGroupName The name of the resource group. The name is case insensitive.
+   * @param workspaceName The name of the workspace
+   * @param integrationRuntimeName Integration runtime name
+   * @param [options] The optional parameters
+   * @returns Promise<msRestAzure.LROPoller>
+   */
+  beginDeleteMethod(resourceGroupName: string, workspaceName: string, integrationRuntimeName: string, options?: msRest.RequestOptionsBase): Promise<msRestAzure.LROPoller> {
+    return this.client.sendLRORequest(
       {
         resourceGroupName,
         workspaceName,
         integrationRuntimeName,
         options
       },
-      stopOperationSpec,
-      callback);
+      beginDeleteMethodOperationSpec,
+      options);
+  }
+
+  /**
+   * Start an integration runtime
+   * @summary Start integration runtime
+   * @param resourceGroupName The name of the resource group. The name is case insensitive.
+   * @param workspaceName The name of the workspace
+   * @param integrationRuntimeName Integration runtime name
+   * @param [options] The optional parameters
+   * @returns Promise<msRestAzure.LROPoller>
+   */
+  beginStart(resourceGroupName: string, workspaceName: string, integrationRuntimeName: string, options?: msRest.RequestOptionsBase): Promise<msRestAzure.LROPoller> {
+    return this.client.sendLRORequest(
+      {
+        resourceGroupName,
+        workspaceName,
+        integrationRuntimeName,
+        options
+      },
+      beginStartOperationSpec,
+      options);
+  }
+
+  /**
+   * Stop an integration runtime
+   * @summary Stop integration runtime
+   * @param resourceGroupName The name of the resource group. The name is case insensitive.
+   * @param workspaceName The name of the workspace
+   * @param integrationRuntimeName Integration runtime name
+   * @param [options] The optional parameters
+   * @returns Promise<msRestAzure.LROPoller>
+   */
+  beginStop(resourceGroupName: string, workspaceName: string, integrationRuntimeName: string, options?: msRest.RequestOptionsBase): Promise<msRestAzure.LROPoller> {
+    return this.client.sendLRORequest(
+      {
+        resourceGroupName,
+        workspaceName,
+        integrationRuntimeName,
+        options
+      },
+      beginStopOperationSpec,
+      options);
+  }
+
+  /**
+   * Enable interactive query in integration runtime
+   * @param resourceGroupName The name of the resource group. The name is case insensitive.
+   * @param workspaceName The name of the workspace
+   * @param integrationRuntimeName Integration runtime name
+   * @param [options] The optional parameters
+   * @returns Promise<msRestAzure.LROPoller>
+   */
+  beginEnableInteractiveQuery(resourceGroupName: string, workspaceName: string, integrationRuntimeName: string, options?: msRest.RequestOptionsBase): Promise<msRestAzure.LROPoller> {
+    return this.client.sendLRORequest(
+      {
+        resourceGroupName,
+        workspaceName,
+        integrationRuntimeName,
+        options
+      },
+      beginEnableInteractiveQueryOperationSpec,
+      options);
   }
 
   /**
@@ -419,65 +444,6 @@ const getOperationSpec: msRest.OperationSpec = {
   serializer
 };
 
-const createOperationSpec: msRest.OperationSpec = {
-  httpMethod: "PUT",
-  path: "subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Synapse/workspaces/{workspaceName}/integrationRuntimes/{integrationRuntimeName}",
-  urlParameters: [
-    Parameters.subscriptionId,
-    Parameters.resourceGroupName,
-    Parameters.workspaceName,
-    Parameters.integrationRuntimeName
-  ],
-  queryParameters: [
-    Parameters.apiVersion
-  ],
-  headerParameters: [
-    Parameters.ifMatch,
-    Parameters.acceptLanguage
-  ],
-  requestBody: {
-    parameterPath: "integrationRuntime",
-    mapper: {
-      ...Mappers.IntegrationRuntimeResource,
-      required: true
-    }
-  },
-  responses: {
-    200: {
-      bodyMapper: Mappers.IntegrationRuntimeResource
-    },
-    default: {
-      bodyMapper: Mappers.CloudError
-    }
-  },
-  serializer
-};
-
-const deleteMethodOperationSpec: msRest.OperationSpec = {
-  httpMethod: "DELETE",
-  path: "subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Synapse/workspaces/{workspaceName}/integrationRuntimes/{integrationRuntimeName}",
-  urlParameters: [
-    Parameters.subscriptionId,
-    Parameters.resourceGroupName,
-    Parameters.workspaceName,
-    Parameters.integrationRuntimeName
-  ],
-  queryParameters: [
-    Parameters.apiVersion
-  ],
-  headerParameters: [
-    Parameters.acceptLanguage
-  ],
-  responses: {
-    200: {},
-    204: {},
-    default: {
-      bodyMapper: Mappers.CloudError
-    }
-  },
-  serializer
-};
-
 const upgradeOperationSpec: msRest.OperationSpec = {
   httpMethod: "POST",
   path: "subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Synapse/workspaces/{workspaceName}/integrationRuntimes/{integrationRuntimeName}/upgrade",
@@ -527,7 +493,68 @@ const listByWorkspaceOperationSpec: msRest.OperationSpec = {
   serializer
 };
 
-const startOperationSpec: msRest.OperationSpec = {
+const beginCreateOperationSpec: msRest.OperationSpec = {
+  httpMethod: "PUT",
+  path: "subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Synapse/workspaces/{workspaceName}/integrationRuntimes/{integrationRuntimeName}",
+  urlParameters: [
+    Parameters.subscriptionId,
+    Parameters.resourceGroupName,
+    Parameters.workspaceName,
+    Parameters.integrationRuntimeName
+  ],
+  queryParameters: [
+    Parameters.apiVersion
+  ],
+  headerParameters: [
+    Parameters.ifMatch,
+    Parameters.acceptLanguage
+  ],
+  requestBody: {
+    parameterPath: "integrationRuntime",
+    mapper: {
+      ...Mappers.IntegrationRuntimeResource,
+      required: true
+    }
+  },
+  responses: {
+    200: {
+      bodyMapper: Mappers.IntegrationRuntimeResource
+    },
+    202: {},
+    default: {
+      bodyMapper: Mappers.CloudError
+    }
+  },
+  serializer
+};
+
+const beginDeleteMethodOperationSpec: msRest.OperationSpec = {
+  httpMethod: "DELETE",
+  path: "subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Synapse/workspaces/{workspaceName}/integrationRuntimes/{integrationRuntimeName}",
+  urlParameters: [
+    Parameters.subscriptionId,
+    Parameters.resourceGroupName,
+    Parameters.workspaceName,
+    Parameters.integrationRuntimeName
+  ],
+  queryParameters: [
+    Parameters.apiVersion
+  ],
+  headerParameters: [
+    Parameters.acceptLanguage
+  ],
+  responses: {
+    200: {},
+    202: {},
+    204: {},
+    default: {
+      bodyMapper: Mappers.CloudError
+    }
+  },
+  serializer
+};
+
+const beginStartOperationSpec: msRest.OperationSpec = {
   httpMethod: "POST",
   path: "subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Synapse/workspaces/{workspaceName}/integrationRuntimes/{integrationRuntimeName}/start",
   urlParameters: [
@@ -554,9 +581,34 @@ const startOperationSpec: msRest.OperationSpec = {
   serializer
 };
 
-const stopOperationSpec: msRest.OperationSpec = {
+const beginStopOperationSpec: msRest.OperationSpec = {
   httpMethod: "POST",
   path: "subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Synapse/workspaces/{workspaceName}/integrationRuntimes/{integrationRuntimeName}/stop",
+  urlParameters: [
+    Parameters.subscriptionId,
+    Parameters.resourceGroupName,
+    Parameters.workspaceName,
+    Parameters.integrationRuntimeName
+  ],
+  queryParameters: [
+    Parameters.apiVersion
+  ],
+  headerParameters: [
+    Parameters.acceptLanguage
+  ],
+  responses: {
+    200: {},
+    202: {},
+    default: {
+      bodyMapper: Mappers.CloudError
+    }
+  },
+  serializer
+};
+
+const beginEnableInteractiveQueryOperationSpec: msRest.OperationSpec = {
+  httpMethod: "POST",
+  path: "subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Synapse/workspaces/{workspaceName}/integrationRuntimes/{integrationRuntimeName}/enableInteractiveQuery",
   urlParameters: [
     Parameters.subscriptionId,
     Parameters.resourceGroupName,

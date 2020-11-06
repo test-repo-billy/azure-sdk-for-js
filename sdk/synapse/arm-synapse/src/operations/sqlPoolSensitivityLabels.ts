@@ -201,6 +201,61 @@ export class SqlPoolSensitivityLabels {
   }
 
   /**
+   * Gets the sensitivity label of a given column
+   * @param resourceGroupName The name of the resource group. The name is case insensitive.
+   * @param workspaceName The name of the workspace
+   * @param sqlPoolName SQL pool name
+   * @param schemaName The name of the schema.
+   * @param tableName The name of the table.
+   * @param columnName The name of the column.
+   * @param sensitivityLabelSource The source of the sensitivity label. Possible values include:
+   * 'current', 'recommended'
+   * @param [options] The optional parameters
+   * @returns Promise<Models.SqlPoolSensitivityLabelsGetResponse>
+   */
+  get(resourceGroupName: string, workspaceName: string, sqlPoolName: string, schemaName: string, tableName: string, columnName: string, sensitivityLabelSource: Models.SensitivityLabelSource, options?: msRest.RequestOptionsBase): Promise<Models.SqlPoolSensitivityLabelsGetResponse>;
+  /**
+   * @param resourceGroupName The name of the resource group. The name is case insensitive.
+   * @param workspaceName The name of the workspace
+   * @param sqlPoolName SQL pool name
+   * @param schemaName The name of the schema.
+   * @param tableName The name of the table.
+   * @param columnName The name of the column.
+   * @param sensitivityLabelSource The source of the sensitivity label. Possible values include:
+   * 'current', 'recommended'
+   * @param callback The callback
+   */
+  get(resourceGroupName: string, workspaceName: string, sqlPoolName: string, schemaName: string, tableName: string, columnName: string, sensitivityLabelSource: Models.SensitivityLabelSource, callback: msRest.ServiceCallback<Models.SensitivityLabel>): void;
+  /**
+   * @param resourceGroupName The name of the resource group. The name is case insensitive.
+   * @param workspaceName The name of the workspace
+   * @param sqlPoolName SQL pool name
+   * @param schemaName The name of the schema.
+   * @param tableName The name of the table.
+   * @param columnName The name of the column.
+   * @param sensitivityLabelSource The source of the sensitivity label. Possible values include:
+   * 'current', 'recommended'
+   * @param options The optional parameters
+   * @param callback The callback
+   */
+  get(resourceGroupName: string, workspaceName: string, sqlPoolName: string, schemaName: string, tableName: string, columnName: string, sensitivityLabelSource: Models.SensitivityLabelSource, options: msRest.RequestOptionsBase, callback: msRest.ServiceCallback<Models.SensitivityLabel>): void;
+  get(resourceGroupName: string, workspaceName: string, sqlPoolName: string, schemaName: string, tableName: string, columnName: string, sensitivityLabelSource: Models.SensitivityLabelSource, options?: msRest.RequestOptionsBase | msRest.ServiceCallback<Models.SensitivityLabel>, callback?: msRest.ServiceCallback<Models.SensitivityLabel>): Promise<Models.SqlPoolSensitivityLabelsGetResponse> {
+    return this.client.sendOperationRequest(
+      {
+        resourceGroupName,
+        workspaceName,
+        sqlPoolName,
+        schemaName,
+        tableName,
+        columnName,
+        sensitivityLabelSource,
+        options
+      },
+      getOperationSpec,
+      callback) as Promise<Models.SqlPoolSensitivityLabelsGetResponse>;
+  }
+
+  /**
    * Enables sensitivity recommendations on a given column (recommendations are enabled by default on
    * all columns)
    * @param resourceGroupName The name of the resource group. The name is case insensitive.
@@ -379,7 +434,7 @@ const listCurrentOperationSpec: msRest.OperationSpec = {
       bodyMapper: Mappers.SensitivityLabelListResult
     },
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.ErrorContract
     }
   },
   serializer
@@ -475,6 +530,37 @@ const deleteMethodOperationSpec: msRest.OperationSpec = {
   ],
   responses: {
     200: {},
+    204: {},
+    default: {
+      bodyMapper: Mappers.CloudError
+    }
+  },
+  serializer
+};
+
+const getOperationSpec: msRest.OperationSpec = {
+  httpMethod: "GET",
+  path: "subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Synapse/workspaces/{workspaceName}/sqlPools/{sqlPoolName}/schemas/{schemaName}/tables/{tableName}/columns/{columnName}/sensitivityLabels/{sensitivityLabelSource}",
+  urlParameters: [
+    Parameters.subscriptionId,
+    Parameters.resourceGroupName,
+    Parameters.workspaceName,
+    Parameters.sqlPoolName,
+    Parameters.schemaName,
+    Parameters.tableName,
+    Parameters.columnName,
+    Parameters.sensitivityLabelSource1
+  ],
+  queryParameters: [
+    Parameters.apiVersion
+  ],
+  headerParameters: [
+    Parameters.acceptLanguage
+  ],
+  responses: {
+    200: {
+      bodyMapper: Mappers.SensitivityLabel
+    },
     default: {
       bodyMapper: Mappers.CloudError
     }
@@ -493,7 +579,7 @@ const enableRecommendationOperationSpec: msRest.OperationSpec = {
     Parameters.schemaName,
     Parameters.tableName,
     Parameters.columnName,
-    Parameters.sensitivityLabelSource1
+    Parameters.sensitivityLabelSource2
   ],
   queryParameters: [
     Parameters.apiVersion
@@ -521,7 +607,7 @@ const disableRecommendationOperationSpec: msRest.OperationSpec = {
     Parameters.schemaName,
     Parameters.tableName,
     Parameters.columnName,
-    Parameters.sensitivityLabelSource1
+    Parameters.sensitivityLabelSource2
   ],
   queryParameters: [
     Parameters.apiVersion
@@ -553,7 +639,7 @@ const listCurrentNextOperationSpec: msRest.OperationSpec = {
       bodyMapper: Mappers.SensitivityLabelListResult
     },
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.ErrorContract
     }
   },
   serializer
