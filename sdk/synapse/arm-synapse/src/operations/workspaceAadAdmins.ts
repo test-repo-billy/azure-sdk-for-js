@@ -144,7 +144,7 @@ const getOperationSpec: msRest.OperationSpec = {
       bodyMapper: Mappers.WorkspaceAadAdminInfo
     },
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.ErrorContract
     }
   },
   serializer
@@ -202,6 +202,7 @@ const beginDeleteMethodOperationSpec: msRest.OperationSpec = {
   responses: {
     200: {},
     202: {},
+    204: {},
     default: {
       bodyMapper: Mappers.ErrorContract
     }

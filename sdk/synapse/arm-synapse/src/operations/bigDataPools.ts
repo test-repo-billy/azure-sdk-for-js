@@ -321,7 +321,7 @@ const listByWorkspaceOperationSpec: msRest.OperationSpec = {
       bodyMapper: Mappers.BigDataPoolResourceInfoListResult
     },
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.ErrorContract
     }
   },
   serializer
@@ -419,7 +419,7 @@ const listByWorkspaceNextOperationSpec: msRest.OperationSpec = {
       bodyMapper: Mappers.BigDataPoolResourceInfoListResult
     },
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.ErrorContract
     }
   },
   serializer

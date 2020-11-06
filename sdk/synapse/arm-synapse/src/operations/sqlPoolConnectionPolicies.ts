@@ -90,7 +90,7 @@ const getOperationSpec: msRest.OperationSpec = {
       bodyMapper: Mappers.SqlPoolConnectionPolicy
     },
     default: {
-      bodyMapper: Mappers.CloudError
+      bodyMapper: Mappers.ErrorContract
     }
   },
   serializer
