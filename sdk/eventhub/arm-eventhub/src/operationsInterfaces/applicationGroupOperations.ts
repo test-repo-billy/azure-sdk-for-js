@@ -6,31 +6,17 @@
  * Changes may cause incorrect behavior and will be lost if the code is regenerated.
  */
 
-import { PagedAsyncIterableIterator } from "@azure/core-paging";
 import {
   ApplicationGroup,
-  ApplicationGroupListByNamespaceOptionalParams,
   ApplicationGroupCreateOrUpdateApplicationGroupOptionalParams,
   ApplicationGroupCreateOrUpdateApplicationGroupResponse,
   ApplicationGroupDeleteOptionalParams,
   ApplicationGroupGetOptionalParams,
-  ApplicationGroupGetResponse
+  ApplicationGroupGetResponse,
 } from "../models";
 
-/// <reference lib="esnext.asynciterable" />
 /** Interface representing a ApplicationGroupOperations. */
 export interface ApplicationGroupOperations {
-  /**
-   * Gets a list of application groups for a Namespace.
-   * @param resourceGroupName Name of the resource group within the azure subscription.
-   * @param namespaceName The Namespace name
-   * @param options The options parameters.
-   */
-  listByNamespace(
-    resourceGroupName: string,
-    namespaceName: string,
-    options?: ApplicationGroupListByNamespaceOptionalParams
-  ): PagedAsyncIterableIterator<ApplicationGroup>;
   /**
    * Creates or updates an ApplicationGroup for a Namespace.
    * @param resourceGroupName Name of the resource group within the azure subscription.
@@ -44,7 +30,7 @@ export interface ApplicationGroupOperations {
     namespaceName: string,
     applicationGroupName: string,
     parameters: ApplicationGroup,
-    options?: ApplicationGroupCreateOrUpdateApplicationGroupOptionalParams
+    options?: ApplicationGroupCreateOrUpdateApplicationGroupOptionalParams,
   ): Promise<ApplicationGroupCreateOrUpdateApplicationGroupResponse>;
   /**
    * Deletes an ApplicationGroup for a Namespace.
@@ -57,7 +43,7 @@ export interface ApplicationGroupOperations {
     resourceGroupName: string,
     namespaceName: string,
     applicationGroupName: string,
-    options?: ApplicationGroupDeleteOptionalParams
+    options?: ApplicationGroupDeleteOptionalParams,
   ): Promise<void>;
   /**
    * Gets an ApplicationGroup for a Namespace.
@@ -70,6 +56,6 @@ export interface ApplicationGroupOperations {
     resourceGroupName: string,
     namespaceName: string,
     applicationGroupName: string,
-    options?: ApplicationGroupGetOptionalParams
+    options?: ApplicationGroupGetOptionalParams,
   ): Promise<ApplicationGroupGetResponse>;
 }
