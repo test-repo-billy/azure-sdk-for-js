@@ -41,6 +41,7 @@ export interface DicomService extends TaggedResource, ServiceManagedIdentity {
     readonly provisioningState?: ProvisioningState;
     publicNetworkAccess?: PublicNetworkAccess;
     readonly serviceUrl?: string;
+    storageConfiguration?: StorageConfiguration;
     readonly systemData?: SystemData;
 }
 
@@ -194,6 +195,7 @@ export interface FhirServiceAcrConfiguration {
 export interface FhirServiceAuthenticationConfiguration {
     audience?: string;
     authority?: string;
+    smartIdentityProviders?: SmartIdentityProviderConfiguration[];
     smartProxyEnabled?: boolean;
 }
 
@@ -592,6 +594,11 @@ export enum KnownServiceManagedIdentityType {
 }
 
 // @public
+export enum KnownSmartDataActions {
+    Read = "Read"
+}
+
+// @public
 export interface ListOperations {
     nextLink?: string;
     readonly value?: OperationDetail[];
@@ -937,8 +944,6 @@ export interface ServiceOciArtifactEntry {
 
 // @public
 export interface Services {
-    beginCreateOrUpdate(resourceGroupName: string, resourceName: string, serviceDescription: ServicesDescription, options?: ServicesCreateOrUpdateOptionalParams): Promise<SimplePollerLike<OperationState<ServicesCreateOrUpdateResponse>, ServicesCreateOrUpdateResponse>>;
-    beginCreateOrUpdateAndWait(resourceGroupName: string, resourceName: string, serviceDescription: ServicesDescription, options?: ServicesCreateOrUpdateOptionalParams): Promise<ServicesCreateOrUpdateResponse>;
     beginDelete(resourceGroupName: string, resourceName: string, options?: ServicesDeleteOptionalParams): Promise<SimplePollerLike<OperationState<void>, void>>;
     beginDeleteAndWait(resourceGroupName: string, resourceName: string, options?: ServicesDeleteOptionalParams): Promise<void>;
     beginUpdate(resourceGroupName: string, resourceName: string, servicePatchDescription: ServicesPatchDescription, options?: ServicesUpdateOptionalParams): Promise<SimplePollerLike<OperationState<ServicesUpdateResponse>, ServicesUpdateResponse>>;
@@ -955,15 +960,6 @@ export interface ServicesCheckNameAvailabilityOptionalParams extends coreClient.
 
 // @public
 export type ServicesCheckNameAvailabilityResponse = ServicesNameAvailabilityInfo;
-
-// @public
-export interface ServicesCreateOrUpdateOptionalParams extends coreClient.OperationOptions {
-    resumeFrom?: string;
-    updateIntervalInMs?: number;
-}
-
-// @public
-export type ServicesCreateOrUpdateResponse = ServicesDescription;
 
 // @public
 export interface ServicesDeleteOptionalParams extends coreClient.OperationOptions {
@@ -1082,6 +1078,28 @@ export interface ServicesUpdateOptionalParams extends coreClient.OperationOption
 
 // @public
 export type ServicesUpdateResponse = ServicesDescription;
+
+// @public
+export type SmartDataActions = string;
+
+// @public
+export interface SmartIdentityProviderApplication {
+    allowedDataActions?: SmartDataActions[];
+    audience?: string;
+    clientId?: string;
+}
+
+// @public
+export interface SmartIdentityProviderConfiguration {
+    applications?: SmartIdentityProviderApplication[];
+    authority?: string;
+}
+
+// @public
+export interface StorageConfiguration {
+    fileSystemName?: string;
+    storageResourceId?: string;
+}
 
 // @public
 export interface SystemData {

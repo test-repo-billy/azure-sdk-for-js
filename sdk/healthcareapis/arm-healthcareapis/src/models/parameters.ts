@@ -9,10 +9,9 @@
 import {
   OperationParameter,
   OperationURLParameter,
-  OperationQueryParameter
+  OperationQueryParameter,
 } from "@azure/core-client";
 import {
-  ServicesDescription as ServicesDescriptionMapper,
   ServicesPatchDescription as ServicesPatchDescriptionMapper,
   CheckNameAvailabilityParameters as CheckNameAvailabilityParametersMapper,
   PrivateEndpointConnection as PrivateEndpointConnectionMapper,
@@ -25,7 +24,7 @@ import {
   IotFhirDestination as IotFhirDestinationMapper,
   FhirService as FhirServiceMapper,
   FhirServicePatchResource as FhirServicePatchResourceMapper,
-  PrivateEndpointConnectionDescription as PrivateEndpointConnectionDescriptionMapper
+  PrivateEndpointConnectionDescription as PrivateEndpointConnectionDescriptionMapper,
 } from "../models/mappers";
 
 export const accept: OperationParameter = {
@@ -35,9 +34,9 @@ export const accept: OperationParameter = {
     isConstant: true,
     serializedName: "Accept",
     type: {
-      name: "String"
-    }
-  }
+      name: "String",
+    },
+  },
 };
 
 export const $host: OperationURLParameter = {
@@ -46,36 +45,36 @@ export const $host: OperationURLParameter = {
     serializedName: "$host",
     required: true,
     type: {
-      name: "String"
-    }
+      name: "String",
+    },
   },
-  skipEncoding: true
+  skipEncoding: true,
 };
 
 export const apiVersion: OperationQueryParameter = {
   parameterPath: "apiVersion",
   mapper: {
-    defaultValue: "2023-11-01",
+    defaultValue: "2024-03-01",
     isConstant: true,
     serializedName: "api-version",
     type: {
-      name: "String"
-    }
-  }
+      name: "String",
+    },
+  },
 };
 
 export const subscriptionId: OperationURLParameter = {
   parameterPath: "subscriptionId",
   mapper: {
     constraints: {
-      MinLength: 1
+      MinLength: 1,
     },
     serializedName: "subscriptionId",
     required: true,
     type: {
-      name: "String"
-    }
-  }
+      name: "String",
+    },
+  },
 };
 
 export const resourceGroupName: OperationURLParameter = {
@@ -84,14 +83,14 @@ export const resourceGroupName: OperationURLParameter = {
     constraints: {
       Pattern: new RegExp("^[-\\w\\._\\(\\)]+$"),
       MaxLength: 90,
-      MinLength: 1
+      MinLength: 1,
     },
     serializedName: "resourceGroupName",
     required: true,
     type: {
-      name: "String"
-    }
-  }
+      name: "String",
+    },
+  },
 };
 
 export const resourceName: OperationURLParameter = {
@@ -99,14 +98,14 @@ export const resourceName: OperationURLParameter = {
   mapper: {
     constraints: {
       MaxLength: 24,
-      MinLength: 3
+      MinLength: 3,
     },
     serializedName: "resourceName",
     required: true,
     type: {
-      name: "String"
-    }
-  }
+      name: "String",
+    },
+  },
 };
 
 export const contentType: OperationParameter = {
@@ -116,24 +115,19 @@ export const contentType: OperationParameter = {
     isConstant: true,
     serializedName: "Content-Type",
     type: {
-      name: "String"
-    }
-  }
-};
-
-export const serviceDescription: OperationParameter = {
-  parameterPath: "serviceDescription",
-  mapper: ServicesDescriptionMapper
+      name: "String",
+    },
+  },
 };
 
 export const servicePatchDescription: OperationParameter = {
   parameterPath: "servicePatchDescription",
-  mapper: ServicesPatchDescriptionMapper
+  mapper: ServicesPatchDescriptionMapper,
 };
 
 export const checkNameAvailabilityInputs: OperationParameter = {
   parameterPath: "checkNameAvailabilityInputs",
-  mapper: CheckNameAvailabilityParametersMapper
+  mapper: CheckNameAvailabilityParametersMapper,
 };
 
 export const nextLink: OperationURLParameter = {
@@ -142,10 +136,10 @@ export const nextLink: OperationURLParameter = {
     serializedName: "nextLink",
     required: true,
     type: {
-      name: "String"
-    }
+      name: "String",
+    },
   },
-  skipEncoding: true
+  skipEncoding: true,
 };
 
 export const privateEndpointConnectionName: OperationURLParameter = {
@@ -154,14 +148,14 @@ export const privateEndpointConnectionName: OperationURLParameter = {
     serializedName: "privateEndpointConnectionName",
     required: true,
     type: {
-      name: "String"
-    }
-  }
+      name: "String",
+    },
+  },
 };
 
 export const properties: OperationParameter = {
   parameterPath: "properties",
-  mapper: PrivateEndpointConnectionMapper
+  mapper: PrivateEndpointConnectionMapper,
 };
 
 export const groupName: OperationURLParameter = {
@@ -170,9 +164,9 @@ export const groupName: OperationURLParameter = {
     serializedName: "groupName",
     required: true,
     type: {
-      name: "String"
-    }
-  }
+      name: "String",
+    },
+  },
 };
 
 export const workspaceName: OperationURLParameter = {
@@ -180,24 +174,24 @@ export const workspaceName: OperationURLParameter = {
   mapper: {
     constraints: {
       MaxLength: 24,
-      MinLength: 3
+      MinLength: 3,
     },
     serializedName: "workspaceName",
     required: true,
     type: {
-      name: "String"
-    }
-  }
+      name: "String",
+    },
+  },
 };
 
 export const workspace: OperationParameter = {
   parameterPath: "workspace",
-  mapper: WorkspaceMapper
+  mapper: WorkspaceMapper,
 };
 
 export const workspacePatchResource: OperationParameter = {
   parameterPath: "workspacePatchResource",
-  mapper: WorkspacePatchResourceMapper
+  mapper: WorkspacePatchResourceMapper,
 };
 
 export const dicomServiceName: OperationURLParameter = {
@@ -205,24 +199,24 @@ export const dicomServiceName: OperationURLParameter = {
   mapper: {
     constraints: {
       MaxLength: 24,
-      MinLength: 3
+      MinLength: 3,
     },
     serializedName: "dicomServiceName",
     required: true,
     type: {
-      name: "String"
-    }
-  }
+      name: "String",
+    },
+  },
 };
 
 export const dicomservice: OperationParameter = {
   parameterPath: "dicomservice",
-  mapper: DicomServiceMapper
+  mapper: DicomServiceMapper,
 };
 
 export const dicomservicePatchResource: OperationParameter = {
   parameterPath: "dicomservicePatchResource",
-  mapper: DicomServicePatchResourceMapper
+  mapper: DicomServicePatchResourceMapper,
 };
 
 export const iotConnectorName: OperationURLParameter = {
@@ -230,24 +224,24 @@ export const iotConnectorName: OperationURLParameter = {
   mapper: {
     constraints: {
       MaxLength: 24,
-      MinLength: 3
+      MinLength: 3,
     },
     serializedName: "iotConnectorName",
     required: true,
     type: {
-      name: "String"
-    }
-  }
+      name: "String",
+    },
+  },
 };
 
 export const iotConnector: OperationParameter = {
   parameterPath: "iotConnector",
-  mapper: IotConnectorMapper
+  mapper: IotConnectorMapper,
 };
 
 export const iotConnectorPatchResource: OperationParameter = {
   parameterPath: "iotConnectorPatchResource",
-  mapper: IotConnectorPatchResourceMapper
+  mapper: IotConnectorPatchResourceMapper,
 };
 
 export const fhirDestinationName: OperationURLParameter = {
@@ -255,19 +249,19 @@ export const fhirDestinationName: OperationURLParameter = {
   mapper: {
     constraints: {
       MaxLength: 24,
-      MinLength: 3
+      MinLength: 3,
     },
     serializedName: "fhirDestinationName",
     required: true,
     type: {
-      name: "String"
-    }
-  }
+      name: "String",
+    },
+  },
 };
 
 export const iotFhirDestination: OperationParameter = {
   parameterPath: "iotFhirDestination",
-  mapper: IotFhirDestinationMapper
+  mapper: IotFhirDestinationMapper,
 };
 
 export const fhirServiceName: OperationURLParameter = {
@@ -275,29 +269,29 @@ export const fhirServiceName: OperationURLParameter = {
   mapper: {
     constraints: {
       MaxLength: 24,
-      MinLength: 3
+      MinLength: 3,
     },
     serializedName: "fhirServiceName",
     required: true,
     type: {
-      name: "String"
-    }
-  }
+      name: "String",
+    },
+  },
 };
 
 export const fhirservice: OperationParameter = {
   parameterPath: "fhirservice",
-  mapper: FhirServiceMapper
+  mapper: FhirServiceMapper,
 };
 
 export const fhirservicePatchResource: OperationParameter = {
   parameterPath: "fhirservicePatchResource",
-  mapper: FhirServicePatchResourceMapper
+  mapper: FhirServicePatchResourceMapper,
 };
 
 export const properties1: OperationParameter = {
   parameterPath: "properties",
-  mapper: PrivateEndpointConnectionDescriptionMapper
+  mapper: PrivateEndpointConnectionDescriptionMapper,
 };
 
 export const locationName: OperationURLParameter = {
@@ -306,9 +300,9 @@ export const locationName: OperationURLParameter = {
     serializedName: "locationName",
     required: true,
     type: {
-      name: "String"
-    }
-  }
+      name: "String",
+    },
+  },
 };
 
 export const operationResultId: OperationURLParameter = {
@@ -317,7 +311,7 @@ export const operationResultId: OperationURLParameter = {
     serializedName: "operationResultId",
     required: true,
     type: {
-      name: "String"
-    }
-  }
+      name: "String",
+    },
+  },
 };
