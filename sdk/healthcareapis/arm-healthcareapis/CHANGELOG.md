@@ -1,5 +1,22 @@
 # Release History
+    
+## 4.0.0 (2024-04-08)
+    
+**Features**
 
+  - Added Interface SmartIdentityProviderApplication
+  - Added Interface SmartIdentityProviderConfiguration
+  - Added Interface StorageConfiguration
+  - Added Type Alias SmartDataActions
+  - Interface DicomService has a new optional parameter storageConfiguration
+  - Interface FhirServiceAuthenticationConfiguration has a new optional parameter smartIdentityProviders
+  - Added Enum KnownSmartDataActions
+
+**Breaking Changes**
+
+  - Removed operation Services.beginCreateOrUpdate
+  - Removed operation Services.beginCreateOrUpdateAndWait
+    
 ## 3.0.1 (Unreleased)
 
 ### Features Added
