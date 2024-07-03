@@ -16,7 +16,10 @@
     "generateScript": {
       "path": "sh .scripts/automation_generate.sh",
       "stderr": {
-        "showInComment": ".*ERROR.*"
+        "showInComment": "(.*ERROR|npm notice).*"
+      },
+      "stdout": {
+        "showInComment": "SDK type"
       }
     },
     "parseGenerateOutput": true
