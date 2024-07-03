@@ -20,7 +20,7 @@
         "showInComment": false
       },
       "stdout": {
-        "showInComment": "npm notice package",
+        "showInComment": "npm notice package|\\[WARN\\] Don't find autorest",
         "scriptError": "These operations"
       }
     },
