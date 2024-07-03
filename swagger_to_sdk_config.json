@@ -8,8 +8,7 @@
     "initScript": {
       "path": "sh .scripts/automation_init.sh",
       "stderr": {
-        "showInComment": false,
-        "scriptError": "npm notice"
+        "showInComment": ".*ERROR.*"
       }
     }
   },
@@ -17,11 +16,7 @@
     "generateScript": {
       "path": "sh .scripts/automation_generate.sh",
       "stderr": {
-        "showInComment": false
-      },
-      "stdout": {
-        "showInComment": "npm notice package|\\[WARN\\] Don't find autorest",
-        "scriptError": "These operations"
+        "showInComment": ".*ERROR.*"
       }
     },
     "parseGenerateOutput": true
