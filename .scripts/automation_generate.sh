@@ -36,5 +36,5 @@ pnpm run build
 pnpm link --global
 cd ../../..
 
-cd azure-sdk-for-js_tmp
+cd azure-sdk-for-js
 tsx code-gen-pipeline --inputJsonPath=$1 --outputJsonPath=$2 --use=@autorest/typescript@^6.0.12 --typespecEmitter=@azure-tools/typespec-ts
