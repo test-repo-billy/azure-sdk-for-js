@@ -17,7 +17,7 @@ file_path="azure-rest-api-specs/branch.txt"
 if [ -f "$file_path" ]; then
     # Load the content of the file into a variable
     branch=$(cat "$file_path")
-    echo "switch to branch $branch"
+    echo "get branch $branch"
 else
     echo "Branch file does not exist."
 fi
@@ -27,6 +27,7 @@ git clone https://github.com/Azure/azure-sdk-tools/
 cd azure-sdk-tools
 if [ -f "$file_path" ]; then
     git checkout -b test $branch
+    echo git checkout -b test $branch
 fi
 
 echo '-------------- git status start'
