@@ -29,6 +29,11 @@ if [ -f "$file_path" ]; then
     git checkout -b test $branch
 fi
 
+echo '-------------- git status start'
+git status
+echo '-------------- git status end'
+
+
 cd tools/js-sdk-release-tools
 npm install
 cd ../../..
