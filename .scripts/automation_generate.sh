@@ -4,6 +4,10 @@ export NVM_DIR="$HOME/.nvm"
 nvm use default
 
 cd ..
+echo '-------------- list root start'
+ls
+echo '-------------- list root end'
+
 file_path="azure-rest-api-specs/branch.txt"
 # Check if the file exists
 if [ -f "$file_path" ]; then
@@ -20,11 +24,15 @@ cd azure-sdk-tools
 if [ -f "$file_path" ]; then
     git checkout -b test $branch
 fi
+echo '-------------- git status start'
 git status
+echo '-------------- git status end'
 
-echo '-------------- list folders'
+cd ..
+echo '-------------- list root start'
 ls
+echo '-------------- list root end'
 
-cd ../azure-sdk-for-js_tmp
+cd azure-sdk-for-js_tmp
 npm install
 tsx ../azure-sdk-tools/tools/js-sdk-release-tools/src/autoGenerateInPipeline.ts --inputJsonPath=$1 --outputJsonPath=$2 --use=@autorest/typescript@^6.0.12 --typespecEmitter=@azure-tools/typespec-ts
