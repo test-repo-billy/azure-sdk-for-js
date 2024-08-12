@@ -34,5 +34,5 @@ pnpm install
 cd ../../..
 
 cd azure-sdk-for-js
-npm install
+pnpm install
 tsx ../azure-sdk-tools/tools/js-sdk-release-tools/src/autoGenerateInPipeline.ts --inputJsonPath=$1 --outputJsonPath=$2 --use=@autorest/typescript@^6.0.12 --typespecEmitter=@azure-tools/typespec-ts
