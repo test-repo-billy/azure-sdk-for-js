@@ -4,6 +4,10 @@ export NVM_DIR="$HOME/.nvm"
 nvm use default
 
 cd ..
+
+echo '-------------- pwd start'
+pwd
+echo '-------------- pwd end'
 echo '-------------- list root start'
 ls
 echo '-------------- list root end'
@@ -24,11 +28,21 @@ cd azure-sdk-tools
 if [ -f "$file_path" ]; then
     git checkout -b test $branch
 fi
+
+echo '-------------- pwd start'
+pwd
+echo '-------------- pwd end'
+
 echo '-------------- git status start'
-git status
+gitc status
 echo '-------------- git status end'
 
 cd ..
+
+echo '-------------- pwd start'
+pwd
+echo '-------------- pwd end'
+
 echo '-------------- list root start'
 ls
 echo '-------------- list root end'
