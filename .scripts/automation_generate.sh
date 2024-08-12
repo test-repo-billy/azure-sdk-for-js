@@ -35,7 +35,7 @@ echo '-------------- git status end'
 
 
 cd tools/js-sdk-release-tools
-npm install
+pnpm install
 cd ../../..
 
 echo '-------------- pwd start'
