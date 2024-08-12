@@ -5,6 +5,9 @@ nvm use default
 
 cd ..
 
+mkdir .pnpm-store
+pnpm config set store-dir .pnpm-store 
+
 file_path="azure-rest-api-specs/branch.txt"
 # Check if the file exists
 if [ -f "$file_path" ]; then
@@ -30,11 +33,10 @@ git status
 echo '-------------- git status end'
 
 cd tools/js-sdk-release-tools
-pnpm setup
 pnpm install
 pnpm run build
 pnpm link --global
 cd ../../..
 
 cd azure-sdk-for-js
-tsx code-gen-pipeline --inputJsonPath=$1 --outputJsonPath=$2 --use=@autorest/typescript@^6.0.12 --typespecEmitter=@azure-tools/typespec-ts
+code-gen-pipeline --inputJsonPath=$1 --outputJsonPath=$2 --use=@autorest/typescript@^6.0.12 --typespecEmitter=@azure-tools/typespec-ts
