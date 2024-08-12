@@ -3,7 +3,8 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 nvm use default
 
-file_path="../azure-rest-api-specs/branch.txt"
+cd ..
+file_path="azure-rest-api-specs/branch.txt"
 # Check if the file exists
 if [ -f "$file_path" ]; then
     # Load the content of the file into a variable
@@ -13,14 +14,16 @@ else
     echo "Branch file does not exist."
 fi
 
-
-cd ../..
 git clone https://github.com/Azure/azure-sdk-tools/
+
 cd azure-sdk-tools
 if [ -f "$file_path" ]; then
     git checkout -b test $branch
 fi
 git status
+
+echo '-------------- list folders'
+ls
 
 cd ../azure-sdk-for-js_tmp
 npm install
