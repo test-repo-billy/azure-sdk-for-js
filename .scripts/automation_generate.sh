@@ -19,6 +19,7 @@ git clone https://github.com/Azure/azure-sdk-tools/
 
 cd azure-sdk-tools
 if [ -z "$branch" ]; then
+  echo 'branch is empty'
 else
     git checkout -b test $branch
     echo git checkout -b test $branch
