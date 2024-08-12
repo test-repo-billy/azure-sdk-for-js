@@ -32,8 +32,7 @@ echo '-------------- git status end'
 cd tools/js-sdk-release-tools
 pnpm install
 pnpm run build
-pnpm link --global
 cd ../../..
 
 cd azure-sdk-for-js
-code-gen-pipeline --inputJsonPath=$1 --outputJsonPath=$2 --use=@autorest/typescript@^6.0.12 --typespecEmitter=@azure-tools/typespec-ts
+node ../azure-sdk-tools/tools/js-sdk-release-tools/dist/autoGenerateInPipeline.js --inputJsonPath=$1 --outputJsonPath=$2 --use=@autorest/typescript@^6.0.12 --typespecEmitter=@azure-tools/typespec-ts
