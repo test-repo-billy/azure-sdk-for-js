@@ -29,15 +29,9 @@ if [ -f "$file_path" ]; then
     git checkout -b test $branch
 fi
 
-echo '-------------- pwd start'
-pwd
-echo '-------------- pwd end'
-
-echo '-------------- git status start'
-gitc status
-echo '-------------- git status end'
-
-cd ..
+cd tools/js-release-sdk-tools
+npm install
+cd ../../..
 
 echo '-------------- pwd start'
 pwd
