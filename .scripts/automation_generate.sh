@@ -5,13 +5,6 @@ nvm use default
 
 cd ..
 
-echo '-------------- pwd start'
-pwd
-echo '-------------- pwd end'
-echo '-------------- list root start'
-ls
-echo '-------------- list root end'
-
 file_path="azure-rest-api-specs/branch.txt"
 # Check if the file exists
 if [ -f "$file_path" ]; then
@@ -25,7 +18,8 @@ fi
 git clone https://github.com/Azure/azure-sdk-tools/
 
 cd azure-sdk-tools
-if [ -f "$file_path" ]; then
+if [ -z "$branch" ]; then
+else
     git checkout -b test $branch
     echo git checkout -b test $branch
 fi
@@ -34,18 +28,9 @@ echo '-------------- git status start'
 git status
 echo '-------------- git status end'
 
-
 cd tools/js-sdk-release-tools
 pnpm install
 cd ../../..
-
-echo '-------------- pwd start'
-pwd
-echo '-------------- pwd end'
-
-echo '-------------- list root start'
-ls
-echo '-------------- list root end'
 
 cd azure-sdk-for-js
 npm install
