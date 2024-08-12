@@ -3,7 +3,16 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 nvm use default
 
-branch=$(../azure-rest-api-specs/branch.txt)
+file_path="../azure-rest-api-specs/branch.txt"
+# Check if the file exists
+if [ -f "$file_path" ]; then
+    # Load the content of the file into a variable
+    branch=$(cat "$file_path")
+    echo "Branch file content loaded into variable."
+else
+    echo "Branch file does not exist."
+fi
+branch=$($file_path)
 echo "switch to branch $branch"
 
 cd ../..
