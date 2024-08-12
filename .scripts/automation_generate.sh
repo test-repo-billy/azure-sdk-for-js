@@ -6,7 +6,7 @@ nvm use default
 cd ..
 
 mkdir .pnpm-store
-pnpm config set store-dir .pnpm-store 
+export PNPM_HOME=.pnpm-store
 
 file_path="azure-rest-api-specs/branch.txt"
 # Check if the file exists
