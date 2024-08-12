@@ -3,9 +3,6 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {
-    "once": "tsx ../azure-sdk-tools/tools/js-sdk-release-tools/src/autoGenerateInPipeline.ts --inputJsonPath=input.json --outputJsonPath=output.json --use=@autorest/typescript@^6.0.12 --typespecEmitter=@azure-tools/typespec-ts"
-  },
   "keywords": [],
   "author": "",
   "license": "ISC",
