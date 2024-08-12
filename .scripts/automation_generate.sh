@@ -29,7 +29,7 @@ if [ -f "$file_path" ]; then
     git checkout -b test $branch
 fi
 
-cd tools/js-release-sdk-tools
+cd tools/js-sdk-release-tools
 npm install
 cd ../../..
 
