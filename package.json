@@ -1,0 +1,19 @@
+{
+  "name": "azure-sdk-for-js",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@autorest/typescript": "^6.0.12",
+    "@azure-tools/js-sdk-release-tools": "link:../azure-sdk-tools/tools/js-sdk-release-tools",
+    "@azure-tools/typespec-ts": "0.30.1",
+    "@microsoft/rush": "5.92.0",
+    "ts-node": "^10.9.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.4"
+  }
+}
