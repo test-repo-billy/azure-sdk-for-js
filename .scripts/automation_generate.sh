@@ -5,7 +5,7 @@ nvm use default
 
 cd ..
 
-file_path="azure-rest-api-specs/branch.txt"
+file_path="azure-rest-api-specs/.js/branch.txt"
 # Check if the file exists
 if [ -f "$file_path" ]; then
     # Load the content of the file into a variable
@@ -35,7 +35,4 @@ pnpm run build
 cd ../../..
 
 cd azure-sdk-for-js
-echo '----------------- pwd start'
-pwd
-echo '----------------- pwd end'
 node ../azure-sdk-tools/tools/js-sdk-release-tools/dist/autoGenerateInPipeline.js --inputJsonPath=$1 --outputJsonPath=$2 --use=@autorest/typescript@^6.0.12 --typespecEmitter=@azure-tools/typespec-ts
