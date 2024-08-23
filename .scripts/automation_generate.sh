@@ -12,6 +12,14 @@ else
     echo "Branch file does not exist."
 fi
 
+if [ -f "azure-sdk-tools" ]; then
+    echo "Delete folder azure-sdk-tools"
+    rm -rf azure-sdk-tools
+else
+    echo "azure-sdk-tools folder does not exist."
+fi
+
+echo 'clone azure-sdk-tools'
 git clone https://github.com/Azure/azure-sdk-tools/
 
 cd azure-sdk-tools
