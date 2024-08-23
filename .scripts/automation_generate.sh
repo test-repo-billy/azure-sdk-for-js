@@ -12,7 +12,7 @@ else
     echo "Branch file does not exist."
 fi
 
-if [ -f "azure-sdk-tools" ]; then
+if [ -d "azure-sdk-tools" ]; then
     echo "Delete folder azure-sdk-tools"
     rm -rf azure-sdk-tools
 else
