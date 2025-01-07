@@ -1,5 +1,5 @@
 // Copyright (c) Microsoft Corporation.
-// Licensed under the MIT license.
+// Licensed under the MIT License.
 
 import { describe, it, assert } from "vitest";
 import { AzureNamedKeyCredential, AzureSASCredential } from "@azure/core-auth";
@@ -18,7 +18,6 @@ describe("SasTokenProvider", function (): void {
         /SharedAccessSignature sr=myaudience&sig=(.*)&se=\d{10}&skn=myKeyName/g,
       );
       // account for elapsed time between two Date.now() calls
-      // eslint-disable-next-line no-unused-expressions
       assert.isTrue(tokenInfo.expiresOnTimestamp - expiry < 2);
     });
 
@@ -35,7 +34,6 @@ describe("SasTokenProvider", function (): void {
         /SharedAccessSignature sr=sb%3A%2F%2Fhostname.servicebus.windows.net%2F&sig=(.*)&se=\d{10}&skn=sakName/g,
       );
       // account for elapsed time between two Date.now() calls
-      // eslint-disable-next-line no-unused-expressions
       assert.isTrue(tokenInfo.expiresOnTimestamp - expiry < 2);
     });
   });

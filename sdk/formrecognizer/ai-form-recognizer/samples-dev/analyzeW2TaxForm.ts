@@ -1,5 +1,5 @@
 // Copyright (c) Microsoft Corporation.
-// Licensed under the MIT license.
+// Licensed under the MIT License.
 
 /**
  * This sample shows how to extract elements of a United States W2 tax form from a file using the prebuilt US W2 model.
@@ -15,10 +15,10 @@
 
 import { AzureKeyCredential, DocumentAnalysisClient } from "@azure/ai-form-recognizer";
 
-import { PrebuiltTaxUsW2Model } from "./prebuilt/prebuilt-tax.us.w2";
+import { PrebuiltTaxUsW2Model } from "./prebuilt/prebuilt-tax.us.w2.js";
 
-import fs from "fs";
-import path from "path";
+import fs from "node:fs";
+import path from "node:path";
 
 import * as dotenv from "dotenv";
 dotenv.config();

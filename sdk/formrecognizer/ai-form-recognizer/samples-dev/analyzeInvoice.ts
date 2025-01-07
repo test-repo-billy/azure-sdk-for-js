@@ -1,5 +1,5 @@
 // Copyright (c) Microsoft Corporation.
-// Licensed under the MIT license.
+// Licensed under the MIT License.
 
 /**
  * This sample shows how to extract elements of an invoice from a URL to a file using the prebuilt invoice model.
@@ -15,7 +15,7 @@
 
 import { AzureKeyCredential, DocumentAnalysisClient } from "@azure/ai-form-recognizer";
 
-import { PrebuiltInvoiceModel } from "./prebuilt/prebuilt-invoice";
+import { PrebuiltInvoiceModel } from "./prebuilt/prebuilt-invoice.js";
 
 import * as dotenv from "dotenv";
 dotenv.config();

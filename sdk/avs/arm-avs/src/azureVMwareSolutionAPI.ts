@@ -32,7 +32,7 @@ import {
   ScriptPackagesImpl,
   ScriptCmdletsImpl,
   WorkloadNetworksImpl,
-} from "./operations";
+} from "./operations/index.js";
 import {
   Operations,
   Locations,
@@ -51,8 +51,8 @@ import {
   ScriptPackages,
   ScriptCmdlets,
   WorkloadNetworks,
-} from "./operationsInterfaces";
-import { AzureVMwareSolutionAPIOptionalParams } from "./models";
+} from "./operationsInterfaces/index.js";
+import { AzureVMwareSolutionAPIOptionalParams } from "./models/index.js";
 
 export class AzureVMwareSolutionAPI extends coreClient.ServiceClient {
   $host: string;
@@ -86,7 +86,7 @@ export class AzureVMwareSolutionAPI extends coreClient.ServiceClient {
       credential: credentials,
     };
 
-    const packageDetails = `azsdk-js-arm-avs/5.0.1`;
+    const packageDetails = `azsdk-js-arm-avs/6.0.1`;
     const userAgentPrefix =
       options.userAgentOptions && options.userAgentOptions.userAgentPrefix
         ? `${options.userAgentOptions.userAgentPrefix} ${packageDetails}`

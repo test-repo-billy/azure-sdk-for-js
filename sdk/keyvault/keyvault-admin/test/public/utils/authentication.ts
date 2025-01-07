@@ -1,8 +1,13 @@
 // Copyright (c) Microsoft Corporation.
-// Licensed under the MIT license.
+// Licensed under the MIT License.
 
 import { createTestCredential } from "@azure-tools/test-credential";
-import { env, Recorder, RecorderStartOptions, TestInfo } from "@azure-tools/test-recorder";
+import {
+  env,
+  Recorder,
+  type RecorderStartOptions,
+  type TestInfo,
+} from "@azure-tools/test-recorder";
 import { KeyClient } from "@azure/keyvault-keys";
 import {
   KeyVaultAccessControlClient,

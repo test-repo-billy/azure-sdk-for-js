@@ -1,11 +1,11 @@
 // Copyright (c) Microsoft Corporation.
-// Licensed under the MIT license.
+// Licensed under the MIT License.
 
 /**
  * @file Rule to force adherence to SemVer guidelines.
  */
 
-import { createRule, getVerifiers, stripPath, VerifierMessages } from "../utils";
+import { createRule, getVerifiers, stripPath, VerifierMessages } from "../utils/index.js";
 import { TSESTree } from "@typescript-eslint/utils";
 
 export default createRule({
@@ -14,7 +14,6 @@ export default createRule({
     type: "suggestion",
     docs: {
       description: "force adherence to SemVer guidelines",
-      recommended: "recommended",
     },
     messages: {
       ...VerifierMessages,

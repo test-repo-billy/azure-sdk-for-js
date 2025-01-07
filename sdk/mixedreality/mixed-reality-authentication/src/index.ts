@@ -1,5 +1,5 @@
 // Copyright (c) Microsoft Corporation.
-// Licensed under the MIT license.
+// Licensed under the MIT License.
 
 /**
  * Azure client library for Mixed Reality authentication.
@@ -12,5 +12,5 @@
  */
 
 export { AccessToken, AzureKeyCredential } from "@azure/core-auth";
-export { GetTokenOptions, MixedRealityStsClientOptions } from "./models/options";
-export { MixedRealityStsClient } from "./mixedRealityStsClient";
+export { GetTokenOptions, MixedRealityStsClientOptions } from "./models/options.js";
+export { MixedRealityStsClient } from "./mixedRealityStsClient.js";

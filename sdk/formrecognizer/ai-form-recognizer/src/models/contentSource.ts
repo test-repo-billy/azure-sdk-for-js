@@ -1,10 +1,10 @@
 // Copyright (c) Microsoft Corporation.
-// Licensed under the MIT license.
+// Licensed under the MIT License.
 
 import {
   AzureBlobContentSource as AzureBlobSourceDetails,
   AzureBlobFileListContentSource as AzureBlobFileListSourceDetails,
-} from "../generated";
+} from "../generated/index.js";
 
 export { AzureBlobSourceDetails, AzureBlobFileListSourceDetails };
 

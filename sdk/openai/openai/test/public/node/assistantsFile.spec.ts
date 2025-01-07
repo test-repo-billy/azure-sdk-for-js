@@ -1,9 +1,9 @@
 // Copyright (c) Microsoft Corporation.
-// Licensed under the MIT license.
+// Licensed under the MIT License.
 
 import { matrix } from "@azure-tools/test-utils-vitest";
 import { assert, describe, beforeEach, it } from "vitest";
-import OpenAI, { AzureOpenAI, toFile } from "openai";
+import { type OpenAI, type AzureOpenAI, toFile } from "openai";
 import { createClient } from "../utils/createClient.js";
 import { APIVersion } from "../utils/utils.js";
 

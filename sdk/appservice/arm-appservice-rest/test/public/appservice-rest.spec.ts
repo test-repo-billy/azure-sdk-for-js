@@ -1,11 +1,12 @@
 // Copyright (c) Microsoft Corporation.
-// Licensed under the MIT license.
+// Licensed under the MIT License.
 
-import { Recorder, isPlaybackMode, env } from "@azure-tools/test-recorder";
-import { assert } from "chai";
-import { createRecorder, createClient } from "./utils/recordedClient";
-import { Context } from "mocha";
-import { WebSiteManagementClient, paginate, getLongRunningPoller } from "../../src/index";
+import type { Recorder } from "@azure-tools/test-recorder";
+import { isPlaybackMode, env } from "@azure-tools/test-recorder";
+import { createRecorder, createClient } from "./utils/recordedClient.js";
+import type { WebSiteManagementClient } from "../../src/index.js";
+import { paginate, getLongRunningPoller } from "../../src/index.js";
+import { describe, it, assert, beforeEach, afterEach } from "vitest";
 
 export const testPollingOptions = {
   intervalInMs: isPlaybackMode() ? 0 : undefined,
@@ -19,8 +20,8 @@ describe("Web test", () => {
   let appservicePlanName: string;
   let name: string;
 
-  beforeEach(async function (this: Context) {
-    recorder = await createRecorder(this);
+  beforeEach(async function (ctx) {
+    recorder = await createRecorder(ctx);
     client = await createClient(recorder);
     subscriptionId = env.SUBSCRIPTION_ID ?? "";
     resourceGroup = env.RESOURCE_GROUP ?? "";
@@ -54,7 +55,7 @@ describe("Web test", () => {
           },
         },
       });
-    const poller = getLongRunningPoller(client, initialResponse, testPollingOptions);
+    const poller = await getLongRunningPoller(client, initialResponse, testPollingOptions);
     const res = await poller.pollUntilDone();
     assert.strictEqual(res.status, "200");
     assert.isTrue(res.body !== undefined);
@@ -95,7 +96,7 @@ describe("Web test", () => {
           },
         },
       });
-    const poller = getLongRunningPoller(client, initialResponse, testPollingOptions);
+    const poller = await getLongRunningPoller(client, initialResponse, testPollingOptions);
     const res = await poller.pollUntilDone();
     assert.strictEqual(res.status, "200");
     assert.isTrue(res.body !== undefined);

@@ -1,5 +1,5 @@
 // Copyright (c) Microsoft Corporation.
-// Licensed under the MIT license.
+// Licensed under the MIT License.
 
 import * as process from "node:process";
 import { describe, it, assert, vi, afterEach } from "vitest";
@@ -9,8 +9,8 @@ import {
   createPipelineRequest,
   getDefaultProxySettings,
   proxyPolicy,
-  Agent,
-  PipelineRequest,
+  type Agent,
+  type PipelineRequest,
 } from "../../src/index.js";
 import { globalNoProxyList, loadNoProxy } from "../../src/policies/proxyPolicy.js";
 

@@ -1,12 +1,12 @@
 // Copyright (c) Microsoft Corporation.
-// Licensed under the MIT license.
+// Licensed under the MIT License.
 
 /**
  * @file Rule to force package.json's author value to be set to "Microsoft Corporation".
  *
  */
 
-import { VerifierMessages, createRule, getVerifiers, stripPath } from "../utils";
+import { VerifierMessages, createRule, getVerifiers, stripPath } from "../utils/index.js";
 
 //------------------------------------------------------------------------------
 // Rule Definition
@@ -18,7 +18,6 @@ export default createRule({
     type: "suggestion",
     docs: {
       description: "force package.json's author value to be 'Microsoft Corporation'",
-      recommended: "recommended",
     },
     messages: {
       ...VerifierMessages,

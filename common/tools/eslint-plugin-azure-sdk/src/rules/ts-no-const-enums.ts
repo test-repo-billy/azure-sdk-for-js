@@ -1,11 +1,11 @@
 // Copyright (c) Microsoft Corporation.
-// Licensed under the MIT license.
+// Licensed under the MIT License.
 
 /**
  * @file Rule to forbid usage of TypeScript's const enums.
  */
 
-import { createRule } from "../utils/ruleCreator";
+import { createRule } from "../utils/ruleCreator.js";
 
 export default createRule({
   name: "ts-no-const-enums",
@@ -13,7 +13,6 @@ export default createRule({
     type: "suggestion",
     docs: {
       description: "forbid usage of TypeScript's const enums",
-      recommended: "recommended",
     },
     messages: {
       noConstEnum: "const enums should not be used",

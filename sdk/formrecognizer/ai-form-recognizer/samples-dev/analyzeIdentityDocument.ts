@@ -1,5 +1,5 @@
 // Copyright (c) Microsoft Corporation.
-// Licensed under the MIT license.
+// Licensed under the MIT License.
 
 /**
  * This sample shows how to extract elements of an identity document (such as a driver license or passport) from a URL
@@ -16,7 +16,7 @@
 
 import { AzureKeyCredential, DocumentAnalysisClient } from "@azure/ai-form-recognizer";
 
-import { PrebuiltIdDocumentModel } from "./prebuilt/prebuilt-idDocument";
+import { PrebuiltIdDocumentModel } from "./prebuilt/prebuilt-idDocument.js";
 
 import * as dotenv from "dotenv";
 dotenv.config();

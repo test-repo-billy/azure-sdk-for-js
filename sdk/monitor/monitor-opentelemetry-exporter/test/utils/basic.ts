@@ -1,25 +1,22 @@
 // Copyright (c) Microsoft Corporation.
-// Licensed under the MIT license.
+// Licensed under the MIT License.
 
 import * as opentelemetry from "@opentelemetry/api";
 import { BasicTracerProvider } from "@opentelemetry/sdk-trace-base";
-import {
-  MeterProvider,
-  PeriodicExportingMetricReader,
-  PeriodicExportingMetricReaderOptions,
-} from "@opentelemetry/sdk-metrics";
+import type { PeriodicExportingMetricReaderOptions } from "@opentelemetry/sdk-metrics";
+import { MeterProvider, PeriodicExportingMetricReader } from "@opentelemetry/sdk-metrics";
 
-import { AzureMonitorTraceExporter, AzureMonitorMetricExporter } from "../../src";
-import { Expectation, Scenario } from "./types";
+import { AzureMonitorTraceExporter, AzureMonitorMetricExporter } from "../../src/index.js";
+import type { Expectation, Scenario } from "./types.js";
 import { SpanStatusCode } from "@opentelemetry/api";
-import { TelemetryItem as Envelope } from "../../src/generated";
-import { FlushSpanProcessor } from "./flushSpanProcessor";
+import type { TelemetryItem as Envelope } from "../../src/generated/index.js";
+import { FlushSpanProcessor } from "./flushSpanProcessor.js";
 import { Resource } from "@opentelemetry/resources";
 import {
   SemanticResourceAttributes,
   SemanticAttributes,
 } from "@opentelemetry/semantic-conventions";
-import { AzureMonitorLogExporter } from "../../src/export/log";
+import { AzureMonitorLogExporter } from "../../src/export/log.js";
 import { LoggerProvider, SimpleLogRecordProcessor } from "@opentelemetry/sdk-logs";
 import { SeverityNumber } from "@opentelemetry/api-logs";
 
@@ -95,7 +92,6 @@ export class TraceBasicScenario implements Scenario {
   }
 
   flush(): Promise<void> {
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-return
     return this._processor.forceFlush();
   }
 
@@ -480,7 +476,6 @@ export class LogBasicScenario implements Scenario {
     this._provider.addLogRecordProcessor(this._processor);
   }
 
-  // eslint-disable-next-line @typescript-eslint/require-await
   async run(): Promise<void> {
     const logger = this._provider.getLogger("basic");
 
@@ -508,7 +503,6 @@ export class LogBasicScenario implements Scenario {
   }
 
   flush(): Promise<void> {
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-return
     return this._processor.forceFlush();
   }
 

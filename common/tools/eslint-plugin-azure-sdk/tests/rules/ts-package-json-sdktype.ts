@@ -1,13 +1,13 @@
 // Copyright (c) Microsoft Corporation.
-// Licensed under the MIT license.
+// Licensed under the MIT License.
 
 /**
  * @file Testing the ts-package-json-sdktype rule.
  *
  */
 
-import { createRuleTester } from "../ruleTester";
-import rule from "../../src/rules/ts-package-json-sdktype";
+import { createRuleTester } from "../ruleTester.js";
+import rule from "../../src/rules/ts-package-json-sdktype.js";
 
 //------------------------------------------------------------------------------
 // Example files
@@ -137,8 +137,7 @@ const examplePackageGood = `{
     "cross-env": "^7.0.2",
     "debug": "^4.1.1",
     "dotenv": "^16.0.0",
-    "eslint": "^8.0.0",
-    "esm": "^3.2.18",
+    "eslint": "^9.9.0",
     "https-proxy-agent": "^5.0.0",
     "karma": "^6.2.0",
     "karma-chrome-launcher": "^3.0.0",
@@ -149,7 +148,7 @@ const examplePackageGood = `{
     "karma-mocha": "^2.0.1",
     "karma-mocha-reporter": "^2.2.5",
     "karma-sourcemap-loader": "^0.3.8",
-    "mocha": "^10.0.0",
+    "mocha": "^11.0.2",
     "mocha-junit-reporter": "^1.18.0",
     "moment": "^2.24.0",
     "nyc": "^14.0.0",
@@ -162,7 +161,7 @@ const examplePackageGood = `{
     "rollup-plugin-terser": "^5.1.1",
     "sinon": "^9.0.2",
     "ts-node": "^10.0.0",
-    "typescript": "~5.5.3",
+    "typescript": "~5.7.2",
     "ws": "^7.1.1",
     "typedoc": "0.15.2"
   }
@@ -291,8 +290,7 @@ const examplePackageBad = `{
     "cross-env": "^7.0.2",
     "debug": "^4.1.1",
     "dotenv": "^16.0.0",
-    "eslint": "^8.0.0",
-    "esm": "^3.2.18",
+    "eslint": "^9.9.0",
     "https-proxy-agent": "^5.0.0",
     "karma": "^6.2.0",
     "karma-chrome-launcher": "^3.0.0",
@@ -303,7 +301,7 @@ const examplePackageBad = `{
     "karma-mocha": "^2.0.1",
     "karma-mocha-reporter": "^2.2.5",
     "karma-sourcemap-loader": "^0.3.8",
-    "mocha": "^10.0.0",
+    "mocha": "^11.0.2",
     "mocha-junit-reporter": "^1.18.0",
     "moment": "^2.24.0",
     "nyc": "^14.0.0",
@@ -316,7 +314,7 @@ const examplePackageBad = `{
     "rollup-plugin-terser": "^5.1.1",
     "sinon": "^9.0.2",
     "ts-node": "^10.0.0",
-    "typescript": "~5.5.3",
+    "typescript": "~5.7.2",
     "ws": "^7.1.1",
     "typedoc": "0.15.2"
   }

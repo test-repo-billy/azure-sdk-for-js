@@ -1,12 +1,12 @@
 // Copyright (c) Microsoft Corporation.
-// Licensed under the MIT license.
+// Licensed under the MIT License.
 
 /**
  * @file All utility definitions
  */
 
-export { getLocalExports, getPublicMethods, isExternal } from "./exports";
-export { createRule } from "./ruleCreator";
+export { getLocalExports, getPublicMethods, isExternal } from "./exports.js";
+export { createRule } from "./ruleCreator.js";
 export {
   arrayToString,
   getVerifiers,
@@ -14,4 +14,4 @@ export {
   isEsmPackage,
   VerifierMessages,
   type VerifierMessageIds,
-} from "./verifiers";
+} from "./verifiers.js";

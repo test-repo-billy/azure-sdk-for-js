@@ -1,7 +1,10 @@
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
 import { assert } from "vitest";
-import { get, Metadata } from "./utils.js";
-import { getImageDimensionsFromResponse } from "./images.js";
-import {
+import { get, type Metadata } from "./utils.js";
+import { getImageDimensionsFromResponse, getImageDimensionsFromString } from "./images.js";
+import type {
   AzureChatExtensionDataSourceResponseCitationOutput,
   AzureChatExtensionsMessageContextOutput,
   ContentFilterBlocklistIdResultOutput,
@@ -11,17 +14,15 @@ import {
   ContentFilterResultDetailsForPromptOutput,
   ContentFilterResultsForChoiceOutput,
   ContentFilterResultsForPromptOutput,
-  ChatFinishDetailsOutput,
-  StopFinishDetailsOutput,
-  AzureChatEnhancementsOutput,
-  AzureGroundingEnhancementOutput,
-  AzureGroundingEnhancementLineSpanOutput,
-  AzureGroundingEnhancementCoordinatePointOutput,
-  AzureGroundingEnhancementLineOutput,
   ContentFilterDetailedResults,
+  ContentFilterCompletionTextSpanResultOutput,
+  ContentFilterCompletionTextSpan,
 } from "../../../src/types/index.js";
-import { Assistant, AssistantCreateParams } from "openai/resources/beta/assistants.mjs";
-import {
+import type { Assistant, AssistantCreateParams } from "openai/resources/beta/assistants.mjs";
+import type {
+  Batch,
+  BatchError,
+  BatchRequestCounts,
   ChatCompletionChunk,
   ChatCompletionMessage,
   ChatCompletionTokenLogprob,
@@ -31,13 +32,13 @@ import {
   CreateEmbeddingResponse,
   ImagesResponse,
 } from "openai/resources/index";
-import { ErrorModel } from "@azure-rest/core-client";
-import {
+import type { ErrorModel } from "@azure-rest/core-client";
+import type {
   ChatCompletion,
   ChatCompletionMessageToolCall,
 } from "openai/resources/chat/completions.mjs";
-import { Transcription } from "openai/resources/audio/transcriptions.mjs";
-import { AudioSegment, AudioResultVerboseJson, AudioResultFormat } from "./audioTypes.js";
+import type { Transcription } from "openai/resources/audio/transcriptions.mjs";
+import type { AudioSegment, AudioResultVerboseJson, AudioResultFormat } from "./audioTypes.js";
 
 export function assertAudioResult(responseFormat: AudioResultFormat, result: Transcription): void {
   switch (responseFormat) {
@@ -89,7 +90,7 @@ export function assertChatCompletions(
 
 function assertChatCompletionsNoUsage(
   completions: ChatCompletion,
-  { allowEmptyChoices, allowEmptyId, ...opts }: ChatCompletionTestOptions,
+  { allowEmptyChoices, ...opts }: ChatCompletionTestOptions,
 ): void {
   if (!allowEmptyChoices || completions.choices.length > 0) {
     assertNonEmptyArray(completions.choices, (choice) => assertChoice(choice, opts));
@@ -99,7 +100,7 @@ function assertChatCompletionsNoUsage(
 
 function assertChatCompletionsChunkNoUsage(
   completions: ChatCompletionChunk,
-  { allowEmptyChoices, allowEmptyId, ...opts }: ChatCompletionTestOptions,
+  { allowEmptyChoices, ...opts }: ChatCompletionTestOptions,
 ): void {
   if (!allowEmptyChoices || completions.choices.length > 0) {
     assertNonEmptyArray(completions.choices, (choice) => assertChoice(choice, opts));
@@ -164,7 +165,23 @@ function assertContentFilterResultsForChoice(cfr: ContentFilterResultsForChoiceO
     ifDefined(cfr.custom_blocklists, assertContentFilterDetailedResult);
     ifDefined(cfr.protected_material_code, assertContentFilterCitedDetectionResult);
     ifDefined(cfr.protected_material_text, assertContentFilterDetectionResult);
+    ifDefined(cfr.ungrounded_material, assertContentFilterCompletionTextSpanResult);
   }
+}
+
+function assertContentFilterCompletionTextSpanResult(
+  cfr: ContentFilterCompletionTextSpanResultOutput,
+): void {
+  assertContentFilterDetectionResult(cfr);
+  assert.isBoolean(cfr.filtered);
+  for (const detail of cfr.details) {
+    assertContentFilterCompletionTextSpan(detail);
+  }
+}
+
+function assertContentFilterCompletionTextSpan(cfr: ContentFilterCompletionTextSpan): void {
+  assert.isNumber(cfr.completion_end_offset);
+  assert.isNumber(cfr.completion_start_offset);
 }
 
 function assertContentFilterResultsForPrompt(cfr: ContentFilterResultsForPromptOutput[]): void {
@@ -222,7 +239,10 @@ function assertContentFilterDetectionResult(val: ContentFilterDetectionResultOut
 
 function assertContentFilterDetailedResult(val: ContentFilterDetailedResults): void {
   assert.isBoolean(val.filtered);
-  assertNonEmptyArray(val.details, assertContentFilterBlocklistIdResult);
+  // TODO: Update the corresponding types once the Swagger is updated
+  ifDefined(val.details, (details) => {
+    assertNonEmptyArray(details, assertContentFilterBlocklistIdResult);
+  });
 }
 
 function assertContentFilterBlocklistIdResult(val: ContentFilterBlocklistIdResultOutput): void {
@@ -236,7 +256,11 @@ function assertChoice(
 ): void {
   const stream = options.stream;
   if (stream) {
-    assertMessage((choice as ChatCompletionChunk.Choice).delta, options);
+    const delta = (choice as ChatCompletionChunk.Choice).delta;
+    // TODO: Relevant issue https://github.com/openai/openai-python/issues/1677
+    ifDefined(delta, (d) => {
+      assertMessage(d, options);
+    });
     assert.isFalse("message" in choice);
   } else {
     assertMessage((choice as ChatCompletion.Choice).message, options);
@@ -244,8 +268,6 @@ function assertChoice(
   }
   assert.isNumber(choice.index);
   ifDefined(choice.content_filter_results, assertContentFilterResultsForChoice);
-  ifDefined(choice.enhancements, assertAzureChatEnhancements);
-  ifDefined(choice.finish_details, assertChatFinishDetails);
   ifDefined(choice.logprobs, assertLogProbability);
   ifDefined(choice.finish_reason, assert.isString);
 }
@@ -352,17 +374,6 @@ function assertToolCall(
   }
 }
 
-function assertChatFinishDetails(val: ChatFinishDetailsOutput): void {
-  switch (val.type) {
-    case "max_tokens":
-      break;
-    case "stop": {
-      assert.isString((val as StopFinishDetailsOutput).stop);
-      break;
-    }
-  }
-}
-
 export function assertNonEmptyArray<T>(val: T[], validate: (x: T) => void): void {
   assert.isNotEmpty(val);
   assertArray(val, validate);
@@ -401,12 +412,9 @@ export function assertImagesWithJSON(image: ImagesResponse, height: number, widt
     assert.isUndefined(img.url);
     ifDefined(img.b64_json, async (data) => {
       assert.isString(data);
-      // Width in PNG is byte 16 - 19
-      const actualWidth = Buffer.from(data, "base64").readUInt32BE(16);
-      assert.equal(actualWidth, width, "Width does not match");
-      // Height in PNG is byte 20 - 23
-      const actualHeight = Buffer.from(data, "base64").readUInt32BE(20);
-      assert.equal(actualHeight, height, "Height does not match");
+      const dimensions = getImageDimensionsFromString(data);
+      assert.equal(dimensions?.height, height, "Height does not match");
+      assert.equal(dimensions?.width, width, "Width does not match");
     });
   });
 }
@@ -414,7 +422,7 @@ export function assertImagesWithJSON(image: ImagesResponse, height: number, widt
 export function assertEmbeddings(
   embeddings: CreateEmbeddingResponse,
   options?: EmbeddingTestOptions,
-) {
+): void {
   assert.isNotNull(embeddings.data);
   assert.equal(embeddings.data.length > 0, true);
   assert.isNotNull(embeddings.data[0].embedding);
@@ -426,13 +434,15 @@ export function assertEmbeddings(
 }
 
 function assertMessage(
-  message: ChatCompletionMessage | ChatCompletionChunk.Choice.Delta | undefined,
+  message: ChatCompletionMessage | ChatCompletionChunk.Choice.Delta,
   { functions, stream }: ChatCompletionTestOptions = {},
 ): void {
   assert.isDefined(message);
   const msg = message;
   if (!functions) {
-    assertIf(!stream, msg?.content, assert.isString);
+    assertIf(!stream, msg?.content, (content) => {
+      ifDefined(content, assert.isString);
+    });
   }
   assertIf(!stream, msg?.role, assert.isString);
   for (const item of msg?.tool_calls ?? []) {
@@ -444,34 +454,6 @@ function assertMessage(
 function assertContext(context: AzureChatExtensionsMessageContextOutput): void {
   ifDefined(context.intent, assert.isString);
   ifDefined(context.citations, (arr) => assertArray(arr, assertCitations));
-}
-
-function assertAzureChatEnhancements(val: AzureChatEnhancementsOutput): void {
-  ifDefined(val.grounding, assertAzureGroundingEnhancement);
-}
-
-function assertAzureGroundingEnhancementLine(val: AzureGroundingEnhancementLineOutput): void {
-  assertNonEmptyArray(val.spans, assertAzureGroundingEnhancementLineSpan);
-}
-
-function assertAzureGroundingEnhancement(val: AzureGroundingEnhancementOutput): void {
-  assertNonEmptyArray(val.lines, assertAzureGroundingEnhancementLine);
-}
-
-function assertAzureGroundingEnhancementLineSpan(
-  val: AzureGroundingEnhancementLineSpanOutput,
-): void {
-  assert.isNumber(val.length);
-  assert.isNumber(val.offset);
-  assert.isString(val.text);
-  assertNonEmptyArray(val.polygon, assertAzureGroundingEnhancementCoordinatePoint);
-}
-
-function assertAzureGroundingEnhancementCoordinatePoint(
-  val: AzureGroundingEnhancementCoordinatePointOutput,
-): void {
-  assert.isNumber(val.x);
-  assert.isNumber(val.y);
 }
 
 function assertCitations(citations: AzureChatExtensionDataSourceResponseCitationOutput): void {
@@ -495,6 +477,48 @@ export function assertAssistantEquality(
   assert.isNotNull(response.tools[0]);
   const tools = assistant.tools || [];
   assert.equal(response.tools[0].type, tools[0].type);
+}
+
+export function assertBatch(batch: Batch): void {
+  assert.isString(batch.id);
+  assert.equal(batch.completion_window, "24h");
+  assert.isNumber(batch.created_at);
+  assert.isString(batch.endpoint);
+  assert.isString(batch.input_file_id);
+  assert.equal(batch.object, "batch");
+  assert.isString(batch.status);
+  ifDefined(batch.cancelled_at, assert.isNumber);
+  ifDefined(batch.cancelling_at, assert.isNumber);
+  ifDefined(batch.completed_at, assert.isNumber);
+  ifDefined(batch.error_file_id, assert.isString);
+  ifDefined(batch.errors, assertBatchErrors);
+  ifDefined(batch.expired_at, assert.isNumber);
+  ifDefined(batch.expires_at, assert.isNumber);
+  ifDefined(batch.failed_at, assert.isNumber);
+  ifDefined(batch.finalizing_at, assert.isNumber);
+  ifDefined(batch.expired_at, assert.isNumber);
+  ifDefined(batch.in_progress_at, assert.isNumber);
+  ifDefined(batch.metadata, assert.isNotNull);
+  ifDefined(batch.output_file_id, assert.isString);
+  ifDefined(batch.request_counts, assertbatchRequestCounts);
+}
+
+function assertbatchRequestCounts(requestCounts: BatchRequestCounts): void {
+  assert.isNumber(requestCounts.completed);
+  assert.isNumber(requestCounts.failed);
+  assert.isNumber(requestCounts.total);
+}
+
+function assertBatchErrors(errors: Batch.Errors): void {
+  ifDefined(errors.object, (object) => assert.equal(object, "list"));
+  ifDefined(errors.data, (error) => assertNonEmptyArray(error, assertBatchErrorData));
+}
+
+function assertBatchErrorData(error: BatchError): void {
+  ifDefined(error.code, assert.isString);
+  ifDefined(error.message, assert.isString);
+  ifDefined(error.param, assert.isString);
+  ifDefined(error.line, assert.isNumber);
 }
 
 interface CompletionTestOptions {

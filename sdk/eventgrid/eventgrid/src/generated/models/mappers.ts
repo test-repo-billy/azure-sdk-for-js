@@ -578,6 +578,13 @@ export const StorageLifecyclePolicyCompletedEventData: coreClient.CompositeMappe
           name: "String"
         }
       },
+      policyRunSummary: {
+        serializedName: "policyRunSummary",
+        type: {
+          name: "Composite",
+          className: "StorageLifecyclePolicyRunSummary"
+        }
+      },
       deleteSummary: {
         serializedName: "deleteSummary",
         type: {
@@ -592,11 +599,34 @@ export const StorageLifecyclePolicyCompletedEventData: coreClient.CompositeMappe
           className: "StorageLifecyclePolicyActionSummaryDetail"
         }
       },
+      tierToColdSummary: {
+        serializedName: "tierToColdSummary",
+        type: {
+          name: "Composite",
+          className: "StorageLifecyclePolicyActionSummaryDetail"
+        }
+      },
       tierToArchiveSummary: {
         serializedName: "tierToArchiveSummary",
         type: {
           name: "Composite",
           className: "StorageLifecyclePolicyActionSummaryDetail"
+        }
+      }
+    }
+  }
+};
+
+export const StorageLifecyclePolicyRunSummary: coreClient.CompositeMapper = {
+  type: {
+    name: "Composite",
+    className: "StorageLifecyclePolicyRunSummary",
+    modelProperties: {
+      completionStatus: {
+        serializedName: "completionStatus",
+        required: true,
+        type: {
+          name: "String"
         }
       }
     }
@@ -3126,7 +3156,6 @@ export const MediaJobOutput: coreClient.CompositeMapper = {
 };
 
 export const MediaJobOutputProgressEventData: coreClient.CompositeMapper = {
-  serializedName: "#Microsoft.Media.JobOutputProgress",
   type: {
     name: "Composite",
     className: "MediaJobOutputProgressEventData",
@@ -5945,6 +5974,13 @@ export const AcsIncomingCallEventData: coreClient.CompositeMapper = {
           name: "String"
         }
       },
+      onBehalfOfCallee: {
+        serializedName: "onBehalfOfCallee",
+        type: {
+          name: "Composite",
+          className: "CommunicationIdentifierModel"
+        }
+      },
       correlationId: {
         serializedName: "correlationId",
         required: true,
@@ -8561,7 +8597,6 @@ export const ContainerRegistryChartDeletedEventData: coreClient.CompositeMapper 
 };
 
 export const MediaJobScheduledEventData: coreClient.CompositeMapper = {
-  serializedName: "#Microsoft.Media.JobScheduled",
   type: {
     name: "Composite",
     className: "MediaJobScheduledEventData",
@@ -8572,7 +8607,6 @@ export const MediaJobScheduledEventData: coreClient.CompositeMapper = {
 };
 
 export const MediaJobProcessingEventData: coreClient.CompositeMapper = {
-  serializedName: "#Microsoft.Media.JobProcessing",
   type: {
     name: "Composite",
     className: "MediaJobProcessingEventData",
@@ -8583,7 +8617,6 @@ export const MediaJobProcessingEventData: coreClient.CompositeMapper = {
 };
 
 export const MediaJobCancelingEventData: coreClient.CompositeMapper = {
-  serializedName: "#Microsoft.Media.JobCanceling",
   type: {
     name: "Composite",
     className: "MediaJobCancelingEventData",
@@ -8594,7 +8627,6 @@ export const MediaJobCancelingEventData: coreClient.CompositeMapper = {
 };
 
 export const MediaJobFinishedEventData: coreClient.CompositeMapper = {
-  serializedName: "#Microsoft.Media.JobFinished",
   type: {
     name: "Composite",
     className: "MediaJobFinishedEventData",
@@ -8618,7 +8650,6 @@ export const MediaJobFinishedEventData: coreClient.CompositeMapper = {
 };
 
 export const MediaJobCanceledEventData: coreClient.CompositeMapper = {
-  serializedName: "#Microsoft.Media.JobCanceled",
   type: {
     name: "Composite",
     className: "MediaJobCanceledEventData",
@@ -8642,7 +8673,6 @@ export const MediaJobCanceledEventData: coreClient.CompositeMapper = {
 };
 
 export const MediaJobErroredEventData: coreClient.CompositeMapper = {
-  serializedName: "#Microsoft.Media.JobErrored",
   type: {
     name: "Composite",
     className: "MediaJobErroredEventData",
@@ -8686,7 +8716,6 @@ export const MediaJobOutputAsset: coreClient.CompositeMapper = {
 };
 
 export const MediaJobOutputCanceledEventData: coreClient.CompositeMapper = {
-  serializedName: "#Microsoft.Media.JobOutputCanceled",
   type: {
     name: "Composite",
     className: "MediaJobOutputCanceledEventData",
@@ -8697,7 +8726,6 @@ export const MediaJobOutputCanceledEventData: coreClient.CompositeMapper = {
 };
 
 export const MediaJobOutputCancelingEventData: coreClient.CompositeMapper = {
-  serializedName: "#Microsoft.Media.JobOutputCanceling",
   type: {
     name: "Composite",
     className: "MediaJobOutputCancelingEventData",
@@ -8708,7 +8736,6 @@ export const MediaJobOutputCancelingEventData: coreClient.CompositeMapper = {
 };
 
 export const MediaJobOutputErroredEventData: coreClient.CompositeMapper = {
-  serializedName: "#Microsoft.Media.JobOutputErrored",
   type: {
     name: "Composite",
     className: "MediaJobOutputErroredEventData",
@@ -8719,7 +8746,6 @@ export const MediaJobOutputErroredEventData: coreClient.CompositeMapper = {
 };
 
 export const MediaJobOutputFinishedEventData: coreClient.CompositeMapper = {
-  serializedName: "#Microsoft.Media.JobOutputFinished",
   type: {
     name: "Composite",
     className: "MediaJobOutputFinishedEventData",
@@ -8730,7 +8756,6 @@ export const MediaJobOutputFinishedEventData: coreClient.CompositeMapper = {
 };
 
 export const MediaJobOutputProcessingEventData: coreClient.CompositeMapper = {
-  serializedName: "#Microsoft.Media.JobOutputProcessing",
   type: {
     name: "Composite",
     className: "MediaJobOutputProcessingEventData",
@@ -8741,7 +8766,6 @@ export const MediaJobOutputProcessingEventData: coreClient.CompositeMapper = {
 };
 
 export const MediaJobOutputScheduledEventData: coreClient.CompositeMapper = {
-  serializedName: "#Microsoft.Media.JobOutputScheduled",
   type: {
     name: "Composite",
     className: "MediaJobOutputScheduledEventData",
@@ -9313,6 +9337,17 @@ export const ResourceNotificationsResourceManagementCreatedOrUpdatedEventData: c
     name: "Composite",
     className:
       "ResourceNotificationsResourceManagementCreatedOrUpdatedEventData",
+    modelProperties: {
+      ...ResourceNotificationsResourceUpdatedEventData.type.modelProperties
+    }
+  }
+};
+
+export const ResourceNotificationsContainerServiceEventResourcesScheduledEventData: coreClient.CompositeMapper = {
+  type: {
+    name: "Composite",
+    className:
+      "ResourceNotificationsContainerServiceEventResourcesScheduledEventData",
     modelProperties: {
       ...ResourceNotificationsResourceUpdatedEventData.type.modelProperties
     }

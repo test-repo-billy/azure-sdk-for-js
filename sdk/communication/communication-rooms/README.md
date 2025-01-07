@@ -94,10 +94,10 @@ const user1 = await identityClient.createUserAndToken(["voip"]);
 const roomsClient: RoomsClient = new RoomsClient(CONNECTION_STRING);
 
 const validFrom = new Date(Date.now());
-let validForDays = 10;
-let validUntil = new Date(validFrom.getTime());
+const validForDays = 10;
+const validUntil = new Date(validFrom.getTime());
 validUntil.setDate(validFrom.getDate() + validForDays);
-let pstnDialOutEnabled = true;
+const pstnDialOutEnabled = true;
 
 // options payload to create a room
 const createRoomOptions: CreateRoomOptions = {
@@ -236,7 +236,7 @@ If you'd like to contribute to this library, please read the [contributing guide
 
 ![Impressions](https://azure-sdk-impressions.azurewebsites.net/api/impressions/azure-sdk-for-js%2Fsdk%2Fcommunication%2Fcommunication-rooms%2FREADME.png)
 
-[azure_cli]: https://docs.microsoft.com/cli/azure
+[azure_cli]: https://learn.microsoft.com/cli/azure
 [azure_sub]: https://azure.microsoft.com/free/
 [azure_sub]: https://azure.microsoft.com/free/
 [azure_portal]: https://portal.azure.com

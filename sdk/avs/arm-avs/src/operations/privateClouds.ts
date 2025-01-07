@@ -7,18 +7,18 @@
  */
 
 import { PagedAsyncIterableIterator, PageSettings } from "@azure/core-paging";
-import { setContinuationToken } from "../pagingHelper";
-import { PrivateClouds } from "../operationsInterfaces";
+import { setContinuationToken } from "../pagingHelper.js";
+import { PrivateClouds } from "../operationsInterfaces/index.js";
 import * as coreClient from "@azure/core-client";
-import * as Mappers from "../models/mappers";
-import * as Parameters from "../models/parameters";
-import { AzureVMwareSolutionAPI } from "../azureVMwareSolutionAPI";
+import * as Mappers from "../models/mappers.js";
+import * as Parameters from "../models/parameters.js";
+import { AzureVMwareSolutionAPI } from "../azureVMwareSolutionAPI.js";
 import {
   SimplePollerLike,
   OperationState,
   createHttpPoller,
 } from "@azure/core-lro";
-import { createLroSpec } from "../lroImpl";
+import { createLroSpec } from "../lroImpl.js";
 import {
   PrivateCloud,
   PrivateCloudsListInSubscriptionNextOptionalParams,
@@ -43,7 +43,7 @@ import {
   PrivateCloudsRotateVcenterPasswordResponse,
   PrivateCloudsListInSubscriptionNextResponse,
   PrivateCloudsListNextResponse,
-} from "../models";
+} from "../models/index.js";
 
 /// <reference lib="esnext.asynciterable" />
 /** Class containing PrivateClouds operations. */
@@ -733,7 +733,7 @@ const listInSubscriptionOperationSpec: coreClient.OperationSpec = {
   httpMethod: "GET",
   responses: {
     200: {
-      bodyMapper: Mappers.PrivateCloudListResult,
+      bodyMapper: Mappers.PrivateCloudList,
     },
     default: {
       bodyMapper: Mappers.ErrorResponse,
@@ -749,7 +749,7 @@ const listOperationSpec: coreClient.OperationSpec = {
   httpMethod: "GET",
   responses: {
     200: {
-      bodyMapper: Mappers.PrivateCloudListResult,
+      bodyMapper: Mappers.PrivateCloudList,
     },
     default: {
       bodyMapper: Mappers.ErrorResponse,
@@ -957,7 +957,7 @@ const listInSubscriptionNextOperationSpec: coreClient.OperationSpec = {
   httpMethod: "GET",
   responses: {
     200: {
-      bodyMapper: Mappers.PrivateCloudListResult,
+      bodyMapper: Mappers.PrivateCloudList,
     },
     default: {
       bodyMapper: Mappers.ErrorResponse,
@@ -976,7 +976,7 @@ const listNextOperationSpec: coreClient.OperationSpec = {
   httpMethod: "GET",
   responses: {
     200: {
-      bodyMapper: Mappers.PrivateCloudListResult,
+      bodyMapper: Mappers.PrivateCloudList,
     },
     default: {
       bodyMapper: Mappers.ErrorResponse,

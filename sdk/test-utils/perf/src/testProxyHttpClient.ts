@@ -1,5 +1,5 @@
 // Copyright (c) Microsoft Corporation.
-// Licensed under the MIT license.
+// Licensed under the MIT License.
 
 import {
   PipelinePolicy,
@@ -7,8 +7,8 @@ import {
   PipelineResponse,
   SendRequest,
 } from "@azure/core-rest-pipeline";
-import { RequestOptions } from "http";
-import { getCachedHttpsAgent, makeRequest } from "./utils/utils";
+import { RequestOptions } from "node:http";
+import { getCachedHttpsAgent, makeRequest } from "./utils/utils.js";
 
 const paths = {
   playback: "/playback",

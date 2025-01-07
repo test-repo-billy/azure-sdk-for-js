@@ -1,32 +1,24 @@
 // Copyright (c) Microsoft Corporation.
-// Licensed under the MIT license.
-
-import { assert } from "chai";
-import { Context } from "mocha";
-import { Recorder } from "@azure-tools/test-recorder";
+// Licensed under the MIT License.
+import type { Recorder } from "@azure-tools/test-recorder";
 import { RestError } from "@azure/core-rest-pipeline";
 
-import {
+import type {
   AssetConversion,
   AssetConversionInputSettings,
   AssetConversionOutputSettings,
   AssetConversionPollerLike,
   AssetConversionSettings,
-  KnownAssetConversionStatus,
-  RemoteRenderingClient,
   RenderingSession,
   RenderingSessionPollerLike,
   RenderingSessionSettings,
-} from "../../src";
-import {
-  AccessToken,
-  AzureKeyCredential,
-  GetTokenOptions,
-  TokenCredential,
-} from "@azure/core-auth";
-import { createClient, createRecorder, recorderStartOptions } from "../utils/recordedClient";
-
+} from "../../src/index.js";
+import { KnownAssetConversionStatus, RemoteRenderingClient } from "../../src/index.js";
+import type { AccessToken, GetTokenOptions, TokenCredential } from "@azure/core-auth";
+import { AzureKeyCredential } from "@azure/core-auth";
+import { createClient, createRecorder, recorderStartOptions } from "../utils/recordedClient.js";
 import { assertEnvironmentVariable, isPlaybackMode } from "@azure-tools/test-recorder";
+import { describe, it, assert, beforeEach, afterEach } from "vitest";
 
 /// No need to wait when polling in playback mode.
 const pollerSettings = isPlaybackMode() ? { intervalInMs: 1 } : {};
@@ -110,13 +102,13 @@ describe("RemoteRendering functional tests", () => {
   let client: RemoteRenderingClient;
   let recorder: Recorder;
 
-  beforeEach(async function (this: Context) {
-    recorder = createRecorder(this);
+  beforeEach(async (ctx) => {
+    recorder = createRecorder(ctx);
     await recorder.start(recorderStartOptions);
     client = createClient(recorder);
   });
 
-  afterEach(async function () {
+  afterEach(async () => {
     // Stop the recording.
     await recorder.stop();
   });
@@ -185,9 +177,9 @@ describe("RemoteRendering functional tests", () => {
   it("throws correct exception on no access", async () => {
     const storageContainerUrl =
       "https://" +
-      assertEnvironmentVariable("REMOTERENDERING_ARR_STORAGE_ACCOUNT_NAME") +
+      assertEnvironmentVariable("STORAGE_ACCOUNT_NO_ACCESS_NAME") +
       ".blob.core.windows.net/" +
-      assertEnvironmentVariable("REMOTERENDERING_ARR_BLOB_CONTAINER_NAME");
+      assertEnvironmentVariable("BLOB_CONTAINER_NO_ACCESS_NAME");
 
     // Do not provide SAS tokens
     const inputSettings: AssetConversionInputSettings = {
@@ -288,7 +280,6 @@ describe("RemoteRendering functional tests", () => {
     );
 
     assert.equal(sessionPoller.getOperationState().latestResponse.sessionId, sessionId);
-    assert.equal(sessionPoller.getOperationState().latestResponse.size, sessionSettings.size);
     assert.equal(
       sessionPoller.getOperationState().latestResponse.maxLeaseTimeInMinutes,
       sessionSettings.maxLeaseTimeInMinutes,

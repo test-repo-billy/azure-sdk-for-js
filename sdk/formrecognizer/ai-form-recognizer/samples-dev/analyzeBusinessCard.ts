@@ -1,5 +1,5 @@
 // Copyright (c) Microsoft Corporation.
-// Licensed under the MIT license.
+// Licensed under the MIT License.
 
 /**
  * This sample shows how to extract elements of a business card from a URL to a file using the prebuilt business card
@@ -16,7 +16,7 @@
 
 import { AzureKeyCredential, DocumentAnalysisClient } from "@azure/ai-form-recognizer";
 
-import { PrebuiltBusinessCardModel } from "./prebuilt/prebuilt-businessCard";
+import { PrebuiltBusinessCardModel } from "./prebuilt/prebuilt-businessCard.js";
 
 import * as dotenv from "dotenv";
 dotenv.config();

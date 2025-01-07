@@ -1,12 +1,9 @@
 // Copyright (c) Microsoft Corporation.
-// Licensed under the MIT license.
+// Licensed under the MIT License.
 
-import {
-  Recorder,
-  RecorderStartOptions,
-  assertEnvironmentVariable,
-} from "@azure-tools/test-recorder";
-import { KnownSchemaFormats, SchemaRegistryClient } from "../../../src";
+import type { Recorder, RecorderStartOptions } from "@azure-tools/test-recorder";
+import { assertEnvironmentVariable } from "@azure-tools/test-recorder";
+import { KnownSchemaFormats, SchemaRegistryClient } from "../../../src/index.js";
 import { createTestCredential } from "@azure-tools/test-credential";
 
 export type Format = keyof typeof KnownSchemaFormats;
@@ -27,6 +24,7 @@ export const recorderOptions: RecorderStartOptions = {
   },
   removeCentralSanitizers: [
     "AZSDK3493", // .name in the body is not a secret and is listed below in the beforeEach section
+    "AZSDK4001", // uri name is not a secret and is replaced using envSetupForPlayback
   ],
 };
 

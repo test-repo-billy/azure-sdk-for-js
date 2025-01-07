@@ -1,5 +1,5 @@
 // Copyright (c) Microsoft Corporation.
-// Licensed under the MIT license.
+// Licensed under the MIT License.
 
 /**
  * @summary Demonstrates how to run a query against a Log Analytics workspace, using an Azure resource ID.
@@ -38,10 +38,11 @@ export async function main() {
   };
 
   const result = await logsQueryClient.queryResource(
-    logsResourceId, 
+    logsResourceId,
     kustoQuery,
     { duration: Durations.sevenDays },
-    queryLogsOptions);
+    queryLogsOptions,
+  );
 
   const executionTime =
     result.statistics && result.statistics.query && (result.statistics.query as any).executionTime;
@@ -49,7 +50,7 @@ export async function main() {
   console.log(
     `Results for query '${kustoQuery}', execution time: ${
       executionTime == null ? "unknown" : executionTime
-    }`
+    }`,
   );
 
   if (result.status === LogsQueryResultStatus.Success) {

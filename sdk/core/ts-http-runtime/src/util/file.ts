@@ -1,5 +1,5 @@
 // Copyright (c) Microsoft Corporation.
-// Licensed under the MIT license.
+// Licensed under the MIT License.
 
 import { isNodeLike } from "./checkEnvironment.js";
 import { isNodeReadableStream } from "./typeGuards.js";
@@ -40,6 +40,9 @@ export interface CreateFileFromStreamOptions extends CreateFileOptions {
 
 const unimplementedMethods = {
   arrayBuffer: () => {
+    throw new Error("Not implemented");
+  },
+  bytes: () => {
     throw new Error("Not implemented");
   },
   slice: () => {

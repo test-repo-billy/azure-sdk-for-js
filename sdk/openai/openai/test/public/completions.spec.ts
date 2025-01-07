@@ -1,11 +1,11 @@
 // Copyright (c) Microsoft Corporation.
-// Licensed under the MIT license.
+// Licensed under the MIT License.
 
 import { matrix } from "@azure-tools/test-utils-vitest";
 import { assert, describe, beforeEach, it, beforeAll } from "vitest";
 import { createClient } from "./utils/createClient.js";
-import { APIMatrix, APIVersion, DeploymentInfo } from "./utils/utils.js";
-import OpenAI, { AzureOpenAI } from "openai";
+import { APIMatrix, type APIVersion, type DeploymentInfo } from "./utils/utils.js";
+import type { OpenAI, AzureOpenAI } from "openai";
 import {
   assertChatCompletions,
   assertChatCompletionsList,
@@ -20,9 +20,13 @@ import {
   updateWithSucceeded,
   withDeployments,
 } from "./utils/utils.js";
-import { ChatCompletionMessageParam } from "openai/resources/chat/completions.mjs";
-import "@azure/openai/types";
-import { functionCallModelsToSkip } from "./utils/models.js";
+import { type ChatCompletionMessageParam } from "openai/resources/chat/completions.mjs";
+import {
+  completionsModelsToSkip,
+  functionCallModelsToSkip,
+  jsonResponseModelsToSkip,
+} from "./utils/models.js";
+import "../../src/types/index.js";
 
 describe("Completions", function () {
   let deployments: DeploymentInfo[] = [];
@@ -46,6 +50,7 @@ describe("Completions", function () {
             deployments,
             (deploymentName) => client.completions.create({ model: deploymentName, prompt }),
             assertCompletions,
+            completionsModelsToSkip,
           );
         });
       });
@@ -335,6 +340,7 @@ describe("Completions", function () {
                   const argument = toolCalls[0].function.arguments;
                   assert.isTrue(argument?.includes("assetName"));
                 },
+                functionCallModelsToSkip,
               ),
               chatCompletionDeployments,
             );
@@ -362,10 +368,11 @@ describe("Completions", function () {
                   if (!content) assert.fail("Undefined content");
                   try {
                     JSON.parse(content);
-                  } catch (e) {
+                  } catch {
                     assert.fail(`Invalid JSON: ${content}`);
                   }
                 },
+                jsonResponseModelsToSkip,
               ),
               chatCompletionDeployments,
             );

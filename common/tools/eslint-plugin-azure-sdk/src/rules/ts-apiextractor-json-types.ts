@@ -1,13 +1,13 @@
 // Copyright (c) Microsoft Corporation.
-// Licensed under the MIT license.
+// Licensed under the MIT License.
 
 /**
  * @file Rule to force the inclusion of type declarations in the package.
  */
 
-import { createRule, getVerifiers, stripPath, isEsmPackage } from "../utils";
+import { createRule, getVerifiers, stripPath, isEsmPackage } from "../utils/index.js";
 import { TSESTree } from "@typescript-eslint/utils";
-import { VerifierMessages, stripFileName } from "../utils/verifiers";
+import { VerifierMessages, stripFileName } from "../utils/verifiers.js";
 
 //------------------------------------------------------------------------------
 // Rule Definition
@@ -19,7 +19,6 @@ export default createRule({
     type: "suggestion",
     docs: {
       description: "force api-extractor.json to configure types in a consistent way",
-      recommended: "recommended",
     },
     messages: {
       ...VerifierMessages,

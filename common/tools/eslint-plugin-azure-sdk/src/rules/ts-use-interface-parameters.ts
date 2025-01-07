@@ -1,5 +1,5 @@
 // Copyright (c) Microsoft Corporation.
-// Licensed under the MIT license.
+// Licensed under the MIT License.
 
 /**
  * @file Rule to encourage usage of interfaces over classes as function parameters.
@@ -23,7 +23,7 @@ import {
   canHaveModifiers,
 } from "typescript";
 import { ESLintUtils, ParserServicesWithTypeInformation, TSESTree } from "@typescript-eslint/utils";
-import { createRule } from "../utils";
+import { createRule } from "../utils/index.js";
 import { RuleContext } from "@typescript-eslint/utils/ts-eslint";
 
 //------------------------------------------------------------------------------
@@ -237,7 +237,6 @@ export default createRule({
     type: "suggestion",
     docs: {
       description: "encourage usage of interfaces over classes as function parameters",
-      recommended: "recommended",
     },
     messages: {
       FunctionParameterIsClass:

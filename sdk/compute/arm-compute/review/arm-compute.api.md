@@ -4,13 +4,52 @@
 
 ```ts
 
-/// <reference types="node" />
-
 import * as coreAuth from '@azure/core-auth';
 import * as coreClient from '@azure/core-client';
 import { OperationState } from '@azure/core-lro';
 import { PagedAsyncIterableIterator } from '@azure/core-paging';
 import { SimplePollerLike } from '@azure/core-lro';
+
+// @public
+export interface AccessControlRules {
+    identities?: AccessControlRulesIdentity[];
+    privileges?: AccessControlRulesPrivilege[];
+    roleAssignments?: AccessControlRulesRoleAssignment[];
+    roles?: AccessControlRulesRole[];
+}
+
+// @public
+export interface AccessControlRulesIdentity {
+    exePath?: string;
+    groupName?: string;
+    name: string;
+    processName?: string;
+    userName?: string;
+}
+
+// @public
+export type AccessControlRulesMode = string;
+
+// @public
+export interface AccessControlRulesPrivilege {
+    name: string;
+    path: string;
+    queryParameters?: {
+        [propertyName: string]: string;
+    };
+}
+
+// @public
+export interface AccessControlRulesRole {
+    name: string;
+    privileges: string[];
+}
+
+// @public
+export interface AccessControlRulesRoleAssignment {
+    identities: string[];
+    role: string;
+}
 
 // @public
 export type AccessLevel = string;
@@ -28,6 +67,12 @@ export interface AdditionalCapabilities {
 }
 
 // @public
+export interface AdditionalReplicaSet {
+    regionalReplicaCount?: number;
+    storageAccountType?: StorageAccountType;
+}
+
+// @public
 export interface AdditionalUnattendContent {
     componentName?: "Microsoft-Windows-Shell-Setup";
     content?: string;
@@ -37,6 +82,9 @@ export interface AdditionalUnattendContent {
 
 // @public
 export type AggregatedReplicationState = string;
+
+// @public
+export type AllocationStrategy = string;
 
 // @public
 export interface AlternativeOption {
@@ -110,6 +158,7 @@ export interface AvailabilitySet extends Resource {
     platformFaultDomainCount?: number;
     platformUpdateDomainCount?: number;
     proximityPlacementGroup?: SubResource;
+    scheduledEventsPolicy?: ScheduledEventsPolicy;
     sku?: Sku;
     readonly statuses?: InstanceViewStatus[];
     virtualMachines?: SubResource[];
@@ -201,6 +250,7 @@ export interface AvailabilitySetUpdate extends UpdateResource {
     platformFaultDomainCount?: number;
     platformUpdateDomainCount?: number;
     proximityPlacementGroup?: SubResource;
+    scheduledEventsPolicy?: ScheduledEventsPolicy;
     sku?: Sku;
     readonly statuses?: InstanceViewStatus[];
     virtualMachines?: SubResource[];
@@ -1123,6 +1173,10 @@ export class ComputeManagementClient extends coreClient.ServiceClient {
     // (undocumented)
     galleryImageVersions: GalleryImageVersions;
     // (undocumented)
+    galleryInVMAccessControlProfiles: GalleryInVMAccessControlProfiles;
+    // (undocumented)
+    galleryInVMAccessControlProfileVersions: GalleryInVMAccessControlProfileVersions;
+    // (undocumented)
     gallerySharingProfile: GallerySharingProfile;
     // (undocumented)
     images: Images;
@@ -1146,6 +1200,8 @@ export class ComputeManagementClient extends coreClient.ServiceClient {
     sharedGalleryImageVersions: SharedGalleryImageVersions;
     // (undocumented)
     snapshots: Snapshots;
+    // (undocumented)
+    softDeletedResource: SoftDeletedResource;
     // (undocumented)
     sshPublicKeys: SshPublicKeys;
     // (undocumented)
@@ -1934,6 +1990,7 @@ export interface DiskRestorePoint extends ProxyOnlyResource {
     readonly encryption?: Encryption;
     readonly familyId?: string;
     hyperVGeneration?: HyperVGeneration;
+    readonly logicalSectorSize?: number;
     networkAccessPolicy?: NetworkAccessPolicy;
     readonly osType?: OperatingSystemTypes;
     publicNetworkAccess?: PublicNetworkAccess;
@@ -2208,8 +2265,22 @@ export interface EncryptionSettingsElement {
 export type EncryptionType = string;
 
 // @public
+export type EndpointAccess = string;
+
+// @public
+export type EndpointTypes = "WireServer" | "IMDS";
+
+// @public
 export interface EventGridAndResourceGraph {
     enable?: boolean;
+}
+
+// @public
+export interface ExecutedValidation {
+    executionTime?: Date;
+    status?: ValidationStatus;
+    type?: string;
+    version?: string;
 }
 
 // @public
@@ -2326,6 +2397,7 @@ export type GalleriesUpdateResponse = Gallery;
 export interface Gallery extends Resource {
     description?: string;
     identifier?: GalleryIdentifier;
+    identity?: GalleryIdentity;
     readonly provisioningState?: GalleryProvisioningState;
     sharingProfile?: SharingProfile;
     readonly sharingStatus?: SharingStatus;
@@ -2389,6 +2461,9 @@ export interface GalleryApplicationsCreateOrUpdateOptionalParams extends coreCli
 
 // @public
 export type GalleryApplicationsCreateOrUpdateResponse = GalleryApplication;
+
+// @public
+export type GalleryApplicationScriptRebootBehavior = string;
 
 // @public
 export interface GalleryApplicationsDeleteOptionalParams extends coreClient.OperationOptions {
@@ -2604,7 +2679,18 @@ export interface GalleryIdentifier {
 }
 
 // @public
+export interface GalleryIdentity {
+    readonly principalId?: string;
+    readonly tenantId?: string;
+    type?: ResourceIdentityType;
+    userAssignedIdentities?: {
+        [propertyName: string]: UserAssignedIdentitiesValue;
+    };
+}
+
+// @public
 export interface GalleryImage extends Resource {
+    allowUpdateImage?: boolean;
     architecture?: Architecture;
     description?: string;
     disallowed?: Disallowed;
@@ -2625,6 +2711,7 @@ export interface GalleryImage extends Resource {
 // @public
 export interface GalleryImageFeature {
     name?: string;
+    startsAtVersion?: string;
     value?: string;
 }
 
@@ -2700,6 +2787,7 @@ export type GalleryImagesUpdateResponse = GalleryImage;
 
 // @public
 export interface GalleryImageUpdate extends UpdateResourceDefinition {
+    allowUpdateImage?: boolean;
     architecture?: Architecture;
     description?: string;
     disallowed?: Disallowed;
@@ -2722,9 +2810,11 @@ export interface GalleryImageVersion extends Resource {
     readonly provisioningState?: GalleryProvisioningState;
     publishingProfile?: GalleryImageVersionPublishingProfile;
     readonly replicationStatus?: ReplicationStatus;
+    restore?: boolean;
     safetyProfile?: GalleryImageVersionSafetyProfile;
     securityProfile?: ImageVersionSecurityProfile;
     storageProfile?: GalleryImageVersionStorageProfile;
+    readonly validationsProfile?: ValidationsProfile;
 }
 
 // @public
@@ -2751,6 +2841,7 @@ export interface GalleryImageVersions {
 
 // @public
 export interface GalleryImageVersionSafetyProfile extends GalleryArtifactSafetyProfileBase {
+    blockDeletionBeforeEndOfLife?: boolean;
     readonly policyViolations?: PolicyViolation[];
     readonly reportedForPolicyViolation?: boolean;
 }
@@ -2819,14 +2910,213 @@ export interface GalleryImageVersionUpdate extends UpdateResourceDefinition {
     readonly provisioningState?: GalleryProvisioningState;
     publishingProfile?: GalleryImageVersionPublishingProfile;
     readonly replicationStatus?: ReplicationStatus;
+    restore?: boolean;
     safetyProfile?: GalleryImageVersionSafetyProfile;
     securityProfile?: ImageVersionSecurityProfile;
     storageProfile?: GalleryImageVersionStorageProfile;
+    readonly validationsProfile?: ValidationsProfile;
+}
+
+// @public
+export interface GalleryInVMAccessControlProfile extends Resource {
+    properties?: GalleryInVMAccessControlProfileProperties;
+}
+
+// @public
+export interface GalleryInVMAccessControlProfileList {
+    nextLink?: string;
+    value: GalleryInVMAccessControlProfile[];
+}
+
+// @public
+export interface GalleryInVMAccessControlProfileProperties extends GalleryResourceProfilePropertiesBase {
+    applicableHostEndpoint: EndpointTypes;
+    description?: string;
+    osType: OperatingSystemTypes;
+}
+
+// @public
+export interface GalleryInVMAccessControlProfiles {
+    beginCreateOrUpdate(resourceGroupName: string, galleryName: string, inVMAccessControlProfileName: string, galleryInVMAccessControlProfile: GalleryInVMAccessControlProfile, options?: GalleryInVMAccessControlProfilesCreateOrUpdateOptionalParams): Promise<SimplePollerLike<OperationState<GalleryInVMAccessControlProfilesCreateOrUpdateResponse>, GalleryInVMAccessControlProfilesCreateOrUpdateResponse>>;
+    beginCreateOrUpdateAndWait(resourceGroupName: string, galleryName: string, inVMAccessControlProfileName: string, galleryInVMAccessControlProfile: GalleryInVMAccessControlProfile, options?: GalleryInVMAccessControlProfilesCreateOrUpdateOptionalParams): Promise<GalleryInVMAccessControlProfilesCreateOrUpdateResponse>;
+    beginDelete(resourceGroupName: string, galleryName: string, inVMAccessControlProfileName: string, options?: GalleryInVMAccessControlProfilesDeleteOptionalParams): Promise<SimplePollerLike<OperationState<GalleryInVMAccessControlProfilesDeleteResponse>, GalleryInVMAccessControlProfilesDeleteResponse>>;
+    beginDeleteAndWait(resourceGroupName: string, galleryName: string, inVMAccessControlProfileName: string, options?: GalleryInVMAccessControlProfilesDeleteOptionalParams): Promise<GalleryInVMAccessControlProfilesDeleteResponse>;
+    beginUpdate(resourceGroupName: string, galleryName: string, inVMAccessControlProfileName: string, galleryInVMAccessControlProfile: GalleryInVMAccessControlProfileUpdate, options?: GalleryInVMAccessControlProfilesUpdateOptionalParams): Promise<SimplePollerLike<OperationState<GalleryInVMAccessControlProfilesUpdateResponse>, GalleryInVMAccessControlProfilesUpdateResponse>>;
+    beginUpdateAndWait(resourceGroupName: string, galleryName: string, inVMAccessControlProfileName: string, galleryInVMAccessControlProfile: GalleryInVMAccessControlProfileUpdate, options?: GalleryInVMAccessControlProfilesUpdateOptionalParams): Promise<GalleryInVMAccessControlProfilesUpdateResponse>;
+    get(resourceGroupName: string, galleryName: string, inVMAccessControlProfileName: string, options?: GalleryInVMAccessControlProfilesGetOptionalParams): Promise<GalleryInVMAccessControlProfilesGetResponse>;
+    listByGallery(resourceGroupName: string, galleryName: string, options?: GalleryInVMAccessControlProfilesListByGalleryOptionalParams): PagedAsyncIterableIterator<GalleryInVMAccessControlProfile>;
+}
+
+// @public
+export interface GalleryInVMAccessControlProfilesCreateOrUpdateOptionalParams extends coreClient.OperationOptions {
+    resumeFrom?: string;
+    updateIntervalInMs?: number;
+}
+
+// @public
+export type GalleryInVMAccessControlProfilesCreateOrUpdateResponse = GalleryInVMAccessControlProfile;
+
+// @public
+export interface GalleryInVMAccessControlProfilesDeleteHeaders {
+    // (undocumented)
+    azureAsyncOperation?: string;
+    // (undocumented)
+    location?: string;
+}
+
+// @public
+export interface GalleryInVMAccessControlProfilesDeleteOptionalParams extends coreClient.OperationOptions {
+    resumeFrom?: string;
+    updateIntervalInMs?: number;
+}
+
+// @public
+export type GalleryInVMAccessControlProfilesDeleteResponse = GalleryInVMAccessControlProfilesDeleteHeaders;
+
+// @public
+export interface GalleryInVMAccessControlProfilesGetOptionalParams extends coreClient.OperationOptions {
+}
+
+// @public
+export type GalleryInVMAccessControlProfilesGetResponse = GalleryInVMAccessControlProfile;
+
+// @public
+export interface GalleryInVMAccessControlProfilesListByGalleryNextOptionalParams extends coreClient.OperationOptions {
+}
+
+// @public
+export type GalleryInVMAccessControlProfilesListByGalleryNextResponse = GalleryInVMAccessControlProfileList;
+
+// @public
+export interface GalleryInVMAccessControlProfilesListByGalleryOptionalParams extends coreClient.OperationOptions {
+}
+
+// @public
+export type GalleryInVMAccessControlProfilesListByGalleryResponse = GalleryInVMAccessControlProfileList;
+
+// @public
+export interface GalleryInVMAccessControlProfilesUpdateOptionalParams extends coreClient.OperationOptions {
+    resumeFrom?: string;
+    updateIntervalInMs?: number;
+}
+
+// @public
+export type GalleryInVMAccessControlProfilesUpdateResponse = GalleryInVMAccessControlProfile;
+
+// @public
+export interface GalleryInVMAccessControlProfileUpdate extends UpdateResourceDefinition {
+    properties?: GalleryInVMAccessControlProfileProperties;
+}
+
+// @public
+export interface GalleryInVMAccessControlProfileVersion extends Resource {
+    defaultAccess?: EndpointAccess;
+    excludeFromLatest?: boolean;
+    mode?: AccessControlRulesMode;
+    readonly provisioningState?: GalleryProvisioningState;
+    readonly publishedDate?: Date;
+    readonly replicationStatus?: ReplicationStatus;
+    rules?: AccessControlRules;
+    targetLocations?: TargetRegion[];
+}
+
+// @public
+export interface GalleryInVMAccessControlProfileVersionList {
+    nextLink?: string;
+    value: GalleryInVMAccessControlProfileVersion[];
+}
+
+// @public
+export interface GalleryInVMAccessControlProfileVersionProperties extends GalleryResourceProfileVersionPropertiesBase {
+    defaultAccess: EndpointAccess;
+    mode: AccessControlRulesMode;
+    rules?: AccessControlRules;
+}
+
+// @public
+export interface GalleryInVMAccessControlProfileVersions {
+    beginCreateOrUpdate(resourceGroupName: string, galleryName: string, inVMAccessControlProfileName: string, inVMAccessControlProfileVersionName: string, galleryInVMAccessControlProfileVersion: GalleryInVMAccessControlProfileVersion, options?: GalleryInVMAccessControlProfileVersionsCreateOrUpdateOptionalParams): Promise<SimplePollerLike<OperationState<GalleryInVMAccessControlProfileVersionsCreateOrUpdateResponse>, GalleryInVMAccessControlProfileVersionsCreateOrUpdateResponse>>;
+    beginCreateOrUpdateAndWait(resourceGroupName: string, galleryName: string, inVMAccessControlProfileName: string, inVMAccessControlProfileVersionName: string, galleryInVMAccessControlProfileVersion: GalleryInVMAccessControlProfileVersion, options?: GalleryInVMAccessControlProfileVersionsCreateOrUpdateOptionalParams): Promise<GalleryInVMAccessControlProfileVersionsCreateOrUpdateResponse>;
+    beginDelete(resourceGroupName: string, galleryName: string, inVMAccessControlProfileName: string, inVMAccessControlProfileVersionName: string, options?: GalleryInVMAccessControlProfileVersionsDeleteOptionalParams): Promise<SimplePollerLike<OperationState<GalleryInVMAccessControlProfileVersionsDeleteResponse>, GalleryInVMAccessControlProfileVersionsDeleteResponse>>;
+    beginDeleteAndWait(resourceGroupName: string, galleryName: string, inVMAccessControlProfileName: string, inVMAccessControlProfileVersionName: string, options?: GalleryInVMAccessControlProfileVersionsDeleteOptionalParams): Promise<GalleryInVMAccessControlProfileVersionsDeleteResponse>;
+    beginUpdate(resourceGroupName: string, galleryName: string, inVMAccessControlProfileName: string, inVMAccessControlProfileVersionName: string, galleryInVMAccessControlProfileVersion: GalleryInVMAccessControlProfileVersionUpdate, options?: GalleryInVMAccessControlProfileVersionsUpdateOptionalParams): Promise<SimplePollerLike<OperationState<GalleryInVMAccessControlProfileVersionsUpdateResponse>, GalleryInVMAccessControlProfileVersionsUpdateResponse>>;
+    beginUpdateAndWait(resourceGroupName: string, galleryName: string, inVMAccessControlProfileName: string, inVMAccessControlProfileVersionName: string, galleryInVMAccessControlProfileVersion: GalleryInVMAccessControlProfileVersionUpdate, options?: GalleryInVMAccessControlProfileVersionsUpdateOptionalParams): Promise<GalleryInVMAccessControlProfileVersionsUpdateResponse>;
+    get(resourceGroupName: string, galleryName: string, inVMAccessControlProfileName: string, inVMAccessControlProfileVersionName: string, options?: GalleryInVMAccessControlProfileVersionsGetOptionalParams): Promise<GalleryInVMAccessControlProfileVersionsGetResponse>;
+    listByGalleryInVMAccessControlProfile(resourceGroupName: string, galleryName: string, inVMAccessControlProfileName: string, options?: GalleryInVMAccessControlProfileVersionsListByGalleryInVMAccessControlProfileOptionalParams): PagedAsyncIterableIterator<GalleryInVMAccessControlProfileVersion>;
+}
+
+// @public
+export interface GalleryInVMAccessControlProfileVersionsCreateOrUpdateOptionalParams extends coreClient.OperationOptions {
+    resumeFrom?: string;
+    updateIntervalInMs?: number;
+}
+
+// @public
+export type GalleryInVMAccessControlProfileVersionsCreateOrUpdateResponse = GalleryInVMAccessControlProfileVersion;
+
+// @public
+export interface GalleryInVMAccessControlProfileVersionsDeleteHeaders {
+    // (undocumented)
+    azureAsyncOperation?: string;
+    // (undocumented)
+    location?: string;
+}
+
+// @public
+export interface GalleryInVMAccessControlProfileVersionsDeleteOptionalParams extends coreClient.OperationOptions {
+    resumeFrom?: string;
+    updateIntervalInMs?: number;
+}
+
+// @public
+export type GalleryInVMAccessControlProfileVersionsDeleteResponse = GalleryInVMAccessControlProfileVersionsDeleteHeaders;
+
+// @public
+export interface GalleryInVMAccessControlProfileVersionsGetOptionalParams extends coreClient.OperationOptions {
+}
+
+// @public
+export type GalleryInVMAccessControlProfileVersionsGetResponse = GalleryInVMAccessControlProfileVersion;
+
+// @public
+export interface GalleryInVMAccessControlProfileVersionsListByGalleryInVMAccessControlProfileNextOptionalParams extends coreClient.OperationOptions {
+}
+
+// @public
+export type GalleryInVMAccessControlProfileVersionsListByGalleryInVMAccessControlProfileNextResponse = GalleryInVMAccessControlProfileVersionList;
+
+// @public
+export interface GalleryInVMAccessControlProfileVersionsListByGalleryInVMAccessControlProfileOptionalParams extends coreClient.OperationOptions {
+}
+
+// @public
+export type GalleryInVMAccessControlProfileVersionsListByGalleryInVMAccessControlProfileResponse = GalleryInVMAccessControlProfileVersionList;
+
+// @public
+export interface GalleryInVMAccessControlProfileVersionsUpdateOptionalParams extends coreClient.OperationOptions {
+    resumeFrom?: string;
+    updateIntervalInMs?: number;
+}
+
+// @public
+export type GalleryInVMAccessControlProfileVersionsUpdateResponse = GalleryInVMAccessControlProfileVersion;
+
+// @public
+export interface GalleryInVMAccessControlProfileVersionUpdate extends UpdateResourceDefinition {
+    defaultAccess?: EndpointAccess;
+    excludeFromLatest?: boolean;
+    mode?: AccessControlRulesMode;
+    readonly provisioningState?: GalleryProvisioningState;
+    readonly publishedDate?: Date;
+    readonly replicationStatus?: ReplicationStatus;
+    rules?: AccessControlRules;
+    targetLocations?: TargetRegion[];
 }
 
 // @public
 export interface GalleryList {
     nextLink?: string;
+    securityProfile?: ImageVersionSecurityProfile;
     value: Gallery[];
 }
 
@@ -2836,6 +3126,20 @@ export interface GalleryOSDiskImage extends GalleryDiskImage {
 
 // @public
 export type GalleryProvisioningState = string;
+
+// @public
+export interface GalleryResourceProfilePropertiesBase {
+    readonly provisioningState?: GalleryProvisioningState;
+}
+
+// @public
+export interface GalleryResourceProfileVersionPropertiesBase {
+    excludeFromLatest?: boolean;
+    readonly provisioningState?: GalleryProvisioningState;
+    readonly publishedDate?: Date;
+    readonly replicationStatus?: ReplicationStatus;
+    targetLocations?: TargetRegion[];
+}
 
 // @public
 export type GallerySharingPermissionTypes = string;
@@ -2855,6 +3159,19 @@ export interface GallerySharingProfileUpdateOptionalParams extends coreClient.Op
 // @public
 export type GallerySharingProfileUpdateResponse = SharingUpdate;
 
+// @public
+export interface GallerySoftDeletedResource extends Resource {
+    resourceArmId?: string;
+    softDeletedArtifactType?: SoftDeletedArtifactTypes;
+    softDeletedTime?: string;
+}
+
+// @public
+export interface GallerySoftDeletedResourceList {
+    nextLink?: string;
+    value: GallerySoftDeletedResource[];
+}
+
 // @public (undocumented)
 export interface GalleryTargetExtendedLocation {
     encryption?: EncryptionImages;
@@ -2868,6 +3185,7 @@ export interface GalleryTargetExtendedLocation {
 export interface GalleryUpdate extends UpdateResourceDefinition {
     description?: string;
     identifier?: GalleryIdentifier;
+    identity?: GalleryIdentity;
     readonly provisioningState?: GalleryProvisioningState;
     sharingProfile?: SharingProfile;
     readonly sharingStatus?: SharingStatus;
@@ -3140,6 +3458,13 @@ export interface KeyVaultSecretReference {
 }
 
 // @public
+export enum KnownAccessControlRulesMode {
+    Audit = "Audit",
+    Disabled = "Disabled",
+    Enforce = "Enforce"
+}
+
+// @public
 export enum KnownAccessLevel {
     None = "None",
     Read = "Read",
@@ -3152,6 +3477,12 @@ export enum KnownAggregatedReplicationState {
     Failed = "Failed",
     InProgress = "InProgress",
     Unknown = "Unknown"
+}
+
+// @public
+export enum KnownAllocationStrategy {
+    CapacityOptimized = "CapacityOptimized",
+    LowestPrice = "LowestPrice"
 }
 
 // @public
@@ -3358,6 +3689,12 @@ export enum KnownEncryptionType {
 }
 
 // @public
+export enum KnownEndpointAccess {
+    Allow = "Allow",
+    Deny = "Deny"
+}
+
+// @public
 export enum KnownExecutionState {
     Canceled = "Canceled",
     Failed = "Failed",
@@ -3403,6 +3740,12 @@ export enum KnownExtendedLocationTypes {
 export enum KnownFileFormat {
     VHD = "VHD",
     Vhdx = "VHDX"
+}
+
+// @public
+export enum KnownGalleryApplicationScriptRebootBehavior {
+    None = "None",
+    Rerun = "Rerun"
 }
 
 // @public
@@ -3750,6 +4093,11 @@ export enum KnownSnapshotStorageAccountTypes {
 }
 
 // @public
+export enum KnownSoftDeletedArtifactTypes {
+    Images = "Images"
+}
+
+// @public
 export enum KnownSshEncryptionTypes {
     Ed25519 = "Ed25519",
     RSA = "RSA"
@@ -3758,6 +4106,7 @@ export enum KnownSshEncryptionTypes {
 // @public
 export enum KnownStorageAccountType {
     PremiumLRS = "Premium_LRS",
+    PremiumV2LRS = "PremiumV2_LRS",
     StandardLRS = "Standard_LRS",
     StandardZRS = "Standard_ZRS"
 }
@@ -3784,6 +4133,13 @@ export enum KnownUefiSignatureTemplateName {
     MicrosoftUefiCertificateAuthorityTemplate = "MicrosoftUefiCertificateAuthorityTemplate",
     MicrosoftWindowsTemplate = "MicrosoftWindowsTemplate",
     NoSignatureTemplate = "NoSignatureTemplate"
+}
+
+// @public
+export enum KnownValidationStatus {
+    Failed = "Failed",
+    Succeeded = "Succeeded",
+    Unknown = "Unknown"
 }
 
 // @public
@@ -4045,6 +4401,12 @@ export enum KnownWindowsVMGuestPatchMode {
     AutomaticByOS = "AutomaticByOS",
     AutomaticByPlatform = "AutomaticByPlatform",
     Manual = "Manual"
+}
+
+// @public
+export enum KnownZonalPlatformFaultDomainAlignMode {
+    Aligned = "Aligned",
+    Unaligned = "Unaligned"
 }
 
 // @public
@@ -4449,6 +4811,12 @@ export interface Plan {
     product?: string;
     promotionCode?: string;
     publisher?: string;
+}
+
+// @public
+export interface PlatformAttribute {
+    readonly name?: string;
+    readonly value?: string;
 }
 
 // @public
@@ -5519,6 +5887,17 @@ export interface Sku {
 }
 
 // @public
+export interface SkuProfile {
+    allocationStrategy?: AllocationStrategy;
+    vmSizes?: SkuProfileVMSize[];
+}
+
+// @public
+export interface SkuProfileVMSize {
+    name?: string;
+}
+
+// @public
 export interface Snapshot extends Resource {
     completionPercent?: number;
     copyCompletionError?: CopyCompletionError;
@@ -5671,6 +6050,28 @@ export interface SnapshotUpdate {
         [propertyName: string]: string;
     };
 }
+
+// @public
+export type SoftDeletedArtifactTypes = string;
+
+// @public
+export interface SoftDeletedResource {
+    listByArtifactName(resourceGroupName: string, galleryName: string, artifactType: string, artifactName: string, options?: SoftDeletedResourceListByArtifactNameOptionalParams): PagedAsyncIterableIterator<GallerySoftDeletedResource>;
+}
+
+// @public
+export interface SoftDeletedResourceListByArtifactNameNextOptionalParams extends coreClient.OperationOptions {
+}
+
+// @public
+export type SoftDeletedResourceListByArtifactNameNextResponse = GallerySoftDeletedResourceList;
+
+// @public
+export interface SoftDeletedResourceListByArtifactNameOptionalParams extends coreClient.OperationOptions {
+}
+
+// @public
+export type SoftDeletedResourceListByArtifactNameResponse = GallerySoftDeletedResourceList;
 
 // @public
 export interface SoftDeletePolicy {
@@ -5855,6 +6256,7 @@ export interface SystemData {
 
 // @public
 export interface TargetRegion {
+    additionalReplicaSets?: AdditionalReplicaSet[];
     encryption?: EncryptionImages;
     excludeFromLatest?: boolean;
     name: string;
@@ -6011,6 +6413,7 @@ export interface UserArtifactManage {
 export interface UserArtifactSettings {
     configFileName?: string;
     packageFileName?: string;
+    scriptBehaviorAfterReboot?: GalleryApplicationScriptRebootBehavior;
 }
 
 // @public
@@ -6034,6 +6437,17 @@ export interface UserInitiatedReboot {
 export interface UserInitiatedRedeploy {
     automaticallyApprove?: boolean;
 }
+
+// @public
+export interface ValidationsProfile {
+    // (undocumented)
+    executedValidations?: ExecutedValidation[];
+    platformAttributes?: PlatformAttribute[];
+    validationEtag?: string;
+}
+
+// @public
+export type ValidationStatus = string;
 
 // @public
 export interface VaultCertificate {
@@ -6788,11 +7202,13 @@ export interface VirtualMachineScaleSet extends Resource {
     scheduledEventsPolicy?: ScheduledEventsPolicy;
     singlePlacementGroup?: boolean;
     sku?: Sku;
+    skuProfile?: SkuProfile;
     spotRestorePolicy?: SpotRestorePolicy;
     readonly timeCreated?: Date;
     readonly uniqueId?: string;
     upgradePolicy?: UpgradePolicy;
     virtualMachineProfile?: VirtualMachineScaleSetVMProfile;
+    zonalPlatformFaultDomainAlignMode?: ZonalPlatformFaultDomainAlignMode;
     zoneBalance?: boolean;
     zones?: string[];
 }
@@ -7431,9 +7847,12 @@ export interface VirtualMachineScaleSetUpdate extends UpdateResource {
     scaleInPolicy?: ScaleInPolicy;
     singlePlacementGroup?: boolean;
     sku?: Sku;
+    skuProfile?: SkuProfile;
     spotRestorePolicy?: SpotRestorePolicy;
     upgradePolicy?: UpgradePolicy;
     virtualMachineProfile?: VirtualMachineScaleSetUpdateVMProfile;
+    zonalPlatformFaultDomainAlignMode?: ZonalPlatformFaultDomainAlignMode;
+    zones?: string[];
 }
 
 // @public
@@ -8310,7 +8729,7 @@ export interface VMSizeProperties {
 export interface WindowsConfiguration {
     additionalUnattendContent?: AdditionalUnattendContent[];
     enableAutomaticUpdates?: boolean;
-    enableVMAgentPlatformUpdates?: boolean;
+    readonly enableVMAgentPlatformUpdates?: boolean;
     patchSettings?: PatchSettings;
     provisionVMAgent?: boolean;
     timeZone?: string;
@@ -8351,6 +8770,9 @@ export interface WinRMListener {
     certificateUrl?: string;
     protocol?: ProtocolTypes;
 }
+
+// @public
+export type ZonalPlatformFaultDomainAlignMode = string;
 
 // (No @packageDocumentation comment for this package)
 

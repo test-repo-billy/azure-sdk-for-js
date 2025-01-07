@@ -1,12 +1,12 @@
 // Copyright (c) Microsoft Corporation.
-// Licensed under the MIT license.
+// Licensed under the MIT License.
 
 /**
  * @file Rule to require client methods returning a subclient to have names prefixed suffixed with "get" and suffixed with "client".
  *
  */
 
-import { getPublicMethods, createRule } from "../utils";
+import { getPublicMethods, createRule } from "../utils/index.js";
 import { TSESTree } from "@typescript-eslint/utils";
 
 //------------------------------------------------------------------------------
@@ -20,7 +20,6 @@ export default createRule({
     docs: {
       description:
         "require client methods returning a subclient to have names prefixed suffixed with 'get' and suffixed with 'client'",
-      recommended: "recommended",
     },
     messages: {
       BadSubclientMethodName:

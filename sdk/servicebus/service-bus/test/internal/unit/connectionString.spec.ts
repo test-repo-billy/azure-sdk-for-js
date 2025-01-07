@@ -1,10 +1,9 @@
 // Copyright (c) Microsoft Corporation.
-// Licensed under the MIT license.
+// Licensed under the MIT License.
 
-import { parseServiceBusConnectionString } from "../../../src/util/connectionStringUtils";
-import chai from "chai";
-
-const assert: typeof chai.assert = chai.assert;
+import { parseServiceBusConnectionString } from "../../../src/util/connectionStringUtils.js";
+import { describe, it } from "vitest";
+import { assert } from "../../public/utils/chai.js";
 
 describe("Connection String", () => {
   const expectedNamespace = "my.servicebus.windows.net";
@@ -62,6 +61,34 @@ describe("Connection String", () => {
     assert.equal(connectionStringProperties.fullyQualifiedNamespace, expectedNamespace);
     assert.equal(connectionStringProperties.sharedAccessKey, expectedSharedKey);
     assert.equal(connectionStringProperties.sharedAccessKeyName, expectedSharedKeyName);
+  });
+
+  it("Extracts Service Bus properties for 0:0:0:0:0:0:0:1 with port", () => {
+    const connectionString = `Endpoint=sb://0:0:0:0:0:0:0:1:6765`;
+    const connectionStringProperties = parseServiceBusConnectionString(connectionString);
+    assert.equal(connectionStringProperties.endpoint, "sb://0:0:0:0:0:0:0:1:6765");
+    assert.equal(connectionStringProperties.fullyQualifiedNamespace, "0:0:0:0:0:0:0:1");
+  });
+
+  it("Extracts Service Bus properties for 127.0.0.1 with port", () => {
+    const connectionString = `Endpoint=sb://127.0.0.1:6765`;
+    const connectionStringProperties = parseServiceBusConnectionString(connectionString);
+    assert.equal(connectionStringProperties.endpoint, "sb://127.0.0.1:6765");
+    assert.equal(connectionStringProperties.fullyQualifiedNamespace, "127.0.0.1");
+  });
+
+  it("Extracts Service Bus properties for ::1 with port", () => {
+    const connectionString = `Endpoint=sb://::1:6765`;
+    const connectionStringProperties = parseServiceBusConnectionString(connectionString);
+    assert.equal(connectionStringProperties.endpoint, "sb://::1:6765");
+    assert.equal(connectionStringProperties.fullyQualifiedNamespace, "::1");
+  });
+
+  it("Extracts Service Bus properties for localhost with port", () => {
+    const connectionString = `Endpoint=sb://localhost:6765`;
+    const connectionStringProperties = parseServiceBusConnectionString(connectionString);
+    assert.equal(connectionStringProperties.endpoint, "sb://localhost:6765");
+    assert.equal(connectionStringProperties.fullyQualifiedNamespace, "localhost");
   });
 
   it("Throws when no Endpoint", () => {

@@ -1,8 +1,7 @@
 // Copyright (c) Microsoft Corporation.
-// Licensed under the MIT license.
-
-import { assert } from "chai";
-import { retrieveJwtExpirationTimestamp } from "../src/util/jwt";
+// Licensed under the MIT License.
+import { retrieveJwtExpirationTimestamp } from "../src/util/jwt.js";
+import { describe, it, assert } from "vitest";
 
 describe("jwt", () => {
   it("parse expiration", () => {

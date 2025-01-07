@@ -1,8 +1,7 @@
 // Copyright (c) Microsoft Corporation.
-// Licensed under the MIT license.
-
-import { assert } from "chai";
-import { constructAuthenticationEndpointFromDomain } from "../src/util/authenticationEndpoint";
+// Licensed under the MIT License.
+import { constructAuthenticationEndpointFromDomain } from "../src/util/authenticationEndpoint.js";
+import { describe, it, assert } from "vitest";
 
 describe("authenticationEndpoint", () => {
   it("construct with invalid argument", () => {

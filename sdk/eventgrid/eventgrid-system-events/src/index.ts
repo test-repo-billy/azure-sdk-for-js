@@ -1,5 +1,5 @@
 // Copyright (c) Microsoft Corporation.
-// Licensed under the MIT license.
+// Licensed under the MIT License.
 
 export {
   ApiCenterApiDefinitionAddedEventData,
@@ -346,7 +346,7 @@ export {
   ResourceNotificationsResourceManagementDeletedEventData,
   ServiceApiVersions,
   MediaJobOutputUnion,
-} from "./cadl-generated";
+} from "./cadl-generated/index.js";
 
 export {
   CloudEvent,
@@ -361,6 +361,6 @@ export {
   KeyVaultSecretNearExpiryEventData,
   KeyVaultAccessPolicyChangedEventData,
   KeyVaultSecretExpiredEventData,
-} from "./models";
+} from "./models.js";
 
-export { isSystemEvent, KnownSystemEventTypes, SystemEventNameToEventData } from "./predicates";
+export { isSystemEvent, KnownSystemEventTypes, SystemEventNameToEventData } from "./predicates.js";

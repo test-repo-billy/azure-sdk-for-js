@@ -1,5 +1,5 @@
 // Copyright (c) Microsoft Corporation.
-// Licensed under the MIT license.
+// Licensed under the MIT License.
 
 import * as fs from "fs";
 import * as util from "util";
@@ -129,7 +129,7 @@ export async function streamToBuffer3(
   return new Promise((resolve, reject) => {
     const chunks: Buffer[] = [];
     readableStream.on("data", (data: Buffer | string) => {
-      chunks.push(data instanceof Buffer ? data : Buffer.from(data, encoding));
+      chunks.push(typeof data === "string" ? Buffer.from(data, encoding) : data);
     });
     readableStream.on("end", () => {
       resolve(Buffer.concat(chunks));

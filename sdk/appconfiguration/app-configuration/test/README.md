@@ -2,7 +2,7 @@
 
 To test this project, make sure to build it by following our [building instructions](https://github.com/Azure/azure-sdk-for-js/blob/main/CONTRIBUTING.md#building), then follow the [testing instructions](https://github.com/Azure/azure-sdk-for-js/blob/main/CONTRIBUTING.md#testing).
 
-You can use existing Azure resources for the live tests, or generate new ones by using our [New-TestResources.ps1](https://github.com/Azure/azure-sdk-for-js/blob/main/eng/common/TestResources/New-TestResources.ps1) script, which will use an [ARM template](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/appconfiguration/test-resources.json) that already has all of the the necessary configurations.
+You can use existing Azure resources for the live tests, or generate new ones by using our [New-TestResources.ps1](https://github.com/Azure/azure-sdk-for-js/blob/main/eng/common/TestResources/New-TestResources.ps1) script, which will use a [Bicep template](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/appconfiguration/test-resources.bicep) that already has all of the the necessary configurations.
 
 The Azure resource that is used by the tests in this project is:
 
@@ -34,6 +34,6 @@ The following steps will help you setup the AAD credentials.
 - In the Azure portal, go to your Azure App Configuration and assign the **Owner** role to the registered application.
 - This can be done from `Role assignment` section of `Access control (IAM)` tab (in the left-side-navbar of your Azure App Configuration in the Azure portal)<br>
   _Doing this would allow the registered application manage the resource, i.e., entity creation, deletion, etc.,_<br>
-- For more information on securing your Azure App Configuration: [Learn more](https://docs.microsoft.com/azure/event-hubs/authorize-access-event-hubs)
+- For more information on securing your Azure App Configuration: [Learn more](https://learn.microsoft.com/azure/azure-app-configuration/concept-enable-rbac)
 
 ![Impressions](https://azure-sdk-impressions.azurewebsites.net/api/impressions/azure-sdk-for-js%2Fsdk%2Fappconfiguration%2Fapp-configuration%2Ftest%2FREADME.png)

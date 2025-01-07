@@ -4,10 +4,10 @@
 
 ```ts
 
-import { ClientOptions } from '@azure-rest/core-client';
-import { OperationOptions } from '@azure-rest/core-client';
-import { OperationState } from '@azure/core-lro';
-import { SimplePollerLike } from '@azure/core-lro';
+import type { ClientOptions } from '@azure-rest/core-client';
+import type { OperationOptions } from '@azure-rest/core-client';
+import type { OperationState } from '@azure/core-lro';
+import type { PollerLike } from '@azure/core-lro';
 
 // @public
 export interface AdmInstallation extends DeviceTokenInstallation {
@@ -246,6 +246,11 @@ export interface BaiduTemplateRegistrationDescription extends BaiduTemplateRegis
 
 // @public
 export interface BaiduTemplateRegistrationDescriptionCommon extends BaiduRegistrationDescriptionCommon, TemplateRegistrationDescription {
+}
+
+// @public
+export interface BroadcastSendNotificationOptions extends OperationOptions {
+    enableTestSend?: boolean;
 }
 
 // @public
@@ -781,7 +786,8 @@ export interface MpnsTemplateRegistrationDescriptionCommon extends MpnsRegistrat
 }
 
 // @public
-export type Notification = AppleNotification | AdmNotification | BaiduNotification | BrowserNotification | FcmLegacyNotification | FcmV1Notification | XiaomiNotification | WindowsNotification | TemplateNotification;
+type Notification_2 = AppleNotification | AdmNotification | BaiduNotification | BrowserNotification | FcmLegacyNotification | FcmV1Notification | XiaomiNotification | WindowsNotification | TemplateNotification;
+export { Notification_2 as Notification }
 
 // @public
 export interface NotificationCommon {
@@ -835,7 +841,7 @@ export interface NotificationHubJob {
 }
 
 // @public
-export type NotificationHubJobPoller = SimplePollerLike<OperationState<NotificationHubJob>, NotificationHubJob>;
+export type NotificationHubJobPoller = PollerLike<OperationState<NotificationHubJob>, NotificationHubJob>;
 
 // @public
 export type NotificationHubJobStatus =
@@ -962,13 +968,12 @@ export type RegistrationType = "Adm" | "AdmTemplate" | "Apple" | "AppleTemplate"
 
 // @public
 export interface ScheduleNotificationOptions extends OperationOptions {
-    tagExpression?: string;
+    tagExpression: string;
 }
 
 // @public
-export interface SendNotificationOptions extends OperationOptions {
-    enableTestSend?: boolean;
-    tagExpression?: string;
+export interface SendNotificationOptions extends BroadcastSendNotificationOptions {
+    tagExpression: string;
 }
 
 // @public

@@ -1,5 +1,5 @@
 // Copyright (c) Microsoft Corporation.
-// Licensed under the MIT license.
+// Licensed under the MIT License.
 
 /**
  * Azure service API version.
@@ -10,6 +10,11 @@ export enum ServiceApiVersion {
    */
   V2 = "2020-09-15_Preview",
 }
+
+/**
+ * Operation Name attribute name.
+ */
+export const AI_OPERATION_NAME = "ai.operation.name";
 
 /**
  * Default Breeze endpoint.
@@ -45,13 +50,27 @@ export const ENV_INSTRUMENTATION_KEY = "APPINSIGHTS_INSTRUMENTATIONKEY";
  * Disable Statsbeat environment variable name.
  * @internal
  */
-export const ENV_DISABLE_STATSBEAT = "APPLICATION_INSIGHTS_NO_STATSBEAT";
+export const ENV_DISABLE_STATSBEAT = "APPLICATIONINSIGHTS_STATSBEAT_DISABLED";
+/**
+ * Legacy disable Statsbeat environment variable name.
+ * @internal
+ */
+export const LEGACY_ENV_DISABLE_STATSBEAT = "APPLICATION_INSIGHTS_NO_STATSBEAT";
 /**
  * Disable OpenTelemetry Resource Metric.
  * @internal
  */
 export const ENV_OPENTELEMETRY_RESOURCE_METRIC_DISABLED =
   "APPLICATIONINSIGHTS_OPENTELEMETRY_RESOURCE_METRIC_DISABLED";
+
+/**
+ * REST error types for failed requests that can be retried.
+ * @internal
+ */
+export enum RetriableRestErrorTypes {
+  REQUEST_SEND_ERROR = "REQUEST_SEND_ERROR",
+  DNS_LOOKUP_TIMEOUT = "EAI_AGAIN",
+}
 
 /**
  * QuickPulse metric counter names.

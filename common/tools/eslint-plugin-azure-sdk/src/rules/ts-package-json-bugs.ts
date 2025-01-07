@@ -1,12 +1,12 @@
 // Copyright (c) Microsoft Corporation.
-// Licensed under the MIT license.
+// Licensed under the MIT License.
 
 /**
  * @file Rule to force package.json's bugs.url value to be "https://github.com/Azure/azure-sdk-for-js/issues".
  *
  */
 
-import { VerifierMessages, createRule, getVerifiers, stripPath } from "../utils";
+import { VerifierMessages, createRule, getVerifiers, stripPath } from "../utils/index.js";
 
 //------------------------------------------------------------------------------
 // Rule Definition
@@ -19,7 +19,6 @@ export default createRule({
     docs: {
       description:
         "force package.json's bugs.url value to be 'https://github.com/Azure/azure-sdk-for-js/issues'",
-      recommended: "recommended",
     },
     messages: { ...VerifierMessages },
     schema: [],

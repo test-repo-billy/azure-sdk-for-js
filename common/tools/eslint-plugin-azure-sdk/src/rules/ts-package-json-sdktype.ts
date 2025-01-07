@@ -1,5 +1,5 @@
 // Copyright (c) Microsoft Corporation.
-// Licensed under the MIT license.
+// Licensed under the MIT License.
 
 /**
  * @file Rule to force package.json's 'sdk-type' value to be valid (and exist)
@@ -8,7 +8,7 @@
  */
 
 import { TSESTree } from "@typescript-eslint/utils";
-import { VerifierMessages, createRule, getVerifiers, stripPath } from "../utils";
+import { VerifierMessages, createRule, getVerifiers, stripPath } from "../utils/index.js";
 
 //------------------------------------------------------------------------------
 // Rule Definition
@@ -21,7 +21,6 @@ export default createRule({
     docs: {
       description:
         "force package.json's sdk-type to exist and for its value to be 'client' or 'mgmt'",
-      recommended: "recommended",
     },
     messages: {
       ...VerifierMessages,

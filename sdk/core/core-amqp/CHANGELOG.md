@@ -1,16 +1,27 @@
 # Release History
 
-## 4.4.0-beta.2 (Unreleased)
+## 4.3.4 (2025-01-10)
 
-### Features Added
+### Bugs Fixed
 
-### Breaking Changes
+- Fix parsing of connection string to extract port number properly.
+
+## 4.3.3 (2024-11-07)
+
+### Other Changes
+
+- Move the constant for the geographic replication feature to Event Hubs.
+- Remove request from `RequestResponseLink` logging.
+
+## 4.3.2 (2024-08-01)
+
+- Adding React-Native support at top level [PR #30521](https://github.com/Azure/azure-sdk-for-js/pull/30521)
+
+## 4.3.1 (2024-07-18)
 
 ### Bugs Fixed
 
 - Address React-Native regression after ESM migration [Issue #30065](https://github.com/Azure/azure-sdk-for-js/issues/30065)
-
-### Other Changes
 
 ## 4.4.0-beta.1 (2024-06-06)
 
@@ -21,6 +32,7 @@
 ## 4.3.0 (2024-05-20)
 
 ### Breaking Changes
+
 - Moved to ESM core with builds for ESM, CommonJS, React-Native and Browser.
 - Moved unit tests from mocha to vitest.
 
@@ -64,7 +76,7 @@
 
 ### Features Added
 
-- Changed `TokenProvider` to use native crypto libraries.  This changes the signature from `getToken` from being sync to async.
+- Changed `TokenProvider` to use native crypto libraries. This changes the signature from `getToken` from being sync to async.
 
 ### Breaking Changes
 

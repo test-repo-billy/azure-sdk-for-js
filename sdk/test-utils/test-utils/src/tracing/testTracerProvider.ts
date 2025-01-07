@@ -1,8 +1,8 @@
 // Copyright (c) Microsoft Corporation.
-// Licensed under the MIT license.
+// Licensed under the MIT License.
 
 import { TracerOptions, TracerProvider, trace } from "@opentelemetry/api";
-import { TestTracer } from "./testTracer";
+import { TestTracer } from "./testTracer.js";
 
 // This must be the same as the default tracer name supplied from @azure/core-tracing.
 const TRACER_NAME = "azure/core-tracing";

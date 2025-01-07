@@ -1,7 +1,5 @@
 // Copyright (c) Microsoft Corporation.
-// Licensed under the MIT license.
-
-/// <reference lib="es2020" />
+// Licensed under the MIT License.
 
 export { RequestResponseLink, SendRequestOptions } from "./requestResponseLink.js";
 export { retry, RetryOptions, RetryConfig, RetryOperationType, RetryMode } from "./retry.js";

@@ -72,7 +72,7 @@ const {
   RecipientVerificationClient,
 } = require("@azure-tools/communication-recipient-verification");
 
-let credential = new DefaultAzureCredential();
+const credential = new DefaultAzureCredential();
 const client = new RecipientVerificationClient("<endpoint-from-resource>", credential);
 ```
 
@@ -100,7 +100,7 @@ async function main() {
   };
 
   // get the verification status
-  var status = await client.requestVerification(VerificationRequest);
+  const status = await client.requestVerification(VerificationRequest);
   console.log(status);
 }
 
@@ -158,7 +158,7 @@ const client = new RecipientVerificationClient(connectionString);
 
 async function main() {
   // get all verifications for a resource
-  var verifications = await client.getVerifications();
+  const verifications = await client.getVerifications();
 
   // print all verifications
   for await (const verification of verifications) {
@@ -183,10 +183,10 @@ If you'd like to contribute to this library, please read the [contributing guide
 
 - [Microsoft Azure SDK for Javascript](https://github.com/Azure/azure-sdk-for-js)
 
-[azure_cli]: https://docs.microsoft.com/cli/azure
+[azure_cli]: https://learn.microsoft.com/cli/azure
 [azure_sub]: https://azure.microsoft.com/free/
 [azure_portal]: https://portal.azure.com
-[azure_powershell]: https://docs.microsoft.com/powershell/module/az.communication/new-azcommunicationservice
+[azure_powershell]: https://learn.microsoft.com/powershell/module/az.communication/new-azcommunicationservice
 [defaultazurecredential]: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/identity/identity#defaultazurecredential
 [azure_identity]: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/identity/identity
 [azure_identity_readme]: https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/identity/identity/README.md

@@ -1,12 +1,12 @@
 // Copyright (c) Microsoft Corporation.
-// Licensed under the MIT license.
+// Licensed under the MIT License.
 
 // Model:       prebuilt-tax.us.1098E
 // Description: Extract key information from United States Internal Revenue Service Form 1098-E (2021-current).
 // API Version: 2023-07-31
 // Created:     Tue Aug 01 2023
 
-import * as fr from "../../../src";
+import * as fr from "../../../src/index.js";
 
 /**
  * Extract key information from United States Internal Revenue Service Form 1098-E (2021-current).

@@ -1,5 +1,5 @@
 // Copyright (c) Microsoft Corporation.
-// Licensed under the MIT license
+// Licensed under the MIT License
 
 import { METADATA_KEY, ProjectInfo, resolveProject, resolveRoot } from "../util/resolveProject";
 import { createPrinter } from "../util/printer";
@@ -354,13 +354,15 @@ async function runMigrations(pending: Migration[], project: ProjectInfo): Promis
 async function onMigrationSuccess(
   project: ProjectInfo,
   migration: Migration,
-  quiet: boolean = false, // eslint-disable-line @typescript-eslint/no-inferrable-types
+  quiet: boolean = false,
 ): Promise<void> {
   await updateMigrationDate(project, migration);
 
   await git.commitAll(`${project.name}: applied migration '${migration.id}'`);
 
-  !quiet && log.success(`Migration '${migration.id}' applied successfully.`);
+  if (!quiet) {
+    log.success(`Migration '${migration.id}' applied successfully.`);
+  }
 }
 
 /**
@@ -370,13 +372,15 @@ async function onMigrationSuccess(
 async function onMigrationSkipped(
   project: ProjectInfo,
   migration: Migration,
-  quiet: boolean = false, // eslint-disable-line @typescript-eslint/no-inferrable-types
+  quiet: boolean = false,
 ): Promise<void> {
   await updateMigrationDate(project, migration);
 
   await git.commitAll(`${project.name}: skipped migration '${migration.id}'`);
 
-  !quiet && log.info(`Skipped migration '${migration.id}'. This package is not eligible.`);
+  if (!quiet) {
+    log.info(`Skipped migration '${migration.id}'. This package is not eligible.`);
+  }
 }
 
 /**
@@ -447,19 +451,17 @@ function printMigrationSuspendedWarning(migration: Migration, status: MigrationS
  * @param project - the working project
  * @returns true on success, otherwise false
  */
-async function abortMigration(
-  project: ProjectInfo,
-  quiet: boolean = false, // eslint-disable-line @typescript-eslint/no-inferrable-types
-): Promise<boolean> {
+async function abortMigration(project: ProjectInfo, quiet: boolean = false): Promise<boolean> {
   const suspendedMigration = await validateSuspendedState(project);
   if (!suspendedMigration) return false;
 
   await removeMigrationStateFile();
 
-  !quiet &&
+  if (!quiet) {
     log.warn(
       `Suspended migration '${suspendedMigration.id}' was aborted. The working tree may be dirty.`,
     );
+  }
 
   return true;
 }

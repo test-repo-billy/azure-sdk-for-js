@@ -1,12 +1,12 @@
 // Copyright (c) Microsoft Corporation.
-// Licensed under the MIT license.
+// Licensed under the MIT License.
 
 /**
  * @file Rule to require client methods returning an instance of the client to not include the client name in the method name.
  *
  */
 
-import { getPublicMethods, createRule } from "../utils";
+import { getPublicMethods, createRule } from "../utils/index.js";
 import { TSESTree } from "@typescript-eslint/utils";
 
 //------------------------------------------------------------------------------
@@ -20,7 +20,6 @@ export default createRule({
     docs: {
       description:
         "require client methods returning an instance of the client to not include the client name in the method name",
-      recommended: "recommended",
     },
     messages: {
       ClassNameInMethodName:

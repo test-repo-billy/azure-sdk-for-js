@@ -1,9 +1,10 @@
 // Copyright (c) Microsoft Corporation.
-// Licensed under the MIT license.
+// Licensed under the MIT License.
 
 import { createSerializer } from "@azure/core-client";
-import { CloudEvent, cloudEventReservedPropertyNames } from "./models";
-import { CloudEvent as CloudEventMapper, parseAndWrap, validateCloudEventEvent } from "./util";
+import type { CloudEvent } from "./models.js";
+import { cloudEventReservedPropertyNames } from "./models.js";
+import { CloudEvent as CloudEventMapper, parseAndWrap, validateCloudEventEvent } from "./util.js";
 
 const serializer = createSerializer();
 

@@ -1,5 +1,5 @@
 // Copyright (c) Microsoft Corporation.
-// Licensed under the MIT license.
+// Licensed under the MIT License.
 
 import { Constants } from "./constants";
 
@@ -16,13 +16,15 @@ export function getUserAgent(suffix?: string): string {
 
 // TODO: Standardize across other platforms from @azure/core-util
 function userAgentDetails(): string {
+  let userAgentDetail = "<environment undetectable>";
+
   if (globalThis.navigator && globalThis.navigator.userAgent) {
-    return globalThis.navigator.userAgent;
+    userAgentDetail = globalThis.navigator.userAgent;
   }
 
   if (globalThis.process && globalThis.process.version) {
-    return `Node.js/${process.version.slice(1)} (${process.platform}; ${process.arch})`;
+    userAgentDetail = `Node.js/${process.version.slice(1)} (${process.platform}; ${process.arch})`;
   }
 
-  return "<environment undetectable>";
+  return userAgentDetail;
 }

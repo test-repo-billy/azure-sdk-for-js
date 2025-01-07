@@ -1,25 +1,5 @@
 // Copyright (c) Microsoft Corporation.
-// Licensed under the MIT license.
-
-/**
- * @internal
- */
-interface Window {}
-
-/**
- * @internal
- */
-declare let self: Window & typeof globalThis & { navigator: Navigator };
-
-/**
- * @internal
- */
-interface Navigator {
-  /**
-   * Returns a string representing the browser version info.
-   */
-  appVersion: string;
-}
+// Licensed under the MIT License.
 
 /**
  * Returns information about the platform this function is being run on.

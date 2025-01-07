@@ -1,19 +1,12 @@
 // Copyright (c) Microsoft Corporation.
-// Licensed under the MIT license.
+// Licensed under the MIT License.
 
 import path from "node:path";
-import {
-  cpSync,
-  existsSync,
-  mkdirSync,
-  readFileSync,
-  readdirSync,
-  statSync,
-  writeFileSync,
-} from "node:fs";
+import { cpSync, existsSync, mkdirSync, readdirSync, statSync, writeFileSync } from "node:fs";
 import { leafCommand, makeCommandInfo } from "../../framework/command";
 import { createPrinter } from "../../util/printer";
 import { resolveProject } from "../../util/resolveProject";
+import { resolveConfig } from "../../util/resolveTsConfig";
 import { spawnSync } from "node:child_process";
 
 const log = createPrinter("build-test");
@@ -65,7 +58,8 @@ export default leafCommand(commandInfo, async (options) => {
   // Build the overrides - hard code to browser for now
   const overrides = new Map<string, OverrideSet>();
   overrides.set("esm", new OverrideSet("esm", "browser"));
-  const sources = new Set(getSources());
+  // Check for browser specific file under "src" and "test"
+  const sources = new Set([...getSources(), ...getSources("test")]);
   for (const file of sources) {
     for (const override of overrides.values()) {
       override.addOverride(file, sources);
@@ -93,28 +87,31 @@ export default leafCommand(commandInfo, async (options) => {
 
     log.info(`Building for browser testing...`);
     const esmMap = overrides.has("esm") ? overrides.get("esm")!.map : new Map<string, string>();
-    compileForEnvironment("browser", browserConfig, importMap, esmMap);
+    await compileForEnvironment("browser", browserConfig, importMap, esmMap);
   }
 
   return true;
 });
 
-function compileForEnvironment(
+async function compileForEnvironment(
   type: string,
   tsConfig: string,
   importMap: Map<string, string>,
   overrideMap: Map<string, string>,
-): boolean {
+): Promise<boolean> {
   const tsconfigPath = path.join(process.cwd(), tsConfig);
-  const tsConfigFile = readFileSync(tsconfigPath, "utf8");
-  const tsConfigJSON = JSON.parse(tsConfigFile);
+  const tsConfigJSON = await resolveConfig(tsconfigPath);
   const outputPath = tsConfigJSON.compilerOptions.outDir;
   if (!existsSync(tsconfigPath)) {
     log.error(`TypeScript config ${tsConfig} does not exist`);
     return false;
   }
 
-  const browserTestPath = path.join(process.cwd(), outputPath);
+  const browserTestPath = outputPath;
+  if (!browserTestPath) {
+    log.error(`Output path not defined in ${tsConfig}`);
+    return false;
+  }
   if (!existsSync(browserTestPath)) {
     mkdirSync(browserTestPath, { recursive: true });
   }
@@ -190,8 +187,8 @@ function overrideFile(
   sourceFile: string,
   destinationFile: string,
 ): void {
-  const sourceFileType = path.join(process.cwd(), rootDir, relativeDir, sourceFile);
-  const destFileType = path.join(process.cwd(), rootDir, relativeDir, destinationFile);
+  const sourceFileType = path.join(rootDir, relativeDir, sourceFile);
+  const destFileType = path.join(rootDir, relativeDir, destinationFile);
 
   cpSync(sourceFileType, destFileType, { force: true });
 }

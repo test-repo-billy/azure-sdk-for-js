@@ -1,5 +1,5 @@
 // Copyright (c) Microsoft Corporation.
-// Licensed under the MIT license.
+// Licensed under the MIT License.
 
 /**
  * @file Testing the ts-oackage-json-engine-is-present rule.
@@ -8,8 +8,8 @@
 
 "use strict";
 
-import { createRuleTester } from "../ruleTester";
-import rule, { LTS } from "../../src/rules/ts-package-json-engine-is-present";
+import { createRuleTester } from "../ruleTester.js";
+import rule, { LTS } from "../../src/rules/ts-package-json-engine-is-present.js";
 
 //------------------------------------------------------------------------------
 // Example files

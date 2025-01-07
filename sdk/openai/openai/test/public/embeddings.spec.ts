@@ -1,17 +1,17 @@
 // Copyright (c) Microsoft Corporation.
-// Licensed under the MIT license.
+// Licensed under the MIT License.
 
 import { matrix } from "@azure-tools/test-utils-vitest";
 import { describe, it, beforeAll } from "vitest";
 import { createClient } from "./utils/createClient.js";
 import {
   APIMatrix,
-  APIVersion,
-  DeploymentInfo,
+  type APIVersion,
+  type DeploymentInfo,
   getDeployments,
   withDeployments,
 } from "./utils/utils.js";
-import OpenAI, { AzureOpenAI } from "openai";
+import type { OpenAI, AzureOpenAI } from "openai";
 import { assertEmbeddings } from "./utils/asserts.js";
 
 describe("Embeddings", function () {

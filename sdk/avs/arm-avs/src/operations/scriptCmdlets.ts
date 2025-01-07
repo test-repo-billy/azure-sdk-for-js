@@ -7,12 +7,12 @@
  */
 
 import { PagedAsyncIterableIterator, PageSettings } from "@azure/core-paging";
-import { setContinuationToken } from "../pagingHelper";
-import { ScriptCmdlets } from "../operationsInterfaces";
+import { setContinuationToken } from "../pagingHelper.js";
+import { ScriptCmdlets } from "../operationsInterfaces/index.js";
 import * as coreClient from "@azure/core-client";
-import * as Mappers from "../models/mappers";
-import * as Parameters from "../models/parameters";
-import { AzureVMwareSolutionAPI } from "../azureVMwareSolutionAPI";
+import * as Mappers from "../models/mappers.js";
+import * as Parameters from "../models/parameters.js";
+import { AzureVMwareSolutionAPI } from "../azureVMwareSolutionAPI.js";
 import {
   ScriptCmdlet,
   ScriptCmdletsListNextOptionalParams,
@@ -21,7 +21,7 @@ import {
   ScriptCmdletsGetOptionalParams,
   ScriptCmdletsGetResponse,
   ScriptCmdletsListNextResponse,
-} from "../models";
+} from "../models/index.js";
 
 /// <reference lib="esnext.asynciterable" />
 /** Class containing ScriptCmdlets operations. */
@@ -210,7 +210,7 @@ const listOperationSpec: coreClient.OperationSpec = {
   httpMethod: "GET",
   responses: {
     200: {
-      bodyMapper: Mappers.ScriptCmdletListResult,
+      bodyMapper: Mappers.ScriptCmdletsList,
     },
     default: {
       bodyMapper: Mappers.ErrorResponse,
@@ -255,7 +255,7 @@ const listNextOperationSpec: coreClient.OperationSpec = {
   httpMethod: "GET",
   responses: {
     200: {
-      bodyMapper: Mappers.ScriptCmdletListResult,
+      bodyMapper: Mappers.ScriptCmdletsList,
     },
     default: {
       bodyMapper: Mappers.ErrorResponse,

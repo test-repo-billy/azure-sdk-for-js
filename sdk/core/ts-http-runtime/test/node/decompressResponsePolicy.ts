@@ -1,8 +1,10 @@
 // Copyright (c) Microsoft Corporation.
-// Licensed under the MIT license.
+// Licensed under the MIT License.
 
 import { describe, it, assert, expect, vi } from "vitest";
-import { SendRequest, createPipelineRequest, decompressResponsePolicy } from "../../src/index.js";
+import type { SendRequest } from "../../src/index.js";
+import { createPipelineRequest } from "../../src/index.js";
+import { decompressResponsePolicy } from "../../src/policies/decompressResponsePolicy.js";
 
 describe("decompressResponsePolicy (node)", function () {
   it("Sets the expected flag on the request", function () {

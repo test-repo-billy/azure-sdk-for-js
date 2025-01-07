@@ -1,5 +1,5 @@
 // Copyright (c) Microsoft Corporation
-// Licensed under the MIT license.
+// Licensed under the MIT License.
 
 /**
  * This module contains some types and helper values related to information
@@ -154,7 +154,7 @@ export interface ModuleInfo {
  */
 export interface SampleReadmeConfiguration extends SampleGenerationInfo {
   /**
-   * YAML frontmatter used for publication on docs.microsoft.com.
+   * YAML frontmatter used for publication on learn.microsoft.com.
    */
   frontmatter: unknown;
   /**

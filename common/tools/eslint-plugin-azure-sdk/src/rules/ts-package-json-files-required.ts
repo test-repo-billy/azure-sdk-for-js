@@ -1,5 +1,5 @@
 // Copyright (c) Microsoft Corporation.
-// Licensed under the MIT license.
+// Licensed under the MIT License.
 
 /**
  * @file Rule to force package.json's files value to contain paths to the package contents and excludes source code files.
@@ -13,7 +13,7 @@ import {
   getVerifiers,
   stripPath,
   isEsmPackage,
-} from "../utils";
+} from "../utils/index.js";
 
 //------------------------------------------------------------------------------
 // Rule Definition
@@ -64,7 +64,6 @@ export default createRule({
     type: "suggestion",
     docs: {
       description: "requires package.json's files value to contain paths to the package contents",
-      recommended: "recommended",
     },
     messages: {
       ...VerifierMessages,

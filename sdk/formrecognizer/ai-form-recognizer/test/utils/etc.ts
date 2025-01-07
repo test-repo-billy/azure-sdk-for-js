@@ -1,9 +1,8 @@
 // Copyright (c) Microsoft Corporation.
-// Licensed under the MIT license.
+// Licensed under the MIT License.
 
 import { assertEnvironmentVariable } from "@azure-tools/test-recorder";
-
-import path from "path";
+import path from "node:path";
 
 export const ASSET_PATH = path.resolve(path.join(process.cwd(), "assets"));
 

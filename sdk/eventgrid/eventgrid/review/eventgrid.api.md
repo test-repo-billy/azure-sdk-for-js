@@ -6,11 +6,11 @@
 
 import { AzureKeyCredential } from '@azure/core-auth';
 import { AzureSASCredential } from '@azure/core-auth';
-import { CommonClientOptions } from '@azure/core-client';
-import { KeyCredential } from '@azure/core-auth';
-import { OperationOptions } from '@azure/core-client';
-import { SASCredential } from '@azure/core-auth';
-import { TokenCredential } from '@azure/core-auth';
+import type { CommonClientOptions } from '@azure/core-client';
+import type { KeyCredential } from '@azure/core-auth';
+import type { OperationOptions } from '@azure/core-client';
+import type { SASCredential } from '@azure/core-auth';
+import type { TokenCredential } from '@azure/core-auth';
 
 // @public
 export interface AcsChatEventBase {
@@ -246,6 +246,7 @@ export interface AcsIncomingCallEventData {
     customContext: AcsIncomingCallCustomContext;
     fromCommunicationIdentifier: CommunicationIdentifierModel;
     incomingCallContext: string;
+    onBehalfOfCallee: CommunicationIdentifierModel;
     serverCallId: string;
     toCommunicationIdentifier: CommunicationIdentifierModel;
 }
@@ -1846,6 +1847,16 @@ export const enum KnownStampKind {
 }
 
 // @public
+export const enum KnownStorageLifecycleCompletionStatus {
+    // (undocumented)
+    Completed = "Completed",
+    // (undocumented)
+    CompletedWithError = "CompletedWithError",
+    // (undocumented)
+    Incomplete = "Incomplete"
+}
+
+// @public
 export const enum KnownStorageTaskAssignmentCompletedStatus {
     // (undocumented)
     Failed = "Failed",
@@ -2340,6 +2351,9 @@ export interface ResourceHttpRequest {
 }
 
 // @public
+export type ResourceNotificationsContainerServiceEventResourcesScheduledEventData = ResourceNotificationsResourceUpdatedEventData & {};
+
+// @public
 export type ResourceNotificationsHealthResourcesAnnotatedEventData = ResourceNotificationsResourceUpdatedEventData & {};
 
 // @public
@@ -2614,6 +2628,9 @@ export interface StorageDirectoryRenamedEventData {
 }
 
 // @public
+export type StorageLifecycleCompletionStatus = string;
+
+// @public
 export interface StorageLifecyclePolicyActionSummaryDetail {
     errorList: string;
     successCount: number;
@@ -2623,9 +2640,16 @@ export interface StorageLifecyclePolicyActionSummaryDetail {
 // @public
 export interface StorageLifecyclePolicyCompletedEventData {
     deleteSummary: StorageLifecyclePolicyActionSummaryDetail;
+    policyRunSummary: StorageLifecyclePolicyRunSummary;
     scheduleTime: string;
     tierToArchiveSummary: StorageLifecyclePolicyActionSummaryDetail;
+    tierToColdSummary: StorageLifecyclePolicyActionSummaryDetail;
     tierToCoolSummary: StorageLifecyclePolicyActionSummaryDetail;
+}
+
+// @public
+export interface StorageLifecyclePolicyRunSummary {
+    completionStatus: StorageLifecycleCompletionStatus;
 }
 
 // @public
@@ -2845,6 +2869,7 @@ export interface SystemEventNameToEventData {
     "Microsoft.PolicyInsights.PolicyStateChanged ": PolicyInsightsPolicyStateChangedEventData;
     "Microsoft.PolicyInsights.PolicyStateCreated": PolicyInsightsPolicyStateCreatedEventData;
     "Microsoft.PolicyInsights.PolicyStateDeleted": PolicyInsightsPolicyStateDeletedEventData;
+    "Microsoft.ResourceNotifications.ContainerServiceEventResources.ScheduledEventEmitted": ResourceNotificationsContainerServiceEventResourcesScheduledEventData;
     "Microsoft.ResourceNotifications.HealthResources.AvailabilityStatusChanged": ResourceNotificationsHealthResourcesAvailabilityStatusChangedEventData;
     "Microsoft.ResourceNotifications.HealthResources.ResourceAnnotated": ResourceNotificationsHealthResourcesAnnotatedEventData;
     "Microsoft.ResourceNotifications.Resources.CreatedOrUpdated": ResourceNotificationsResourceManagementCreatedOrUpdatedEventData;

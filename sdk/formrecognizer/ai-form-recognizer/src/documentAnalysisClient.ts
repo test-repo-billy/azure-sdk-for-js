@@ -1,33 +1,35 @@
 // Copyright (c) Microsoft Corporation.
-// Licensed under the MIT license.
+// Licensed under the MIT License.
 
-import { KeyCredential, TokenCredential } from "@azure/core-auth";
+import type { KeyCredential, TokenCredential } from "@azure/core-auth";
 import { createTracingClient } from "@azure/core-tracing";
-import { TracingClient } from "@azure/core-tracing";
-import { FORM_RECOGNIZER_API_VERSION, SDK_VERSION } from "./constants";
-import {
+import type { TracingClient } from "@azure/core-tracing";
+import { FORM_RECOGNIZER_API_VERSION, SDK_VERSION } from "./constants.js";
+import type {
   AnalyzeDocumentRequest,
   AnalyzeResultOperation,
-  ContentType,
   GeneratedClient,
-} from "./generated";
-import { accept1 } from "./generated/models/parameters";
-import {
+} from "./generated/index.js";
+import { accept1 } from "./generated/models/parameters.js";
+import type {
   AnalysisOperationDefinition,
   AnalysisPoller,
   AnalyzeResult,
   DocumentAnalysisPollOperationState,
   FormRecognizerRequestBody,
+} from "./lro/analysis.js";
+import {
   toAnalyzeResultFromGenerated,
   toDocumentAnalysisPollOperationState,
-} from "./lro/analysis";
-import { OperationContext, lro } from "./lro/util/poller";
-import { AnalyzeDocumentOptions } from "./options/AnalyzeDocumentOptions";
-import { DocumentAnalysisClientOptions } from "./options/FormRecognizerClientOptions";
-import { DocumentModel } from "./documentModel";
-import { makeServiceClient, Mappers, SERIALIZER } from "./util";
-import { AbortSignalLike } from "@azure/abort-controller";
-import { ClassifyDocumentOptions } from "./options/ClassifyDocumentOptions";
+} from "./lro/analysis.js";
+import type { OperationContext } from "./lro/util/poller.js";
+import { lro } from "./lro/util/poller.js";
+import type { AnalyzeDocumentOptions } from "./options/AnalyzeDocumentOptions.js";
+import type { DocumentAnalysisClientOptions } from "./options/FormRecognizerClientOptions.js";
+import type { DocumentModel } from "./documentModel.js";
+import { makeServiceClient, Mappers, SERIALIZER } from "./util.js";
+import type { AbortSignalLike } from "@azure/abort-controller";
+import type { ClassifyDocumentOptions } from "./options/ClassifyDocumentOptions.js";
 
 /**
  * A client for interacting with the Form Recognizer service's analysis features.
@@ -253,6 +255,7 @@ export class DocumentAnalysisClient {
   public async beginAnalyzeDocument(
     model: string | DocumentModel<unknown>,
     document: FormRecognizerRequestBody,
+    // eslint-disable-next-line @azure/azure-sdk/ts-naming-options
     options: AnalyzeDocumentOptions<unknown> = {},
   ): Promise<AnalysisPoller<unknown>> {
     return this._tracing.withSpan(
@@ -381,6 +384,7 @@ export class DocumentAnalysisClient {
   public async beginAnalyzeDocumentFromUrl(
     model: string | DocumentModel<unknown>,
     documentUrl: string,
+    // eslint-disable-next-line @azure/azure-sdk/ts-naming-options
     options: AnalyzeDocumentOptions<unknown> = {},
   ): Promise<AnalysisPoller<unknown>> {
     return this._tracing.withSpan(
@@ -425,11 +429,19 @@ export class DocumentAnalysisClient {
       (abortSignal) => {
         const [contentType, analyzeRequest] = toAnalyzeRequest(input);
 
-        return this._restClient.documentModels.analyzeDocument(initialModelId, contentType as any, {
-          ...options,
-          abortSignal,
-          analyzeRequest,
-        });
+        if (contentType === "application/json") {
+          return this._restClient.documentModels.analyzeDocument(initialModelId, contentType, {
+            ...options,
+            abortSignal,
+            analyzeRequest,
+          });
+        } else {
+          return this._restClient.documentModels.analyzeDocument(initialModelId, contentType, {
+            ...options,
+            abortSignal,
+            analyzeRequest,
+          });
+        }
       },
       {
         initialModelId,
@@ -557,15 +569,27 @@ export class DocumentAnalysisClient {
       async (abortSignal) => {
         const [contentType, classifyRequest] = toAnalyzeRequest(input);
 
-        return this._restClient.documentClassifiers.classifyDocument(
-          classifierId,
-          contentType as any,
-          {
-            ...options,
-            abortSignal,
-            classifyRequest,
-          },
-        );
+        if (contentType === "application/json") {
+          return this._restClient.documentClassifiers.classifyDocument(
+            classifierId,
+            contentType as any,
+            {
+              ...options,
+              abortSignal,
+              classifyRequest,
+            },
+          );
+        } else {
+          return this._restClient.documentClassifiers.classifyDocument(
+            classifierId,
+            contentType as any,
+            {
+              ...options,
+              abortSignal,
+              classifyRequest,
+            },
+          );
+        }
       },
       {
         initialModelId: classifierId,
@@ -749,7 +773,9 @@ export class DocumentAnalysisClient {
  */
 function toAnalyzeRequest(
   input: DocumentSource,
-): ["application/json", AnalyzeDocumentRequest] | [ContentType, FormRecognizerRequestBody] {
+):
+  | ["application/json", AnalyzeDocumentRequest]
+  | ["application/octet-stream", FormRecognizerRequestBody] {
   switch (input.kind) {
     case "body":
       return ["application/octet-stream", input.body];

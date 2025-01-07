@@ -1,14 +1,33 @@
 # Release History
 
-## 1.16.4 (Unreleased)
-
-### Features Added
-
-### Breaking Changes
+## 1.18.2 (2025-01-10)
 
 ### Bugs Fixed
 
-### Other Changes
+- Fixed an issue where tracing spans were incorrectly marked as successful. [PR #32018](https://github.com/Azure/azure-sdk-for-js/pull/32018)
+
+## 1.18.1 (2024-11-26)
+
+### Bugs Fixed
+
+- Fix `this` not being bound correctly for `ChallengeCallbacks` implementations in `bearerTokenAuthenticationPolicy`. [PR #31961](https://github.com/Azure/azure-sdk-for-js/pull/31961)
+
+## 1.18.0 (2024-11-12)
+
+### Features Added
+
+- `BearerTokenAuthenticationPolicy` will handle CAE claims challenge by default. [PR #31501](https://github.com/Azure/azure-sdk-for-js/pull/31501/)
+
+### Bugs Fixed
+
+- Fix an issue in `isStreamComplete` where the method never resolves if the stream is not readable.
+
+## 1.17.0 (2024-09-12)
+
+### Features Added
+
+- The token cycler of `BearerTokenCredentialPolicy` now checks the `refreshAfterTimestamp` attribute in the `AccessToken` when determining if a token request should be made in the `shouldRefresh` method. #30402
+- Added support for automatic span propagation and HTTP tracing for consumers using Rest Level Clients. [#31019](https://github.com/Azure/azure-sdk-for-js/pull/31019)
 
 ## 1.16.3 (2024-08-01)
 

@@ -1,13 +1,13 @@
 // Copyright (c) Microsoft Corporation.
-// Licensed under the MIT license.
+// Licensed under the MIT License.
 
 /**
  * @file Testing the ts-doc-internal rule.
  *
  */
 
-import { createRuleTester } from "../ruleTester";
-import rule from "../../src/rules/ts-doc-internal";
+import { createRuleTester } from "../ruleTester.js";
+import rule from "../../src/rules/ts-doc-internal.js";
 
 //------------------------------------------------------------------------------
 // Tests

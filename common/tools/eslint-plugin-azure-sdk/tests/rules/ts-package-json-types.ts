@@ -1,13 +1,13 @@
 // Copyright (c) Microsoft Corporation.
-// Licensed under the MIT license.
+// Licensed under the MIT License.
 
 /**
  * @file Testing the ts-package-json-types rule.
  *
  */
 
-import { createRuleTester } from "../ruleTester";
-import rule from "../../src/rules/ts-package-json-types";
+import { createRuleTester } from "../ruleTester.js";
+import rule from "../../src/rules/ts-package-json-types.js";
 
 //------------------------------------------------------------------------------
 // Example files

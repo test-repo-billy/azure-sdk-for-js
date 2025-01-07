@@ -1,14 +1,15 @@
 // Copyright (c) Microsoft Corporation.
-// Licensed under the MIT license.
+// Licensed under the MIT License.
 
 import { AzureAuthorityHosts } from "@azure/identity";
 import { createTestCredential } from "@azure-tools/test-credential";
-import { Recorder, RecorderStartOptions, isLiveMode } from "@azure-tools/test-recorder";
+import type { Recorder, RecorderStartOptions } from "@azure-tools/test-recorder";
+import { isLiveMode } from "@azure-tools/test-recorder";
 import {
   ContainerRegistryContentClient,
   ContainerRegistryClient,
   KnownContainerRegistryAudience,
-} from "../../src";
+} from "../../src/index.js";
 import { createXhrHttpClient } from "@azure-tools/test-utils";
 import { isNodeLike } from "@azure/core-util";
 

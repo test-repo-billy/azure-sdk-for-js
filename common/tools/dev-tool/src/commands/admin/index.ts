@@ -1,5 +1,5 @@
 // Copyright (c) Microsoft Corporation.
-// Licensed under the MIT license
+// Licensed under the MIT License
 
 import { subCommand, makeCommandInfo } from "../../framework/command";
 
@@ -9,5 +9,6 @@ export default subCommand(commandInfo, {
   "create-migration": () => import("./create-migration"),
   "stage-migrations": () => import("./stage-migrations"),
   "migrate-package": () => import("./migrate-package"),
+  "migrate-source": () => import("./migrate-source"),
   list: () => import("./list"),
 });

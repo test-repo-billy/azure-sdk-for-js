@@ -1,5 +1,5 @@
 // Copyright (c) Microsoft Corporation.
-// Licensed under the MIT license.
+// Licensed under the MIT License.
 
 /**
  * @file Definition of processors
@@ -10,7 +10,7 @@ import type { Linter } from "eslint";
 /**
  * An object containing processors used by the plugin
  */
-export = {
+export default {
   /**
    * The processor for JSON files
    * Ignores the no-unused-expressions ESLint rule

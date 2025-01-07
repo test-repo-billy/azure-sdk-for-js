@@ -1,5 +1,5 @@
 // Copyright (c) Microsoft Corporation.
-// Licensed under the MIT license.
+// Licensed under the MIT License.
 
 /**
  * [Azure Cognitive Language Services](https://docs.microsoft.com/azure/cognitive-services/language-service/overview)
@@ -13,8 +13,8 @@
 
 export { AzureKeyCredential } from "@azure/core-auth";
 
-export { TextAnalysisClient } from "./textAnalysisClient";
-export * from "./models";
+export { TextAnalysisClient } from "./textAnalysisClient.js";
+export * from "./models.js";
 export {
   AssessmentSentiment,
   SentimentAnalysisAction,
@@ -70,4 +70,4 @@ export {
   KnownRelationType,
   KnownExtractiveSummarizationOrderingCriteria,
   KnownHealthcareEntityCategory,
-} from "./generated/models";
+} from "./generated/models/index.js";

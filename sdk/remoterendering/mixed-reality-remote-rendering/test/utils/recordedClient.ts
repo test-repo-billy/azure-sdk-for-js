@@ -1,17 +1,10 @@
 // Copyright (c) Microsoft Corporation.
-// Licensed under the MIT license.
-
-import { Context } from "mocha";
-
-import { AccessToken, AzureKeyCredential } from "@azure/core-auth";
-import {
-  Recorder,
-  RecorderStartOptions,
-  assertEnvironmentVariable,
-  isPlaybackMode,
-} from "@azure-tools/test-recorder";
-
-import { RemoteRenderingClient } from "../../src";
+// Licensed under the MIT License.
+import type { AccessToken } from "@azure/core-auth";
+import { AzureKeyCredential } from "@azure/core-auth";
+import type { RecorderStartOptions, TestInfo } from "@azure-tools/test-recorder";
+import { Recorder, assertEnvironmentVariable, isPlaybackMode } from "@azure-tools/test-recorder";
+import { RemoteRenderingClient } from "../../src/index.js";
 
 // When the recorder observes the values of these environment variables
 // in any recorded HTTP request or response, it will replace them with
@@ -24,6 +17,8 @@ const envSetupForPlayback: Record<string, string> = {
   REMOTERENDERING_ARR_SAS_TOKEN: "arr_sas_token",
   REMOTERENDERING_ARR_SERVICE_ENDPOINT: "https://remoterendering.eastus2.mixedreality.azure.com",
   REMOTERENDERING_ARR_STORAGE_ACCOUNT_NAME: "sdktest",
+  STORAGE_ACCOUNT_NO_ACCESS_NAME: "sdktestnoaccess",
+  BLOB_CONTAINER_NO_ACCESS_NAME: "testnoaccess",
 };
 
 export const recorderStartOptions: RecorderStartOptions = {
@@ -37,6 +32,7 @@ export const recorderStartOptions: RecorderStartOptions = {
       },
     ],
   },
+  removeCentralSanitizers: ["AZSDK3430"],
 };
 
 export function createClient(recorder: Recorder): RemoteRenderingClient {
@@ -73,6 +69,6 @@ export function createClient(recorder: Recorder): RemoteRenderingClient {
  * Should be called first in the test suite to make sure environment variables are
  * read before they are being used.
  */
-export function createRecorder(context: Context): Recorder {
-  return new Recorder(context.currentTest);
+export function createRecorder(context: TestInfo): Recorder {
+  return new Recorder(context);
 }

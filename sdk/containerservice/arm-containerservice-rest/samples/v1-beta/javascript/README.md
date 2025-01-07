@@ -57,7 +57,7 @@ node managedClustersCreateOrUpdateSample.js
 Alternatively, run a single sample with the correct environment variables set (setting up the `.env` file is not required if you do this), for example (cross-platform):
 
 ```bash
-npx cross-env  node managedClustersCreateOrUpdateSample.js
+npx dev-tool run vendored cross-env  node managedClustersCreateOrUpdateSample.js
 ```
 
 ## Next Steps
@@ -85,6 +85,6 @@ Take a look at our [API Documentation][apiref] for more information about the AP
 [managedclustersstartsample]: https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/containerservice/arm-containerservice-rest/samples/v1-beta/javascript/managedClustersStartSample.js
 [managedclustersstopsample]: https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/containerservice/arm-containerservice-rest/samples/v1-beta/javascript/managedClustersStopSample.js
 [managedclustersupdatetagssample]: https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/containerservice/arm-containerservice-rest/samples/v1-beta/javascript/managedClustersUpdateTagsSample.js
-[apiref]: https://docs.microsoft.com/rest/api/aks
+[apiref]: https://learn.microsoft.com/rest/api/aks
 [freesub]: https://azure.microsoft.com/free/
 [package]: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/containerservice/arm-containerservice-rest/README.md

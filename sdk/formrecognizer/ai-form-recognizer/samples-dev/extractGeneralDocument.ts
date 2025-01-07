@@ -1,5 +1,5 @@
 // Copyright (c) Microsoft Corporation.
-// Licensed under the MIT license.
+// Licensed under the MIT License.
 
 /**
  * This sample shows how to extract data from a general document using the `beginExtractGeneralDocument` method. This
@@ -11,7 +11,7 @@
 
 import { AzureKeyCredential, DocumentAnalysisClient } from "@azure/ai-form-recognizer";
 
-import { PrebuiltDocumentModel } from "./prebuilt/prebuilt-document";
+import { PrebuiltDocumentModel } from "./prebuilt/prebuilt-document.js";
 
 import * as dotenv from "dotenv";
 dotenv.config();

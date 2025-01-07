@@ -1,5 +1,5 @@
 // Copyright (c) Microsoft Corporation.
-// Licensed under the MIT license.
+// Licensed under the MIT License.
 
 /**
  * @internal
@@ -33,7 +33,6 @@ export interface MsalAccountInfo {
   localAccountId: string;
   name?: string;
   // Leaving idTokenClaims as object since that's how MSAL has this assigned.
-  /* eslint-disable-next-line @typescript-eslint/ban-types */
   idTokenClaims?: object;
 }
 
@@ -46,6 +45,7 @@ export interface MsalResult {
   account: MsalAccountInfo | null;
   accessToken: string;
   expiresOn: Date | null;
+  refreshOn?: Date | null;
 }
 
 /**
@@ -53,7 +53,7 @@ export interface MsalResult {
  */
 export interface AuthenticationRecord {
   /**
-   * The associated authority, if used.
+   * Entity which issued the token represented by the domain of the issuer (e.g. login.microsoftonline.com)
    */
   authority: string;
   /**

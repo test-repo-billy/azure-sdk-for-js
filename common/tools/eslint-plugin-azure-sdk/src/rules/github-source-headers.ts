@@ -1,14 +1,14 @@
 // Copyright (c) Microsoft Corporation.
-// Licensed under the MIT license.
+// Licensed under the MIT License.
 
 /**
  * @file Rule to require copyright headers in every source file.
  */
 
-import { createRule } from "../utils/ruleCreator";
+import { createRule } from "../utils/ruleCreator.js";
 import { TSESTree } from "@typescript-eslint/utils";
 
-const expectedLines = ["Copyright (c) Microsoft Corporation.", "Licensed under the MIT license."];
+const expectedLines = ["Copyright (c) Microsoft Corporation.", "Licensed under the MIT License."];
 
 const expectedComments = `// ${expectedLines.join("\n// ")}\n\n`;
 
@@ -24,7 +24,6 @@ export default createRule({
     type: "suggestion",
     docs: {
       description: "require copyright headers in every source file",
-      recommended: "recommended",
     },
     messages: {
       noCopyrightHeader: "the file does not have a correct copyright header",

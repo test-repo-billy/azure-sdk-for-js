@@ -1,5 +1,5 @@
 // Copyright (c) Microsoft Corporation.
-// Licensed under the MIT license.
+// Licensed under the MIT License.
 
 export { Recorder } from "./recorder.js";
 export { relativeRecordingsPath } from "./utils/relativePathCalculator.js";
@@ -22,4 +22,4 @@ export {
 export { delay } from "./utils/delay.js";
 export { env } from "./utils/env.js";
 export { CustomMatcherOptions } from "./matcher.js";
-export { TestInfo, VitestTestContext } from "./testInfo.js";
+export { TestInfo, VitestTestContext, isVitestTestContext } from "./testInfo.js";

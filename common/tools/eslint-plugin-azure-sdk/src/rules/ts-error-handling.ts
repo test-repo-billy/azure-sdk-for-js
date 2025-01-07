@@ -1,5 +1,5 @@
 // Copyright (c) Microsoft Corporation.
-// Licensed under the MIT license.
+// Licensed under the MIT License.
 
 /**
  * @file Rule to limit thrown errors to ECMAScript built-in error types (TypeError, RangeError, Error).
@@ -7,7 +7,7 @@
  */
 
 import { ESLintUtils, TSESTree } from "@typescript-eslint/utils";
-import { createRule } from "../utils";
+import { createRule } from "../utils/index.js";
 
 //------------------------------------------------------------------------------
 // Rule Definition
@@ -20,7 +20,6 @@ export default createRule({
     docs: {
       description:
         "limit thrown errors to ECMAScript built-in error types (TypeError, RangeError, Error)",
-      recommended: "recommended",
     },
     messages: {
       ThrownLiteral: "statement is throwing a literal",

@@ -1715,6 +1715,12 @@ export const LinkedService: coreClient.CompositeMapper = {
           name: "String",
         },
       },
+      version: {
+        serializedName: "version",
+        type: {
+          name: "String",
+        },
+      },
       connectVia: {
         serializedName: "connectVia",
         type: {
@@ -5606,6 +5612,48 @@ export const SsisVariable: coreClient.CompositeMapper = {
   },
 };
 
+export const AzureStorageLinkedServiceTypeProperties: coreClient.CompositeMapper =
+  {
+    type: {
+      name: "Composite",
+      className: "AzureStorageLinkedServiceTypeProperties",
+      modelProperties: {
+        connectionString: {
+          serializedName: "connectionString",
+          type: {
+            name: "any",
+          },
+        },
+        accountKey: {
+          serializedName: "accountKey",
+          type: {
+            name: "Composite",
+            className: "AzureKeyVaultSecretReference",
+          },
+        },
+        sasUri: {
+          serializedName: "sasUri",
+          type: {
+            name: "any",
+          },
+        },
+        sasToken: {
+          serializedName: "sasToken",
+          type: {
+            name: "Composite",
+            className: "AzureKeyVaultSecretReference",
+          },
+        },
+        encryptedCredential: {
+          serializedName: "encryptedCredential",
+          type: {
+            name: "String",
+          },
+        },
+      },
+    },
+  };
+
 export const SqlServerBaseLinkedServiceTypeProperties: coreClient.CompositeMapper =
   {
     type: {
@@ -7369,6 +7417,13 @@ export const ExecuteDataFlowActivityTypeProperties: coreClient.CompositeMapper =
             className: "IntegrationRuntimeReference",
           },
         },
+        continuationSettings: {
+          serializedName: "continuationSettings",
+          type: {
+            name: "Composite",
+            className: "ContinuationSettingsReference",
+          },
+        },
         compute: {
           serializedName: "compute",
           type: {
@@ -7403,6 +7458,33 @@ export const ExecuteDataFlowActivityTypeProperties: coreClient.CompositeMapper =
       },
     },
   };
+
+export const ContinuationSettingsReference: coreClient.CompositeMapper = {
+  type: {
+    name: "Composite",
+    className: "ContinuationSettingsReference",
+    modelProperties: {
+      continuationTtlInMinutes: {
+        serializedName: "continuationTtlInMinutes",
+        type: {
+          name: "any",
+        },
+      },
+      idleCondition: {
+        serializedName: "idleCondition",
+        type: {
+          name: "any",
+        },
+      },
+      customizedCheckpointKey: {
+        serializedName: "customizedCheckpointKey",
+        type: {
+          name: "any",
+        },
+      },
+    },
+  },
+};
 
 export const ExecuteDataFlowActivityTypePropertiesCompute: coreClient.CompositeMapper =
   {
@@ -9047,6 +9129,19 @@ export const AzureTableStorageLinkedService: coreClient.CompositeMapper = {
           name: "String",
         },
       },
+      serviceEndpoint: {
+        serializedName: "typeProperties.serviceEndpoint",
+        type: {
+          name: "any",
+        },
+      },
+      credential: {
+        serializedName: "typeProperties.credential",
+        type: {
+          name: "Composite",
+          className: "CredentialReference",
+        },
+      },
     },
   },
 };
@@ -9415,6 +9510,13 @@ export const SqlServerLinkedService: coreClient.CompositeMapper = {
         type: {
           name: "Composite",
           className: "SqlAlwaysEncryptedProperties",
+        },
+      },
+      credential: {
+        serializedName: "typeProperties.credential",
+        type: {
+          name: "Composite",
+          className: "CredentialReference",
         },
       },
     },
@@ -10236,6 +10338,12 @@ export const DynamicsLinkedService: coreClient.CompositeMapper = {
           name: "any",
         },
       },
+      domain: {
+        serializedName: "typeProperties.domain",
+        type: {
+          name: "any",
+        },
+      },
       username: {
         serializedName: "typeProperties.username",
         type: {
@@ -10329,6 +10437,12 @@ export const DynamicsCrmLinkedService: coreClient.CompositeMapper = {
       authenticationType: {
         serializedName: "typeProperties.authenticationType",
         required: true,
+        type: {
+          name: "any",
+        },
+      },
+      domain: {
+        serializedName: "typeProperties.domain",
         type: {
           name: "any",
         },
@@ -10427,6 +10541,12 @@ export const CommonDataServiceForAppsLinkedService: coreClient.CompositeMapper =
         authenticationType: {
           serializedName: "typeProperties.authenticationType",
           required: true,
+          type: {
+            name: "any",
+          },
+        },
+        domain: {
+          serializedName: "typeProperties.domain",
           type: {
             name: "any",
           },
@@ -10650,6 +10770,19 @@ export const AzureFileStorageLinkedService: coreClient.CompositeMapper = {
         serializedName: "typeProperties.encryptedCredential",
         type: {
           name: "String",
+        },
+      },
+      serviceEndpoint: {
+        serializedName: "typeProperties.serviceEndpoint",
+        type: {
+          name: "any",
+        },
+      },
+      credential: {
+        serializedName: "typeProperties.credential",
+        type: {
+          name: "Composite",
+          className: "CredentialReference",
         },
       },
     },
@@ -10952,6 +11085,48 @@ export const MySqlLinkedService: coreClient.CompositeMapper = {
           name: "String",
         },
       },
+      allowZeroDateTime: {
+        serializedName: "typeProperties.allowZeroDateTime",
+        type: {
+          name: "any",
+        },
+      },
+      connectionTimeout: {
+        serializedName: "typeProperties.connectionTimeout",
+        type: {
+          name: "any",
+        },
+      },
+      convertZeroDateTime: {
+        serializedName: "typeProperties.convertZeroDateTime",
+        type: {
+          name: "any",
+        },
+      },
+      guidFormat: {
+        serializedName: "typeProperties.guidFormat",
+        type: {
+          name: "any",
+        },
+      },
+      sslCert: {
+        serializedName: "typeProperties.sslCert",
+        type: {
+          name: "any",
+        },
+      },
+      sslKey: {
+        serializedName: "typeProperties.sslKey",
+        type: {
+          name: "any",
+        },
+      },
+      treatTinyAsBoolean: {
+        serializedName: "typeProperties.treatTinyAsBoolean",
+        type: {
+          name: "any",
+        },
+      },
     },
   },
 };
@@ -11022,6 +11197,13 @@ export const PostgreSqlV2LinkedService: coreClient.CompositeMapper = {
       },
       database: {
         serializedName: "typeProperties.database",
+        required: true,
+        type: {
+          name: "any",
+        },
+      },
+      authenticationType: {
+        serializedName: "typeProperties.authenticationType",
         required: true,
         type: {
           name: "any",
@@ -12720,6 +12902,26 @@ export const RestServiceLinkedService: coreClient.CompositeMapper = {
           name: "any",
         },
       },
+      servicePrincipalCredentialType: {
+        serializedName: "typeProperties.servicePrincipalCredentialType",
+        type: {
+          name: "any",
+        },
+      },
+      servicePrincipalEmbeddedCert: {
+        serializedName: "typeProperties.servicePrincipalEmbeddedCert",
+        type: {
+          name: "Composite",
+          className: "SecretBase",
+        },
+      },
+      servicePrincipalEmbeddedCertPassword: {
+        serializedName: "typeProperties.servicePrincipalEmbeddedCertPassword",
+        type: {
+          name: "Composite",
+          className: "SecretBase",
+        },
+      },
     },
   },
 };
@@ -13612,6 +13814,72 @@ export const AzurePostgreSqlLinkedService: coreClient.CompositeMapper = {
       ...LinkedService.type.modelProperties,
       connectionString: {
         serializedName: "typeProperties.connectionString",
+        type: {
+          name: "any",
+        },
+      },
+      server: {
+        serializedName: "typeProperties.server",
+        type: {
+          name: "any",
+        },
+      },
+      port: {
+        serializedName: "typeProperties.port",
+        type: {
+          name: "any",
+        },
+      },
+      username: {
+        serializedName: "typeProperties.username",
+        type: {
+          name: "any",
+        },
+      },
+      database: {
+        serializedName: "typeProperties.database",
+        type: {
+          name: "any",
+        },
+      },
+      sslMode: {
+        serializedName: "typeProperties.sslMode",
+        type: {
+          name: "any",
+        },
+      },
+      timeout: {
+        serializedName: "typeProperties.timeout",
+        type: {
+          name: "any",
+        },
+      },
+      commandTimeout: {
+        serializedName: "typeProperties.commandTimeout",
+        type: {
+          name: "any",
+        },
+      },
+      trustServerCertificate: {
+        serializedName: "typeProperties.trustServerCertificate",
+        type: {
+          name: "any",
+        },
+      },
+      readBufferSize: {
+        serializedName: "typeProperties.readBufferSize",
+        type: {
+          name: "any",
+        },
+      },
+      timezone: {
+        serializedName: "typeProperties.timezone",
+        type: {
+          name: "any",
+        },
+      },
+      encoding: {
+        serializedName: "typeProperties.encoding",
         type: {
           name: "any",
         },
@@ -14521,6 +14789,18 @@ export const MariaDBLinkedService: coreClient.CompositeMapper = {
           name: "any",
         },
       },
+      sslMode: {
+        serializedName: "typeProperties.sslMode",
+        type: {
+          name: "any",
+        },
+      },
+      useSystemTrustStore: {
+        serializedName: "typeProperties.useSystemTrustStore",
+        type: {
+          name: "any",
+        },
+      },
       password: {
         serializedName: "typeProperties.password",
         type: {
@@ -15390,6 +15670,30 @@ export const VerticaLinkedService: coreClient.CompositeMapper = {
           name: "any",
         },
       },
+      server: {
+        serializedName: "typeProperties.server",
+        type: {
+          name: "any",
+        },
+      },
+      port: {
+        serializedName: "typeProperties.port",
+        type: {
+          name: "any",
+        },
+      },
+      uid: {
+        serializedName: "typeProperties.uid",
+        type: {
+          name: "any",
+        },
+      },
+      database: {
+        serializedName: "typeProperties.database",
+        type: {
+          name: "any",
+        },
+      },
       pwd: {
         serializedName: "typeProperties.pwd",
         type: {
@@ -15522,7 +15826,7 @@ export const HDInsightOnDemandLinkedService: coreClient.CompositeMapper = {
           name: "any",
         },
       },
-      version: {
+      versionTypePropertiesVersion: {
         serializedName: "typeProperties.version",
         required: true,
         type: {
@@ -16622,6 +16926,12 @@ export const SnowflakeV2LinkedService: coreClient.CompositeMapper = {
           className: "SecretBase",
         },
       },
+      host: {
+        serializedName: "typeProperties.host",
+        type: {
+          name: "any",
+        },
+      },
       encryptedCredential: {
         serializedName: "typeProperties.encryptedCredential",
         type: {
@@ -16665,6 +16975,26 @@ export const SharePointOnlineListLinkedService: coreClient.CompositeMapper = {
       },
       servicePrincipalKey: {
         serializedName: "typeProperties.servicePrincipalKey",
+        type: {
+          name: "Composite",
+          className: "SecretBase",
+        },
+      },
+      servicePrincipalCredentialType: {
+        serializedName: "typeProperties.servicePrincipalCredentialType",
+        type: {
+          name: "any",
+        },
+      },
+      servicePrincipalEmbeddedCert: {
+        serializedName: "typeProperties.servicePrincipalEmbeddedCert",
+        type: {
+          name: "Composite",
+          className: "SecretBase",
+        },
+      },
+      servicePrincipalEmbeddedCertPassword: {
+        serializedName: "typeProperties.servicePrincipalEmbeddedCertPassword",
         type: {
           name: "Composite",
           className: "SecretBase",
@@ -17403,6 +17733,27 @@ export const BinaryDataset: coreClient.CompositeMapper = {
         type: {
           name: "Composite",
           className: "DatasetCompression",
+        },
+      },
+    },
+  },
+};
+
+export const IcebergDataset: coreClient.CompositeMapper = {
+  serializedName: "Iceberg",
+  type: {
+    name: "Composite",
+    className: "IcebergDataset",
+    uberParent: "Dataset",
+    additionalProperties: { type: { name: "Object" } },
+    polymorphicDiscriminator: Dataset.type.polymorphicDiscriminator,
+    modelProperties: {
+      ...Dataset.type.modelProperties,
+      location: {
+        serializedName: "typeProperties.location",
+        type: {
+          name: "Composite",
+          className: "DatasetLocation",
         },
       },
     },
@@ -19931,6 +20282,13 @@ export const ExecuteWranglingDataflowActivity: coreClient.CompositeMapper = {
           className: "IntegrationRuntimeReference",
         },
       },
+      continuationSettings: {
+        serializedName: "typeProperties.continuationSettings",
+        type: {
+          name: "Composite",
+          className: "ContinuationSettingsReference",
+        },
+      },
       compute: {
         serializedName: "typeProperties.compute",
         type: {
@@ -21149,6 +21507,30 @@ export const LinkedIntegrationRuntimeRbacAuthorization: coreClient.CompositeMapp
     },
   };
 
+export const AzureTableStorageLinkedServiceTypeProperties: coreClient.CompositeMapper =
+  {
+    type: {
+      name: "Composite",
+      className: "AzureTableStorageLinkedServiceTypeProperties",
+      modelProperties: {
+        ...AzureStorageLinkedServiceTypeProperties.type.modelProperties,
+        serviceEndpoint: {
+          serializedName: "serviceEndpoint",
+          type: {
+            name: "any",
+          },
+        },
+        credential: {
+          serializedName: "credential",
+          type: {
+            name: "Composite",
+            className: "CredentialReference",
+          },
+        },
+      },
+    },
+  };
+
 export const AzureSqlDWLinkedServiceTypeProperties: coreClient.CompositeMapper =
   {
     type: {
@@ -21279,6 +21661,13 @@ export const SqlServerLinkedServiceTypeProperties: coreClient.CompositeMapper =
           type: {
             name: "Composite",
             className: "SqlAlwaysEncryptedProperties",
+          },
+        },
+        credential: {
+          serializedName: "credential",
+          type: {
+            name: "Composite",
+            className: "CredentialReference",
           },
         },
       },
@@ -23062,6 +23451,20 @@ export const JsonWriteSettings: coreClient.CompositeMapper = {
   },
 };
 
+export const IcebergWriteSettings: coreClient.CompositeMapper = {
+  serializedName: "IcebergWriteSettings",
+  type: {
+    name: "Composite",
+    className: "IcebergWriteSettings",
+    uberParent: "FormatWriteSettings",
+    additionalProperties: { type: { name: "Object" } },
+    polymorphicDiscriminator: FormatWriteSettings.type.polymorphicDiscriminator,
+    modelProperties: {
+      ...FormatWriteSettings.type.modelProperties,
+    },
+  },
+};
+
 export const AvroSource: coreClient.CompositeMapper = {
   serializedName: "AvroSource",
   type: {
@@ -24757,6 +25160,34 @@ export const BinarySink: coreClient.CompositeMapper = {
   },
 };
 
+export const IcebergSink: coreClient.CompositeMapper = {
+  serializedName: "IcebergSink",
+  type: {
+    name: "Composite",
+    className: "IcebergSink",
+    uberParent: "CopySink",
+    additionalProperties: { type: { name: "Object" } },
+    polymorphicDiscriminator: CopySink.type.polymorphicDiscriminator,
+    modelProperties: {
+      ...CopySink.type.modelProperties,
+      storeSettings: {
+        serializedName: "storeSettings",
+        type: {
+          name: "Composite",
+          className: "StoreWriteSettings",
+        },
+      },
+      formatSettings: {
+        serializedName: "formatSettings",
+        type: {
+          name: "Composite",
+          className: "IcebergWriteSettings",
+        },
+      },
+    },
+  },
+};
+
 export const BlobSink: coreClient.CompositeMapper = {
   serializedName: "BlobSink",
   type: {
@@ -25807,6 +26238,12 @@ export const SnowflakeExportCopyCommand: coreClient.CompositeMapper = {
           value: { type: { name: "any" } },
         },
       },
+      storageIntegration: {
+        serializedName: "storageIntegration",
+        type: {
+          name: "any",
+        },
+      },
     },
   },
 };
@@ -25887,6 +26324,12 @@ export const SnowflakeImportCopyCommand: coreClient.CompositeMapper = {
         type: {
           name: "Dictionary",
           value: { type: { name: "any" } },
+        },
+      },
+      storageIntegration: {
+        serializedName: "storageIntegration",
+        type: {
+          name: "any",
         },
       },
     },
@@ -27926,6 +28369,13 @@ export const ExecuteDataFlowActivity: coreClient.CompositeMapper = {
         type: {
           name: "Composite",
           className: "IntegrationRuntimeReference",
+        },
+      },
+      continuationSettings: {
+        serializedName: "typeProperties.continuationSettings",
+        type: {
+          name: "Composite",
+          className: "ContinuationSettingsReference",
         },
       },
       compute: {
@@ -30087,6 +30537,12 @@ export const SalesforceV2Source: coreClient.CompositeMapper = {
           name: "any",
         },
       },
+      pageSize: {
+        serializedName: "pageSize",
+        type: {
+          name: "any",
+        },
+      },
     },
   },
 };
@@ -30106,6 +30562,12 @@ export const ServiceNowV2Source: coreClient.CompositeMapper = {
         type: {
           name: "Composite",
           className: "ExpressionV2",
+        },
+      },
+      pageSize: {
+        serializedName: "pageSize",
+        type: {
+          name: "any",
         },
       },
     },
@@ -30357,6 +30819,7 @@ export let discriminators = {
   "Dataset.Xml": XmlDataset,
   "Dataset.Orc": OrcDataset,
   "Dataset.Binary": BinaryDataset,
+  "Dataset.Iceberg": IcebergDataset,
   "Dataset.AzureBlob": AzureBlobDataset,
   "Dataset.AzureTable": AzureTableDataset,
   "Dataset.AzureSqlTable": AzureSqlTableDataset,
@@ -30542,6 +31005,7 @@ export let discriminators = {
   "FormatWriteSettings.ParquetWriteSettings": ParquetWriteSettings,
   "FormatWriteSettings.DelimitedTextWriteSettings": DelimitedTextWriteSettings,
   "FormatWriteSettings.JsonWriteSettings": JsonWriteSettings,
+  "FormatWriteSettings.IcebergWriteSettings": IcebergWriteSettings,
   "CopySource.AvroSource": AvroSource,
   "CopySource.ExcelSource": ExcelSource,
   "CopySource.ParquetSource": ParquetSource,
@@ -30596,6 +31060,7 @@ export let discriminators = {
   "CopySink.AvroSink": AvroSink,
   "CopySink.ParquetSink": ParquetSink,
   "CopySink.BinarySink": BinarySink,
+  "CopySink.IcebergSink": IcebergSink,
   "CopySink.BlobSink": BlobSink,
   "CopySink.FileSystemSink": FileSystemSink,
   "CopySink.DocumentDbCollectionSink": DocumentDbCollectionSink,

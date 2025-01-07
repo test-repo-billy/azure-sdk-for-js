@@ -1,12 +1,12 @@
 // Copyright (c) Microsoft Corporation.
-// Licensed under the MIT license.
+// Licensed under the MIT License.
 
 import fs from "fs-extra";
 import path from "node:path";
 import { copy, dir, file, FileTreeFactory, lazy, safeClean, temp } from "../fileTree";
 import { findMatchingFiles } from "../findMatchingFiles";
 import { createPrinter } from "../printer";
-import { ProjectInfo, resolveRoot } from "../resolveProject";
+import { ProjectInfo, bindRequireFunction, resolveRoot } from "../resolveProject";
 import {
   getSampleConfiguration,
   MIN_SUPPORTED_NODE_VERSION,
@@ -105,15 +105,7 @@ export async function makeSampleGenerationInfo(
     return undefined as never;
   }
 
-  const requireInScope = (moduleSpecifier: string) => {
-    try {
-      return require(
-        path.join(projectInfo.path, "node_modules", moduleSpecifier.split("/").join(path.sep)),
-      );
-    } catch {
-      return require(moduleSpecifier);
-    }
-  };
+  const requireInScope = bindRequireFunction(projectInfo);
 
   const moduleInfos = await processSources(
     sampleSourcesPath,
@@ -137,7 +129,7 @@ export async function makeSampleGenerationInfo(
       "There is probably a more specific product that applies to this package! Reach out for help with the docs platform.",
     );
     log.warn(
-      'If you do not want to publish samples to docs.microsoft.com, set `"disableDocsMs": true` in the sample configuration.',
+      'If you do not want to publish samples to learn.microsoft.com, set `"disableDocsMs": true` in the sample configuration.',
     );
     onError();
   }

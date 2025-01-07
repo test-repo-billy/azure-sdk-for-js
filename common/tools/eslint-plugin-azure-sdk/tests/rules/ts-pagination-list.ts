@@ -1,13 +1,13 @@
 // Copyright (c) Microsoft Corporation.
-// Licensed under the MIT license.
+// Licensed under the MIT License.
 
 /**
  * @file Testing the ts-pagination-list rule.
  *
  */
 
-import { createRuleTester } from "../ruleTester";
-import rule from "../../src/rules/ts-pagination-list";
+import { createRuleTester } from "../ruleTester.js";
+import rule from "../../src/rules/ts-pagination-list.js";
 
 //------------------------------------------------------------------------------
 // Tests

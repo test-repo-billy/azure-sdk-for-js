@@ -7,18 +7,18 @@
  */
 
 import { PagedAsyncIterableIterator, PageSettings } from "@azure/core-paging";
-import { setContinuationToken } from "../pagingHelper";
-import { VirtualMachines } from "../operationsInterfaces";
+import { setContinuationToken } from "../pagingHelper.js";
+import { VirtualMachines } from "../operationsInterfaces/index.js";
 import * as coreClient from "@azure/core-client";
-import * as Mappers from "../models/mappers";
-import * as Parameters from "../models/parameters";
-import { AzureVMwareSolutionAPI } from "../azureVMwareSolutionAPI";
+import * as Mappers from "../models/mappers.js";
+import * as Parameters from "../models/parameters.js";
+import { AzureVMwareSolutionAPI } from "../azureVMwareSolutionAPI.js";
 import {
   SimplePollerLike,
   OperationState,
   createHttpPoller,
 } from "@azure/core-lro";
-import { createLroSpec } from "../lroImpl";
+import { createLroSpec } from "../lroImpl.js";
 import {
   VirtualMachine,
   VirtualMachinesListNextOptionalParams,
@@ -30,7 +30,7 @@ import {
   VirtualMachinesRestrictMovementOptionalParams,
   VirtualMachinesRestrictMovementResponse,
   VirtualMachinesListNextResponse,
-} from "../models";
+} from "../models/index.js";
 
 /// <reference lib="esnext.asynciterable" />
 /** Class containing VirtualMachines operations. */
@@ -262,6 +262,7 @@ export class VirtualMachinesImpl implements VirtualMachines {
     >(lro, {
       restoreFrom: options?.resumeFrom,
       intervalInMs: options?.updateIntervalInMs,
+      resourceLocationConfig: "location",
     });
     await poller.poll();
     return poller;
@@ -324,7 +325,7 @@ const listOperationSpec: coreClient.OperationSpec = {
   httpMethod: "GET",
   responses: {
     200: {
-      bodyMapper: Mappers.VirtualMachineListResult,
+      bodyMapper: Mappers.VirtualMachinesList,
     },
     default: {
       bodyMapper: Mappers.ErrorResponse,
@@ -403,7 +404,7 @@ const listNextOperationSpec: coreClient.OperationSpec = {
   httpMethod: "GET",
   responses: {
     200: {
-      bodyMapper: Mappers.VirtualMachineListResult,
+      bodyMapper: Mappers.VirtualMachinesList,
     },
     default: {
       bodyMapper: Mappers.ErrorResponse,

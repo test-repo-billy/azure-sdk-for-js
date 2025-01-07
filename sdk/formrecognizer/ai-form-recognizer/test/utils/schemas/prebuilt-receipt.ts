@@ -1,12 +1,12 @@
 // Copyright (c) Microsoft Corporation.
-// Licensed under the MIT license.
+// Licensed under the MIT License.
 
 // Model:       prebuilt-receipt
 // Description: Extract key information from receipts.
 // API Version: 2023-07-31
 // Created:     Tue Aug 01 2023
 
-import * as fr from "../../../src";
+import * as fr from "../../../src/index.js";
 
 /**
  * Extract key information from receipts.

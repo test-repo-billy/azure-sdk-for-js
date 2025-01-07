@@ -1,10 +1,9 @@
 // Copyright (c) Microsoft Corporation.
-// Licensed under the MIT license.
+// Licensed under the MIT License.
 
 import { isRestError } from "@azure/core-rest-pipeline";
-import { assert } from "chai";
-
-import { TextAnalyticsErrorResult, TextAnalyticsSuccessResult } from "../../../src/";
+import type { TextAnalyticsErrorResult, TextAnalyticsSuccessResult } from "../../../src/index.js";
+import { assert } from "vitest";
 
 export function assertAllSuccess<TSuccess extends TextAnalyticsSuccessResult>(
   results: (TextAnalyticsErrorResult | TSuccess)[],

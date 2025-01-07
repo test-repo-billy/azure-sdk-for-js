@@ -4,13 +4,13 @@
 
 ```ts
 
-import { Client } from '@azure-rest/core-client';
-import { ClientOptions } from '@azure-rest/core-client';
-import { HttpResponse } from '@azure-rest/core-client';
-import { PagedAsyncIterableIterator } from '@azure/core-paging';
-import { PathUncheckedResponse } from '@azure-rest/core-client';
-import { RequestParameters } from '@azure-rest/core-client';
-import { TokenCredential } from '@azure/core-auth';
+import type { Client } from '@azure-rest/core-client';
+import type { ClientOptions } from '@azure-rest/core-client';
+import type { HttpResponse } from '@azure-rest/core-client';
+import type { PagedAsyncIterableIterator } from '@azure/core-paging';
+import type { PathUncheckedResponse } from '@azure-rest/core-client';
+import type { RequestParameters } from '@azure-rest/core-client';
+import type { TokenCredential } from '@azure/core-auth';
 
 // @public (undocumented)
 export interface AdlsGen1CredentialScan extends ScanBase {
@@ -2287,12 +2287,13 @@ export interface MitiScanProperties extends ScanProperties {
 }
 
 // @public (undocumented)
-export interface Notification {
+interface Notification_2 {
     // (undocumented)
     code?: number;
     // (undocumented)
     message?: string;
 }
+export { Notification_2 as Notification }
 
 // @public (undocumented)
 export interface OperationResponse {
@@ -2528,7 +2529,6 @@ export interface ProxyResource {
 
 // @public (undocumented)
 function PurviewScanning(Endpoint: string, credentials: TokenCredential, options?: ClientOptions): PurviewScanningRestClient;
-
 export default PurviewScanning;
 
 // @public (undocumented)
@@ -2835,7 +2835,7 @@ export interface ScanBase extends ProxyResource {
 export interface ScanDiagnostics {
     exceptionCountMap?: Record<string, number>;
     // (undocumented)
-    notifications?: Array<Notification>;
+    notifications?: Array<Notification_2>;
 }
 
 // @public (undocumented)
@@ -3815,7 +3815,6 @@ export interface VersionedScanRuleset extends ProxyResource {
     // (undocumented)
     version?: number;
 }
-
 
 // (No @packageDocumentation comment for this package)
 

@@ -1,5 +1,5 @@
 // Copyright (c) Microsoft Corporation.
-// Licensed under the MIT license.
+// Licensed under the MIT License.
 
 /**
  * @packageDocumentation https://aka.ms/apimdocs/portal/customwidgets
@@ -36,4 +36,4 @@ export {
 
 import deployNodeJS from "./node/deploy.js";
 export { deployNodeJS };
-export type { ServiceInformation, DeployConfig } from "./node/deploy.js";
+export type { ServiceInformation, DeployConfig } from "./node/types.js";
