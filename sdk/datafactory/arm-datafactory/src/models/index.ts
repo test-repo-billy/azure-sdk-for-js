@@ -583,110 +583,6 @@ export type TriggerDependencyReferenceUnion =
   | TriggerDependencyReference
   | TumblingWindowTriggerDependencyReference;
 
-/** A list of operations that can be performed by the Data Factory service. */
-export interface OperationListResponse {
-  /** List of Data Factory operations supported by the Data Factory resource provider. */
-  value?: Operation[];
-  /** The link to the next page of results, if any remaining results exist. */
-  nextLink?: string;
-}
-
-/** Azure Data Factory API operation definition. */
-export interface Operation {
-  /** Operation name: {provider}/{resource}/{operation} */
-  name?: string;
-  /** The intended executor of the operation. */
-  origin?: string;
-  /** Metadata associated with the operation. */
-  display?: OperationDisplay;
-  /** Details about a service operation. */
-  serviceSpecification?: OperationServiceSpecification;
-}
-
-/** Metadata associated with the operation. */
-export interface OperationDisplay {
-  /** The description of the operation. */
-  description?: string;
-  /** The name of the provider. */
-  provider?: string;
-  /** The name of the resource type on which the operation is performed. */
-  resource?: string;
-  /** The type of operation: get, read, delete, etc. */
-  operation?: string;
-}
-
-/** Details about a service operation. */
-export interface OperationServiceSpecification {
-  /** Details about operations related to logs. */
-  logSpecifications?: OperationLogSpecification[];
-  /** Details about operations related to metrics. */
-  metricSpecifications?: OperationMetricSpecification[];
-}
-
-/** Details about an operation related to logs. */
-export interface OperationLogSpecification {
-  /** The name of the log category. */
-  name?: string;
-  /** Localized display name. */
-  displayName?: string;
-  /** Blobs created in the customer storage account, per hour. */
-  blobDuration?: string;
-}
-
-/** Details about an operation related to metrics. */
-export interface OperationMetricSpecification {
-  /** The name of the metric. */
-  name?: string;
-  /** Localized display name of the metric. */
-  displayName?: string;
-  /** The description of the metric. */
-  displayDescription?: string;
-  /** The unit that the metric is measured in. */
-  unit?: string;
-  /** The type of metric aggregation. */
-  aggregationType?: string;
-  /** Whether or not the service is using regional MDM accounts. */
-  enableRegionalMdmAccount?: string;
-  /** The name of the MDM account. */
-  sourceMdmAccount?: string;
-  /** The name of the MDM namespace. */
-  sourceMdmNamespace?: string;
-  /** Defines how often data for metrics becomes available. */
-  availabilities?: OperationMetricAvailability[];
-  /** Defines the metric dimension. */
-  dimensions?: OperationMetricDimension[];
-}
-
-/** Defines how often data for a metric becomes available. */
-export interface OperationMetricAvailability {
-  /** The granularity for the metric. */
-  timeGrain?: string;
-  /** Blob created in the customer storage account, per hour. */
-  blobDuration?: string;
-}
-
-/** Defines the metric dimension. */
-export interface OperationMetricDimension {
-  /** The name of the dimension for the metric. */
-  name?: string;
-  /** The display name of the metric dimension. */
-  displayName?: string;
-  /** Whether the dimension should be exported to Azure Monitor. */
-  toBeExportedForShoebox?: boolean;
-}
-
-/** The object that defines the structure of an Azure Data Factory error response. */
-export interface CloudError {
-  /** Error code. */
-  code: string;
-  /** Error message. */
-  message: string;
-  /** Property name/path in request associated with error. */
-  target?: string;
-  /** Array with additional error details. */
-  details?: CloudError[];
-}
-
 /** A list of factory resources. */
 export interface FactoryListResponse {
   /** List of factories. */
@@ -789,6 +685,18 @@ export interface Resource {
    * NOTE: This property will not be serialized. It can only be populated by the server.
    */
   readonly eTag?: string;
+}
+
+/** The object that defines the structure of an Azure Data Factory error response. */
+export interface CloudError {
+  /** Error code. */
+  code: string;
+  /** Error message. */
+  message: string;
+  /** Property name/path in request associated with error. */
+  target?: string;
+  /** Array with additional error details. */
+  details?: CloudError[];
 }
 
 /** Factory's git repo information. */
@@ -2593,6 +2501,98 @@ export interface DatasetReference {
   referenceName: string;
   /** Arguments for dataset. */
   parameters?: { [propertyName: string]: any };
+}
+
+/** A list of operations that can be performed by the Data Factory service. */
+export interface OperationListResponse {
+  /** List of Data Factory operations supported by the Data Factory resource provider. */
+  value?: Operation[];
+  /** The link to the next page of results, if any remaining results exist. */
+  nextLink?: string;
+}
+
+/** Azure Data Factory API operation definition. */
+export interface Operation {
+  /** Operation name: {provider}/{resource}/{operation} */
+  name?: string;
+  /** The intended executor of the operation. */
+  origin?: string;
+  /** Metadata associated with the operation. */
+  display?: OperationDisplay;
+  /** Details about a service operation. */
+  serviceSpecification?: OperationServiceSpecification;
+}
+
+/** Metadata associated with the operation. */
+export interface OperationDisplay {
+  /** The description of the operation. */
+  description?: string;
+  /** The name of the provider. */
+  provider?: string;
+  /** The name of the resource type on which the operation is performed. */
+  resource?: string;
+  /** The type of operation: get, read, delete, etc. */
+  operation?: string;
+}
+
+/** Details about a service operation. */
+export interface OperationServiceSpecification {
+  /** Details about operations related to logs. */
+  logSpecifications?: OperationLogSpecification[];
+  /** Details about operations related to metrics. */
+  metricSpecifications?: OperationMetricSpecification[];
+}
+
+/** Details about an operation related to logs. */
+export interface OperationLogSpecification {
+  /** The name of the log category. */
+  name?: string;
+  /** Localized display name. */
+  displayName?: string;
+  /** Blobs created in the customer storage account, per hour. */
+  blobDuration?: string;
+}
+
+/** Details about an operation related to metrics. */
+export interface OperationMetricSpecification {
+  /** The name of the metric. */
+  name?: string;
+  /** Localized display name of the metric. */
+  displayName?: string;
+  /** The description of the metric. */
+  displayDescription?: string;
+  /** The unit that the metric is measured in. */
+  unit?: string;
+  /** The type of metric aggregation. */
+  aggregationType?: string;
+  /** Whether or not the service is using regional MDM accounts. */
+  enableRegionalMdmAccount?: string;
+  /** The name of the MDM account. */
+  sourceMdmAccount?: string;
+  /** The name of the MDM namespace. */
+  sourceMdmNamespace?: string;
+  /** Defines how often data for metrics becomes available. */
+  availabilities?: OperationMetricAvailability[];
+  /** Defines the metric dimension. */
+  dimensions?: OperationMetricDimension[];
+}
+
+/** Defines how often data for a metric becomes available. */
+export interface OperationMetricAvailability {
+  /** The granularity for the metric. */
+  timeGrain?: string;
+  /** Blob created in the customer storage account, per hour. */
+  blobDuration?: string;
+}
+
+/** Defines the metric dimension. */
+export interface OperationMetricDimension {
+  /** The name of the dimension for the metric. */
+  name?: string;
+  /** The display name of the metric dimension. */
+  displayName?: string;
+  /** Whether the dimension should be exported to Azure Monitor. */
+  toBeExportedForShoebox?: boolean;
 }
 
 /** Response body structure for get data factory operation status. */
@@ -14857,20 +14857,6 @@ export type DayOfWeek =
   | "Thursday"
   | "Friday"
   | "Saturday";
-
-/** Optional parameters. */
-export interface OperationsListOptionalParams
-  extends coreClient.OperationOptions {}
-
-/** Contains response data for the list operation. */
-export type OperationsListResponse = OperationListResponse;
-
-/** Optional parameters. */
-export interface OperationsListNextOptionalParams
-  extends coreClient.OperationOptions {}
-
-/** Contains response data for the listNext operation. */
-export type OperationsListNextResponse = OperationListResponse;
 
 /** Optional parameters. */
 export interface FactoriesListOptionalParams

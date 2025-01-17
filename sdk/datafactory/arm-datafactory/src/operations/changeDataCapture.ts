@@ -7,12 +7,12 @@
  */
 
 import { PagedAsyncIterableIterator, PageSettings } from "@azure/core-paging";
-import { setContinuationToken } from "../pagingHelper";
-import { ChangeDataCapture } from "../operationsInterfaces";
+import { setContinuationToken } from "../pagingHelper.js";
+import { ChangeDataCapture } from "../operationsInterfaces/index.js";
 import * as coreClient from "@azure/core-client";
-import * as Mappers from "../models/mappers";
-import * as Parameters from "../models/parameters";
-import { DataFactoryManagementClient } from "../dataFactoryManagementClient";
+import * as Mappers from "../models/mappers.js";
+import * as Parameters from "../models/parameters.js";
+import { DataFactoryManagementClient } from "../dataFactoryManagementClient.js";
 import {
   ChangeDataCaptureResource,
   ChangeDataCaptureListByFactoryNextOptionalParams,
@@ -28,7 +28,7 @@ import {
   ChangeDataCaptureStatusOptionalParams,
   ChangeDataCaptureStatusResponse,
   ChangeDataCaptureListByFactoryNextResponse,
-} from "../models";
+} from "../models/index.js";
 
 /// <reference lib="esnext.asynciterable" />
 /** Class containing ChangeDataCapture operations. */
@@ -455,10 +455,10 @@ const listByFactoryNextOperationSpec: coreClient.OperationSpec = {
   },
   urlParameters: [
     Parameters.$host,
-    Parameters.nextLink,
     Parameters.subscriptionId,
     Parameters.resourceGroupName,
     Parameters.factoryName,
+    Parameters.nextLink,
   ],
   headerParameters: [Parameters.accept],
   serializer,
