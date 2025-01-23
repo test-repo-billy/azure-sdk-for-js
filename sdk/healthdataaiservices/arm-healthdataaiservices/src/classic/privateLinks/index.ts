@@ -9,7 +9,7 @@ import { PagedAsyncIterableIterator } from "../../static-helpers/pagingHelpers.j
 
 /** Interface representing a PrivateLinks operations. */
 export interface PrivateLinksOperations {
-  /** List private links on the given resource */
+  /** List private links on the given resource. Test changes. */
   listByDeidService: (
     resourceGroupName: string,
     deidServiceName: string,
