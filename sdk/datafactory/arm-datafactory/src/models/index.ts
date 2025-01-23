@@ -687,12 +687,30 @@ export interface CloudError {
   details?: CloudError[];
 }
 
-/** A list of factory resources. */
-export interface FactoryListResponse {
-  /** List of factories. */
-  value: Factory[];
-  /** The link to the next page of results, if any remaining results exist. */
-  nextLink?: string;
+/** Factory's git repo information. */
+export interface FactoryRepoUpdate {
+  /** The factory resource id. */
+  factoryResourceId?: string;
+  /** Git repo information of the factory. */
+  repoConfiguration?: FactoryRepoConfigurationUnion;
+}
+
+/** Factory's git repo information. */
+export interface FactoryRepoConfiguration {
+  /** Polymorphic discriminator, which specifies the different types this object can be */
+  type: "FactoryVSTSConfiguration" | "FactoryGitHubConfiguration";
+  /** Account name. */
+  accountName: string;
+  /** Repository name. */
+  repositoryName: string;
+  /** Collaboration branch. */
+  collaborationBranch: string;
+  /** Root folder. */
+  rootFolder: string;
+  /** Last commit id. */
+  lastCommitId?: string;
+  /** Disable manual publish operation in ADF studio to favor automated publish. */
+  disablePublish?: boolean;
 }
 
 /** Identity properties of the factory resource. */
@@ -717,24 +735,6 @@ export interface FactoryIdentity {
 export interface PurviewConfiguration {
   /** Purview resource id. */
   purviewResourceId?: string;
-}
-
-/** Factory's git repo information. */
-export interface FactoryRepoConfiguration {
-  /** Polymorphic discriminator, which specifies the different types this object can be */
-  type: "FactoryVSTSConfiguration" | "FactoryGitHubConfiguration";
-  /** Account name. */
-  accountName: string;
-  /** Repository name. */
-  repositoryName: string;
-  /** Collaboration branch. */
-  collaborationBranch: string;
-  /** Root folder. */
-  rootFolder: string;
-  /** Last commit id. */
-  lastCommitId?: string;
-  /** Disable manual publish operation in ADF studio to favor automated publish. */
-  disablePublish?: boolean;
 }
 
 /** Definition of a single parameter for an entity. */
@@ -791,14 +791,6 @@ export interface Resource {
   readonly eTag?: string;
 }
 
-/** Factory's git repo information. */
-export interface FactoryRepoUpdate {
-  /** The factory resource id. */
-  factoryResourceId?: string;
-  /** Git repo information of the factory. */
-  repoConfiguration?: FactoryRepoConfigurationUnion;
-}
-
 /** The exposure control request. */
 export interface ExposureControlRequest {
   /** The feature name. */
@@ -831,6 +823,14 @@ export interface ExposureControlBatchRequest {
 export interface ExposureControlBatchResponse {
   /** List of exposure control feature values. */
   exposureControlResponses: ExposureControlResponse[];
+}
+
+/** A list of factory resources. */
+export interface FactoryListResponse {
+  /** List of factories. */
+  value: Factory[];
+  /** The link to the next page of results, if any remaining results exist. */
+  nextLink?: string;
 }
 
 /** Parameters for updating a factory resource. */
@@ -14873,13 +14873,6 @@ export interface OperationsListNextOptionalParams
 export type OperationsListNextResponse = OperationListResponse;
 
 /** Optional parameters. */
-export interface FactoriesListOptionalParams
-  extends coreClient.OperationOptions {}
-
-/** Contains response data for the list operation. */
-export type FactoriesListResponse = FactoryListResponse;
-
-/** Optional parameters. */
 export interface FactoriesConfigureFactoryRepoOptionalParams
   extends coreClient.OperationOptions {}
 
@@ -14937,13 +14930,6 @@ export interface FactoriesGetDataPlaneAccessOptionalParams
 
 /** Contains response data for the getDataPlaneAccess operation. */
 export type FactoriesGetDataPlaneAccessResponse = AccessPolicyResponse;
-
-/** Optional parameters. */
-export interface FactoriesListNextOptionalParams
-  extends coreClient.OperationOptions {}
-
-/** Contains response data for the listNext operation. */
-export type FactoriesListNextResponse = FactoryListResponse;
 
 /** Optional parameters. */
 export interface FactoriesListByResourceGroupNextOptionalParams
