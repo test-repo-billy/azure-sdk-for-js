@@ -687,6 +687,40 @@ export interface CloudError {
   details?: CloudError[];
 }
 
+/** The exposure control request. */
+export interface ExposureControlRequest {
+  /** The feature name. */
+  featureName?: string;
+  /** The feature type. */
+  featureType?: string;
+}
+
+/** The exposure control response. */
+export interface ExposureControlResponse {
+  /**
+   * The feature name.
+   * NOTE: This property will not be serialized. It can only be populated by the server.
+   */
+  readonly featureName?: string;
+  /**
+   * The feature value.
+   * NOTE: This property will not be serialized. It can only be populated by the server.
+   */
+  readonly value?: string;
+}
+
+/** A list of exposure control features. */
+export interface ExposureControlBatchRequest {
+  /** List of exposure control features. */
+  exposureControlRequests: ExposureControlRequest[];
+}
+
+/** A list of exposure control feature values. */
+export interface ExposureControlBatchResponse {
+  /** List of exposure control feature values. */
+  exposureControlResponses: ExposureControlResponse[];
+}
+
 /** A list of factory resources. */
 export interface FactoryListResponse {
   /** List of factories. */
@@ -789,48 +823,6 @@ export interface Resource {
    * NOTE: This property will not be serialized. It can only be populated by the server.
    */
   readonly eTag?: string;
-}
-
-/** Factory's git repo information. */
-export interface FactoryRepoUpdate {
-  /** The factory resource id. */
-  factoryResourceId?: string;
-  /** Git repo information of the factory. */
-  repoConfiguration?: FactoryRepoConfigurationUnion;
-}
-
-/** The exposure control request. */
-export interface ExposureControlRequest {
-  /** The feature name. */
-  featureName?: string;
-  /** The feature type. */
-  featureType?: string;
-}
-
-/** The exposure control response. */
-export interface ExposureControlResponse {
-  /**
-   * The feature name.
-   * NOTE: This property will not be serialized. It can only be populated by the server.
-   */
-  readonly featureName?: string;
-  /**
-   * The feature value.
-   * NOTE: This property will not be serialized. It can only be populated by the server.
-   */
-  readonly value?: string;
-}
-
-/** A list of exposure control features. */
-export interface ExposureControlBatchRequest {
-  /** List of exposure control features. */
-  exposureControlRequests: ExposureControlRequest[];
-}
-
-/** A list of exposure control feature values. */
-export interface ExposureControlBatchResponse {
-  /** List of exposure control feature values. */
-  exposureControlResponses: ExposureControlResponse[];
 }
 
 /** Parameters for updating a factory resource. */
@@ -2565,6 +2557,14 @@ export interface IntegrationRuntimeStatusListResponse {
   value: IntegrationRuntimeStatusResponse[];
   /** The link to the next page of results, if any remaining results exist. */
   nextLink?: string;
+}
+
+/** Factory's git repo information. */
+export interface FactoryRepoUpdate {
+  /** The factory resource id. */
+  factoryResourceId?: string;
+  /** Git repo information of the factory. */
+  repoConfiguration?: FactoryRepoConfigurationUnion;
 }
 
 /** Pipeline reference type. */
@@ -14873,18 +14873,27 @@ export interface OperationsListNextOptionalParams
 export type OperationsListNextResponse = OperationListResponse;
 
 /** Optional parameters. */
-export interface FactoriesListOptionalParams
+export interface ExposureControlGetFeatureValueOptionalParams
   extends coreClient.OperationOptions {}
 
-/** Contains response data for the list operation. */
-export type FactoriesListResponse = FactoryListResponse;
+/** Contains response data for the getFeatureValue operation. */
+export type ExposureControlGetFeatureValueResponse = ExposureControlResponse;
 
 /** Optional parameters. */
-export interface FactoriesConfigureFactoryRepoOptionalParams
+export interface ExposureControlGetFeatureValueByFactoryOptionalParams
   extends coreClient.OperationOptions {}
 
-/** Contains response data for the configureFactoryRepo operation. */
-export type FactoriesConfigureFactoryRepoResponse = Factory;
+/** Contains response data for the getFeatureValueByFactory operation. */
+export type ExposureControlGetFeatureValueByFactoryResponse =
+  ExposureControlResponse;
+
+/** Optional parameters. */
+export interface ExposureControlQueryFeatureValuesByFactoryOptionalParams
+  extends coreClient.OperationOptions {}
+
+/** Contains response data for the queryFeatureValuesByFactory operation. */
+export type ExposureControlQueryFeatureValuesByFactoryResponse =
+  ExposureControlBatchResponse;
 
 /** Optional parameters. */
 export interface FactoriesListByResourceGroupOptionalParams
@@ -14939,41 +14948,11 @@ export interface FactoriesGetDataPlaneAccessOptionalParams
 export type FactoriesGetDataPlaneAccessResponse = AccessPolicyResponse;
 
 /** Optional parameters. */
-export interface FactoriesListNextOptionalParams
-  extends coreClient.OperationOptions {}
-
-/** Contains response data for the listNext operation. */
-export type FactoriesListNextResponse = FactoryListResponse;
-
-/** Optional parameters. */
 export interface FactoriesListByResourceGroupNextOptionalParams
   extends coreClient.OperationOptions {}
 
 /** Contains response data for the listByResourceGroupNext operation. */
 export type FactoriesListByResourceGroupNextResponse = FactoryListResponse;
-
-/** Optional parameters. */
-export interface ExposureControlGetFeatureValueOptionalParams
-  extends coreClient.OperationOptions {}
-
-/** Contains response data for the getFeatureValue operation. */
-export type ExposureControlGetFeatureValueResponse = ExposureControlResponse;
-
-/** Optional parameters. */
-export interface ExposureControlGetFeatureValueByFactoryOptionalParams
-  extends coreClient.OperationOptions {}
-
-/** Contains response data for the getFeatureValueByFactory operation. */
-export type ExposureControlGetFeatureValueByFactoryResponse =
-  ExposureControlResponse;
-
-/** Optional parameters. */
-export interface ExposureControlQueryFeatureValuesByFactoryOptionalParams
-  extends coreClient.OperationOptions {}
-
-/** Contains response data for the queryFeatureValuesByFactory operation. */
-export type ExposureControlQueryFeatureValuesByFactoryResponse =
-  ExposureControlBatchResponse;
 
 /** Optional parameters. */
 export interface IntegrationRuntimesListByFactoryOptionalParams
