@@ -7,18 +7,18 @@
  */
 
 import { PagedAsyncIterableIterator, PageSettings } from "@azure/core-paging";
-import { setContinuationToken } from "../pagingHelper";
-import { IntegrationRuntimes } from "../operationsInterfaces";
+import { setContinuationToken } from "../pagingHelper.js";
+import { IntegrationRuntimes } from "../operationsInterfaces/index.js";
 import * as coreClient from "@azure/core-client";
-import * as Mappers from "../models/mappers";
-import * as Parameters from "../models/parameters";
-import { DataFactoryManagementClient } from "../dataFactoryManagementClient";
+import * as Mappers from "../models/mappers.js";
+import * as Parameters from "../models/parameters.js";
+import { DataFactoryManagementClient } from "../dataFactoryManagementClient.js";
 import {
   SimplePollerLike,
   OperationState,
   createHttpPoller,
 } from "@azure/core-lro";
-import { createLroSpec } from "../lroImpl";
+import { createLroSpec } from "../lroImpl.js";
 import {
   IntegrationRuntimeResource,
   IntegrationRuntimesListByFactoryNextOptionalParams,
@@ -56,7 +56,7 @@ import {
   IntegrationRuntimesCreateLinkedIntegrationRuntimeOptionalParams,
   IntegrationRuntimesCreateLinkedIntegrationRuntimeResponse,
   IntegrationRuntimesListByFactoryNextResponse,
-} from "../models";
+} from "../models/index.js";
 
 /// <reference lib="esnext.asynciterable" />
 /** Class containing IntegrationRuntimes operations. */
@@ -729,8 +729,8 @@ const createOrUpdateOperationSpec: coreClient.OperationSpec = {
     Parameters.integrationRuntimeName,
   ],
   headerParameters: [
-    Parameters.accept,
     Parameters.contentType,
+    Parameters.accept,
     Parameters.ifMatch,
   ],
   mediaType: "json",
@@ -779,7 +779,7 @@ const updateOperationSpec: coreClient.OperationSpec = {
     Parameters.factoryName,
     Parameters.integrationRuntimeName,
   ],
-  headerParameters: [Parameters.accept, Parameters.contentType],
+  headerParameters: [Parameters.contentType, Parameters.accept],
   mediaType: "json",
   serializer,
 };
@@ -892,7 +892,7 @@ const regenerateAuthKeyOperationSpec: coreClient.OperationSpec = {
     Parameters.factoryName,
     Parameters.integrationRuntimeName,
   ],
-  headerParameters: [Parameters.accept, Parameters.contentType],
+  headerParameters: [Parameters.contentType, Parameters.accept],
   mediaType: "json",
   serializer,
 };
@@ -1052,7 +1052,7 @@ const removeLinksOperationSpec: coreClient.OperationSpec = {
     Parameters.factoryName,
     Parameters.integrationRuntimeName,
   ],
-  headerParameters: [Parameters.accept, Parameters.contentType],
+  headerParameters: [Parameters.contentType, Parameters.accept],
   mediaType: "json",
   serializer,
 };
@@ -1076,7 +1076,7 @@ const createLinkedIntegrationRuntimeOperationSpec: coreClient.OperationSpec = {
     Parameters.factoryName,
     Parameters.integrationRuntimeName,
   ],
-  headerParameters: [Parameters.accept, Parameters.contentType],
+  headerParameters: [Parameters.contentType, Parameters.accept],
   mediaType: "json",
   serializer,
 };
@@ -1093,10 +1093,10 @@ const listByFactoryNextOperationSpec: coreClient.OperationSpec = {
   },
   urlParameters: [
     Parameters.$host,
-    Parameters.nextLink,
     Parameters.subscriptionId,
     Parameters.resourceGroupName,
     Parameters.factoryName,
+    Parameters.nextLink,
   ],
   headerParameters: [Parameters.accept],
   serializer,

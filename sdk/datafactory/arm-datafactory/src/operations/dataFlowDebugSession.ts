@@ -7,18 +7,18 @@
  */
 
 import { PagedAsyncIterableIterator, PageSettings } from "@azure/core-paging";
-import { setContinuationToken } from "../pagingHelper";
-import { DataFlowDebugSession } from "../operationsInterfaces";
+import { setContinuationToken } from "../pagingHelper.js";
+import { DataFlowDebugSession } from "../operationsInterfaces/index.js";
 import * as coreClient from "@azure/core-client";
-import * as Mappers from "../models/mappers";
-import * as Parameters from "../models/parameters";
-import { DataFactoryManagementClient } from "../dataFactoryManagementClient";
+import * as Mappers from "../models/mappers.js";
+import * as Parameters from "../models/parameters.js";
+import { DataFactoryManagementClient } from "../dataFactoryManagementClient.js";
 import {
   SimplePollerLike,
   OperationState,
   createHttpPoller,
 } from "@azure/core-lro";
-import { createLroSpec } from "../lroImpl";
+import { createLroSpec } from "../lroImpl.js";
 import {
   DataFlowDebugSessionInfo,
   DataFlowDebugSessionQueryByFactoryNextOptionalParams,
@@ -36,7 +36,7 @@ import {
   DataFlowDebugSessionExecuteCommandOptionalParams,
   DataFlowDebugSessionExecuteCommandResponse,
   DataFlowDebugSessionQueryByFactoryNextResponse,
-} from "../models";
+} from "../models/index.js";
 
 /// <reference lib="esnext.asynciterable" />
 /** Class containing DataFlowDebugSession operations. */
@@ -428,7 +428,7 @@ const createOperationSpec: coreClient.OperationSpec = {
     Parameters.resourceGroupName,
     Parameters.factoryName,
   ],
-  headerParameters: [Parameters.accept, Parameters.contentType],
+  headerParameters: [Parameters.contentType, Parameters.accept],
   mediaType: "json",
   serializer,
 };
@@ -472,7 +472,7 @@ const addDataFlowOperationSpec: coreClient.OperationSpec = {
     Parameters.resourceGroupName,
     Parameters.factoryName,
   ],
-  headerParameters: [Parameters.accept, Parameters.contentType],
+  headerParameters: [Parameters.contentType, Parameters.accept],
   mediaType: "json",
   serializer,
 };
@@ -493,7 +493,7 @@ const deleteOperationSpec: coreClient.OperationSpec = {
     Parameters.resourceGroupName,
     Parameters.factoryName,
   ],
-  headerParameters: [Parameters.accept, Parameters.contentType],
+  headerParameters: [Parameters.contentType, Parameters.accept],
   mediaType: "json",
   serializer,
 };
@@ -525,7 +525,7 @@ const executeCommandOperationSpec: coreClient.OperationSpec = {
     Parameters.resourceGroupName,
     Parameters.factoryName,
   ],
-  headerParameters: [Parameters.accept, Parameters.contentType],
+  headerParameters: [Parameters.contentType, Parameters.accept],
   mediaType: "json",
   serializer,
 };
@@ -542,10 +542,10 @@ const queryByFactoryNextOperationSpec: coreClient.OperationSpec = {
   },
   urlParameters: [
     Parameters.$host,
-    Parameters.nextLink,
     Parameters.subscriptionId,
     Parameters.resourceGroupName,
     Parameters.factoryName,
+    Parameters.nextLink,
   ],
   headerParameters: [Parameters.accept],
   serializer,

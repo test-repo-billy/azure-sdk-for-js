@@ -6,18 +6,18 @@
  * Changes may cause incorrect behavior and will be lost if the code is regenerated.
  */
 
-import { TriggerRuns } from "../operationsInterfaces";
+import { TriggerRuns } from "../operationsInterfaces/index.js";
 import * as coreClient from "@azure/core-client";
-import * as Mappers from "../models/mappers";
-import * as Parameters from "../models/parameters";
-import { DataFactoryManagementClient } from "../dataFactoryManagementClient";
+import * as Mappers from "../models/mappers.js";
+import * as Parameters from "../models/parameters.js";
+import { DataFactoryManagementClient } from "../dataFactoryManagementClient.js";
 import {
   TriggerRunsRerunOptionalParams,
   TriggerRunsCancelOptionalParams,
   RunFilterParameters,
   TriggerRunsQueryByFactoryOptionalParams,
   TriggerRunsQueryByFactoryResponse,
-} from "../models";
+} from "../models/index.js";
 
 /** Class containing TriggerRuns operations. */
 export class TriggerRunsImpl implements TriggerRuns {
@@ -156,7 +156,7 @@ const queryByFactoryOperationSpec: coreClient.OperationSpec = {
     Parameters.resourceGroupName,
     Parameters.factoryName,
   ],
-  headerParameters: [Parameters.accept, Parameters.contentType],
+  headerParameters: [Parameters.contentType, Parameters.accept],
   mediaType: "json",
   serializer,
 };
