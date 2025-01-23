@@ -7,12 +7,12 @@
  */
 
 import { PagedAsyncIterableIterator, PageSettings } from "@azure/core-paging";
-import { setContinuationToken } from "../pagingHelper";
-import { Pipelines } from "../operationsInterfaces";
+import { setContinuationToken } from "../pagingHelper.js";
+import { Pipelines } from "../operationsInterfaces/index.js";
 import * as coreClient from "@azure/core-client";
-import * as Mappers from "../models/mappers";
-import * as Parameters from "../models/parameters";
-import { DataFactoryManagementClient } from "../dataFactoryManagementClient";
+import * as Mappers from "../models/mappers.js";
+import * as Parameters from "../models/parameters.js";
+import { DataFactoryManagementClient } from "../dataFactoryManagementClient.js";
 import {
   PipelineResource,
   PipelinesListByFactoryNextOptionalParams,
@@ -26,7 +26,7 @@ import {
   PipelinesCreateRunOptionalParams,
   PipelinesCreateRunResponse,
   PipelinesListByFactoryNextResponse,
-} from "../models";
+} from "../models/index.js";
 
 /// <reference lib="esnext.asynciterable" />
 /** Class containing Pipelines operations. */
@@ -284,8 +284,8 @@ const createOrUpdateOperationSpec: coreClient.OperationSpec = {
     Parameters.pipelineName,
   ],
   headerParameters: [
-    Parameters.accept,
     Parameters.contentType,
+    Parameters.accept,
     Parameters.ifMatch,
   ],
   mediaType: "json",
@@ -361,7 +361,7 @@ const createRunOperationSpec: coreClient.OperationSpec = {
     Parameters.factoryName,
     Parameters.pipelineName,
   ],
-  headerParameters: [Parameters.accept, Parameters.contentType],
+  headerParameters: [Parameters.contentType, Parameters.accept],
   mediaType: "json",
   serializer,
 };
@@ -378,10 +378,10 @@ const listByFactoryNextOperationSpec: coreClient.OperationSpec = {
   },
   urlParameters: [
     Parameters.$host,
-    Parameters.nextLink,
     Parameters.subscriptionId,
     Parameters.resourceGroupName,
     Parameters.factoryName,
+    Parameters.nextLink,
   ],
   headerParameters: [Parameters.accept],
   serializer,
