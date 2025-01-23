@@ -333,6 +333,94 @@ export const CloudError: coreClient.CompositeMapper = {
   },
 };
 
+export const ExposureControlRequest: coreClient.CompositeMapper = {
+  type: {
+    name: "Composite",
+    className: "ExposureControlRequest",
+    modelProperties: {
+      featureName: {
+        serializedName: "featureName",
+        type: {
+          name: "String",
+        },
+      },
+      featureType: {
+        serializedName: "featureType",
+        type: {
+          name: "String",
+        },
+      },
+    },
+  },
+};
+
+export const ExposureControlResponse: coreClient.CompositeMapper = {
+  type: {
+    name: "Composite",
+    className: "ExposureControlResponse",
+    modelProperties: {
+      featureName: {
+        serializedName: "featureName",
+        readOnly: true,
+        type: {
+          name: "String",
+        },
+      },
+      value: {
+        serializedName: "value",
+        readOnly: true,
+        type: {
+          name: "String",
+        },
+      },
+    },
+  },
+};
+
+export const ExposureControlBatchRequest: coreClient.CompositeMapper = {
+  type: {
+    name: "Composite",
+    className: "ExposureControlBatchRequest",
+    modelProperties: {
+      exposureControlRequests: {
+        serializedName: "exposureControlRequests",
+        required: true,
+        type: {
+          name: "Sequence",
+          element: {
+            type: {
+              name: "Composite",
+              className: "ExposureControlRequest",
+            },
+          },
+        },
+      },
+    },
+  },
+};
+
+export const ExposureControlBatchResponse: coreClient.CompositeMapper = {
+  type: {
+    name: "Composite",
+    className: "ExposureControlBatchResponse",
+    modelProperties: {
+      exposureControlResponses: {
+        serializedName: "exposureControlResponses",
+        required: true,
+        type: {
+          name: "Sequence",
+          element: {
+            type: {
+              name: "Composite",
+              className: "ExposureControlResponse",
+            },
+          },
+        },
+      },
+    },
+  },
+};
+
 export const FactoryListResponse: coreClient.CompositeMapper = {
   type: {
     name: "Composite",
@@ -592,116 +680,6 @@ export const Resource: coreClient.CompositeMapper = {
         readOnly: true,
         type: {
           name: "String",
-        },
-      },
-    },
-  },
-};
-
-export const FactoryRepoUpdate: coreClient.CompositeMapper = {
-  type: {
-    name: "Composite",
-    className: "FactoryRepoUpdate",
-    modelProperties: {
-      factoryResourceId: {
-        serializedName: "factoryResourceId",
-        type: {
-          name: "String",
-        },
-      },
-      repoConfiguration: {
-        serializedName: "repoConfiguration",
-        type: {
-          name: "Composite",
-          className: "FactoryRepoConfiguration",
-        },
-      },
-    },
-  },
-};
-
-export const ExposureControlRequest: coreClient.CompositeMapper = {
-  type: {
-    name: "Composite",
-    className: "ExposureControlRequest",
-    modelProperties: {
-      featureName: {
-        serializedName: "featureName",
-        type: {
-          name: "String",
-        },
-      },
-      featureType: {
-        serializedName: "featureType",
-        type: {
-          name: "String",
-        },
-      },
-    },
-  },
-};
-
-export const ExposureControlResponse: coreClient.CompositeMapper = {
-  type: {
-    name: "Composite",
-    className: "ExposureControlResponse",
-    modelProperties: {
-      featureName: {
-        serializedName: "featureName",
-        readOnly: true,
-        type: {
-          name: "String",
-        },
-      },
-      value: {
-        serializedName: "value",
-        readOnly: true,
-        type: {
-          name: "String",
-        },
-      },
-    },
-  },
-};
-
-export const ExposureControlBatchRequest: coreClient.CompositeMapper = {
-  type: {
-    name: "Composite",
-    className: "ExposureControlBatchRequest",
-    modelProperties: {
-      exposureControlRequests: {
-        serializedName: "exposureControlRequests",
-        required: true,
-        type: {
-          name: "Sequence",
-          element: {
-            type: {
-              name: "Composite",
-              className: "ExposureControlRequest",
-            },
-          },
-        },
-      },
-    },
-  },
-};
-
-export const ExposureControlBatchResponse: coreClient.CompositeMapper = {
-  type: {
-    name: "Composite",
-    className: "ExposureControlBatchResponse",
-    modelProperties: {
-      exposureControlResponses: {
-        serializedName: "exposureControlResponses",
-        required: true,
-        type: {
-          name: "Sequence",
-          element: {
-            type: {
-              name: "Composite",
-              className: "ExposureControlResponse",
-            },
-          },
         },
       },
     },
@@ -4379,6 +4357,28 @@ export const IntegrationRuntimeStatusListResponse: coreClient.CompositeMapper =
       },
     },
   };
+
+export const FactoryRepoUpdate: coreClient.CompositeMapper = {
+  type: {
+    name: "Composite",
+    className: "FactoryRepoUpdate",
+    modelProperties: {
+      factoryResourceId: {
+        serializedName: "factoryResourceId",
+        type: {
+          name: "String",
+        },
+      },
+      repoConfiguration: {
+        serializedName: "repoConfiguration",
+        type: {
+          name: "Composite",
+          className: "FactoryRepoConfiguration",
+        },
+      },
+    },
+  },
+};
 
 export const PipelineReference: coreClient.CompositeMapper = {
   type: {
