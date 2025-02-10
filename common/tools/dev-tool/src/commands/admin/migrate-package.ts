@@ -462,6 +462,12 @@ async function addNewPackages(packageJson: any, options: { browser: boolean }): 
     { package: "@azure/core-util", version: undefined },
   ];
 
+  packageJson.devDependencies["vitest"] = "^2.1.8";
+  packageJson.devDependencies["@vitest/coverage-istanbul"] = "^2.1.8";
+  if (options.browser) {
+    packageJson.devDependencies["@vitest/browser"] = "^2.1.8";
+  }
+  
   // Update additional if there
   for (const { package: packageName, version } of packagesToUpdate) {
     if (packageJson.devDependencies[packageName]) {
