@@ -913,9 +913,9 @@ export class VirtualMachinesImpl implements VirtualMachines {
    * Sets the OS state of the virtual machine to generalized. It is recommended to sysprep the virtual
    * machine before performing this operation. For Windows, please refer to [Create a managed image of a
    * generalized VM in
-   * Azure](https://learn.microsoft.com/azure/virtual-machines/windows/capture-image-resource). For Linux,
+   * Azure](https://docs.microsoft.com/azure/virtual-machines/windows/capture-image-resource). For Linux,
    * please refer to [How to create an image of a virtual machine or
-   * VHD](https://learn.microsoft.com/azure/virtual-machines/linux/capture-image).
+   * VHD](https://docs.microsoft.com/azure/virtual-machines/linux/capture-image).
    * @param resourceGroupName The name of the resource group.
    * @param vmName The name of the virtual machine.
    * @param options The options parameters.
@@ -2006,11 +2006,11 @@ const listByLocationOperationSpec: coreClient.OperationSpec = {
       bodyMapper: Mappers.CloudError,
     },
   },
-  queryParameters: [Parameters.apiVersion],
+  queryParameters: [Parameters.apiVersion1],
   urlParameters: [
     Parameters.$host,
-    Parameters.location,
     Parameters.subscriptionId,
+    Parameters.location1,
   ],
   headerParameters: [Parameters.accept],
   serializer,
@@ -2036,7 +2036,7 @@ const captureOperationSpec: coreClient.OperationSpec = {
     },
   },
   requestBody: Parameters.parameters7,
-  queryParameters: [Parameters.apiVersion],
+  queryParameters: [Parameters.apiVersion1],
   urlParameters: [
     Parameters.$host,
     Parameters.subscriptionId,
@@ -2068,7 +2068,7 @@ const createOrUpdateOperationSpec: coreClient.OperationSpec = {
     },
   },
   requestBody: Parameters.parameters8,
-  queryParameters: [Parameters.apiVersion],
+  queryParameters: [Parameters.apiVersion1],
   urlParameters: [
     Parameters.$host,
     Parameters.subscriptionId,
@@ -2105,7 +2105,7 @@ const updateOperationSpec: coreClient.OperationSpec = {
     },
   },
   requestBody: Parameters.parameters9,
-  queryParameters: [Parameters.apiVersion],
+  queryParameters: [Parameters.apiVersion1],
   urlParameters: [
     Parameters.$host,
     Parameters.subscriptionId,
@@ -2133,7 +2133,7 @@ const deleteOperationSpec: coreClient.OperationSpec = {
       bodyMapper: Mappers.CloudError,
     },
   },
-  queryParameters: [Parameters.apiVersion, Parameters.forceDeletion],
+  queryParameters: [Parameters.apiVersion1, Parameters.forceDeletion],
   urlParameters: [
     Parameters.$host,
     Parameters.subscriptionId,
@@ -2154,7 +2154,7 @@ const getOperationSpec: coreClient.OperationSpec = {
       bodyMapper: Mappers.CloudError,
     },
   },
-  queryParameters: [Parameters.apiVersion, Parameters.expand2],
+  queryParameters: [Parameters.apiVersion1, Parameters.expand2],
   urlParameters: [
     Parameters.$host,
     Parameters.subscriptionId,
@@ -2175,7 +2175,7 @@ const instanceViewOperationSpec: coreClient.OperationSpec = {
       bodyMapper: Mappers.CloudError,
     },
   },
-  queryParameters: [Parameters.apiVersion],
+  queryParameters: [Parameters.apiVersion1],
   urlParameters: [
     Parameters.$host,
     Parameters.subscriptionId,
@@ -2197,7 +2197,7 @@ const convertToManagedDisksOperationSpec: coreClient.OperationSpec = {
       bodyMapper: Mappers.CloudError,
     },
   },
-  queryParameters: [Parameters.apiVersion],
+  queryParameters: [Parameters.apiVersion1],
   urlParameters: [
     Parameters.$host,
     Parameters.subscriptionId,
@@ -2219,7 +2219,7 @@ const deallocateOperationSpec: coreClient.OperationSpec = {
       bodyMapper: Mappers.CloudError,
     },
   },
-  queryParameters: [Parameters.apiVersion, Parameters.hibernate],
+  queryParameters: [Parameters.apiVersion1, Parameters.hibernate],
   urlParameters: [
     Parameters.$host,
     Parameters.subscriptionId,
@@ -2238,7 +2238,7 @@ const generalizeOperationSpec: coreClient.OperationSpec = {
       bodyMapper: Mappers.CloudError,
     },
   },
-  queryParameters: [Parameters.apiVersion],
+  queryParameters: [Parameters.apiVersion1],
   urlParameters: [
     Parameters.$host,
     Parameters.subscriptionId,
@@ -2260,7 +2260,7 @@ const listOperationSpec: coreClient.OperationSpec = {
     },
   },
   queryParameters: [
-    Parameters.apiVersion,
+    Parameters.apiVersion1,
     Parameters.filter,
     Parameters.expand3,
   ],
@@ -2284,7 +2284,7 @@ const listAllOperationSpec: coreClient.OperationSpec = {
     },
   },
   queryParameters: [
-    Parameters.apiVersion,
+    Parameters.apiVersion1,
     Parameters.filter,
     Parameters.statusOnly,
     Parameters.expand4,
@@ -2304,7 +2304,7 @@ const listAvailableSizesOperationSpec: coreClient.OperationSpec = {
       bodyMapper: Mappers.CloudError,
     },
   },
-  queryParameters: [Parameters.apiVersion],
+  queryParameters: [Parameters.apiVersion1],
   urlParameters: [
     Parameters.$host,
     Parameters.subscriptionId,
@@ -2326,7 +2326,7 @@ const powerOffOperationSpec: coreClient.OperationSpec = {
       bodyMapper: Mappers.CloudError,
     },
   },
-  queryParameters: [Parameters.apiVersion, Parameters.skipShutdown],
+  queryParameters: [Parameters.apiVersion1, Parameters.skipShutdown],
   urlParameters: [
     Parameters.$host,
     Parameters.subscriptionId,
@@ -2348,7 +2348,7 @@ const reapplyOperationSpec: coreClient.OperationSpec = {
       bodyMapper: Mappers.CloudError,
     },
   },
-  queryParameters: [Parameters.apiVersion],
+  queryParameters: [Parameters.apiVersion1],
   urlParameters: [
     Parameters.$host,
     Parameters.subscriptionId,
@@ -2370,7 +2370,7 @@ const restartOperationSpec: coreClient.OperationSpec = {
       bodyMapper: Mappers.CloudError,
     },
   },
-  queryParameters: [Parameters.apiVersion],
+  queryParameters: [Parameters.apiVersion1],
   urlParameters: [
     Parameters.$host,
     Parameters.subscriptionId,
@@ -2392,7 +2392,7 @@ const startOperationSpec: coreClient.OperationSpec = {
       bodyMapper: Mappers.CloudError,
     },
   },
-  queryParameters: [Parameters.apiVersion],
+  queryParameters: [Parameters.apiVersion1],
   urlParameters: [
     Parameters.$host,
     Parameters.subscriptionId,
@@ -2414,7 +2414,7 @@ const redeployOperationSpec: coreClient.OperationSpec = {
       bodyMapper: Mappers.CloudError,
     },
   },
-  queryParameters: [Parameters.apiVersion],
+  queryParameters: [Parameters.apiVersion1],
   urlParameters: [
     Parameters.$host,
     Parameters.subscriptionId,
@@ -2437,7 +2437,7 @@ const reimageOperationSpec: coreClient.OperationSpec = {
     },
   },
   requestBody: Parameters.parameters10,
-  queryParameters: [Parameters.apiVersion],
+  queryParameters: [Parameters.apiVersion1],
   urlParameters: [
     Parameters.$host,
     Parameters.subscriptionId,
@@ -2460,7 +2460,7 @@ const retrieveBootDiagnosticsDataOperationSpec: coreClient.OperationSpec = {
     },
   },
   queryParameters: [
-    Parameters.apiVersion,
+    Parameters.apiVersion1,
     Parameters.sasUriExpirationTimeInMinutes,
   ],
   urlParameters: [
@@ -2484,7 +2484,7 @@ const performMaintenanceOperationSpec: coreClient.OperationSpec = {
       bodyMapper: Mappers.CloudError,
     },
   },
-  queryParameters: [Parameters.apiVersion],
+  queryParameters: [Parameters.apiVersion1],
   urlParameters: [
     Parameters.$host,
     Parameters.subscriptionId,
@@ -2503,7 +2503,7 @@ const simulateEvictionOperationSpec: coreClient.OperationSpec = {
       bodyMapper: Mappers.CloudError,
     },
   },
-  queryParameters: [Parameters.apiVersion],
+  queryParameters: [Parameters.apiVersion1],
   urlParameters: [
     Parameters.$host,
     Parameters.subscriptionId,
@@ -2533,7 +2533,7 @@ const assessPatchesOperationSpec: coreClient.OperationSpec = {
       bodyMapper: Mappers.CloudError,
     },
   },
-  queryParameters: [Parameters.apiVersion],
+  queryParameters: [Parameters.apiVersion1],
   urlParameters: [
     Parameters.$host,
     Parameters.subscriptionId,
@@ -2564,7 +2564,7 @@ const installPatchesOperationSpec: coreClient.OperationSpec = {
     },
   },
   requestBody: Parameters.installPatchesInput,
-  queryParameters: [Parameters.apiVersion],
+  queryParameters: [Parameters.apiVersion1],
   urlParameters: [
     Parameters.$host,
     Parameters.subscriptionId,
@@ -2596,7 +2596,7 @@ const attachDetachDataDisksOperationSpec: coreClient.OperationSpec = {
     },
   },
   requestBody: Parameters.parameters5,
-  queryParameters: [Parameters.apiVersion],
+  queryParameters: [Parameters.apiVersion1],
   urlParameters: [
     Parameters.$host,
     Parameters.subscriptionId,
@@ -2625,7 +2625,7 @@ const runCommandOperationSpec: coreClient.OperationSpec = {
     },
   },
   requestBody: Parameters.parameters6,
-  queryParameters: [Parameters.apiVersion],
+  queryParameters: [Parameters.apiVersion1],
   urlParameters: [
     Parameters.$host,
     Parameters.subscriptionId,
@@ -2649,9 +2649,9 @@ const listByLocationNextOperationSpec: coreClient.OperationSpec = {
   },
   urlParameters: [
     Parameters.$host,
-    Parameters.location,
     Parameters.subscriptionId,
     Parameters.nextLink,
+    Parameters.location1,
   ],
   headerParameters: [Parameters.accept],
   serializer,

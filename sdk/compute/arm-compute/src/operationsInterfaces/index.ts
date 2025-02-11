@@ -6,6 +6,13 @@
  * Changes may cause incorrect behavior and will be lost if the code is regenerated.
  */
 
+export * from "./diagnosticOperations.js";
+export * from "./diskInspection.js";
+export * from "./diagnostics.js";
+export * from "./diskInspectionStorageConfiguration.js";
+export * from "./spotPlacementRecommender.js";
+export * from "./spotPlacementScores.js";
+export * from "./attributeBasedVMSizeRecommender.js";
 export * from "./operations.js";
 export * from "./usageOperations.js";
 export * from "./virtualMachineSizes.js";

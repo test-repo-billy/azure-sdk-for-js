@@ -12,6 +12,11 @@ import {
   OperationQueryParameter,
 } from "@azure/core-client";
 import {
+  RunDiskInspectionInput as RunDiskInspectionInputMapper,
+  StorageConfigurationInput as StorageConfigurationInputMapper,
+  SpotPlacementRecommenderInput as SpotPlacementRecommenderInputMapper,
+  SpotPlacementScoresInput as SpotPlacementScoresInputMapper,
+  AttributeBasedVMSizeRecommenderInput as AttributeBasedVMSizeRecommenderInputMapper,
   VirtualMachineScaleSet as VirtualMachineScaleSetMapper,
   VirtualMachineScaleSetUpdate as VirtualMachineScaleSetUpdateMapper,
   VirtualMachineScaleSetVMInstanceIDs as VirtualMachineScaleSetVMInstanceIDsMapper,
@@ -113,14 +118,13 @@ export const $host: OperationURLParameter = {
   skipEncoding: true,
 };
 
-export const apiVersion: OperationQueryParameter = {
-  parameterPath: "apiVersion",
+export const subscriptionId: OperationURLParameter = {
+  parameterPath: "subscriptionId",
   mapper: {
-    defaultValue: "2024-07-01",
-    isConstant: true,
-    serializedName: "api-version",
+    serializedName: "subscriptionId",
+    required: true,
     type: {
-      name: "String",
+      name: "Uuid",
     },
   },
 };
@@ -129,7 +133,7 @@ export const location: OperationURLParameter = {
   parameterPath: "location",
   mapper: {
     constraints: {
-      Pattern: new RegExp("^[-\\w\\._]+$"),
+      MinLength: 1,
     },
     serializedName: "location",
     required: true,
@@ -139,15 +143,47 @@ export const location: OperationURLParameter = {
   },
 };
 
-export const subscriptionId: OperationURLParameter = {
-  parameterPath: "subscriptionId",
+export const operationId: OperationURLParameter = {
+  parameterPath: "operationId",
   mapper: {
-    serializedName: "subscriptionId",
+    constraints: {
+      MinLength: 1,
+    },
+    serializedName: "operationId",
     required: true,
     type: {
       name: "String",
     },
   },
+};
+
+export const apiVersion: OperationQueryParameter = {
+  parameterPath: "apiVersion",
+  mapper: {
+    defaultValue: "2025-02-01-preview",
+    isConstant: true,
+    serializedName: "api-version",
+    type: {
+      name: "String",
+    },
+  },
+};
+
+export const contentType: OperationParameter = {
+  parameterPath: ["options", "contentType"],
+  mapper: {
+    defaultValue: "application/json",
+    isConstant: true,
+    serializedName: "Content-Type",
+    type: {
+      name: "String",
+    },
+  },
+};
+
+export const runDiskInspectionInput: OperationParameter = {
+  parameterPath: "runDiskInspectionInput",
+  mapper: RunDiskInspectionInputMapper,
 };
 
 export const nextLink: OperationURLParameter = {
@@ -162,12 +198,46 @@ export const nextLink: OperationURLParameter = {
   skipEncoding: true,
 };
 
-export const contentType: OperationParameter = {
-  parameterPath: ["options", "contentType"],
+export const storageConfigurationInput: OperationParameter = {
+  parameterPath: "storageConfigurationInput",
+  mapper: StorageConfigurationInputMapper,
+};
+
+export const spotPlacementRecommenderInput: OperationParameter = {
+  parameterPath: "spotPlacementRecommenderInput",
+  mapper: SpotPlacementRecommenderInputMapper,
+};
+
+export const spotPlacementScoresInput: OperationParameter = {
+  parameterPath: "spotPlacementScoresInput",
+  mapper: SpotPlacementScoresInputMapper,
+};
+
+export const attributeBasedVMSizeRecommenderInput: OperationParameter = {
+  parameterPath: "attributeBasedVMSizeRecommenderInput",
+  mapper: AttributeBasedVMSizeRecommenderInputMapper,
+};
+
+export const apiVersion1: OperationQueryParameter = {
+  parameterPath: "apiVersion",
   mapper: {
-    defaultValue: "application/json",
+    defaultValue: "2024-07-01",
     isConstant: true,
-    serializedName: "Content-Type",
+    serializedName: "api-version",
+    type: {
+      name: "String",
+    },
+  },
+};
+
+export const location1: OperationURLParameter = {
+  parameterPath: "location",
+  mapper: {
+    constraints: {
+      Pattern: new RegExp("^[-\\w\\._]+$"),
+    },
+    serializedName: "location",
+    required: true,
     type: {
       name: "String",
     },
@@ -546,7 +616,7 @@ export const installPatchesInput: OperationParameter = {
   mapper: VirtualMachineInstallPatchesParametersMapper,
 };
 
-export const location1: OperationURLParameter = {
+export const location2: OperationURLParameter = {
   parameterPath: "location",
   mapper: {
     serializedName: "location",
@@ -1009,7 +1079,7 @@ export const diskName: OperationURLParameter = {
   },
 };
 
-export const apiVersion1: OperationQueryParameter = {
+export const apiVersion2: OperationQueryParameter = {
   parameterPath: "apiVersion",
   mapper: {
     defaultValue: "2024-03-02",
@@ -1132,7 +1202,7 @@ export const snapshot1: OperationParameter = {
   mapper: SnapshotUpdateMapper,
 };
 
-export const apiVersion2: OperationQueryParameter = {
+export const apiVersion3: OperationQueryParameter = {
   parameterPath: "apiVersion",
   mapper: {
     defaultValue: "2021-07-01",
@@ -1170,7 +1240,7 @@ export const galleryName: OperationURLParameter = {
   },
 };
 
-export const apiVersion3: OperationQueryParameter = {
+export const apiVersion4: OperationQueryParameter = {
   parameterPath: "apiVersion",
   mapper: {
     defaultValue: "2024-03-03",
@@ -1487,7 +1557,7 @@ export const cloudServiceName: OperationURLParameter = {
   },
 };
 
-export const apiVersion4: OperationQueryParameter = {
+export const apiVersion5: OperationQueryParameter = {
   parameterPath: "apiVersion",
   mapper: {
     defaultValue: "2024-11-04",
