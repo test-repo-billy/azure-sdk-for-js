@@ -10,6 +10,13 @@ import * as coreClient from "@azure/core-client";
 import * as coreRestPipeline from "@azure/core-rest-pipeline";
 import * as coreAuth from "@azure/core-auth";
 import {
+  DiagnosticOperationsImpl,
+  DiskInspectionImpl,
+  DiagnosticsImpl,
+  DiskInspectionStorageConfigurationImpl,
+  SpotPlacementRecommenderImpl,
+  SpotPlacementScoresImpl,
+  AttributeBasedVMSizeRecommenderImpl,
   OperationsImpl,
   UsageOperationsImpl,
   VirtualMachineSizesImpl,
@@ -64,6 +71,13 @@ import {
   CloudServiceOperatingSystemsImpl,
 } from "./operations/index.js";
 import {
+  DiagnosticOperations,
+  DiskInspection,
+  Diagnostics,
+  DiskInspectionStorageConfiguration,
+  SpotPlacementRecommender,
+  SpotPlacementScores,
+  AttributeBasedVMSizeRecommender,
   Operations,
   UsageOperations,
   VirtualMachineSizes,
@@ -126,8 +140,7 @@ export class ComputeManagementClient extends coreClient.ServiceClient {
   /**
    * Initializes a new instance of the ComputeManagementClient class.
    * @param credentials Subscription credentials which uniquely identify client subscription.
-   * @param subscriptionId Subscription credentials which uniquely identify Microsoft Azure subscription.
-   *                       The subscription ID forms part of the URI for every service call.
+   * @param subscriptionId The ID of the target subscription. The value must be an UUID.
    * @param options The parameter options
    */
   constructor(
@@ -151,7 +164,7 @@ export class ComputeManagementClient extends coreClient.ServiceClient {
       credential: credentials,
     };
 
-    const packageDetails = `azsdk-js-arm-compute/22.3.1`;
+    const packageDetails = `azsdk-js-arm-compute/23.0.0-beta.1`;
     const userAgentPrefix =
       options.userAgentOptions && options.userAgentOptions.userAgentPrefix
         ? `${options.userAgentOptions.userAgentPrefix} ${packageDetails}`
@@ -205,6 +218,15 @@ export class ComputeManagementClient extends coreClient.ServiceClient {
 
     // Assigning values to Constant parameters
     this.$host = options.$host || "https://management.azure.com";
+    this.diagnosticOperations = new DiagnosticOperationsImpl(this);
+    this.diskInspection = new DiskInspectionImpl(this);
+    this.diagnostics = new DiagnosticsImpl(this);
+    this.diskInspectionStorageConfiguration =
+      new DiskInspectionStorageConfigurationImpl(this);
+    this.spotPlacementRecommender = new SpotPlacementRecommenderImpl(this);
+    this.spotPlacementScores = new SpotPlacementScoresImpl(this);
+    this.attributeBasedVMSizeRecommender =
+      new AttributeBasedVMSizeRecommenderImpl(this);
     this.operations = new OperationsImpl(this);
     this.usageOperations = new UsageOperationsImpl(this);
     this.virtualMachineSizes = new VirtualMachineSizesImpl(this);
@@ -273,6 +295,13 @@ export class ComputeManagementClient extends coreClient.ServiceClient {
     );
   }
 
+  diagnosticOperations: DiagnosticOperations;
+  diskInspection: DiskInspection;
+  diagnostics: Diagnostics;
+  diskInspectionStorageConfiguration: DiskInspectionStorageConfiguration;
+  spotPlacementRecommender: SpotPlacementRecommender;
+  spotPlacementScores: SpotPlacementScores;
+  attributeBasedVMSizeRecommender: AttributeBasedVMSizeRecommender;
   operations: Operations;
   usageOperations: UsageOperations;
   virtualMachineSizes: VirtualMachineSizes;

@@ -538,7 +538,7 @@ export class DedicatedHostsImpl implements DedicatedHosts {
    * Restart the dedicated host. The operation will complete successfully once the dedicated host has
    * restarted and is running. To determine the health of VMs deployed on the dedicated host after the
    * restart check the Resource Health Center in the Azure Portal. Please refer to
-   * https://learn.microsoft.com/azure/service-health/resource-health-overview for more details.
+   * https://docs.microsoft.com/azure/service-health/resource-health-overview for more details.
    * @param resourceGroupName The name of the resource group.
    * @param hostGroupName The name of the dedicated host group.
    * @param hostName The name of the dedicated host.
@@ -605,7 +605,7 @@ export class DedicatedHostsImpl implements DedicatedHosts {
    * Restart the dedicated host. The operation will complete successfully once the dedicated host has
    * restarted and is running. To determine the health of VMs deployed on the dedicated host after the
    * restart check the Resource Health Center in the Azure Portal. Please refer to
-   * https://learn.microsoft.com/azure/service-health/resource-health-overview for more details.
+   * https://docs.microsoft.com/azure/service-health/resource-health-overview for more details.
    * @param resourceGroupName The name of the resource group.
    * @param hostGroupName The name of the dedicated host group.
    * @param hostName The name of the dedicated host.
@@ -630,7 +630,7 @@ export class DedicatedHostsImpl implements DedicatedHosts {
    * Redeploy the dedicated host. The operation will complete successfully once the dedicated host has
    * migrated to a new node and is running. To determine the health of VMs deployed on the dedicated host
    * after the redeploy check the Resource Health Center in the Azure Portal. Please refer to
-   * https://learn.microsoft.com/azure/service-health/resource-health-overview for more details.
+   * https://docs.microsoft.com/azure/service-health/resource-health-overview for more details.
    * @param resourceGroupName The name of the resource group.
    * @param hostGroupName The name of the dedicated host group.
    * @param hostName The name of the dedicated host.
@@ -705,7 +705,7 @@ export class DedicatedHostsImpl implements DedicatedHosts {
    * Redeploy the dedicated host. The operation will complete successfully once the dedicated host has
    * migrated to a new node and is running. To determine the health of VMs deployed on the dedicated host
    * after the redeploy check the Resource Health Center in the Azure Portal. Please refer to
-   * https://learn.microsoft.com/azure/service-health/resource-health-overview for more details.
+   * https://docs.microsoft.com/azure/service-health/resource-health-overview for more details.
    * @param resourceGroupName The name of the resource group.
    * @param hostGroupName The name of the dedicated host group.
    * @param hostName The name of the dedicated host.
@@ -789,7 +789,7 @@ const createOrUpdateOperationSpec: coreClient.OperationSpec = {
     },
   },
   requestBody: Parameters.parameters17,
-  queryParameters: [Parameters.apiVersion],
+  queryParameters: [Parameters.apiVersion1],
   urlParameters: [
     Parameters.$host,
     Parameters.subscriptionId,
@@ -822,7 +822,7 @@ const updateOperationSpec: coreClient.OperationSpec = {
     },
   },
   requestBody: Parameters.parameters18,
-  queryParameters: [Parameters.apiVersion],
+  queryParameters: [Parameters.apiVersion1],
   urlParameters: [
     Parameters.$host,
     Parameters.subscriptionId,
@@ -846,7 +846,7 @@ const deleteOperationSpec: coreClient.OperationSpec = {
       bodyMapper: Mappers.CloudError,
     },
   },
-  queryParameters: [Parameters.apiVersion],
+  queryParameters: [Parameters.apiVersion1],
   urlParameters: [
     Parameters.$host,
     Parameters.subscriptionId,
@@ -868,7 +868,7 @@ const getOperationSpec: coreClient.OperationSpec = {
       bodyMapper: Mappers.CloudError,
     },
   },
-  queryParameters: [Parameters.apiVersion, Parameters.expand2],
+  queryParameters: [Parameters.apiVersion1, Parameters.expand2],
   urlParameters: [
     Parameters.$host,
     Parameters.subscriptionId,
@@ -890,7 +890,7 @@ const listByHostGroupOperationSpec: coreClient.OperationSpec = {
       bodyMapper: Mappers.CloudError,
     },
   },
-  queryParameters: [Parameters.apiVersion],
+  queryParameters: [Parameters.apiVersion1],
   urlParameters: [
     Parameters.$host,
     Parameters.subscriptionId,
@@ -912,7 +912,7 @@ const restartOperationSpec: coreClient.OperationSpec = {
       bodyMapper: Mappers.CloudError,
     },
   },
-  queryParameters: [Parameters.apiVersion],
+  queryParameters: [Parameters.apiVersion1],
   urlParameters: [
     Parameters.$host,
     Parameters.subscriptionId,
@@ -943,7 +943,7 @@ const redeployOperationSpec: coreClient.OperationSpec = {
       bodyMapper: Mappers.CloudError,
     },
   },
-  queryParameters: [Parameters.apiVersion],
+  queryParameters: [Parameters.apiVersion1],
   urlParameters: [
     Parameters.$host,
     Parameters.subscriptionId,
@@ -965,7 +965,7 @@ const listAvailableSizesOperationSpec: coreClient.OperationSpec = {
       bodyMapper: Mappers.CloudError,
     },
   },
-  queryParameters: [Parameters.apiVersion],
+  queryParameters: [Parameters.apiVersion1],
   urlParameters: [
     Parameters.$host,
     Parameters.subscriptionId,
