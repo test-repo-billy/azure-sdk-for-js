@@ -7,15 +7,12 @@
  * @summary gets a list of parties
  */
 
-import FarmBeats, { isUnexpected, PartyOutput, paginate } from "@azure-rest/agrifood-farming";
+import FarmBeats, { isUnexpected, paginate } from "@azure-rest/agrifood-farming";
 import { DefaultAzureCredential } from "@azure/identity";
-import dotenv from "dotenv";
-
-dotenv.config();
-
+import "dotenv/config";
 const endpoint = process.env["FARMBEATS_ENDPOINT"] || "";
 
-async function main() {
+async function main(): Promise<void> {
   const farming = FarmBeats(endpoint, new DefaultAzureCredential());
   const response = await farming.path("/parties").get();
 

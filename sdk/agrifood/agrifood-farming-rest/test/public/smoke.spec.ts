@@ -13,12 +13,12 @@ describe("List parties", () => {
   let recorder: Recorder;
   let client: FarmBeatsClient;
 
-  beforeEach(async function (ctx) {
+  beforeEach(async (ctx) => {
     recorder = await createRecorder(ctx);
     client = createClient(recorder.configureClientOptions({}));
   });
 
-  afterEach(async function () {
+  afterEach(async () => {
     await recorder.stop();
   });
 
