@@ -5,7 +5,7 @@
 import type { ClientContext } from "./ClientContext";
 import { DiagnosticNodeInternal, DiagnosticNodeType } from "./diagnostics/DiagnosticNodeInternal";
 import { getPathFromLink, ResourceType, StatusCodes } from "./common";
-import {
+import type {
   CosmosHeaders,
   ExecutionContext,
   FetchFunctionCallback,
@@ -102,7 +102,7 @@ export class QueryIterator<T> {
   /**
    * @internal
    */
-  protected async *getAsyncIteratorInternal(
+  public async *getAsyncIteratorInternal(
     diagnosticNode: DiagnosticNodeInternal,
   ): AsyncIterable<FeedResponse<T>> {
     this.reset();
@@ -189,9 +189,7 @@ export class QueryIterator<T> {
   /**
    * @internal
    */
-  protected async fetchNextInternal(
-    diagnosticNode: DiagnosticNodeInternal,
-  ): Promise<FeedResponse<T>> {
+  public async fetchNextInternal(diagnosticNode: DiagnosticNodeInternal): Promise<FeedResponse<T>> {
     this.queryPlanPromise = withMetadataDiagnostics(
       async (metadataNode: DiagnosticNodeInternal) => {
         return this.fetchQueryPlan(metadataNode);
@@ -250,7 +248,6 @@ export class QueryIterator<T> {
       diagnosticNode,
       MetadataLookUpType.QueryPlanLookUp,
     );
-
     // this.queryPlanPromise = this.fetchQueryPlan(diagnosticNode);
     if (!this.isInitialized) {
       await this.init(diagnosticNode);
@@ -375,7 +372,7 @@ export class QueryIterator<T> {
   /**
    * @internal
    */
-  protected async init(diagnosticNode: DiagnosticNodeInternal): Promise<void> {
+  public async init(diagnosticNode: DiagnosticNodeInternal): Promise<void> {
     if (this.isInitialized === true) {
       return;
     }

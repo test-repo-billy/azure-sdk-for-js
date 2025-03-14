@@ -3,7 +3,7 @@
 
 import type { Container } from "../client";
 import type { ClientContext } from "../ClientContext";
-import { ResourceType } from "../common/constants";
+import { Constants, ResourceType } from "../common/constants";
 import { DiagnosticNodeInternal, DiagnosticNodeType } from "../diagnostics/DiagnosticNodeInternal";
 import type { SqlQuerySpec, FetchFunctionCallback } from "../queryExecutionContext";
 import { QueryIterator } from "../queryIterator";
@@ -44,14 +44,23 @@ export class EncryptionItemQueryIterator<Item> extends QueryIterator<Item> {
       null,
     );
     try {
-      response = yield* super.getAsyncIteratorInternal(diagnosticNode);
+      response = yield* QueryIterator.prototype.getAsyncIteratorInternal.call(this, diagnosticNode);
     } catch (error) {
       await this.container.throwIfRequestNeedsARetryPostPolicyRefresh(error);
     }
-    if (response.resources && response.resources.length > 0) {
+    if (response?.resources?.length > 0) {
+      let count = 0;
+      diagnosticNode.beginEncryptionDiagnostics(Constants.Encryption.DiagnosticsDecryptOperation);
       for (let resource of response.resources) {
-        resource = await this.container.encryptionProcessor.decrypt(resource);
+        const { body, propertiesDecryptedCount } =
+          await this.container.encryptionProcessor.decrypt(resource);
+        resource = body;
+        count += propertiesDecryptedCount;
       }
+      diagnosticNode.endEncryptionDiagnostics(
+        Constants.Encryption.DiagnosticsDecryptOperation,
+        count,
+      );
     }
     yield response;
   }
@@ -63,14 +72,23 @@ export class EncryptionItemQueryIterator<Item> extends QueryIterator<Item> {
     return withDiagnostics(async (diagnosticNode: DiagnosticNodeInternal) => {
       let response: FeedResponse<Item>;
       try {
-        response = await super.fetchAllInternal(diagnosticNode);
+        response = await QueryIterator.prototype.fetchAllInternal.call(this, diagnosticNode);
       } catch (error) {
         await this.container.throwIfRequestNeedsARetryPostPolicyRefresh(error);
       }
-      if (response && response.resources && response.resources.length > 0) {
+      if (response?.resources?.length > 0) {
+        let count = 0;
+        diagnosticNode.beginEncryptionDiagnostics(Constants.Encryption.DiagnosticsDecryptOperation);
         for (let resource of response.resources) {
-          resource = await this.container.encryptionProcessor.decrypt(resource, diagnosticNode);
+          const { body, propertiesDecryptedCount } =
+            await this.container.encryptionProcessor.decrypt(resource);
+          resource = body;
+          count += propertiesDecryptedCount;
         }
+        diagnosticNode.endEncryptionDiagnostics(
+          Constants.Encryption.DiagnosticsDecryptOperation,
+          count,
+        );
       }
       return response;
     }, this.encryptionClientContext);
@@ -83,25 +101,34 @@ export class EncryptionItemQueryIterator<Item> extends QueryIterator<Item> {
     return withDiagnostics(async (diagnosticNode: DiagnosticNodeInternal) => {
       let response: FeedResponse<Item>;
       try {
-        response = await super.fetchNextInternal(diagnosticNode);
+        response = await QueryIterator.prototype.fetchNextInternal.call(this, diagnosticNode);
       } catch (error) {
         await this.container.throwIfRequestNeedsARetryPostPolicyRefresh(error);
       }
-      if (response.resources && response.resources.length > 0) {
+      if (response?.resources?.length > 0) {
+        let count = 0;
+        diagnosticNode.beginEncryptionDiagnostics(Constants.Encryption.DiagnosticsDecryptOperation);
         for (let resource of response.resources) {
-          resource = await this.container.encryptionProcessor.decrypt(resource, diagnosticNode);
+          const { body, propertiesDecryptedCount } =
+            await this.container.encryptionProcessor.decrypt(resource);
+          resource = body;
+          count += propertiesDecryptedCount;
         }
+        diagnosticNode.endEncryptionDiagnostics(
+          Constants.Encryption.DiagnosticsDecryptOperation,
+          count,
+        );
       }
       return response;
     }, this.encryptionClientContext);
   }
-
-  protected override async init(diagnosticNode: DiagnosticNodeInternal): Promise<void> {
+  /**
+   * @internal
+   */
+  public override async init(diagnosticNode: DiagnosticNodeInternal): Promise<void> {
     // Ensure encryption is initialized and set rid in options
-    if (!this.container.isEncryptionInitialized) {
-      await this.container.initializeEncryption();
-    }
+    await this.container.checkAndInitializeEncryption();
     this.encryptionOptions.containerRid = this.container._rid;
-    await super.init(diagnosticNode);
+    await QueryIterator.prototype.init.call(this, diagnosticNode);
   }
 }
